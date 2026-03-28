@@ -1,128 +1,80 @@
 <h1 align="center">
   <br>
-  <a href="https://editor.wickeditor.com/"><img src=".github/images/logo.svg" alt="Wick Editor" width="25%"></a>
+  <img src="public/logo_bug2.svg" alt="BUG Editor" width="200px">
+  <br>
+  BUG EDITOR
   <br>
 </h1>
 
 <p align="center">
-  <a href="https://github.com/Wicklets/wick-editor/issues">
-      <img src="https://img.shields.io/badge/contributions-welcome-orange.svg"/>
-  </a>
-  <a href="https://www.patreon.com/WickEditor">
-      <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat"/>
-  </a>
+  <b>Un’opera di ANDREA ROTONDO e MARCO FEO</b><br>
+  <i>Basato sul motore open-source di Wick Editor</i>
+</p>
+
+<p align="center">
   <a href="LICENSE.md">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg"/>
   </a>
-  <a href="https://twitter.com/wickeditor?ref_src=twsrc%5Etfw">
-    <img src="https://img.shields.io/twitter/follow/wickeditor?style=social&logo=twitter" alt="follow on Twitter"></a>
+  <a href="https://wox76.github.io/bug_editor/">
+    <img src="https://img.shields.io/badge/Live-Online-brightgreen.svg"/>
+  </a>
 </p>
 
-<h1>Wick Editor</h1>
+---
 
-The Wick Editor is a free and open-source tool for creating games, animations, and everything in-between. It's designed to be the most accessible tool for creating multimedia projects on the web.
+## 🐞 Cos'è BUG EDITOR?
 
-<p align="center"><img width="100%" src=".github/images/editor.svg"></p>
+**BUG EDITOR** è uno strumento gratuito e open-source per la creazione di giochi, animazioni e narrazioni interattive. Nato come evoluzione di **Wick Editor**, BUG è stato rifinito per offrire un’esperienza più stabile, precisa e moderna nel digital storytelling vettoriale.
 
-## Getting started
+Realizzato da **Andrea Rotondo** e **Marco Feo**, BUG EDITOR introduce strumenti di disegno avanzati e una stabilità del motore di rendering ottimizzata per workflow professionali.
 
-These instructions are for MacOS and Linux, we currently don't have instructions for Windows, but if you need help please feel free to email contact@wickeditor.com.
+---
 
-### Requirements
+## 🛠️ Caratteristiche Esclusive
 
-You'll need to download the following:
+Rispetto alla versione originale di Wick, BUG EDITOR introduce miglioramenti strutturali e nuovi strumenti:
 
-- [npm](https://www.npmjs.com/get-npm)
+*   **🖊️ Pen Tool (Shortcut 'v')**: Un nuovo strumento dedicato per la costruzione dei tracciati vertice per vertice, essenziale per il disegno tecnico e l’animazione di precisione.
+*   **⛓️ Interpolazione Potenziata (Tweening)**: Corretto il bug che impediva l'aggiornamento automatico della timeline variando opacità e scala dall'Inspector. Ora le variazioni numeriche vengono registrate istantaneamente.
+*   **💎 Stabilità dei Tracciati**: Hardening del codice di gestione dei nodi (`PathCursor.js`) per prevenire crash durante operazioni booleane (Union/Subtract) complesse e selezioni a scatola.
+*   **🎨 UI Personalizzata**: Nuova interfaccia, nuovo logo, nuovo schema di preloader animato e splash screen dedicato.
 
-### Installation
+---
 
-1) Clone this repository:
+## 📖 Storia e Visione
 
-    ```bash
-    git clone https://github.com/Wicklets/wick-editor/
-    ```
+BUG EDITOR nasce dalla necessità di avere uno strumento di animazione web-based che non scendesse a compromessi con la facilità d'uso, ma che garantisse la solidità necessaria per la produzione. Andrea Rotondo e Marco Feo hanno preso il cuore pulsante di Wick Editor e lo hanno integrato con strumenti di editing vettoriale più avanzati, trasformando un ottimo progetto in uno strumento sartoriale.
 
-2) Using the command line, change directories into the newly created `wick-editor` folder:
+### Gallery
+<p align="center">
+  <img width="45%" src="ref/bug%20biglietto%20visita.jpg" />
+  <img width="45%" src="ref/bug%20baloons.jpg" />
+</p>
+<p align="center">
+  <img width="90%" src="ref/model.jpg" />
+</p>
 
-    ```bash
-    cd wick-editor
-    ```
+---
 
-3) Install all dependencies using this command:
+## 🚀 Iniziare
 
+Puoi usare BUG EDITOR direttamente online qui: **[BUG EDITOR ONLINE](https://wox76.github.io/bug_editor/)**.
+
+Se vuoi eseguirlo localmente:
+
+1. **Installa le dipendenze**:
     ```bash
     npm install
     ```
-
-### Running the Editor
-
-1) Run the editor with this command:
-
+2. **Avvia in locale**:
     ```bash
     npm start
     ```
+3. **Apri il browser**: Vai su `http://localhost:3000`.
 
-2) Open a web browser and go to this URL:
+---
 
-    ```bash
-    localhost:3000
-    ```
+## 📄 Licenza
 
-Have fun hacking on Wick! 🎉
-
-### Deploying to Production
-
-To deploy, you'll need to have push access to this repo.
-
-1) Test the production build by using `npm predeploy`
-
-2) Run `npm run deploy`
-
-### Deploying to Prerelease
-
-1) Run `npm run prerelease-deploy`
-
-## Support
-
-<a href="https://www.patreon.com/WickEditor">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
-
-## License
-
-Wick Editor is under the GNU v3 Public License. See the [LICENSE](LICENSE.md) for more information.
-
-## Links
-
-* [Wick Editor Site](https://www.wickeditor.com)
-* [Wick Editor Community Forum](https://forum.wickeditor.com/)
-* [Follow on Twitter](https://twitter.com/wickeditor)
-* [Follow on Facebook](https://www.facebook.com/wickeditor/)
-
-
-
-## Building and Releasing the Desktop App 
-
-Please refer to this Wiki entry for information on our dektop build processes! [https://github.com/Wicklets/wick-editor/wiki/Building-Desktop-Editors-for-Release](https://github.com/Wicklets/wick-editor/wiki/Building-Desktop-Editors-for-Release).
-
-If you are familiar with electron-builder, electron-packager, or have experience building desktop electron apps for production, we could use your help! Please message us or open an issue.
-
-## Support From
-
-<a href="https://www.mozilla.org/en-US/moss/">
-	<img src="https://www.wickeditor.com/static/media/mozilla.787ef555.svg" alt="Mozilla Open Source Support" height="100px"/>
-</a>
-
-<a href="https://studioforcreativeinquiry.org/frfaf-projects">
-	<img src="https://www.wickeditor.com/static/media/studio.35c7a92e.svg" alt="Frank-Ratchye Fund for Art at the Frontier" height="100px"/>
-</a>
-
-<a href="https://www.du.edu/ahss/opensourcearts/">
-	<img src="https://www.wickeditor.com/static/media/cosa_logo.9af883a9.png" alt="Clinic for Open Source Arts" height="100px"/>
-</a>
-
-
-## Testing Support From
-
-<a href="https://www.browserstack.com/"><img src=".github/images/browserstack.svg" alt="Browser Stack" width="25%"></a>
-
+BUG EDITOR è distribuito sotto licenza **GNU v3 Public License**. Vedere il file [LICENSE](LICENSE.md) per maggiori informazioni. 
+Il progetto è basato su Wick Editor (Wicklets LLC).
