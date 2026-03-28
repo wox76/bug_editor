@@ -167,7 +167,7 @@ import iconLayerTween from 'resources/tool-icons/layerTween.svg';
 import mascotMarkWhite from 'resources/logo-icons/mascot-mark-white.svg';
 import mascotMarkDark from 'resources/logo-icons/mascot-mark-dark.svg';
 import mascotMark from 'resources/logo-icons/mascot-mark.svg';
-import mascot from 'resources/logo-icons/mascot.svg';
+import mascot from 'resources/logo-icons/logo_bug2.svg';
 
 // Code Editor
 import iconClear from 'resources/tool-icons/clear.svg';
@@ -248,6 +248,7 @@ const icons = {
   "bringForwards": iconBringForwards,
   "gear": iconGear,
   "gear-white": iconGearWhite,
+  "pen": iconCurve,
   "recenter": iconRecenter,
   "size": iconSize,
   "sound": iconSound,

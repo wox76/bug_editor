@@ -596,9 +596,13 @@ Wick.Selection = class extends Wick.Base {
     }
 
     set scaleX(scaleX) {
+        this.project.tryToAutoCreateTween();
         // Clips store their scale state internally
         if (this.selectionType === "clip" || this.selectionType === "button") {
-            this.getSelectedObject().scaleX = scaleX;
+            let obj = this.getSelectedObject();
+            obj.scaleX = scaleX;
+            // Force tween update
+            obj.transformation = obj.transformation;
         } else {
             this.width = this.originalWidth * scaleX;
         }
@@ -618,9 +622,13 @@ Wick.Selection = class extends Wick.Base {
     }
 
     set scaleY(scaleY) {
+        this.project.tryToAutoCreateTween();
         // Clips store their scale state internally
         if (this.selectionType === "clip" || this.selectionType === "button") {
-            this.getSelectedObject().scaleY = scaleY;
+            let obj = this.getSelectedObject();
+            obj.scaleY = scaleY;
+            // Force tween update
+            obj.transformation = obj.transformation;
         } else {
             this.height = this.originalHeight * scaleY;
         }
@@ -809,6 +817,15 @@ Wick.Selection = class extends Wick.Base {
     set opacity(opacity) {
         this.project.tryToAutoCreateTween();
         this._setSingleAttribute('opacity', opacity);
+
+        // Force tween update manually for opaque programmatic changes
+        if (this.selectionType === 'clip' || this.selectionType === 'button') {
+            this.getSelectedObjects().forEach(obj => {
+                if (obj.transformation) {
+                    obj.transformation = obj.transformation;
+                }
+            });
+        }
     }
 
     /**

@@ -1,0 +1,29 @@
+diff --git a/node_modules/http-deceiver/lib/deceiver.js b/node_modules/http-deceiver/lib/deceiver.js
+index 33e14cb..0e6bf6a 100644
+--- a/node_modules/http-deceiver/lib/deceiver.js
++++ b/node_modules/http-deceiver/lib/deceiver.js
+@@ -19,12 +19,21 @@ var kOnHeadersComplete;
+ var kOnMessageComplete;
+ var kOnBody;
+ if (mode === 'normal' || mode === 'modern') {
+-  HTTPParser = process.binding('http_parser').HTTPParser;
++  try {
++    HTTPParser = process.binding('http_parser').HTTPParser;
++  } catch (e) {
++    HTTPParser = require('http-parser-js').HTTPParser;
++  }
+   methods = HTTPParser.methods;
+ 
+   // v6
+-  if (!methods)
+-    methods = process.binding('http_parser').methods;
++  if (!methods) {
++    try {
++      methods = process.binding('http_parser').methods;
++    } catch (e) {
++      methods = require('http-parser-js').methods;
++    }
++  }
+ 
+   reverseMethods = {};
+ 

@@ -17,31 +17,31 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -50px;
-    margin-top: -50px;
-    width: 100px;
-    height: 100px;
+    margin-left: -200px;
+    margin-top: -200px;
+    width: 400px;
+    height: 400px;
     animation: float .6s ease-in-out infinite alternate;
 }
 
 .flashy-shadow {
     position: absolute;
-    top: calc(50% + 70px);
+    top: calc(50% + 240px);
     left: 50%;
-    margin-left: -45px;
-    margin-top: -22.5px;
-    width: 90px;
-    height: 45px;
+    margin-left: -180px;
+    margin-top: -45px;
+    width: 360px;
+    height: 90px;
     animation: pulse .6s ease-in-out infinite alternate;
 }
 
 .text {
     position: absolute;
-    top: calc(50% + 100px);
+    top: calc(50% + 320px);
     left: 50%;
-    margin-left: -100px;
-    width: 200px;
-    height: 30px;
+    margin-left: -200px;
+    width: 400px;
+    height: 60px;
     animation: pulse 1.2s ease-in-out infinite alternate;
 }
 

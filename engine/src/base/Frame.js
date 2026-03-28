@@ -567,6 +567,9 @@ Wick.Frame = class extends Wick.Tickable {
             this.clips.forEach(clip => {
                 tween.applyTransformsToClip(clip);
             });
+            this.paths.forEach(path => {
+                tween.applyToPath(path);
+            });
         }
     }
 

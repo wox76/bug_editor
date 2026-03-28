@@ -45,6 +45,7 @@ Wick.Tween = class extends Wick.Base {
 
         this._playheadPosition = args.playheadPosition || 1;
         this._transformation = args.transformation || new Wick.Transformation();
+        this._shapeData = args.shapeData || null;
         this.fullRotations = args.fullRotations === undefined ? 0 : args.fullRotations;
         this.easingType = args.easingType || 'none';
 
@@ -62,28 +63,67 @@ Wick.Tween = class extends Wick.Base {
 
         // Calculate value (0.0-1.0) to pass to tweening function
         var t = Wick.Tween._calculateTimeValue(tweenA, tweenB, playheadPosition);
+        var tweenFn = tweenA._getTweenFunction();
+        var tt = tweenFn(t);
 
         // Interpolate every transformation attribute using the t value
         ["x", "y", "scaleX", "scaleY", "rotation", "opacity"].forEach(propName => {
-            var tweenFn = tweenA._getTweenFunction();
-            var tt = tweenFn(t);
             var valA = tweenA.transformation[propName];
             var valB = tweenB.transformation[propName];
             if(propName === 'rotation') {
-                // Constrain rotation values to range of -180 to 180
-                // (Disabled for now - a bug in paper.js clamps these for us)
-                /*while(valA < -180) valA += 360;
-                while(valB < -180) valB += 360;
-                while(valA > 180) valA -= 360;
-                while(valB > 180) valB -= 360;*/
                 // Convert full rotations to 360 degree amounts
                 valB += tweenA.fullRotations * 360;
             }
             interpTween.transformation[propName] = lerp(valA, valB, tt);
         });
 
+        // Shape interpolation
+        if (tweenA.shapeData && tweenB.shapeData) {
+            interpTween.shapeData = Wick.Tween._interpolatePathData(tweenA.shapeData, tweenB.shapeData, tt);
+        }
+
         interpTween.playheadPosition = playheadPosition;
         return interpTween;
+    }
+
+    /**
+     * Interpolates between two Paper.js Path JSON objects.
+     * @param {Array} jsonA - Start path JSON
+     * @param {Array} jsonB - End path JSON
+     * @param {Number} t - Interpolation value (0.0 to 1.0)
+     */
+    static _interpolatePathData (jsonA, jsonB, t) {
+        if (!jsonA || !jsonB) return jsonA || jsonB;
+        if (jsonA[0] !== 'Path' || jsonB[0] !== 'Path') return jsonA;
+
+        var segmentsA = jsonA[1].segments;
+        var segmentsB = jsonB[1].segments;
+
+        // Ensure same segment count for smooth morphing
+        if (!segmentsA || !segmentsB || segmentsA.length !== segmentsB.length) {
+            return t < 0.5 ? jsonA : jsonB; 
+        }
+
+        var newSegments = segmentsA.map((segA, i) => {
+            var segB = segmentsB[i];
+            
+            // Helper to normalize segments: handle both [x,y] and [[x,y], [h1], [h2]]
+            var getPoints = (s) => (typeof s[0] === 'number' ? [s, [0, 0], [0, 0]] : s);
+            var nA = getPoints(segA);
+            var nB = getPoints(segB);
+
+            // Segment structure: [ [x, y], [handleInX, handleInY], [handleOutX, handleOutY] ]
+            return [
+                [lerp(nA[0][0], nB[0][0], t), lerp(nA[0][1], nB[0][1], t)],
+                [lerp(nA[1][0], nB[1][0], t), lerp(nA[1][1], nB[1][1], t)],
+                [lerp(nA[2][0], nB[2][0], t), lerp(nA[2][1], nB[2][1], t)]
+            ];
+        });
+
+        // Shallow clone the JSON structure and replace segments
+        var newJson = [jsonA[0], Object.assign({}, jsonA[1], { segments: newSegments })];
+
+        return newJson;
     }
 
     get classname () {
@@ -97,6 +137,7 @@ Wick.Tween = class extends Wick.Base {
         data.transformation = this._transformation.values;
         data.fullRotations = this.fullRotations;
         data.easingType = this.easingType;
+        data.shapeData = this.shapeData;
 
         data.originalLayerIndex = this.layerIndex !== -1 ? this.layerIndex : this._originalLayerIndex;
 
@@ -110,6 +151,7 @@ Wick.Tween = class extends Wick.Base {
         this._transformation = new Wick.Transformation(data.transformation);
         this.fullRotations = data.fullRotations;
         this.easingType = data.easingType;
+        this.shapeData = data.shapeData || null;
 
         this._originalLayerIndex = data.originalLayerIndex;
     }
@@ -136,6 +178,18 @@ Wick.Tween = class extends Wick.Base {
 
     set transformation (transformation) {
         this._transformation = transformation;
+    }
+
+    /**
+     * The Paper.js JSON data for shape morphing.
+     * @type {object}
+     */
+    get shapeData () {
+        return this._shapeData;
+    }
+
+    set shapeData (shapeData) {
+        this._shapeData = shapeData;
     }
 
     /**
@@ -168,6 +222,16 @@ Wick.Tween = class extends Wick.Base {
      */
     applyTransformsToClip (clip) {
         clip.transformation = this.transformation.copy();
+    }
+
+    /**
+     * Set the path data of a path to this tween's shape data.
+     * @param {Wick.Path} path - the path to apply the shape data to.
+     */
+    applyToPath (path) {
+        if (this.shapeData) {
+            path.json = this.shapeData;
+        }
     }
 
     /**

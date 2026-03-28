@@ -63,17 +63,21 @@ class Inspector extends Component {
       "multiassetmixed": this.renderAsset,
       "multisoundasset": this.renderAsset,
       "multiimageasset": this.renderAsset,
+      "editing": this.renderEditingContent,
     }
 
     /**
      * Which actions should be shown for which selection types.
      */
     this.actionRules = {
-      'breakApart': ["clip", "button",],
+      'breakApart': ["clip", "button", "text", "path"],
       'convertSelectionToButton': ["path", "text", "image", "multipath", "multiclip", "multicanvas"],
       'convertSelectionToClip': ["path", "text", "image", "multipath", "multiclip", "multicanvas"],
       'editTimeline': ["clip", "button"],
       'addAssetToCanvas': ["imageasset"],
+      'createShapeTween': ["path"],
+      'alignVerticesHorizontal': ["editing"],
+      'alignVerticesVertical': ["editing"],
     }
 
     /**
@@ -98,6 +102,7 @@ class Inspector extends Component {
       "multiassetmixed": "Multi-Asset",
       "multisoundasset": "Multi-Asset Sound",
       "multiimageasset": "Multi-Asset Image",
+      "editing": "Editing",
       "unknown": "",
     }
   }
@@ -120,7 +125,8 @@ class Inspector extends Component {
    * @return {string} fill color opacity from 0 to 1.
    */
   getSelectionFillColorOpacity = () => {
-    return this.getSelectionAttribute('fillColor').alpha;
+    let color = this.getSelectionAttribute('fillColor');
+    return color ? color.alpha : 0;
   }
 
   /**
@@ -129,6 +135,7 @@ class Inspector extends Component {
    */
   setSelectionFillColorOpacity = (value) => {
     var color = this.getSelectionAttribute('fillColor');
+    if (!color) return;
     color.alpha = value;
     this.setSelectionAttribute('fillColor', color);
   }
@@ -166,15 +173,26 @@ class Inspector extends Component {
    * Renders an inspector row allowing viewing and editing of the selection fill color.
    */
   renderSelectionColor = () => {
+    let fillCol = this.getSelectionAttribute('fillColor');
+    let strokeCol = this.getSelectionAttribute('strokeColor');
+    let fillOpacity = this.getSelectionAttribute('fillColorOpacity');
+    let strokeWidth = this.getSelectionAttribute('strokeWidth');
+
+    // Harden values to avoid React null/NaN warnings
+    let safeFillOpacity = (fillOpacity === null || isNaN(fillOpacity)) ? 0 : fillOpacity;
+    let safeStrokeWidth = (strokeWidth === null || isNaN(strokeWidth)) ? 0 : strokeWidth;
+    let safeFillColor = fillCol ? fillCol.toCSS() : "rgba(0,0,0,0)";
+    let safeStrokeColor = strokeCol ? strokeCol.toCSS() : "rgba(0,0,0,0)";
+
     return (
       <div className="inspector-item">
         <InspectorColorNumericInput
           tooltip1="Fill"
           tooltip2="Opacity"
-          val1={this.getSelectionAttribute('fillColor').toCSS()}
+          val1={safeFillColor}
           onChange1={(col) => this.setSelectionAttribute('fillColor', col)}
           id={"inspector-selection-fill-color"}
-          val2={this.getSelectionAttribute('fillColorOpacity')}
+          val2={safeFillOpacity}
           onChange2={(val) => this.setSelectionAttribute('fillColorOpacity', val)}
           divider={false}
           colorPickerType={this.props.colorPickerType}
@@ -186,12 +204,12 @@ class Inspector extends Component {
           tooltip1="Stroke"
           tooltip2="Weight"
 
-          val1={this.getSelectionAttribute('strokeColor').toCSS()}
+          val1={safeStrokeColor}
           onChange1={(col) => this.setSelectionAttribute('strokeColor', col)}
           id={"inspector-selection-stroke-color"}
           stroke={true}
 
-          val2={this.getSelectionAttribute('strokeWidth')}
+          val2={safeStrokeWidth}
           onChange2={(val) => this.setSelectionAttribute('strokeWidth', val)}
           divider={false}
           colorPickerType={this.props.colorPickerType}
@@ -750,6 +768,17 @@ class Inspector extends Component {
     return(
       <div className="inspector-content">
         {this.renderSelectionTransformProperties()}
+        {this.renderSelectionColor()}
+      </div>
+    );
+  }
+
+  /**
+   * Renders the inspector view for properties when actively editing vertices.
+   */
+  renderEditingContent = () => {
+    return(
+      <div className="inspector-content">
         {this.renderSelectionColor()}
       </div>
     );

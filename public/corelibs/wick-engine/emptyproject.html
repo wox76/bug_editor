@@ -14,7 +14,7 @@
         <!-- The Wick Engine build is injected here during the engine build step (see gulpfile.js) -->
         <script>
             /*Wick Engine https://github.com/Wicklets/wick-engine*/
-var WICK_ENGINE_BUILD_VERSION = "2021.1.18.12.6.20";
+var WICK_ENGINE_BUILD_VERSION = "2026.3.28.20.54.44";
 /*!
  * Paper.js v0.12.4 - The Swiss Army Knife of Vector Graphics Scripting.
  * http://paperjs.org/
@@ -44436,6 +44436,8 @@ var potrace;
         return PathList.fromFunction(f, width, height, 'turnPolicy' in opt ? opt.turnPolicy : 4 /* Minority */, 'turdSize' in opt ? opt.turdSize : 2, 'alphaMax' in opt ? opt.alphaMax : 1, 'optCurve' in opt ? opt.optCurve : true, 'optTolerance' in opt ? opt.optTolerance : 0.2);
     }
     potrace.fromFunction = fromFunction;
+    potrace.Bitmap = Bitmap;
+    potrace.PathList = PathList;
 })(potrace || (potrace = {}));
 /*
 The MIT License (MIT)
@@ -49995,6 +49997,7 @@ Wick.Project = class extends Wick.Base {
       pan: new Wick.Tools.Pan(),
       pathcursor: new Wick.Tools.PathCursor(),
       pencil: new Wick.Tools.Pencil(),
+      pen: new Wick.Tools.Pen(),
       rectangle: new Wick.Tools.Rectangle(),
       text: new Wick.Tools.Text(),
       zoom: new Wick.Tools.Zoom()
@@ -51181,9 +51184,46 @@ Wick.Project = class extends Wick.Base {
   breakApartSelection() {
     var leftovers = [];
     var clips = this.selection.getSelectedObjects('Clip');
+    var paths = this.selection.getSelectedObjects('Path');
     this.selection.clear();
     clips.forEach(clip => {
       leftovers = leftovers.concat(clip.breakApart());
+    });
+    paths.forEach(path => {
+      if (path.pathType === 'text') {
+        // Convert text to shape using potrace extension
+        var shape = path.view.item.potrace({
+          resolution: 3 // Higher resolution for better text quality
+
+        });
+
+        if (shape) {
+          var newWickPath = new Wick.Path({
+            json: shape.exportJSON({
+              asString: false
+            })
+          }); // Copy style from text
+
+          newWickPath.fillColor = path.fillColor;
+          newWickPath.strokeColor = path.strokeColor;
+          newWickPath.strokeWidth = path.strokeWidth; // Transformation inheritance (using path as template)
+
+          newWickPath.x = path.x;
+          newWickPath.y = path.y;
+          newWickPath.rotation = path.rotation;
+          newWickPath.scaleX = path.scaleX;
+          newWickPath.scaleY = path.scaleY; // Insert the new path into the frame
+
+          path.parentFrame.addPath(newWickPath);
+          leftovers.push(newWickPath); // Remove the old text path
+
+          path.remove();
+        } else {
+          leftovers.push(path);
+        }
+      } else {
+        leftovers.push(path);
+      }
     });
     this.selection.selectMultipleObjects(leftovers);
   }
@@ -52609,9 +52649,13 @@ Wick.Selection = class extends Wick.Base {
   }
 
   set scaleX(scaleX) {
-    // Clips store their scale state internally
+    this.project.tryToAutoCreateTween(); // Clips store their scale state internally
+
     if (this.selectionType === "clip" || this.selectionType === "button") {
-      this.getSelectedObject().scaleX = scaleX;
+      let obj = this.getSelectedObject();
+      obj.scaleX = scaleX; // Force tween update
+
+      obj.transformation = obj.transformation;
     } else {
       this.width = this.originalWidth * scaleX;
     }
@@ -52632,9 +52676,13 @@ Wick.Selection = class extends Wick.Base {
   }
 
   set scaleY(scaleY) {
-    // Clips store their scale state internally
+    this.project.tryToAutoCreateTween(); // Clips store their scale state internally
+
     if (this.selectionType === "clip" || this.selectionType === "button") {
-      this.getSelectedObject().scaleY = scaleY;
+      let obj = this.getSelectedObject();
+      obj.scaleY = scaleY; // Force tween update
+
+      obj.transformation = obj.transformation;
     } else {
       this.height = this.originalHeight * scaleY;
     }
@@ -52840,7 +52888,16 @@ Wick.Selection = class extends Wick.Base {
   set opacity(opacity) {
     this.project.tryToAutoCreateTween();
 
-    this._setSingleAttribute('opacity', opacity);
+    this._setSingleAttribute('opacity', opacity); // Force tween update manually for opaque programmatic changes
+
+
+    if (this.selectionType === 'clip' || this.selectionType === 'button') {
+      this.getSelectedObjects().forEach(obj => {
+        if (obj.transformation) {
+          obj.transformation = obj.transformation;
+        }
+      });
+    }
   }
   /**
    * The sound attached to the selected frame.
@@ -53676,6 +53733,7 @@ Wick.Tween = class extends Wick.Base {
     super(args);
     this._playheadPosition = args.playheadPosition || 1;
     this._transformation = args.transformation || new Wick.Transformation();
+    this._shapeData = args.shapeData || null;
     this.fullRotations = args.fullRotations === undefined ? 0 : args.fullRotations;
     this.easingType = args.easingType || 'none';
     this._originalLayerIndex = -1;
@@ -53691,32 +53749,64 @@ Wick.Tween = class extends Wick.Base {
   static interpolate(tweenA, tweenB, playheadPosition) {
     var interpTween = new Wick.Tween(); // Calculate value (0.0-1.0) to pass to tweening function
 
-    var t = Wick.Tween._calculateTimeValue(tweenA, tweenB, playheadPosition); // Interpolate every transformation attribute using the t value
+    var t = Wick.Tween._calculateTimeValue(tweenA, tweenB, playheadPosition);
 
+    var tweenFn = tweenA._getTweenFunction();
+
+    var tt = tweenFn(t); // Interpolate every transformation attribute using the t value
 
     ["x", "y", "scaleX", "scaleY", "rotation", "opacity"].forEach(propName => {
-      var tweenFn = tweenA._getTweenFunction();
-
-      var tt = tweenFn(t);
       var valA = tweenA.transformation[propName];
       var valB = tweenB.transformation[propName];
 
       if (propName === 'rotation') {
-        // Constrain rotation values to range of -180 to 180
-        // (Disabled for now - a bug in paper.js clamps these for us)
-
-        /*while(valA < -180) valA += 360;
-        while(valB < -180) valB += 360;
-        while(valA > 180) valA -= 360;
-        while(valB > 180) valB -= 360;*/
         // Convert full rotations to 360 degree amounts
         valB += tweenA.fullRotations * 360;
       }
 
       interpTween.transformation[propName] = lerp(valA, valB, tt);
-    });
+    }); // Shape interpolation
+
+    if (tweenA.shapeData && tweenB.shapeData) {
+      interpTween.shapeData = Wick.Tween._interpolatePathData(tweenA.shapeData, tweenB.shapeData, tt);
+    }
+
     interpTween.playheadPosition = playheadPosition;
     return interpTween;
+  }
+  /**
+   * Interpolates between two Paper.js Path JSON objects.
+   * @param {Array} jsonA - Start path JSON
+   * @param {Array} jsonB - End path JSON
+   * @param {Number} t - Interpolation value (0.0 to 1.0)
+   */
+
+
+  static _interpolatePathData(jsonA, jsonB, t) {
+    if (!jsonA || !jsonB) return jsonA || jsonB;
+    if (jsonA[0] !== 'Path' || jsonB[0] !== 'Path') return jsonA;
+    var segmentsA = jsonA[1].segments;
+    var segmentsB = jsonB[1].segments; // Ensure same segment count for smooth morphing
+
+    if (!segmentsA || !segmentsB || segmentsA.length !== segmentsB.length) {
+      return t < 0.5 ? jsonA : jsonB;
+    }
+
+    var newSegments = segmentsA.map((segA, i) => {
+      var segB = segmentsB[i]; // Helper to normalize segments: handle both [x,y] and [[x,y], [h1], [h2]]
+
+      var getPoints = s => typeof s[0] === 'number' ? [s, [0, 0], [0, 0]] : s;
+
+      var nA = getPoints(segA);
+      var nB = getPoints(segB); // Segment structure: [ [x, y], [handleInX, handleInY], [handleOutX, handleOutY] ]
+
+      return [[lerp(nA[0][0], nB[0][0], t), lerp(nA[0][1], nB[0][1], t)], [lerp(nA[1][0], nB[1][0], t), lerp(nA[1][1], nB[1][1], t)], [lerp(nA[2][0], nB[2][0], t), lerp(nA[2][1], nB[2][1], t)]];
+    }); // Shallow clone the JSON structure and replace segments
+
+    var newJson = [jsonA[0], Object.assign({}, jsonA[1], {
+      segments: newSegments
+    })];
+    return newJson;
   }
 
   get classname() {
@@ -53730,6 +53820,7 @@ Wick.Tween = class extends Wick.Base {
     data.transformation = this._transformation.values;
     data.fullRotations = this.fullRotations;
     data.easingType = this.easingType;
+    data.shapeData = this.shapeData;
     data.originalLayerIndex = this.layerIndex !== -1 ? this.layerIndex : this._originalLayerIndex;
     return data;
   }
@@ -53741,6 +53832,7 @@ Wick.Tween = class extends Wick.Base {
     this._transformation = new Wick.Transformation(data.transformation);
     this.fullRotations = data.fullRotations;
     this.easingType = data.easingType;
+    this.shapeData = data.shapeData || null;
     this._originalLayerIndex = data.originalLayerIndex;
   }
   /**
@@ -53768,6 +53860,19 @@ Wick.Tween = class extends Wick.Base {
 
   set transformation(transformation) {
     this._transformation = transformation;
+  }
+  /**
+   * The Paper.js JSON data for shape morphing.
+   * @type {object}
+   */
+
+
+  get shapeData() {
+    return this._shapeData;
+  }
+
+  set shapeData(shapeData) {
+    this._shapeData = shapeData;
   }
   /**
    * The type of interpolation to use for easing.
@@ -53804,6 +53909,17 @@ Wick.Tween = class extends Wick.Base {
 
   applyTransformsToClip(clip) {
     clip.transformation = this.transformation.copy();
+  }
+  /**
+   * Set the path data of a path to this tween's shape data.
+   * @param {Wick.Path} path - the path to apply the shape data to.
+   */
+
+
+  applyToPath(path) {
+    if (this.shapeData) {
+      path.json = this.shapeData;
+    }
   }
   /**
    * The tween that comes after this tween in the parent frame.
@@ -56872,6 +56988,9 @@ Wick.Frame = class extends Wick.Tickable {
       this.clips.forEach(clip => {
         tween.applyTransformsToClip(clip);
       });
+      this.paths.forEach(path => {
+        tween.applyToPath(path);
+      });
     }
   }
   /**
@@ -58112,7 +58231,7 @@ Wick.Clip = class extends Wick.Tickable {
         let y = point[1] - center.y;
         max_r = Math.max(max_r, x*x + y*y);
     }
-     return Math.sqrt(max_r);
+      return Math.sqrt(max_r);
     */
   } // Gives clockwise in screen space, which is ccw in regular axes
 
@@ -59407,8 +59526,13 @@ Wick.Tools.Cursor = class extends Wick.Tool {
           actionName: 'cursorFocusTimelineSelected'
         });
       }
-    } else if (selectedObject && selectedObject instanceof Wick.Path && selectedObject.view.item instanceof paper.PointText) {// Double clicked text, switch to text tool and edit the text item.
-      // TODO
+    } else if (selectedObject && selectedObject instanceof Wick.Path) {
+      // Double clicked a Path, switch to path cursor tool for vertex editing.
+      this.project.activeTool = 'pathcursor';
+      this.fireEvent({
+        eventName: 'canvasModified',
+        actionName: 'cursorSwitchToPathCursor'
+      });
     } else if (!selectedObject) {
       // Double clicked the canvas, leave the current focus.
       if (this.project.focusTimelineOfParentClip()) {
@@ -60452,6 +60576,12 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
     });
     this.detailedEditing = null;
     this.currentCursorIcon = '';
+    this._onMouseDownJSON = null;
+    this._onMouseDownUUID = null;
+    this.selectionBox = new this.paper.SelectionBox(this.paper);
+    this.selectionOverlay = new this.paper.Group({
+      insert: false
+    });
   }
 
   get doubleClickEnabled() {
@@ -60501,30 +60631,84 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
   onMouseDown(e) {
     super.onMouseDown(e);
     if (!e.modifiers) e.modifiers = {};
-    this.hitResult = this._updateHitResult(e);
+    this.hitResult = this._updateHitResult(e); // We no longer call _leaveDetailedEditing() here on mouse down!
+    // If the user clicks empty space, they might be starting a box selection.
+    // We will decide whether to leave detailed editing in onMouseUp if it was just a click.
 
-    if (this.detailedEditing !== null && !(this.hitResult.item || this.hitResult.type && this.hitResult.type.startsWith('handle'))) {
-      // Clicked neither on the currently edited path nor on a handle.
-      this._leaveDetailedEditing();
-    }
+    if (this.hitResult.item && (this.hitResult.type === 'curve' || this.hitResult.type === 'segment' || this.hitResult.type && this.hitResult.type.startsWith('handle'))) {
+      // Save the original path JSON for auto-keyframing
+      var wickUUID = this._getWickUUID(this.hitResult.item);
 
-    if (this.hitResult.item && this.hitResult.type === 'curve') {
-      // Clicked a curve, start dragging it
-      this.draggingCurve = this.hitResult.location.curve;
-    } else if (this.hitResult.item && this.hitResult.type === 'segment') {
-      if (e.modifiers.alt || e.modifiers.command || e.modifiers.control || e.modifiers.option || e.modifiers.shift) {
-        this.hitResult.segment.remove();
+      var wickPath = Wick.ObjectCache.getObjectByUUID(wickUUID);
+
+      if (wickPath && wickPath.classname === 'Path') {
+        this._onMouseDownJSON = JSON.parse(JSON.stringify(wickPath.json));
+        this._onMouseDownUUID = wickUUID;
+      } // Always update detailedEditing to the fresh hitResult.item 
+      // to prevent stale reference bugs if the editor re-rendered the shape!
+
+
+      var wasNull = this.detailedEditing === null; // If the object was re-rendered between clicks, we must preserve the 'selected'
+      // state of the old segments onto the new segments.
+
+      if (this.detailedEditing && this.detailedEditing.segments && this.hitResult.item && this.hitResult.item.segments && this.detailedEditing !== this.hitResult.item) {
+        for (var i = 0; i < this.detailedEditing.segments.length; i++) {
+          if (this.hitResult.item.segments[i]) {
+            this.hitResult.item.segments[i].selected = this.detailedEditing.segments[i].selected;
+          }
+        }
       }
+
+      this.detailedEditing = this.hitResult.item;
+
+      if (wasNull && this.hitResult.type === 'curve') {
+        if (this.detailedEditing && this.detailedEditing.setFullySelected) {
+          this.detailedEditing.setFullySelected(true);
+        }
+      } // Original logic:
+
+
+      if (this.hitResult.type === 'curve') {
+        this.draggingCurve = this.hitResult.location.curve;
+      } else if (this.hitResult.type === 'segment') {
+        if (e.modifiers.alt || e.modifiers.command || e.modifiers.control || e.modifiers.option) {
+          // Removed shift from this list to allow multi-select
+          this.hitResult.segment.remove();
+        } else {
+          // Multi-select logic for segments:
+          if (e.modifiers.shift) {
+            this.hitResult.segment.selected = !this.hitResult.segment.selected;
+          } else {
+            if (this.hitResult.item.segments && !this.hitResult.segment.selected) {
+              this.hitResult.item.segments.forEach(seg => seg.selected = false);
+              this.hitResult.segment.selected = true;
+            }
+          }
+        }
+      }
+    } else {
+      // Nothing was clicked, clear selection or start box select
+      if (!e.modifiers.shift && this.detailedEditing && this.detailedEditing.segments) {
+        this.detailedEditing.segments.forEach(seg => seg.selected = false);
+      } // Always start selection box if we're clicking empty space in path mode
+
+
+      this.selectionBox.start(e.point);
     }
+
+    this._updateSelectionOverlay();
   }
 
   onDoubleClick(e) {
     this.hitResult = this._updateHitResult(e);
 
-    if (this.detailedEditing == null) {
+    if (!this.detailedEditing) {
       // If detailed editing is off, turn it on for this path.
       this.detailedEditing = this.hitResult.item;
-      this.detailedEditing.setFullySelected(true);
+
+      if (this.detailedEditing && this.detailedEditing.setFullySelected) {
+        this.detailedEditing.setFullySelected(true);
+      }
     } else if (!this.hitResult.item) {
       // If detailed editing is on for some path, but the user
       // double clicked somewhere else, turn it off.
@@ -60554,7 +60738,7 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
         }
       }
 
-      if (this.detailedEditing !== null) {
+      if (this.detailedEditing && path && path.setFullySelected) {
         path.setFullySelected(true);
       }
     } else if (this.hitResult.item && this.hitResult.type === 'segment') {
@@ -60577,10 +60761,23 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
   onMouseDrag(e) {
     if (!e.modifiers) e.modifiers = {};
 
-    if (this.hitResult.item && this.hitResult.type === 'segment') {
-      // We're dragging an individual point, so move the point.
-      this.hitResult.segment.point = this.hitResult.segment.point.add(e.delta);
-      this.hoverPreview.position = this.hitResult.segment.point;
+    if (this.selectionBox.active) {
+      this.selectionBox.drag(e.point);
+    } else if (this.hitResult.item && this.hitResult.type === 'segment' && this.hitResult.item.segments) {
+      // We're dragging vertex selection, so move all selected points.
+      var path = this.hitResult.item;
+
+      if (path && path.segments) {
+        path.segments.forEach(seg => {
+          if (seg.selected) {
+            seg.point = seg.point.add(e.delta);
+          }
+        });
+      }
+
+      if (this.hitResult.segment && this.hitResult.segment.point) {
+        this.hoverPreview.position = this.hitResult.segment.point;
+      }
     } else if (this.hitResult.item && this.hitResult.type === 'curve') {
       // We're dragging a curve, so bend the curve.
       var segment1 = this.draggingCurve.segment1;
@@ -60607,6 +60804,8 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       this.hoverPreview.segments[1].handleIn = this.draggingCurve.handle2;
     }
 
+    this._updateSelectionOverlay();
+
     if (this.hitResult.type && this.hitResult.type.startsWith('handle')) {
       var otherHandle;
       var handle;
@@ -60630,20 +60829,84 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
   }
 
   onMouseUp(e) {
-    if (this.hitResult.type === 'segment' || this.hitResult.type === 'curve') {
+    if (this.selectionBox.active) {
+      // Capture the area of the box before ending the selection tool
+      var selectionRect = new this.paper.Rectangle(this.selectionBox._start, e.point);
+      this.selectionBox.end(e.point);
+      var hasArea = selectionRect.area >= 10; // If the user just clicked empty space (tiny rectangle without dragging)
+
+      if (!hasArea && !e.modifiers.shift) {
+        this._leaveDetailedEditing();
+      } else if (hasArea) {
+        if (!this.detailedEditing && this.selectionBox.items && this.selectionBox.items.length > 0) {
+          var foundPath = this.selectionBox.items.find(item => item instanceof this.paper.Path && !item.data.isBorder && item.data.wickType !== 'gui');
+
+          if (foundPath) {
+            this.detailedEditing = foundPath;
+          }
+        }
+
+        if (this.detailedEditing && this.detailedEditing.segments) {
+          this.detailedEditing.segments.forEach(function (seg) {
+            if (selectionRect.contains(seg.point)) {
+              seg.selected = true;
+            }
+          });
+        }
+      } // Removed: this.fireEvent({eventName: 'canvasModified', actionName: 'pathcursorSelectMultiple'});
+      // We do not modify the canvas when simply selecting vertices.
+
+    } else if (this.hitResult.type === 'segment' || this.hitResult.type === 'curve' || this.hitResult.type && this.hitResult.type.startsWith('handle')) {
+      // Auto-Shape-Key framing logic
+      if (this._onMouseDownJSON && this._onMouseDownUUID) {
+        var wickPath = Wick.ObjectCache.getObjectByUUID(this._onMouseDownUUID);
+
+        if (wickPath && wickPath.parentFrame) {
+          var frame = wickPath.parentFrame;
+          var relPos = frame.getRelativePlayheadPosition(); // If we are at relPos > 1 in an extended frame with no tweens, create the auto-keys
+
+          if (relPos > 1 && frame.length > 1 && frame.tweens.length === 0) {
+            // Create start key with original data
+            frame.addTween(new Wick.Tween({
+              playheadPosition: 1,
+              shapeData: this._onMouseDownJSON,
+              transformation: new Wick.Transformation({
+                opacity: wickPath.opacity
+              })
+            })); // Create current key with new data
+
+            frame.addTween(new Wick.Tween({
+              playheadPosition: relPos,
+              shapeData: JSON.parse(JSON.stringify(wickPath.json)),
+              transformation: new Wick.Transformation({
+                opacity: wickPath.opacity
+              })
+            }));
+          }
+        }
+      }
+
       this.fireEvent({
         eventName: 'canvasModified',
         actionName: 'pathcursor'
       });
     }
+
+    this._updateSelectionOverlay();
+
+    this._onMouseDownJSON = null;
+    this._onMouseDownUUID = null;
   }
 
   onKeyDown(e) {
-    if (this.detailedEditing !== null && e.key == "<") {
+    if (this.detailedEditing && e.key == "<") {
       var wick = Wick.ObjectCache.getObjectByUUID(this._getWickUUID(this.detailedEditing));
-      var path = wick._view._item;
-      path.closed = !path.closed;
-      this.fireEvent('canvasModified');
+
+      if (wick && wick._view && wick._view._item) {
+        var path = wick._view._item;
+        path.closed = !path.closed;
+        this.fireEvent('canvasModified');
+      }
     }
   }
 
@@ -60656,12 +60919,12 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       handles: this.detailedEditing !== null,
       tolerance: this.SELECTION_TOLERANCE,
       match: result => {
-        return result.item !== this.hoverPreview && !result.item.data.isBorder;
+        return result.item !== this.hoverPreview && !result.item.data.isBorder && result.item.data.wickType !== 'gui';
       }
     });
     if (!newHitResult) newHitResult = new this.paper.HitResult();
 
-    if (this.detailedEditing !== null) {
+    if (this.detailedEditing) {
       if (this._getWickUUID(newHitResult.item) !== this._getWickUUID(this.detailedEditing)) {
         // Hits an item, but not the one currently in detail edit - handle as a click with no hit.
         return new this.paper.HitResult();
@@ -60717,7 +60980,7 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
   }
 
   _leaveDetailedEditing() {
-    if (this.detailedEditing !== null) {
+    if (this.detailedEditing) {
       this.paper.project.deselectAll();
       this.paper.project.activeLayer.children.forEach(function (child) {
         if (child.wick && !child.wick.isSymbol) {
@@ -60734,6 +60997,39 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       return item.data.wickUUID;
     } else {
       return undefined;
+    }
+  }
+
+  _updateSelectionOverlay() {
+    if (this.selectionOverlay) this.selectionOverlay.remove(); // Ensure we draw on the project's current active layer (usually the top-most frame layer)
+
+    this.selectionOverlay = new this.paper.Group();
+    this.selectionOverlay.data.wickType = 'gui';
+    this.selectionOverlay.bringToFront();
+
+    if (this.detailedEditing && this.detailedEditing.segments) {
+      var self = this;
+      this.detailedEditing.segments.forEach(function (seg) {
+        if (seg.selected) {
+          // Convert local segment point to global project coordinates
+          var globalPoint = self.detailedEditing.localToGlobal(seg.point);
+          var circle = new self.paper.Path.Circle({
+            center: globalPoint,
+            radius: 12 / self.paper.view.zoom,
+            fillColor: '#00FF00',
+            // Diagnostic LIME GREEN
+            strokeColor: 'black',
+            strokeWidth: 2 / self.paper.view.zoom,
+            insert: true
+          });
+          circle.data.wickType = 'gui';
+          self.selectionOverlay.addChild(circle);
+        }
+      });
+    }
+
+    if (this.paper.view) {
+      this.paper.view.draw();
     }
   }
 
@@ -60829,6 +61125,147 @@ Wick.Tools.Pencil = class extends Wick.Tool {
       eventName: 'canvasModified',
       actionName: 'pencil'
     });
+  }
+
+};
+/*
+ * Copyright 2020 WICKLETS LLC
+ *
+ * This file is part of Wick Editor.
+ *
+ * Wick Engine is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Wick Engine is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
+ */
+Wick.Tools.Pen = class extends Wick.Tool {
+  /**
+   * Creates a pen tool for drawing connected segments.
+   */
+  constructor() {
+    super();
+    this.name = 'pen';
+    this.path = null;
+    this.previewPath = null;
+  }
+
+  get doubleClickEnabled() {
+    return true;
+  }
+  /**
+   * The pen cursor.
+   * @type {string}
+   */
+
+
+  get cursor() {
+    return 'url(cursors/segment.png) 32 32, crosshair';
+  }
+
+  get isDrawingTool() {
+    return true;
+  }
+
+  onActivate(e) {
+    this.reset();
+  }
+
+  onDeactivate(e) {
+    this.finishPath();
+  }
+
+  reset() {
+    if (this.path) this.path.remove();
+    if (this.previewPath) this.previewPath.remove();
+    this.path = null;
+    this.previewPath = null;
+  }
+
+  finishPath() {
+    if (this.path && this.path.segments.length > 1) {
+      this.path.remove();
+      if (this.previewPath) this.previewPath.remove(); // Clean up segments if path is closed
+
+      if (this.path.closed) {// Ensure the last point isn't exactly the same as the first (handled by closePath)
+      }
+
+      this.addPathToProject(this.path);
+      this.fireEvent({
+        eventName: 'canvasModified',
+        actionName: 'pen'
+      });
+    } else if (this.path) {
+      this.path.remove();
+    }
+
+    this.path = null;
+    if (this.previewPath) this.previewPath.remove();
+    this.previewPath = null;
+  }
+
+  onMouseDown(e) {
+    if (!this.path) {
+      this.path = new this.paper.Path({
+        strokeColor: this.getSetting('strokeColor').rgba,
+        strokeWidth: this.getSetting('strokeWidth'),
+        strokeCap: 'round',
+        strokeJoin: 'round'
+      });
+      this.path.add(e.point);
+    } else {
+      // Check if clicking near the starting point to close the path
+      var distanceToStart = e.point.getDistance(this.path.firstSegment.point);
+
+      if (distanceToStart < 10 / this.paper.view.zoom && this.path.segments.length > 2) {
+        this.path.closed = true;
+        this.finishPath();
+        return;
+      }
+
+      this.path.add(e.point);
+    }
+
+    this.updatePreview(e.point);
+  }
+
+  onMouseMove(e) {
+    super.onMouseMove(e);
+
+    if (this.path) {
+      this.updatePreview(e.point);
+    }
+  }
+
+  updatePreview(mousePoint) {
+    if (!this.path) return;
+    if (this.previewPath) this.previewPath.remove();
+    var lastPoint = this.path.lastSegment.point;
+    this.previewPath = new this.paper.Path.Line(lastPoint, mousePoint);
+    this.previewPath.strokeColor = this.getSetting('strokeColor').rgba;
+    this.previewPath.strokeWidth = this.getSetting('strokeWidth');
+    this.previewPath.opacity = 0.5;
+    this.previewPath.dashArray = [4, 4];
+    this.previewPath.data.wickType = 'gui'; // Don't add to project
+  }
+
+  onDoubleClick(e) {
+    this.finishPath();
+  }
+
+  onKeyDown(e) {
+    var key = e.key ? e.key.toLowerCase() : '';
+
+    if (key === 'enter' || key === 'escape') {
+      this.finishPath();
+    }
   }
 
 };
@@ -62443,36 +62880,56 @@ paper.PaperScope.inject({
 
     by zrispo (github.com/zrispo) (zach@wickeditor.com)
  */
-paper.Path.inject({
+paper.Item.inject({
   potrace: function (args) {
     var self = this;
     if (!args) throw new Error('Path.potrace: args is required.');
     if (!args.resolution) throw new Error('Path.potrace: args.resolution is required.');
-    if (!args.done) throw new Error('Path.potrace: args.done is required.');
-    var finalRasterResolution = paper.view.resolution * args.resolution / window.devicePixelRatio;
+    var res = paper.view.resolution || 72; // Default to 72 if resolution is missing
+
+    var finalRasterResolution = res * args.resolution / (window.devicePixelRatio || 1);
     var raster = this.rasterize(finalRasterResolution);
-    raster.remove();
-    var rasterDataURL = raster.toDataURL();
+    raster.remove(); // Use the raster's canvas directly for synchronous tracing
 
-    if (rasterDataURL === 'data:,') {
-      args.done(null);
-    } // https://oov.github.io/potrace/
+    var canvas = raster.canvas;
+
+    if (!canvas) {
+      return null;
+    } // Use alpha-based bitmap creation for better results with text/icons
 
 
-    var img = new Image();
-
-    img.onload = function () {
-      var svg = potrace.fromImage(img).toSVG(1 / args.resolution);
+    try {
+      var bitmap = potrace.Bitmap.createFromImageAlpha(canvas);
+      var pathList = potrace.PathList.fromBitmap(bitmap, 4, 2, 1, true, 0.2);
+      var svg = pathList.toSVG(1 / args.resolution);
       var potracePath = paper.project.importSVG(svg);
+      potracePath.scale(1 / args.resolution); // Adjust scale based on resolution
+
       potracePath.position.x = self.position.x;
       potracePath.position.y = self.position.y;
       potracePath.remove();
-      potracePath.closed = true;
-      potracePath.children[0].closed = true;
-      args.done(potracePath.children[0]);
-    };
+      var result = null;
 
-    img.src = rasterDataURL;
+      if (potracePath.className === 'Group' && potracePath.children.length > 0) {
+        // Convert Group to CompoundPath for Wick compatibility
+        result = new paper.CompoundPath();
+        result.addChildren(potracePath.removeChildren());
+        result.insert = false;
+      } else if (potracePath.className === 'Path' || potracePath.className === 'CompoundPath') {
+        result = potracePath;
+      }
+
+      if (result) {
+        result.closed = true;
+        result.position = new paper.Point(0, 0); // Center at origin to let Wick handle positioning
+
+        if (args.done) args.done(result);
+      }
+
+      return result;
+    } catch (err) {
+      return null;
+    }
   }
 });
 /*
@@ -63991,7 +64448,7 @@ Wick.View.Frame = class extends Wick.View {
     var originalWickPath = child.data.wickUUID ? Wick.ObjectCache.getObjectByUUID(child.data.wickUUID) : null;
     var pathJSON = Wick.View.Path.exportJSON(child);
     var wickPath = new Wick.Path({json:pathJSON});
-     this.model.addPath(wickPath);
+      this.model.addPath(wickPath);
     wickPath.fontWeight = originalWickPath ? originalWickPath.fontWeight : 400;
     wickPath.fontStyle = originalWickPath ? originalWickPath.fontStyle : 'normal';
     wickPath.identifier = originalWickPath ? originalWickPath.identifier : null;

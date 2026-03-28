@@ -92,6 +92,7 @@ Wick.Project = class extends Wick.Base {
             pan: new Wick.Tools.Pan(),
             pathcursor: new Wick.Tools.PathCursor(),
             pencil: new Wick.Tools.Pencil(),
+            pen: new Wick.Tools.Pen(),
             rectangle: new Wick.Tools.Rectangle(),
             text: new Wick.Tools.Text(),
             zoom: new Wick.Tools.Zoom(),
@@ -1205,11 +1206,50 @@ Wick.Project = class extends Wick.Base {
     breakApartSelection() {
         var leftovers = [];
         var clips = this.selection.getSelectedObjects('Clip');
+        var paths = this.selection.getSelectedObjects('Path');
 
         this.selection.clear();
 
         clips.forEach(clip => {
             leftovers = leftovers.concat(clip.breakApart());
+        });
+
+        paths.forEach(path => {
+            if (path.pathType === 'text') {
+                // Convert text to shape using potrace extension
+                var shape = path.view.item.potrace({
+                    resolution: 3, // Higher resolution for better text quality
+                });
+
+                if (shape) {
+                    var newWickPath = new Wick.Path({
+                        json: shape.exportJSON({ asString: false })
+                    });
+                    
+                    // Copy style from text
+                    newWickPath.fillColor = path.fillColor;
+                    newWickPath.strokeColor = path.strokeColor;
+                    newWickPath.strokeWidth = path.strokeWidth;
+                    
+                    // Transformation inheritance (using path as template)
+                    newWickPath.x = path.x;
+                    newWickPath.y = path.y;
+                    newWickPath.rotation = path.rotation;
+                    newWickPath.scaleX = path.scaleX;
+                    newWickPath.scaleY = path.scaleY;
+
+                    // Insert the new path into the frame
+                    path.parentFrame.addPath(newWickPath);
+                    leftovers.push(newWickPath);
+
+                    // Remove the old text path
+                    path.remove();
+                } else {
+                    leftovers.push(path);
+                }
+            } else {
+                leftovers.push(path);
+            }
         });
 
         this.selection.selectMultipleObjects(leftovers);

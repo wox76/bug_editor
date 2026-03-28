@@ -207,6 +207,9 @@ class EditorCore extends Component {
    * @returns {string} The string representation of the type of object/objects selected
    */
   getSelectionType = () => {
+    if (this.project && this.project.activeTool && this.project.activeTool.name === 'pathcursor' && this.project.activeTool.detailedEditing) {
+      return "editing";
+    }
     return this.project.selection.selectionType;
   }
 
@@ -536,7 +539,7 @@ class EditorCore extends Component {
     //only break apart selections that have at least 1 clip or button
     //it might be better for these checks to go wherever project.breakApartSelection is defined
     var sel = this.project.selection;
-    if (sel.numObjects === 0 || (!sel.types.includes("Clip") && !sel.types.includes("Button"))) {
+    if (sel.numObjects === 0 || (!sel.types.includes("Clip") && !sel.types.includes("Button") && !sel.types.includes("Path") && !sel.types.includes("text"))) {
       return;
     }
     this.project.breakApartSelection();
@@ -1732,6 +1735,92 @@ class EditorCore extends Component {
   createTween = () => {
       this.project.createTween();
       this.projectDidChange({ actionName: "Create Tween" });
+  }
+
+  createShapeTween = () => {
+      let activeFrame = this.project.activeFrame;
+      if (!activeFrame) return;
+
+      let paths = activeFrame.paths;
+      if (paths.length !== 1) {
+          this.toast('Shape tweening requires exactly one path on the frame.', 'warning');
+          return;
+      }
+
+      let path = paths[0];
+      let playheadPosition = activeFrame.getRelativePlayheadPosition();
+
+      // If there is already a tween at this position, update its shapeData.
+      let existingTween = activeFrame.getTweenAtPosition(playheadPosition);
+      if (existingTween) {
+          existingTween.shapeData = JSON.parse(JSON.stringify(path.json));
+          this.toast('Updated shape tween at current frame!', 'success');
+      } else {
+          activeFrame.addTween(new window.Wick.Tween({
+              playheadPosition: playheadPosition,
+              shapeData: JSON.parse(JSON.stringify(path.json)),
+              transformation: new window.Wick.Transformation({
+                  opacity: path.opacity
+              })
+          }));
+          this.toast('Shape tween created!', 'success');
+      }
+
+      this.project.guiElement.draw();
+      this.projectDidChange({ actionName: "Create Shape Tween" });
+  }
+
+  alignVerticesHorizontal = () => {
+    this._alignVertices('y');
+  }
+
+  alignVerticesVertical = () => {
+    this._alignVertices('x');
+  }
+
+  _alignVertices = (axis) => {
+    const activeTool = this.project.activeTool;
+    if (activeTool.name !== 'pathcursor' || !activeTool.detailedEditing) {
+      this.toast('Select vertices in Path Cursor mode to align them.', 'warning');
+      return;
+    }
+
+    const paperPath = activeTool.detailedEditing;
+    const selectedSegments = paperPath.segments.filter(seg => seg.selected);
+
+    if (selectedSegments.length < 2) {
+      this.toast('Select at least 2 vertices to align.', 'warning');
+      return;
+    }
+
+    // Calculate average position
+    let sum = 0;
+    selectedSegments.forEach(seg => {
+      sum += seg.point[axis];
+    });
+    const avg = sum / selectedSegments.length;
+
+    // Apply average position to all selected segments
+    selectedSegments.forEach(seg => {
+      seg.point[axis] = avg;
+    });
+
+    // Retrieve the Wick Path object and save its JSON
+    let wickPath = null;
+    if (activeTool._getWickUUID) {
+      const wickUUID = activeTool._getWickUUID(paperPath);
+      wickPath = window.Wick.ObjectCache.getObjectByUUID(wickUUID);
+    } else {
+      wickPath = this.project.selection.getSelectedObject();
+    }
+
+    if (wickPath && wickPath.classname === 'Path') {
+      wickPath.json = paperPath.exportJSON({ asString: false });
+      this.project.tryToAutoCreateTween();
+    }
+
+    this.project.guiElement.draw();
+    this.projectDidChange({ actionName: `Align Vertices ${axis === 'x' ? 'Vertical' : 'Horizontal'}` });
   }
 
   cutFrame = () => {

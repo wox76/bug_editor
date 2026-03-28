@@ -176,6 +176,25 @@ class ActionMapInterface extends Object {
         id: 'action-create-instance-of-selected-asset',
         color: 'active-blue'
       },
+      alignVerticesHorizontal: {
+        icon: 'alignHorizontal',
+        tooltip: 'Align Vertices Horizontal',
+        action: this.editor.alignVerticesHorizontal,
+        id: 'action-align-vertices-horizontal',
+      },
+      alignVerticesVertical: {
+        icon: 'alignVertical',
+        tooltip: 'Align Vertices Vertical',
+        action: this.editor.alignVerticesVertical,
+        id: 'action-align-vertices-vertical',
+      },
+      createShapeTween: {
+        icon: 'addTween', 
+        tooltip: 'Create Shape Tween',
+        action: this.editor.createShapeTween,
+        id: 'action-create-shape-tween',
+        color: 'active-blue'
+      },
     }
   }
 }

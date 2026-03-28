@@ -25,34 +25,55 @@
     by zrispo (github.com/zrispo) (zach@wickeditor.com)
  */
 
-paper.Path.inject({
+paper.Item.inject({
     potrace: function(args) {
         var self = this;
         if(!args) throw new Error('Path.potrace: args is required.');
         if(!args.resolution) throw new Error('Path.potrace: args.resolution is required.');
-        if(!args.done) throw new Error('Path.potrace: args.done is required.');
 
-        var finalRasterResolution = paper.view.resolution*args.resolution/window.devicePixelRatio;
+        var res = paper.view.resolution || 72; // Default to 72 if resolution is missing
+        var finalRasterResolution = res*args.resolution/(window.devicePixelRatio || 1);
+        
         var raster = this.rasterize(finalRasterResolution);
         raster.remove();
-        var rasterDataURL = raster.toDataURL();
 
-        if(rasterDataURL === 'data:,') {
-            args.done(null);
+        // Use the raster's canvas directly for synchronous tracing
+        var canvas = raster.canvas;
+        if (!canvas) {
+            return null;
         }
-
-        // https://oov.github.io/potrace/
-        var img = new Image();
-        img.onload = function() {
-            var svg = potrace.fromImage(img).toSVG(1/args.resolution);
+        
+        // Use alpha-based bitmap creation for better results with text/icons
+        try {
+            var bitmap = potrace.Bitmap.createFromImageAlpha(canvas);
+            var pathList = potrace.PathList.fromBitmap(bitmap, 4, 2, 1, true, 0.2);
+            var svg = pathList.toSVG(1/args.resolution);
+            
             var potracePath = paper.project.importSVG(svg);
+            potracePath.scale(1/args.resolution); // Adjust scale based on resolution
             potracePath.position.x = self.position.x;
             potracePath.position.y = self.position.y;
             potracePath.remove();
-            potracePath.closed = true;
-            potracePath.children[0].closed = true;
-            args.done(potracePath.children[0]);
+            
+            var result = null;
+            if (potracePath.className === 'Group' && potracePath.children.length > 0) {
+                // Convert Group to CompoundPath for Wick compatibility
+                result = new paper.CompoundPath();
+                result.addChildren(potracePath.removeChildren());
+                result.insert = false;
+            } else if (potracePath.className === 'Path' || potracePath.className === 'CompoundPath') {
+                result = potracePath;
+            }
+            
+            if (result) {
+                result.closed = true;
+                result.position = new paper.Point(0, 0); // Center at origin to let Wick handle positioning
+                if (args.done) args.done(result);
+            }
+            
+            return result;
+        } catch (err) {
+            return null;
         }
-        img.src = rasterDataURL;
     }
 });

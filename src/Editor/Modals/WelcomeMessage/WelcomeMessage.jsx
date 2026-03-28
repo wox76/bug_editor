@@ -27,7 +27,7 @@ import './_welcomemessage.scss';
 // import nightImage from 'resources/interface-images/blue_night.svg';
 import nightImageShort from 'resources/interface-images/blue_night_short.svg';
 
-import coolField from 'resources/splash-screens/cool_field3.png'
+import coolField from 'resources/splash-screens/splash_bug.png'
 
 var classNames = require('classnames');
 
@@ -81,7 +81,7 @@ class WelcomeModal extends Component {
             <img className="welcome-modal-mobile-image" alt="Night sky with mountains, clouds, a moon and stars" src={nightImageShort}/>
           </div>
           <div className="welcome-modal-mobile-content">
-            <div className="welcome-modal-title small-modal">The Wick Editor</div>
+            <div className="welcome-modal-title small-modal">The BUG Editor</div>
             <div className="welcome-modal-version small-modal"><a className="welcome-modal-highlight" target="_blank" rel="noopener noreferrer" href={this.forumPost}>Version {this.props.editorVersion}</a></div>
             {this.renderUpdates("small-modal")}
             {this.renderPatreonSupporters()}
@@ -109,9 +109,9 @@ class WelcomeModal extends Component {
             <img id="welcome-image" alt="Night sky with mountains, clouds, a moon and stars" src={coolField} />
           </div>
           <div id="welcome-message-container" className="modal-main-container">
-            <div id="welcome-modal-title" className="welcome-modal-item">Welcome To The Wick Editor!</div>
+            <div id="welcome-modal-title" className="welcome-modal-item">Welcome To The BUG Editor!</div>
             <div id="welcome-modal-version" className="welcome-modal-item"><a className="welcome-modal-highlight" target="_blank" rel="noopener noreferrer" href={this.forumPost}>Version {this.props.editorVersion}</a></div>
-            <div id="welcome-modal-subtitle" className="welcome-modal-item">Wick Editor {this.props.editorVersion} includes:</div>
+            <div id="welcome-modal-subtitle" className="welcome-modal-item">BUG Editor {this.props.editorVersion} includes:</div>
             <div id="welcome-modal-message" className="welcome-modal-item">
               {this.renderUpdates()}
               {this.renderPatreonSupporters("desktop-modal")}

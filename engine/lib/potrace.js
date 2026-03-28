@@ -1164,4 +1164,6 @@ var potrace;
         return PathList.fromFunction(f, width, height, 'turnPolicy' in opt ? opt.turnPolicy : 4 /* Minority */, 'turdSize' in opt ? opt.turdSize : 2, 'alphaMax' in opt ? opt.alphaMax : 1, 'optCurve' in opt ? opt.optCurve : true, 'optTolerance' in opt ? opt.optTolerance : 0.2);
     }
     potrace.fromFunction = fromFunction;
+    potrace.Bitmap = Bitmap;
+    potrace.PathList = PathList;
 })(potrace || (potrace = {}));

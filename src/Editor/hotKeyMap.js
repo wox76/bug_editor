@@ -59,7 +59,11 @@ class HotKeyInterface extends Object {
       },
       'activate-cursor': {
         name: "Activate Cursor",
-        sequences: ['c', 'v'],
+        sequences: ['c'],
+      },
+      'activate-pen': {
+        name: "Activate Pen",
+        sequences: ['v'],
       },
       'activate-path-cursor': {
         name: "Activate Path Cursor",
@@ -354,6 +358,7 @@ class HotKeyInterface extends Object {
       "Drawing Tools": [
         "activate-brush",
         "activate-cursor",
+        "activate-pen",
         "activate-pencil",
         "activate-eraser",
         "activate-rectangle",
@@ -435,6 +440,7 @@ class HotKeyInterface extends Object {
     this.handlers = {
       'activate-brush': (() => this.editor.setActiveTool("brush")),
       'activate-cursor': (() => this.editor.setActiveTool("cursor")),
+      'activate-pen': (() => this.editor.setActiveTool("pen")),
       'activate-pencil': (() => this.editor.setActiveTool("pencil")),
       'activate-eraser': (() => this.editor.setActiveTool("eraser")),
       'activate-rectangle': (() => this.editor.setActiveTool("rectangle")),

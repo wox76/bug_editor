@@ -119,9 +119,10 @@ Wick.Tools.Cursor = class extends Wick.Tool {
             if (this.project.focusTimelineOfSelectedClip() ) {
                 this.fireEvent({eventName: 'canvasModified', actionName: 'cursorFocusTimelineSelected'});
             }
-        } else if (selectedObject && (selectedObject instanceof Wick.Path) && (selectedObject.view.item instanceof paper.PointText)) {
-            // Double clicked text, switch to text tool and edit the text item.
-            // TODO
+        } else if (selectedObject && selectedObject instanceof Wick.Path) {
+            // Double clicked a Path, switch to path cursor tool for vertex editing.
+            this.project.activeTool = 'pathcursor';
+            this.fireEvent({eventName: 'canvasModified', actionName: 'cursorSwitchToPathCursor'});
         } else if (!selectedObject) {
             // Double clicked the canvas, leave the current focus.
             if (this.project.focusTimelineOfParentClip()) {
