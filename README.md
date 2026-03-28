@@ -16,9 +16,23 @@
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg"/>
   </a>
   <a href="https://wox76.github.io/bug_editor/">
-    <img src="https://img.shields.io/badge/Live-Online-brightgreen.svg"/>
+    <img src="https://img.shields.io/badge/PLAY-ONLINE-FFDE59?style=for-the-badge&logo=rocket" height="40px"/>
   </a>
 </p>
+
+<p align="center">
+  <a href="LICENSE.md">
+    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg"/>
+  </a>
+</p>
+
+---
+
+## 🎮 TESTA BUG EDITOR ONLINE
+
+Puoi iniziare subito a creare le tue animazioni e giochi direttamente nel browser!
+
+### 👉 **[CLICCA QUI PER GIOCARE E CREARE](https://wox76.github.io/bug_editor/)** 🚀
 
 ---
 
