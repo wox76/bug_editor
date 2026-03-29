@@ -32,7 +32,7 @@ paper.Item.inject({
         if(!args.resolution) throw new Error('Path.potrace: args.resolution is required.');
 
         var res = paper.view.resolution || 72; // Default to 72 if resolution is missing
-        var finalRasterResolution = res*args.resolution/(window.devicePixelRatio || 1);
+        var finalRasterResolution = res*args.resolution;
         
         var raster = this.rasterize(finalRasterResolution);
         raster.remove();

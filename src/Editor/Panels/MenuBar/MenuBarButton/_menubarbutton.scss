@@ -1,32 +1,46 @@
-/*
- * Copyright 2020 WICKLETS LLC
- *
- * This file is part of Wick Editor.
- *
- * Wick Editor is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Wick Editor is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Wick Editor.  If not, see <https://www.gnu.org/licenses/>.
- */
-
+/* Modern MenuBarButton Style */
 @import 'Editor/_wickbrand.scss';
 
 .menu-bar-button {
-  width: auto;
-  height: 80%;
-  float: left;
-  padding-left: 4px;
-  margin-right: 8px;
-  font-size: 16px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  text-transform: capitalize;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+  }
+
+  /* Specific color overrides from ActionButton colors */
+  :global(.action-button-menu.save) {
+    background: var(--accent) !important;
+    border: none !important;
+    color: white !important;
+    padding: 0 16px !important;
+    border-radius: 4px !important;
+    
+    &:hover {
+      background: var(--accent-hover) !important;
+    }
+  }
+
+  /* Hide the old ActionButton background/text defaults in the menu */
+  :global(.action-button-menu) {
+    background: transparent !important;
+    color: inherit !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

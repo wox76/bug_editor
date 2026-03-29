@@ -249,30 +249,43 @@ body.hasHover .action-button-yellow:hover {
 }
 
 .action-button-tool {
-  -webkit-transition-duration: $action-button-transition-duration; /* Safari */
-  transition-duration: $action-button-transition-duration;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  color: var(--text-dim);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
 
-  background-color: $editor-primary;
-  color: black;
-}
+  img {
+    filter: brightness(0.9);
+    transition: all 0.2s ease;
+    width: 20px;
+    height: 20px;
+  }
 
-body.hasHover .action-button-tool:hover {
-  //background-color: $wick-green-light;
-  border: 2px solid #29F1A3;
-  color: black;
-}
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    img {
+      filter: brightness(1);
+    }
+  }
 
-.action-button-tool:active {
-  //background-color: $wick-green-dark;
-  border: 2px solid #01C094;
-  background-color: $editor-secondary;
-  color: black;
-}
+  &.active-button {
+    background: rgba(0, 229, 255, 0.15) !important;
+    color: var(--accent) !important;
+    border: 1px solid rgba(0, 229, 255, 0.3) !important;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.1);
 
-.action-button-tool.active-button {
-  //background-color: $wick-green-dark;
-  border: 2px solid #01C094;
-  color: black;
+    img {
+      filter: brightness(0) saturate(100%) invert(74%) sepia(85%) saturate(1923%) hue-rotate(145deg) brightness(105%) contrast(105%);
+      /* Approximate filter for cyan to match the new active state */
+    }
+  }
 }
 
 .action-button-menu {

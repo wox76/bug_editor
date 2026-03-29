@@ -38,12 +38,12 @@ $settings-input-size: 40px;
 .settings-numeric-input-container {
   display: flex;
   align-items: center;
-  width: calc(2 * #{$settings-input-size});
+  width: auto;
+  gap: 4px;
 }
 
 .settings-numeric-wick-input-container {
-  width: calc(#{$settings-input-size});
-  margin-right: 4px;
+  width: 44px;
 }
 
 

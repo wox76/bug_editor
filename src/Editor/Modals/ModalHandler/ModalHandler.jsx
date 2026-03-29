@@ -137,6 +137,9 @@ class ModalHandler extends Component {
           toggle={this.props.closeActiveModal}
           open={this.props.activeModalName === 'EditorInfo'}
           editorVersion={this.props.editorVersion}
+          openNewProjectConfirmation={this.props.openNewProjectConfirmation}
+          openProjectFileDialog={this.props.openProjectFileDialog}
+          exportProjectAsWickFile={this.props.exportProjectAsWickFile}
         />
         <OpenSourceNotices
           isMobile={isMobile}

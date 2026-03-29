@@ -22,6 +22,7 @@ import React from 'react';
 import './_editor.scss';
 import './styles/default_theme.css';
 import './styles/default_styles.css';
+import './styles/modern_tokens.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HTML5Backend } from 'react-dnd-html5-backend'

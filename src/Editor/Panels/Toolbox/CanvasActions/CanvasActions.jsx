@@ -8,34 +8,58 @@ import './_canvasactions.scss';
 var classNames = require("classnames");
 
 class CanvasActions extends Component {
-  renderActionButton(action) {
+  renderActions = () => {
+    const orderActions = [
+      this.props.editorActions.sendToBack,
+      this.props.editorActions.sendBackward,
+      this.props.editorActions.sendForward,
+      this.props.editorActions.sendToFront
+    ];
+    
+    const flipActions = [
+      this.props.editorActions.flipHorizontal,
+      this.props.editorActions.flipVertical
+    ];
+
+    const boolActions = [
+      this.props.editorActions.booleanUnite,
+      this.props.editorActions.booleanSubtract,
+      this.props.editorActions.booleanIntersect
+    ];
+
+    return (
+      <div className={classNames('actions-grid', this.props.renderSize === "small" && "vertical")}>
+        {/* Prima Riga: Ordinamento */}
+        <div className="actions-row">
+          {orderActions.map((action, i) => this.renderActionButton(action, i))}
+        </div>
+        
+        {/* Seconda Riga: Flip e Booleane */}
+        <div className="actions-row">
+          <div className="actions-section no-border">
+            {flipActions.map((action, i) => this.renderActionButton(action, i + 10))}
+          </div>
+          <div className="actions-section">
+            {boolActions.map((action, i) => this.renderActionButton(action, i + 20))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  renderActionButton(action, i) {
+    if (!action) return null;
     return (
       <ActionButton
-        color="tool"
+        key={i}
+        className="prop-tile horizontal-tile"
         id={"canvas-action-button-" + action.icon}
         tooltip={action.tooltip}
         action={action.action}
         tooltipPlace={"bottom"}
         icon={action.icon}
-        className="canvas-action-button" />
-      );
-    }
-
-  renderActions = () => {
-    return (
-      <div className={classNames('actions-container', this.props.renderSize === "small" && "vertical")}>
-        {this.renderActionButton(this.props.editorActions.sendToBack)}
-        {this.renderActionButton(this.props.editorActions.sendBackward)}
-        {this.renderActionButton(this.props.editorActions.sendForward)}
-        {this.renderActionButton(this.props.editorActions.sendToFront)}
-        <ToolboxBreak vertical={this.props.renderSize === "small"}/>
-        {this.renderActionButton(this.props.editorActions.flipHorizontal)}
-        {this.renderActionButton(this.props.editorActions.flipVertical)}
-        <ToolboxBreak vertical={this.props.renderSize === "small"}/>
-        {this.renderActionButton(this.props.editorActions.booleanUnite)}
-        {this.renderActionButton(this.props.editorActions.booleanSubtract)}
-        {this.renderActionButton(this.props.editorActions.booleanIntersect)}
-      </div>
+        text={action.tooltip} 
+      />
     );
   }
 

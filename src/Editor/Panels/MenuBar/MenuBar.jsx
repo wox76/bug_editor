@@ -21,13 +21,12 @@ import React, { Component } from 'react';
 import './_menubar.scss';
 import MenuBarButton from './MenuBarButton/MenuBarButton';
 import MenuBarIconButton from './MenuBarIconButton/MenuBarIconButton';
-import MenuBarSupportButton from './MenuBarSupportButton/MenuBarSupportButton';
 
 class MenuBar extends Component {
 
   renderDesktop = () => {
     return(
-      <div className="docked-pane menu-bar" aria-label="Menu Bar">
+      <div className="docked-pane menubar" aria-label="Menu Bar">
         <div className="menu-bar-info-container">
           <MenuBarIconButton
             id="tool-information-button"
@@ -36,12 +35,6 @@ class MenuBar extends Component {
             icon="mascotmark"
             />
 
-          <MenuBarSupportButton
-            icon="redheart"
-            text="support us"
-            id="support-us-button"
-            action={() => this.props.openModal('SupportUs')}
-            />
           </div>
 
         <div className="menu-bar-project-name" role="button" onClick={() => this.props.openModal("SimpleProjectSettings")}>
@@ -84,14 +77,9 @@ class MenuBar extends Component {
   
   renderMobile = () => {
     return (
-      <div className="docked-pane menu-bar">
+      <div className="docked-pane menubar">
         <MenuBarIconButton icon="hamburger" action={() => this.props.openModal('MobileMenuModal')}/>
 
-        <MenuBarSupportButton
-          icon="redheart"
-          id="support-us-button"
-          action={() => this.props.openModal('SupportUs')}
-        />
         
         <div role="button" onClick={() => this.props.openModal("SimpleProjectSettings")} className="menu-bar-project-name-mobile">
           {this.props.projectName}

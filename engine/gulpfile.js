@@ -165,7 +165,8 @@ gulp.task("default", function() {
     .pipe(concat('src.js'));
 
   /* Write wickengine.js */
-  return mergeStream(src, libs)
+  var streams = mergeStream(libs, src);
+  return streams
     .pipe(concat('wickengine.js'))
     .pipe(header('/*Wick Engine https://github.com/Wicklets/wick-engine*/\nvar WICK_ENGINE_BUILD_VERSION = "' + buildString + '";\n'))
     .pipe(gulp.dest('dist'))

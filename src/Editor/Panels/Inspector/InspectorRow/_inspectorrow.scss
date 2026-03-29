@@ -41,17 +41,17 @@ $large-input-width: calc(100% - #{$row-identifier-width});
 .inspector-row-identifier {
   display: flex;
   flex-direction: column;
-  width: $row-identifier-width;
-  max-width: $row-identifier-width;
+  width: 30%;
+  max-width: 30%;
   height: 100%;
-  color: $editor-primary-property-text;
+  color: #999;
   white-space: nowrap;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 13px;
+  /* font-weight: bold; */
   overflow: hidden;
   text-align: right;
-  padding-right: $inspector-element-padding;
-  padding-left: $inspector-element-padding;
+  padding-right: 1.5%;
+  padding-left: 1.5%;
   margin-top: 3px;
 }
 .inspector-row-identifier:first-child {

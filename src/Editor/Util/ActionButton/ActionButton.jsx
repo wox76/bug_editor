@@ -53,10 +53,10 @@ export default function ActionButton (props) {
   }
 
   function renderTextIcon () {
-    return <div className="action-button-icon-text-container">
+    return <div className={classNames("action-button-icon-text-container", {"action-button-tile-container": props.tile})}>
       <ToolIcon className={classNames(props.iconClassName, "action-button-text-icon", {"dropdown-action-button-icon": props.dropdown})} 
       name={props.icon} />
-      {props.text && <span className={classNames(newClassName+'-text', props.textClassName)}>{props.text}</span>}
+      {props.text && <span className={classNames("action-button-text", newClassName+'-text', props.textClassName)}>{props.text}</span>}
     </div>
   }
 

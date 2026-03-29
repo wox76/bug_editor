@@ -20,6 +20,7 @@
 import React, { Component } from 'react';
 import './_inspectoractionbutton.scss';
 import ActionButton from 'Editor/Util/ActionButton/ActionButton';
+var classNames = require('classnames');
 
 class InspectorActionButton extends Component {
   render() {
@@ -31,15 +32,16 @@ class InspectorActionButton extends Component {
     let actionColor = action.color ? action.color : "inspector";
 
     return(
-      <div className="inspector-button">
+      <div className="inspector-tile-wrapper">
         <ActionButton
           color={actionColor}
+          tile={this.props.tile}
+          className={this.props.className}
           icon={action.icon}
           id={"inspector-button-" + btnID}
           action={action.action}
           text={action.tooltip}/>
       </div>
-
     )
   }
 }

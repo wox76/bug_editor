@@ -20,9 +20,15 @@
 @import 'Editor/_wickbrand.scss';
 
 .popup-menu-popover {
-  background-color: $editor-primary;
-  border: 2px solid $editor-primary-outline;
-  max-width: 375px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 450px !important;
+
+  .popover-inner {
+      background: transparent !important;
+      border: none !important;
+  }
 }
 
 .actions-container {

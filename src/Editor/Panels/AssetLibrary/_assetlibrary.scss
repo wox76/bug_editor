@@ -43,11 +43,20 @@ $filter-height: 40px;
 }
 
 .asset-library-title-text {
-  color: #FFFFFF; //$editor-primary-property-text;
-  font-size: 20px;
-  display: inline-flex;
+  background: #22222a;
+  padding: 8px 16px;
+  display: flex !important;
   align-items: center;
-  width: 200px;
+  gap: 10px;
+  border-bottom: 1px solid #2e2e2e;
+  margin: 0;
+  font-size: 11px;
+  color: #eee;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
 }
 
 .btn-asset-builtin {

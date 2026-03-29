@@ -41,12 +41,7 @@ class WelcomeModal extends Component {
       "And Much More!",
     ] // No More than 3
 
-    let t1 = ["Guy de Bree", "Dimp", "Hyun's Dojo"]
-    let t2 = ["Constance Ye", "Dan Doggett", "Anonymous"]
-    let t3 = ["Gautaum Bose", "Trevor", "Jovanny Rodriguez", "André Bray", "Colin Fitz-Gerald"]
-    let t4 = ["Golan Levin", "Daniel Sun", "Benjamin Briand", "Joseph Hocking", "Charisse Hampton", "Jessie Young", "Bluecake", "O.K. Keyes", "Sarksus", "Laurens Bonnema", "Anonymous"]
-    let t5 = ["Joe", "Karlin Fox", "StepSwitcher", "Kandy Kat", "Ann Griffin", "Happyships", "Dixie Dorward", "Albin Rodriguex"]
-    this.patreonSupporters = t1.concat(t2, t3, t4, t5)
+    this.patreonSupporters = []
   }
 
   // Render updates as a list.
@@ -60,14 +55,11 @@ class WelcomeModal extends Component {
     );
   }
 
-  // Render a list of all Patreon supporters.
-  renderPatreonSupporters = (className) => {
-    return  (
-      <div className={classNames("supporter-list-container", className)}>
-        <a className="welcome-modal-highlight" target="_blank" rel="noopener noreferrer" href="https://www.patreon.com/WickEditor">Become a Patreon Supporter!</a>
-        <div className="supporter-list">
-          {this.patreonSupporters.join(", ")}
-        </div>
+  // Render attribution
+  renderAttribution = () => {
+    return (
+      <div className="welcome-modal-item" style={{marginTop: '10px', fontWeight: 'bold'}}>
+        Powered by Andrea Rotondo e Marco Feo
       </div>
     );
   }
@@ -84,7 +76,7 @@ class WelcomeModal extends Component {
             <div className="welcome-modal-title small-modal">The BUG Editor</div>
             <div className="welcome-modal-version small-modal"><a className="welcome-modal-highlight" target="_blank" rel="noopener noreferrer" href={this.forumPost}>Version {this.props.editorVersion}</a></div>
             {this.renderUpdates("small-modal")}
-            {this.renderPatreonSupporters()}
+            {this.renderAttribution()}
           </div>
           <div id="welcome-modal-mobile-accept">
               <ActionButton
@@ -114,9 +106,8 @@ class WelcomeModal extends Component {
             <div id="welcome-modal-subtitle" className="welcome-modal-item">BUG Editor {this.props.editorVersion} includes:</div>
             <div id="welcome-modal-message" className="welcome-modal-item">
               {this.renderUpdates()}
-              {this.renderPatreonSupporters("desktop-modal")}
+              {this.renderAttribution()}
             </div>
-            <div id="welcome-modal-forum-link" className="welcome-modal-item">Please report all bugs on our <a className="welcome-modal-highlight" target="_blank" rel="noopener noreferrer" href="https://forum.wickeditor.com">forum!</a></div>
             <div id="welcome-modal-footer">
               <div id="welcome-modal-accept">
                 <ActionButton

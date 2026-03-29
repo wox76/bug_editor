@@ -94,36 +94,55 @@ Wick.Tween = class extends Wick.Base {
      */
     static _interpolatePathData (jsonA, jsonB, t) {
         if (!jsonA || !jsonB) return jsonA || jsonB;
-        if (jsonA[0] !== 'Path' || jsonB[0] !== 'Path') return jsonA;
+        if (jsonA[0] !== jsonB[0]) return t < 0.5 ? jsonA : jsonB;
 
-        var segmentsA = jsonA[1].segments;
-        var segmentsB = jsonB[1].segments;
+        var type = jsonA[0];
+        if (type !== 'Path' && type !== 'CompoundPath') return jsonA;
 
-        // Ensure same segment count for smooth morphing
-        if (!segmentsA || !segmentsB || segmentsA.length !== segmentsB.length) {
-            return t < 0.5 ? jsonA : jsonB; 
+        // Helper to interpolate a segment array
+        var interpolateSegments = (segmentsA, segmentsB, t) => {
+            if (!segmentsA || !segmentsB || segmentsA.length !== segmentsB.length) return null;
+            
+            return segmentsA.map((segA, i) => {
+                var segB = segmentsB[i];
+                var getPoints = (s) => (typeof s[0] === 'number' ? [s, [0, 0], [0, 0]] : s);
+                var nA = getPoints(segA);
+                var nB = getPoints(segB);
+                return [
+                    [lerp(nA[0][0], nB[0][0], t), lerp(nA[0][1], nB[0][1], t)],
+                    [lerp(nA[1][0], nB[1][0], t), lerp(nA[1][1], nB[1][1], t)],
+                    [lerp(nA[2][0], nB[2][0], t), lerp(nA[2][1], nB[2][1], t)]
+                ];
+            });
+        };
+
+        if (type === 'Path') {
+            var segmentsA = jsonA[1].segments;
+            var segmentsB = jsonB[1].segments;
+            var newSegments = interpolateSegments(segmentsA, segmentsB, t);
+            if (!newSegments) return t < 0.5 ? jsonA : jsonB;
+            return [jsonA[0], Object.assign({}, jsonA[1], { segments: newSegments })];
         }
 
-        var newSegments = segmentsA.map((segA, i) => {
-            var segB = segmentsB[i];
-            
-            // Helper to normalize segments: handle both [x,y] and [[x,y], [h1], [h2]]
-            var getPoints = (s) => (typeof s[0] === 'number' ? [s, [0, 0], [0, 0]] : s);
-            var nA = getPoints(segA);
-            var nB = getPoints(segB);
+        if (type === 'CompoundPath') {
+            var childrenA = jsonA[1].children;
+            var childrenB = jsonB[1].children;
+            if (!childrenA || !childrenB || childrenA.length !== childrenB.length) return t < 0.5 ? jsonA : jsonB;
 
-            // Segment structure: [ [x, y], [handleInX, handleInY], [handleOutX, handleOutY] ]
-            return [
-                [lerp(nA[0][0], nB[0][0], t), lerp(nA[0][1], nB[0][1], t)],
-                [lerp(nA[1][0], nB[1][0], t), lerp(nA[1][1], nB[1][1], t)],
-                [lerp(nA[2][0], nB[2][0], t), lerp(nA[2][1], nB[2][1], t)]
-            ];
-        });
+            var newChildren = childrenA.map((childA, i) => {
+                var childB = childrenB[i];
+                if (childA[0] !== 'Path' || childB[0] !== 'Path') return childA;
+                var segmentsA = childA[1].segments;
+                var segmentsB = childB[1].segments;
+                var interSegments = interpolateSegments(segmentsA, segmentsB, t);
+                if (!interSegments) return childA;
+                return [childA[0], Object.assign({}, childA[1], { segments: interSegments })];
+            });
 
-        // Shallow clone the JSON structure and replace segments
-        var newJson = [jsonA[0], Object.assign({}, jsonA[1], { segments: newSegments })];
+            return [jsonA[0], Object.assign({}, jsonA[1], { children: newChildren })];
+        }
 
-        return newJson;
+        return jsonA;
     }
 
     get classname () {

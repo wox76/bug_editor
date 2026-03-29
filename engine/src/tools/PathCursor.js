@@ -123,10 +123,12 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
             
             // If the object was re-rendered between clicks, we must preserve the 'selected'
             // state of the old segments onto the new segments.
-            if (this.detailedEditing && this.detailedEditing.segments && this.hitResult.item && this.hitResult.item.segments && this.detailedEditing !== this.hitResult.item) {
-                for (var i = 0; i < this.detailedEditing.segments.length; i++) {
-                    if (this.hitResult.item.segments[i]) {
-                        this.hitResult.item.segments[i].selected = this.detailedEditing.segments[i].selected;
+            if (this.detailedEditing && this.hitResult.item && this.detailedEditing !== this.hitResult.item) {
+                var oldSegments = this._getSegments(this.detailedEditing);
+                var newSegments = this._getSegments(this.hitResult.item);
+                for (var i = 0; i < oldSegments.length; i++) {
+                    if (newSegments[i]) {
+                        newSegments[i].selected = oldSegments[i].selected;
                     }
                 }
             }
@@ -154,8 +156,9 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
                     if (e.modifiers.shift) {
                         this.hitResult.segment.selected = !this.hitResult.segment.selected;
                     } else {
-                        if (this.hitResult.item.segments && !this.hitResult.segment.selected) {
-                            this.hitResult.item.segments.forEach(seg => seg.selected = false);
+                        var segments = this._getSegments(this.hitResult.item);
+                        if (segments.length > 0 && !this.hitResult.segment.selected) {
+                            segments.forEach(seg => seg.selected = false);
                             this.hitResult.segment.selected = true;
                         }
                     }
@@ -163,8 +166,8 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
             }
         } else {
             // Nothing was clicked, clear selection or start box select
-             if (!e.modifiers.shift && this.detailedEditing && this.detailedEditing.segments) {
-                 this.detailedEditing.segments.forEach(seg => seg.selected = false);
+             if (!e.modifiers.shift && this.detailedEditing) {
+                 this._getSegments(this.detailedEditing).forEach(seg => seg.selected = false);
              }
             // Always start selection box if we're clicking empty space in path mode
             this.selectionBox.start(e.point);
@@ -246,16 +249,14 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
 
         if (this.selectionBox.active) {
             this.selectionBox.drag(e.point);
-        } else if(this.hitResult.item && this.hitResult.type === 'segment' && this.hitResult.item.segments) {
+        } else if(this.hitResult.item && this.hitResult.type === 'segment') {
             // We're dragging vertex selection, so move all selected points.
             var path = this.hitResult.item;
-            if (path && path.segments) {
-                path.segments.forEach(seg => {
-                    if (seg.selected) {
-                        seg.point = seg.point.add(e.delta);
-                    }
-                });
-            }
+            this._getSegments(path).forEach(seg => {
+                if (seg.selected) {
+                    seg.point = seg.point.add(e.delta);
+                }
+            });
             if (this.hitResult.segment && this.hitResult.segment.point) {
                 this.hoverPreview.position = this.hitResult.segment.point;
             }
@@ -321,13 +322,13 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
                 this._leaveDetailedEditing();
             } else if (hasArea) {
                 if (!this.detailedEditing && this.selectionBox.items && this.selectionBox.items.length > 0) {
-                    var foundPath = this.selectionBox.items.find(item => item instanceof this.paper.Path && !item.data.isBorder && item.data.wickType !== 'gui');
+                    var foundPath = this.selectionBox.items.find(item => item instanceof this.paper.PathItem && !item.data.isBorder && item.data.wickType !== 'gui');
                     if (foundPath) {
                         this.detailedEditing = foundPath;
                     }
                 }
-                if (this.detailedEditing && this.detailedEditing.segments) {
-                    this.detailedEditing.segments.forEach(function (seg) {
+                if (this.detailedEditing) {
+                    this._getSegments(this.detailedEditing).forEach(function (seg) {
                         if (selectionRect.contains(seg.point)) {
                             seg.selected = true;
                         }
@@ -472,11 +473,10 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
     }
 
     _getWickUUID (item) {
-        if (item) {
-            return item.data.wickUUID;
-        } else {
-            return undefined;
-        }
+        if (!item) return undefined;
+        if (item.data.wickUUID) return item.data.wickUUID;
+        if (item.parent && item.parent.data.wickUUID) return item.parent.data.wickUUID;
+        return undefined;
     }
 
     _updateSelectionOverlay () {
@@ -487,9 +487,9 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
         this.selectionOverlay.data.wickType = 'gui';
         this.selectionOverlay.bringToFront();
 
-        if (this.detailedEditing && this.detailedEditing.segments) {
+        if (this.detailedEditing) {
             var self = this;
-            this.detailedEditing.segments.forEach(function (seg) {
+            this._getSegments(this.detailedEditing).forEach(function (seg) {
                 if (seg.selected) {
                     // Convert local segment point to global project coordinates
                     var globalPoint = self.detailedEditing.localToGlobal(seg.point);
@@ -511,5 +511,25 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
         if (this.paper.view) {
             this.paper.view.draw();
         }
+    }
+
+    /**
+     * Helper to get segments from either a Path or a CompoundPath.
+     * @param {paper.Item} item 
+     * @returns {paper.Segment[]}
+     */
+    _getSegments (item) {
+        if (!item) return [];
+        if (item.segments) return item.segments;
+        if (item.children) {
+            var allSegments = [];
+            item.children.forEach(child => {
+                if (child.segments) {
+                    allSegments = allSegments.concat(child.segments);
+                }
+            });
+            return allSegments;
+        }
+        return [];
     }
 }

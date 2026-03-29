@@ -99,26 +99,42 @@ Wick.Tools.Pen = class extends Wick.Tool {
                 this.finishPath();
                 return;
             }
-            this.path.add(e.point);
+
+            var point = e.point;
+            if (e.modifiers.control) {
+                var lastPoint = this.path.lastSegment.point;
+                var vector = point.subtract(lastPoint);
+                vector.angle = Math.round(vector.angle / 45) * 45;
+                point = lastPoint.add(vector);
+            }
+            this.path.add(point);
         }
 
-        this.updatePreview(e.point);
+        this.updatePreview(point || e.point, e);
     }
 
     onMouseMove (e) {
         super.onMouseMove(e);
         if (this.path) {
-            this.updatePreview(e.point);
+            this.updatePreview(e.point, e);
         }
     }
 
-    updatePreview (mousePoint) {
+    updatePreview (mousePoint, e) {
         if (!this.path) return;
 
         if (this.previewPath) this.previewPath.remove();
         
         var lastPoint = this.path.lastSegment.point;
-        this.previewPath = new this.paper.Path.Line(lastPoint, mousePoint);
+        var endPoint = mousePoint;
+
+        if (e && e.modifiers.control) {
+            var vector = endPoint.subtract(lastPoint);
+            vector.angle = Math.round(vector.angle / 45) * 45;
+            endPoint = lastPoint.add(vector);
+        }
+
+        this.previewPath = new this.paper.Path.Line(lastPoint, endPoint);
         this.previewPath.strokeColor = this.getSetting('strokeColor').rgba;
         this.previewPath.strokeWidth = this.getSetting('strokeWidth');
         this.previewPath.opacity = 0.5;

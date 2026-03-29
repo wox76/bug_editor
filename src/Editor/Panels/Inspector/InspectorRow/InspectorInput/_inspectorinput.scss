@@ -29,11 +29,11 @@
 
 .inspector-input-element {
   display: inline-block;
-  height: $inspector-row-height;
+  height: auto;
 }
 
 .single-input-element {
-  width: $single-input-size;
+  width: $single-input-unit-width;
 }
 
 .double-input-element {

@@ -1,29 +1,67 @@
 @import 'Editor/_wickbrand.scss';
 
-$canvas-action-size: 35px;
+@keyframes menu-pop {
+  0% { transform: scale(0.95) translateY(-8px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
 
 .canvas-actions-widget {
-  height: $canvas-action-size;
-  display: flex;
-  align-items: center;
-  margin: 1px;
-}
-.canvas-actions-widget.vertical {
-  height: unset;
+    background: rgba(26, 26, 29, 0.95);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+    padding: 12px;
+    -webkit-animation: menu-pop 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: menu-pop 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 610px;
 }
 
-.actions-container {
-  height: 100%;
+.actions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.actions-row {
   display: flex;
   flex-direction: row;
+  gap: 8px;
   align-items: center;
 }
-.actions-container.vertical {
-  flex-direction: column;
+
+.actions-section {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding-left: 8px;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+
+    &.no-border {
+        border-left: none;
+        padding-left: 0;
+    }
 }
 
-.canvas-action-button {
-  width: $canvas-action-size;
-  height: $canvas-action-size;
-  padding: 2px;
+.horizontal-tile {
+    flex-direction: row !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    min-width: unset !important;
+    
+    img {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    span {
+        font-size: 11px !important;
+        text-shadow: none !important;
+    }
+}
+
+.popover-inner {
+    background: transparent !important;
+    border: none !important;
 }

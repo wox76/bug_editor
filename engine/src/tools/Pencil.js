@@ -76,6 +76,15 @@ Wick.Tools.Pencil = class extends Wick.Tool {
     onMouseDrag (e) {
         if(!this.path) return;
 
+        if (e.modifiers.control) {
+            // Straight line mode: only keep the start and the current point.
+            if (this.path.segments.length > 1) {
+                this.path.removeSegments(1);
+            }
+            this.path.add(e.point);
+            return;
+        }
+
         this._movement = this._movement.add(e.delta);
 
         if(this._movement.length > Wick.Tools.Pencil.MIN_ADD_POINT_MOVEMENT / this.paper.view.zoom) {

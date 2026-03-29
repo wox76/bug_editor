@@ -18,12 +18,11 @@
  */
 
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import WickModal from 'Editor/Modals/WickModal/WickModal';
 import ActionButton from 'Editor/Util/ActionButton/ActionButton';
+import ToolIcon from '../../Util/ToolIcon/ToolIcon';
 
 import './_editorinfo.scss';
-import ToolIcon from '../../Util/ToolIcon/ToolIcon';
 
 class WelcomeModal extends Component {
     render () {
@@ -39,14 +38,14 @@ class WelcomeModal extends Component {
                     </div>
                     <div className="editor-info-name">BUG Editor</div>
                     <div className="editor-info-version">Version {this.props.editorVersion}</div>
-                    <a className="editor-info-link" href="https://www.wickeditor.com/#/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
-                    <br/>
-                    <a className="editor-info-link" href="https://www.wickeditor.com/#/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-                    <br/>
-                    <a className="editor-info-link" href="https://www.wickeditor.com/#/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a>
-                    <br/>
-                    <a className="editor-info-link" href="https://forum.wickeditor.com" target="_blank" rel="noopener noreferrer">Community Forum</a>
-                    <br/>
+                    
+                    <div className="editor-info-links-container">
+                        <a className="editor-info-link" href="https://www.wickeditor.com/#/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+                        <a className="editor-info-link" href="https://www.wickeditor.com/#/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                        <a className="editor-info-link" href="https://www.wickeditor.com/#/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a>
+                        <a className="editor-info-link" href="https://forum.wickeditor.com" target="_blank" rel="noopener noreferrer">Community Forum</a>
+                    </div>
+
                     <div className="editor-info-open-source-notices">
                         <ActionButton
                             color="gray"
@@ -58,4 +57,4 @@ class WelcomeModal extends Component {
         );
     }
 }
-export default WelcomeModal
+export default WelcomeModal

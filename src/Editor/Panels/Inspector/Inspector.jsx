@@ -907,10 +907,12 @@ class Inspector extends Component {
    * @param {number} i unique key to be applied to returned object.
    * @returns {Component} JSX component to render.
    */
-  renderActionButton = (action, i) => {
+  renderActionButton = (action, i, options = {}) => {
     return (
-      <div key={i} className="inspector-item">
+      <div key={i} className={options.tile ? "" : "inspector-item"}>
         <InspectorActionButton
+          tile={options.tile}
+          className={options.tile ? "prop-tile" : ""}
           action={action} />
       </div>
     );
@@ -929,11 +931,22 @@ class Inspector extends Component {
         if (actionList.indexOf(selectionType) > -1) actions.push(action);
     });
 
-    return(
-      <div className="inspector-content">
-        {actions.map((action, i) => {
-            return this.renderActionButton(this.props.editorActions[action], i);
-          })}
+    const tileableActions = ['breakApart', 'convertSelectionToButton', 'convertSelectionToClip', 'createShapeTween'];
+    const tiles = actions.filter(a => tileableActions.includes(a));
+    const standards = actions.filter(a => !tileableActions.includes(a));
+
+    return (
+      <div className="inspector-actions-container">
+        {standards.length > 0 && (
+          <div className="inspector-standard-actions">
+            {standards.map((action, i) => this.renderActionButton(this.props.editorActions[action], i))}
+          </div>
+        )}
+        {tiles.length > 0 && (
+          <div className="inspector-actions-grid">
+            {tiles.map((action, i) => this.renderActionButton(this.props.editorActions[action], i, { tile: true }))}
+          </div>
+        )}
       </div>
     )
   }

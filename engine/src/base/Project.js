@@ -1216,36 +1216,97 @@ Wick.Project = class extends Wick.Base {
 
         paths.forEach(path => {
             if (path.pathType === 'text') {
-                // Convert text to shape using potrace extension
-                var shape = path.view.item.potrace({
-                    resolution: 3, // Higher resolution for better text quality
-                });
+                var textItem = path.view.item;
+                var textContent = textItem.content;
+                var charLeftovers = [];
 
-                if (shape) {
-                    var newWickPath = new Wick.Path({
-                        json: shape.exportJSON({ asString: false })
+                // Capture the original global center of the text item to restore positioning after tracing
+                var originalTextCenter = textItem.bounds.center.clone();
+
+                // New Robust Approach: Trace the whole text at once, then cluster sub-paths into characters
+                // This ensures 100% accurate sizing and spacing (kerning, etc.)
+                var fullShape = textItem.potrace({ resolution: 3 });
+                if (fullShape) {
+                    var subPaths = [];
+                    if (fullShape.className === 'CompoundPath') {
+                        subPaths = fullShape.children.slice();
+                    } else {
+                        subPaths = [fullShape];
+                    }
+
+                    // Cluster sub-paths into logical "characters"
+                    var clusters = [];
+                    subPaths.forEach(subPath => {
+                        var found = false;
+                        // Use expanded bounds to catch dots on 'i', '!', etc.
+                        var subBounds = subPath.bounds.expand(2); 
+                        for (var c = 0; c < clusters.length; c++) {
+                            if (clusters[c].bounds.expand(2).intersects(subBounds)) {
+                                clusters[c].paths.push(subPath);
+                                clusters[c].bounds = clusters[c].bounds.unite(subPath.bounds);
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            clusters.push({
+                                paths: [subPath],
+                                bounds: subPath.bounds.clone()
+                            });
+                        }
                     });
-                    
-                    // Copy style from text
-                    newWickPath.fillColor = path.fillColor;
-                    newWickPath.strokeColor = path.strokeColor;
-                    newWickPath.strokeWidth = path.strokeWidth;
-                    
-                    // Transformation inheritance (using path as template)
-                    newWickPath.x = path.x;
-                    newWickPath.y = path.y;
-                    newWickPath.rotation = path.rotation;
-                    newWickPath.scaleX = path.scaleX;
-                    newWickPath.scaleY = path.scaleY;
 
-                    // Insert the new path into the frame
-                    path.parentFrame.addPath(newWickPath);
-                    leftovers.push(newWickPath);
+                    // Merge overlapping clusters (Connected Components)
+                    var merged = true;
+                    while (merged) {
+                        merged = false;
+                        for (var i = 0; i < clusters.length; i++) {
+                            for (var j = i + 1; j < clusters.length; j++) {
+                                if (clusters[i].bounds.expand(2).intersects(clusters[j].bounds)) {
+                                    clusters[i].paths = clusters[i].paths.concat(clusters[j].paths);
+                                    clusters[i].bounds = clusters[i].bounds.unite(clusters[j].bounds);
+                                    clusters.splice(j, 1);
+                                    merged = true;
+                                    break;
+                                }
+                            }
+                            if (merged) break;
+                        }
+                    }
 
-                    // Remove the old text path
+                    // Create Wick.Path for each cluster
+                    clusters.forEach(cluster => {
+                        var charCompound = new paper.CompoundPath();
+                        cluster.paths.forEach(p => charCompound.addChild(p));
+                        
+                        // Center of this character relative to the (0,0) centered result
+                        var clusterLocalCenter = cluster.paths.length > 0 ? cluster.bounds.center.clone() : new paper.Point(0,0);
+                        
+                        // Move paths to their own local origin for export (so Wick can handle positioning)
+                        charCompound.position = new paper.Point(0, 0);
+
+                        var charWickPath = new Wick.Path({
+                            json: charCompound.exportJSON({ asString: false })
+                        });
+                        
+                        charWickPath.fillColor = path.fillColor;
+                        charWickPath.strokeColor = path.strokeColor;
+                        charWickPath.strokeWidth = path.strokeWidth;
+                        
+                        // Set the final position by adding the original global offset
+                        charWickPath.x = originalTextCenter.x + clusterLocalCenter.x;
+                        charWickPath.y = originalTextCenter.y + clusterLocalCenter.y;
+                        
+                        path.parentFrame.addPath(charWickPath);
+                        charLeftovers.push(charWickPath);
+                        
+                        // Cleanup
+                        charCompound.remove();
+                    });
+
+                    leftovers = leftovers.concat(charLeftovers);
                     path.remove();
-                } else {
-                    leftovers.push(path);
+                    fullShape.remove();
                 }
             } else {
                 leftovers.push(path);
@@ -1783,6 +1844,12 @@ Wick.Project = class extends Wick.Base {
      * @return {boolean} returns true if the obejct was added successfully, false otherwise.
      */
     addObject(object) {
+        if (object instanceof Wick.Path || object instanceof Wick.Clip) {
+            if (!this.activeFrame) {
+                this.activeLayer.insertBlankFrame(this.activeTimeline.playheadPosition);
+            }
+        }
+
         if (object instanceof Wick.Path) {
             this.activeFrame.addPath(object);
         } else if (object instanceof Wick.Clip) {

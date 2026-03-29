@@ -105,6 +105,7 @@ export default function EditorWrapper(props) {
                     isAssetInLibrary={props.editor.isAssetInLibrary}
                     openProjectFileDialog={props.editor.openProjectFileDialog}
                     openNewProjectConfirmation={props.editor.openNewProjectConfirmation}
+                    exportProjectAsWickFile={props.editor.exportProjectAsWickFile}
                     localSavedFiles={props.editor.state.localSavedFiles}
                     loadLocalWickFile={props.editor.loadLocalWickFile}
                     deleteLocalWickFile={props.editor.deleteLocalWickFile}

@@ -86,6 +86,14 @@ Wick.Tools.Eraser = class extends Wick.Tool {
 
     onMouseDrag (e) {
         if (e.point) {
+            if (e.modifiers.control) {
+                // Straight line mode
+                if (this.path.segments.length > 1) {
+                    this.path.removeSegments(1);
+                }
+                this.path.add(e.point);
+                return;
+            }
             this.path.add(e.point);
             this.path.smooth();
         }

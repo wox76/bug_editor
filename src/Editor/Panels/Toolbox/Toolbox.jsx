@@ -165,7 +165,7 @@ class Toolbox extends Component {
 
   renderLargeToolbox = () => {
     return (
-      <div className={classNames("tool-box", "tool-box-large")}>
+      <div className={classNames("tool-box", "tool-box-large", "header-tools")}>
         {this.renderToolButtons()}
 
         <ToolboxBreak/>
@@ -192,7 +192,7 @@ class Toolbox extends Component {
 
   renderMediumToolbox = () => {
     return (
-      <div className={classNames("tool-box", "tool-box-medium")}>
+      <div className={classNames("tool-box", "tool-box-medium", "header-tools")}>
         <div className="medium-toolbox-row">
           {this.renderToolButtons()}
           <ToolboxBreak/>
@@ -217,7 +217,7 @@ class Toolbox extends Component {
 
   renderSmallToolbox = () => {
     return (
-      <div className={classNames("tool-box", "tool-box-medium")}>
+      <div className={classNames("tool-box", "tool-box-medium", "header-tools")}>
         <div className="medium-toolbox-row">
           {this.renderToolButtonsMobile()}
           <ToolboxBreak className={classNames("toolbox-break", "mobile")}/>

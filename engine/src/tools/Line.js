@@ -63,6 +63,13 @@ Wick.Tools.Line = class extends Wick.Tool {
     onMouseDrag (e) {
         this.path.remove();
         this.endPoint = e.point;
+
+        if (e.modifiers.control) {
+            var vector = this.endPoint.subtract(this.startPoint);
+            vector.angle = Math.round(vector.angle / 45) * 45;
+            this.endPoint = this.startPoint.add(vector);
+        }
+
         this.path = new paper.Path.Line(this.startPoint, this.endPoint);
         this.path.strokeCap = 'round';
         this.path.strokeColor = this.getSetting('strokeColor').rgba;

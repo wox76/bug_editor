@@ -31,24 +31,104 @@ $inspector-break-size: calc(#{$editor-outline-padding} * .5);
 $inspector-transition-duration: 0.2s;
 
 .inspector {
-  background-color: $editor-primary;
+  background-color: #17171a;
   width: 100%;
   height: 100%;
   overflow: auto;
   box-sizing: border-box;
   border-right: $editor-outline-padding solid $editor-primary-outline;
-  font-family: 'Nunito Sans';
+  font-family: var(--font);
   overflow: hidden;
 }
 
 .inspector-body {
   height: calc(100% - #{$inspector-title-height});
   width: 100%;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.inspector-body:hover {
-  overflow-y: auto;
+.inspector-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.inspector-tile-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.prop-tile {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  background: #1e1e22 !important;
+  border: 1px solid #333 !important;
+  color: #999 !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  padding: 12px 10px !important;
+  min-width: 68px !important;
+  height: auto !important;
+  font-size: 10px !important;
+  font-family: var(--font) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  text-align: center !important;
+
+  &:hover {
+    background: #2a2a2e !important;
+    border-color: var(--accent) !important;
+    color: #fff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+    img, .tool-button-icon {
+      filter: brightness(0) saturate(100%) invert(1) !important;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    background: #1a1a1e !important;
+  }
+
+  /* Support for icons and text inside the tile */
+  .action-button-icon-text-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  img, .tool-button-icon, .action-button-text-icon {
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    filter: brightness(0) saturate(100%) invert(67%) !important; /* Approximate #999 gray */
+    opacity: 1 !important;
+    transition: all 0.2s !important;
+  }
+
+  .action-button-text {
+    margin: 0 !important;
+    white-space: normal !important;
+    line-height: 1.2 !important;
+    text-shadow: none !important;
+  }
 }
 
 .input-divider {

@@ -61,6 +61,9 @@ Wick.Tools.Brush = class extends Wick.Tool {
 
         // The frame that the brush started the current stroke on.
         this._currentDrawingFrame = null;
+
+        // The starting point of the current stroke (for straight lines)
+        this._strokeStartPoint = null;
     }
 
     get cursor () {
@@ -136,6 +139,7 @@ Wick.Tools.Brush = class extends Wick.Tool {
 
         // Forward mouse event to croquis canvas
         var point = this._croquisToPaperPoint(e.point);
+        this._strokeStartPoint = point.clone();
         this._updateStrokeBounds(point);
         try {
             this._updateLastMouseState(point, this.pressure);
@@ -151,13 +155,25 @@ Wick.Tools.Brush = class extends Wick.Tool {
 
         // Forward mouse event to croquis canvas
         var point = this._croquisToPaperPoint(e.point);
-        this._updateStrokeBounds(point);
-        try {
-            this._updateLastMouseState(point, this.pressure);
+
+        if (e.modifiers.control) {
+            // Straight line mode
+            this.croquis.clearLayer();
+            this.croquis.down(this._strokeStartPoint.x, this._strokeStartPoint.y, this.pressure);
             this.croquis.move(point.x, point.y, this.pressure);
-        } catch (e) {
-            this.handleBrushError(e);
-            return;
+            
+            // Re-calculate bounds to include the entire straight line area
+            this._resetStrokeBounds(this._strokeStartPoint);
+            this._updateStrokeBounds(point);
+        } else {
+            this._updateStrokeBounds(point);
+            try {
+                this._updateLastMouseState(point, this.pressure);
+                this.croquis.move(point.x, point.y, this.pressure);
+            } catch (e) {
+                this.handleBrushError(e);
+                return;
+            }
         }
 
         this.lastPressure = this.pressure;

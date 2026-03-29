@@ -181,8 +181,6 @@ import iconCodeTimeline from 'resources/code-icons/timeline.svg';
 import iconCodeConsole from 'resources/code-icons/console.svg';
 import iconCodeBack from 'resources/code-icons/back.svg';
 
-// Support Us
-import iconRedHeart from 'resources/support-us-icons/red-heart.svg';
 
 const icons = {
   "brush":iconBrush,
@@ -323,7 +321,6 @@ const icons = {
   "codeTimeline": iconCodeTimeline,
   "codeConsole": iconCodeConsole,
   "codeBack": iconCodeBack,
-  "redheart": iconRedHeart,
   "add-dark": iconAddDark,
   "upload-dark": iconUploadDark
 }
