@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "6879e588bddd719eccbe",
-    "url": "/bug_editor/static/css/main.a3575cdd.chunk.css"
+    "revision": "0cfd68964a24043bbb94",
+    "url": "/bug_editor/static/css/main.6939ce9f.chunk.css"
   },
   {
-    "revision": "6879e588bddd719eccbe",
-    "url": "/bug_editor/static/js/main.6879e588.chunk.js"
+    "revision": "0cfd68964a24043bbb94",
+    "url": "/bug_editor/static/js/main.0cfd6896.chunk.js"
   },
   {
-    "revision": "e2e3f004cf55372428f8",
-    "url": "/bug_editor/static/css/1.785206d9.chunk.css"
+    "revision": "d7ef1fd9b753ebc263f6",
+    "url": "/bug_editor/static/css/1.9fbc8e27.chunk.css"
   },
   {
-    "revision": "e2e3f004cf55372428f8",
-    "url": "/bug_editor/static/js/1.e2e3f004.chunk.js"
+    "revision": "d7ef1fd9b753ebc263f6",
+    "url": "/bug_editor/static/js/1.d7ef1fd9.chunk.js"
   },
   {
     "revision": "b7e370018a1c8528c57b",
@@ -548,10 +548,6 @@ self.__precacheManifest = [
     "url": "/bug_editor/static/media/back.3b93c8b2.svg"
   },
   {
-    "revision": "3077650883b4395a9dd8336dd1124e40",
-    "url": "/bug_editor/static/media/red-heart.30776508.svg"
-  },
-  {
     "revision": "38b1fe2c68a586a29ab4dbd6c20fd3b2",
     "url": "/bug_editor/static/media/layerTween.38b1fe2c.png"
   },
@@ -728,7 +724,7 @@ self.__precacheManifest = [
     "url": "/bug_editor/static/media/white-heart.14b06d09.svg"
   },
   {
-    "revision": "59362fe5dc7d00bf335244ed497241ce",
+    "revision": "62ee6a3c4077cfb6f86d298e67fa6927",
     "url": "/bug_editor/index.html"
   }
 ];
