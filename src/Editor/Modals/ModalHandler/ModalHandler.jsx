@@ -34,6 +34,7 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 import SavedProjects from '../SavedProjects/SavedProjects';
 import SimpleProjectSettings from '../SimpleProjectSettings/SimpleProjectSettings';
 import SupportUs from '../SupportUs/SupportUs';
+import ImageTracingModal from '../ImageTracingModal/ImageTracingModal';
 
 class ModalHandler extends Component {
   render() {
@@ -131,6 +132,9 @@ class ModalHandler extends Component {
           builtinPreviews={this.props.builtinPreviews}
           addFileToBuiltinPreviews={this.props.addFileToBuiltinPreviews}
           isAssetInLibrary={this.props.isAssetInLibrary}
+          updateProjectSettings={this.props.updateProjectSettings}
+          recenterCanvas={this.props.recenterCanvas}
+          toast={this.props.toast}
         />
         <EditorInfo
           openModal={this.props.openModal}
@@ -176,6 +180,12 @@ class ModalHandler extends Component {
           toggle={this.props.closeActiveModal}
           open={this.props.activeModalName === 'SupportUs'}
           />
+        <ImageTracingModal
+          open={this.props.activeModalName === 'ImageTracing'}
+          toggle={this.props.closeActiveModal}
+          selectedObject={this.props.getSelectedObject ? this.props.getSelectedObject() : this.props.selectedObject}
+          traceSelectedImage={this.props.traceSelectedImage}
+        />
       </div>
     );
   }

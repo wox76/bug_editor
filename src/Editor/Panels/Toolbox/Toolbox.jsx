@@ -26,6 +26,8 @@ import ToolboxBreak from './ToolboxBreak/ToolboxBreak';
 import ToolButton from './ToolButton/ToolButton';
 import ToolSettings from './ToolSettings/ToolSettings';
 import CanvasActions from './CanvasActions/CanvasActions';
+import LayersPopover from 'Editor/Panels/LayersPopover/LayersPopover';
+import SnapPopover from 'Editor/Panels/SnapPopover/SnapPopover';
 import PopupMenu from 'Editor/Util/PopupMenu/PopupMenu';
 
 var classNames = require('classnames');
@@ -37,7 +39,9 @@ class Toolbox extends Component {
     this.state = {
       openSettings: null,
       moreCanvasActionsPopoverOpen: false,
-      dropdownSelector: null
+      dropdownSelector: null,
+      showLayersPopover: false,
+      showSnapPopover: false,
     }
 
     this.toolButtonProps = {
@@ -108,45 +112,127 @@ class Toolbox extends Component {
 
   renderColorPickers = () => {
     return (
-      <div className="tool-collection-container">
-        <div className="color-container toolbox-item" id="fill-color-picker-container">
-          <WickInput
-            type="color"
-            color={this.props.getToolSetting('fillColor').rgba}
-            onChange={(color) => {this.props.setToolSetting('fillColor', new window.Wick.Color(color));}}
-            id="tool-box-fill-color"
-            tooltipID="tool-box-fill-color"
-            tooltip="Fill Color"
-            placement="bottom"
-            colorPickerType={this.props.colorPickerType}
-            changeColorPickerType={this.props.changeColorPickerType}
-            updateLastColors={this.props.updateLastColors}
-            lastColorsUsed={this.props.lastColorsUsed}
-            />
+      <div className="tool-collection-container color-pickers-labeled-group">
+        <div className="color-picker-labeled-item" id="fill-color-picker-wrapper">
+          <div className="color-container toolbox-item" id="fill-color-picker-container">
+            <WickInput
+              type="color"
+              color={this.props.getToolSetting('fillColor').rgba}
+              onChange={(color) => {this.props.setToolSetting('fillColor', new window.Wick.Color(color));}}
+              id="tool-box-fill-color"
+              tooltipID="tool-box-fill-color"
+              tooltip="Fill Color"
+              placement="bottom"
+              colorPickerType={this.props.colorPickerType}
+              changeColorPickerType={this.props.changeColorPickerType}
+              updateLastColors={this.props.updateLastColors}
+              lastColorsUsed={this.props.lastColorsUsed}
+              />
+          </div>
+          <span className="color-picker-label">FILL</span>
         </div>
-        <div className="color-container toolbox-item" id="stroke-color-picker-container">
-          <WickInput
-            type="color"
-            color= {this.props.getToolSetting('strokeColor').rgba}
-            onChange={(color) => {this.props.setToolSetting('strokeColor', new window.Wick.Color(color));}}
-            id="tool-box-stroke-color"
-            tooltipID="tool-box-stroke-color"
-            tooltip="Stroke Color"
-            placement="bottom"
-            stroke={true}
-            colorPickerType={this.props.colorPickerType}
-            changeColorPickerType={this.props.changeColorPickerType}
-            lastColorsUsed={this.props.lastColorsUsed}
-            />
+        <div className="color-picker-labeled-item" id="stroke-color-picker-wrapper">
+          <div className="color-container toolbox-item" id="stroke-color-picker-container">
+            <WickInput
+              type="color"
+              color= {this.props.getToolSetting('strokeColor').rgba}
+              onChange={(color) => {this.props.setToolSetting('strokeColor', new window.Wick.Color(color));}}
+              id="tool-box-stroke-color"
+              tooltipID="tool-box-stroke-color"
+              tooltip="Stroke Color"
+              placement="bottom"
+              stroke={true}
+              colorPickerType={this.props.colorPickerType}
+              changeColorPickerType={this.props.changeColorPickerType}
+              lastColorsUsed={this.props.lastColorsUsed}
+              />
+          </div>
+          <span className="color-picker-label">STROKE</span>
         </div>
       </div>
     )
   }
 
+  renderLayersButton = () => {
+    const liveProject = this.props.liveProject;
+    return (
+      <div id="layers-popover-button" className="layers-popover-button-container">
+        <button
+          className={classNames("toolbox-item action-button-standalone layers-trigger-btn", { active: this.state.showLayersPopover })}
+          onClick={() => this.setState({ showLayersPopover: !this.state.showLayersPopover })}
+          title="Layers"
+          aria-label="Layers"
+        >
+          {/* Procreate two overlapping squares icon */}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </button>
+        <LayersPopover
+          isOpen={this.state.showLayersPopover}
+          toggle={() => this.setState({ showLayersPopover: !this.state.showLayersPopover })}
+          project={liveProject}
+          setActiveLayerIndex={this.props.setActiveLayerIndex}
+          toggleHidden={this.props.toggleHidden}
+          selectObjects={this.props.selectObjects}
+          clearSelection={this.props.clearSelection}
+          editorActions={this.props.editorActions}
+          getToolSetting={this.props.getToolSetting}
+          updateProjectSettings={this.props.updateProjectSettings}
+          projectDidChange={this.props.projectDidChange}
+        />
+      </div>
+    );
+  };
+
+  isSnapOrGridActive = () => {
+    const getSetting = this.props.getToolSetting;
+    if (!getSetting) return false;
+    return !!(getSetting('gridEnabled') || getSetting('snapGrid') || getSetting('snapObject') || getSetting('snapCanvas'));
+  };
+
+  renderSnapButton = () => {
+    const liveProject = this.props.liveProject;
+    return (
+      <div id="snap-popover-button" className="snap-popover-button-container">
+        <button
+          className={classNames("toolbox-item action-button-standalone snap-trigger-btn", {
+            active: this.state.showSnapPopover,
+            "has-active-snaps": this.isSnapOrGridActive()
+          })}
+          onClick={() => this.setState({ showSnapPopover: !this.state.showSnapPopover })}
+          title="Snap & Griglia"
+          aria-label="Snap & Griglia"
+        >
+          {/* Magnet / Snap icon */}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 11a8 8 0 0 0 16 0V4h-4v7a4 4 0 0 1-8 0V4H4v7z" />
+            <line x1="4" y1="8" x2="8" y2="8" />
+            <line x1="16" y1="8" x2="20" y2="8" />
+          </svg>
+        </button>
+        <SnapPopover
+          isOpen={this.state.showSnapPopover}
+          toggle={() => this.setState({ showSnapPopover: !this.state.showSnapPopover })}
+          project={liveProject}
+          getToolSetting={this.props.getToolSetting}
+          setToolSetting={this.props.setToolSetting}
+          projectDidChange={this.props.projectDidChange}
+          renderSize={this.props.renderSize}
+        />
+      </div>
+    );
+  };
+
   renderCanvasActions = () => {
     return (
       <div className="toolbox-actions-right-container">
         <div className="toolbox-actions-right">
+
+          {this.renderLayersButton()}
+          {this.renderSnapButton()}
 
           <div id="more-canvas-actions-popover-button">
             {this.renderToolButtonFromAction(this.props.editorActions.showMoreCanvasActions)}

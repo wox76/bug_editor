@@ -111,6 +111,9 @@ export default function EditorWrapper(props) {
                     deleteLocalWickFile={props.editor.deleteLocalWickFile}
                     reloadSavedWickFiles={props.editor.reloadSavedWickFiles}
                     openWarningModal={props.editor.openWarningModal}
+                    getSelectedObject={props.editor.getSelectedObject}
+                    traceSelectedImage={props.editor.traceSelectedImage}
+                    recenterCanvas={props.editor.recenterCanvas}
                 />
                 {props.children}
             </div>

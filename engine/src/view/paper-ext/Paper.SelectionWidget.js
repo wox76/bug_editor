@@ -27,6 +27,15 @@ class SelectionWidget {
 
         this._layer = args.layer;
         this._item = new paper.Group({ insert:false });
+        this._project = args.project || null;
+    }
+
+    get project () {
+        return this._project || (window.Wick && window.Wick.currentProject) || (paper.project && paper.project.wickProject);
+    }
+
+    set project (project) {
+        this._project = project;
     }
 
     /**
@@ -215,6 +224,19 @@ class SelectionWidget {
 
         this._ghost.data.initialPosition = this._ghost.position;
         this._ghost.data.scale = new paper.Point(1,1);
+
+        if (this.currentTransformation === 'translate') {
+            this._unconstrainedGhostPosition = this._ghost.position.clone();
+            this._setupSnapGuides();
+        }
+    }
+
+    _setupSnapGuides () {
+        if (this._snapGuideGroup) {
+            this._snapGuideGroup.remove();
+        }
+        this._snapGuideGroup = new paper.Group({ insert: false });
+        this.layer.addChild(this._snapGuideGroup);
     }
 
     /**
@@ -222,7 +244,26 @@ class SelectionWidget {
      */
     updateTransformation (item, e) {
         if(this.currentTransformation === 'translate') {
-            this._ghost.position = this._ghost.position.add(e.delta);
+            if (!this._unconstrainedGhostPosition) {
+                this._unconstrainedGhostPosition = this._ghost.position.clone();
+            }
+            this._unconstrainedGhostPosition = this._unconstrainedGhostPosition.add(e.delta);
+            this._ghost.position = this._unconstrainedGhostPosition.clone();
+
+            var settings = this.project && this.project.toolSettings;
+            var snapCanvas = settings ? settings.getSetting('snapCanvas') : false;
+            var snapObject = settings ? settings.getSetting('snapObject') : false;
+            var snapGrid = settings ? settings.getSetting('snapGrid') : false;
+            var gridSize = (settings && settings.getSetting('gridSize')) || 20;
+            var snapTolerance = (settings && settings.getSetting('snapTolerance')) || 8;
+
+            var disableSnap = e.modifiers && e.modifiers.alt;
+
+            if (!disableSnap && (snapCanvas || snapObject || snapGrid)) {
+                this._applySnapping(snapCanvas, snapObject, snapGrid, gridSize, snapTolerance);
+            } else if (this._snapGuideGroup) {
+                this._snapGuideGroup.removeChildren();
+            }
         } else if(this.currentTransformation === 'scale') {
             var lastPoint = e.point.subtract(e.delta);
             var currentPoint = e.point;
@@ -235,14 +276,15 @@ class SelectionWidget {
             // Lock scaling in a direction if the side handles are being dragged.
             if(item.data.handleEdge === 'topCenter' || item.data.handleEdge === 'bottomCenter') {
                 scaleAmt.x = 1.0;
-            }
-            if(item.data.handleEdge === 'leftCenter' || item.data.handleEdge === 'rightCenter') {
+            } else if(item.data.handleEdge === 'leftCenter' || item.data.handleEdge === 'rightCenter') {
                 scaleAmt.y = 1.0;
-            }
-
-            // Holding shift locks aspect ratio
-            if(e.modifiers.shift) {
-                scaleAmt.y = scaleAmt.x;
+            } else {
+                // For corner handles, scale proportionally by default unless Shift is held down
+                if(!e.modifiers.shift) {
+                    var maxScale = Math.abs(scaleAmt.x - 1.0) > Math.abs(scaleAmt.y - 1.0) ? scaleAmt.x : scaleAmt.y;
+                    scaleAmt.x = maxScale;
+                    scaleAmt.y = maxScale;
+                }
             }
 
             this._ghost.data.scale = this._ghost.data.scale.multiply(scaleAmt);
@@ -264,6 +306,156 @@ class SelectionWidget {
         }
     }
 
+    _applySnapping (snapCanvas, snapObject, snapGrid, gridSize, tolerance) {
+        if (!this._snapGuideGroup) return;
+        this._snapGuideGroup.removeChildren();
+
+        var bounds = this._ghost.bounds;
+        var myXPoints = [
+            { type: 'left', val: bounds.left },
+            { type: 'center', val: bounds.center.x },
+            { type: 'right', val: bounds.right }
+        ];
+        var myYPoints = [
+            { type: 'top', val: bounds.top },
+            { type: 'center', val: bounds.center.y },
+            { type: 'bottom', val: bounds.bottom }
+        ];
+
+        var targetXList = [];
+        var targetYList = [];
+
+        // 1. Canva Snap
+        if (snapCanvas && this.project) {
+            var W = this.project.width;
+            var H = this.project.height;
+            targetXList.push({ val: 0, label: 'canvas', color: '#ff3366' });
+            targetXList.push({ val: W / 2, label: 'canvas-center', color: '#ff3366' });
+            targetXList.push({ val: W, label: 'canvas', color: '#ff3366' });
+
+            targetYList.push({ val: 0, label: 'canvas', color: '#ff3366' });
+            targetYList.push({ val: H / 2, label: 'canvas-center', color: '#ff3366' });
+            targetYList.push({ val: H, label: 'canvas', color: '#ff3366' });
+        }
+
+        // 2. Oggetto Snap
+        if (snapObject && this.project && this.project.activeFrame) {
+            var selectedUuids = new Set(this._itemsInSelection.map(function(it) {
+                return it.data && it.data.wickUUID;
+            }).filter(Boolean));
+
+            var frameObjects = this.project.activeFrame.objects || [];
+            frameObjects.forEach(function(obj) {
+                if (selectedUuids.has(obj.uuid)) return;
+                var viewItem = obj.view && (obj.view.item || obj.view.group);
+                if (viewItem && viewItem.bounds && viewItem.bounds.width > 0 && viewItem.bounds.height > 0) {
+                    var ob = viewItem.bounds;
+                    targetXList.push({ val: ob.left, label: 'object', color: '#00d2ff' });
+                    targetXList.push({ val: ob.center.x, label: 'object-center', color: '#00d2ff' });
+                    targetXList.push({ val: ob.right, label: 'object', color: '#00d2ff' });
+
+                    targetYList.push({ val: ob.top, label: 'object', color: '#00d2ff' });
+                    targetYList.push({ val: ob.center.y, label: 'object-center', color: '#00d2ff' });
+                    targetYList.push({ val: ob.bottom, label: 'object', color: '#00d2ff' });
+                }
+            });
+        }
+
+        // Best X Snap
+        var bestXDelta = null;
+        var minXDist = tolerance + 1;
+        var bestXGuide = null;
+
+        myXPoints.forEach(function(myPt) {
+            targetXList.forEach(function(tgt) {
+                var dist = Math.abs(tgt.val - myPt.val);
+                if (dist <= tolerance && dist < minXDist) {
+                    minXDist = dist;
+                    bestXDelta = tgt.val - myPt.val;
+                    bestXGuide = { x: tgt.val, color: tgt.color };
+                }
+            });
+        });
+
+        if (snapGrid && bestXDelta === null) {
+            myXPoints.forEach(function(myPt) {
+                var nearestGridX = Math.round(myPt.val / gridSize) * gridSize;
+                var dist = Math.abs(nearestGridX - myPt.val);
+                if (dist <= tolerance && dist < minXDist) {
+                    minXDist = dist;
+                    bestXDelta = nearestGridX - myPt.val;
+                    bestXGuide = { x: nearestGridX, color: '#33cc66' };
+                }
+            });
+        }
+
+        // Best Y Snap
+        var bestYDelta = null;
+        var minYDist = tolerance + 1;
+        var bestYGuide = null;
+
+        myYPoints.forEach(function(myPt) {
+            targetYList.forEach(function(tgt) {
+                var dist = Math.abs(tgt.val - myPt.val);
+                if (dist <= tolerance && dist < minYDist) {
+                    minYDist = dist;
+                    bestYDelta = tgt.val - myPt.val;
+                    bestYGuide = { y: tgt.val, color: tgt.color };
+                }
+            });
+        });
+
+        if (snapGrid && bestYDelta === null) {
+            myYPoints.forEach(function(myPt) {
+                var nearestGridY = Math.round(myPt.val / gridSize) * gridSize;
+                var dist = Math.abs(nearestGridY - myPt.val);
+                if (dist <= tolerance && dist < minYDist) {
+                    minYDist = dist;
+                    bestYDelta = nearestGridY - myPt.val;
+                    bestYGuide = { y: nearestGridY, color: '#33cc66' };
+                }
+            });
+        }
+
+        if (bestXDelta !== null) {
+            this._ghost.position.x += bestXDelta;
+        }
+        if (bestYDelta !== null) {
+            this._ghost.position.y += bestYDelta;
+        }
+
+        // Draw smart alignment guides
+        var zoom = (paper.view && paper.view.zoom) || 1;
+        var strokeW = 1.2 / zoom;
+        var span = 10000;
+
+        if (bestXGuide) {
+            var vLine = new paper.Path.Line({
+                from: new paper.Point(bestXGuide.x, -span),
+                to: new paper.Point(bestXGuide.x, span),
+                strokeColor: bestXGuide.color,
+                strokeWidth: strokeW,
+                dashArray: [5 / zoom, 3 / zoom],
+                strokeScaling: false,
+                insert: false
+            });
+            this._snapGuideGroup.addChild(vLine);
+        }
+
+        if (bestYGuide) {
+            var hLine = new paper.Path.Line({
+                from: new paper.Point(-span, bestYGuide.y),
+                to: new paper.Point(span, bestYGuide.y),
+                strokeColor: bestYGuide.color,
+                strokeWidth: strokeW,
+                dashArray: [5 / zoom, 3 / zoom],
+                strokeScaling: false,
+                insert: false
+            });
+            this._snapGuideGroup.addChild(hLine);
+        }
+    }
+
     /**
      *
      */
@@ -271,6 +463,12 @@ class SelectionWidget {
         if(!this._currentTransformation) return;
 
         this._ghost.remove();
+
+        if (this._snapGuideGroup) {
+            this._snapGuideGroup.remove();
+            this._snapGuideGroup = null;
+        }
+        this._unconstrainedGhostPosition = null;
 
         if(this.currentTransformation === 'translate') {
             var d = this._ghost.position.subtract(this._ghost.data.initialPosition);

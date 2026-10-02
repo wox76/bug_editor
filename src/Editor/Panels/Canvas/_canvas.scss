@@ -24,6 +24,33 @@
   height: 100%;
   background-color: #bbb;
   position: relative;
+
+  textarea,
+  textarea.wick-canvas-text-edit {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    color: inherit;
+    caret-color: auto !important;
+    cursor: text !important;
+    pointer-events: auto !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+    z-index: 10 !important;
+
+    &::selection {
+      background: rgba(0, 161, 224, 0.45) !important;
+      color: inherit !important;
+    }
+  }
 }
 
 #canvas-container-wrapper {

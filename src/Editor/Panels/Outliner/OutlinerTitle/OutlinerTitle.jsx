@@ -22,14 +22,26 @@ import './_outlinertitle.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class OutlinerTitle extends Component {
-
   render() {
     return(
       <div className="outliner-title">
-        <div className="outliner-title-name">Outliner</div>
+        <div className="outliner-title-name">Layers</div>
+        {this.props.onAddLayer && (
+          <button
+            className="outliner-add-layer-btn"
+            onClick={this.props.onAddLayer}
+            title="Add Layer"
+            aria-label="Add Layer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
+        )}
       </div>
-    )
+    );
   }
 }
 
-export default OutlinerTitle
+export default OutlinerTitle;

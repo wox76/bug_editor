@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-
-import {OutlinerObject} from './OutlinerObject/OutlinerObject'
-import OutlinerTitle from './OutlinerTitle/OutlinerTitle'
-import OutlinerDisplay from './OutlinerRow/OutlinerRowTypes/OutlinerDisplay'
-
+import WickColorPicker from 'Editor/Util/ColorPicker/WickColorPicker';
+import { Popover } from 'reactstrap';
 import './_outliner.scss';
 
 var classNames = require('classnames');
@@ -11,298 +8,415 @@ var classNames = require('classnames');
 class Outliner extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-        dragging: false,
-        highlighted: null,
-        display: {path: true, button: true, clip: true, text: true, image: true},
-        collapsedUUIDs: {},
-    }
-
-    this.maxDepth = 3;
-  }
-  
-  getDepth = (object) => {
-      let depth = 0;
-      while (object.parent !== null) {
-          object = object.parent;
-          depth ++;
-      }
-      return depth;
+      menuLayer: null,
+      renamingLayerUuid: null,
+      renamingName: '',
+      bgColorPickerOpen: false,
+    };
   }
 
-  getCommonAncestorIndices = (ob1, ob2) => {
-    let d1 = this.getDepth(ob1);
-    let d2 = this.getDepth(ob2);
-    let indices1 = [];
-    let indices2 = [];
-    let d_diff = Math.abs(d1 - d2);
-    let temp;
-    if (d1 > d2) {
-      for (let i = 0; i < d_diff; i++) {
-        temp = ob1;
-        ob1 = ob1.parent;
-        if (ob1.classname === 'Frame') {
-            indices1.unshift(ob1.getChildren().length - 1 - ob1.getChildren().indexOf(temp));
-        }
-        else {
-            indices1.unshift(ob1.getChildren().indexOf(temp));
-        }
+  handleAddLayer = (e) => {
+    if (e) e.stopPropagation();
+    const activeTimeline = this.props.project && this.props.project.activeTimeline;
+    if (!activeTimeline) return;
+
+    const newLayer = new window.Wick.Layer();
+    activeTimeline.addLayer(newLayer);
+    const newIndex = activeTimeline.layers.length - 1;
+    if (this.props.setActiveLayerIndex) {
+      this.props.setActiveLayerIndex(newIndex);
+    }
+    if (this.props.projectDidChange) {
+      this.props.projectDidChange({ actionName: 'Add Layer' });
+    }
+  };
+
+  handleSelectLayer = (layer, e) => {
+    if (e) e.stopPropagation();
+    if (this.props.setActiveLayerIndex) {
+      this.props.setActiveLayerIndex(layer.index);
+    }
+  };
+
+  handleToggleVisibility = (layer, e) => {
+    if (e) e.stopPropagation();
+    if (this.props.toggleHidden) {
+      this.props.toggleHidden(layer);
+    } else {
+      layer.hidden = !layer.hidden;
+      if (this.props.projectDidChange) {
+        this.props.projectDidChange({ actionName: 'Toggle Layer Hidden' });
       }
     }
-    else if (d2 > d1) {
-      for (let i = 0; i < d_diff; i++) {
-        temp = ob2;
-        ob2 = ob2.parent;
-        if (ob2.classname === 'Frame') {
-            indices2.unshift(ob2.getChildren().length - 1 - ob2.getChildren().indexOf(temp));
-        }
-        else {
-            indices2.unshift(ob2.getChildren().indexOf(temp));
-        }
+  };
+
+  handleOpenMenu = (layer, e) => {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    if (this.props.setActiveLayerIndex) {
+      this.props.setActiveLayerIndex(layer.index);
+    }
+    if (this.state.menuLayer && this.state.menuLayer.uuid === layer.uuid) {
+      this.setState({ menuLayer: null });
+    } else {
+      this.setState({ menuLayer: layer, renamingLayerUuid: null });
+    }
+  };
+
+  handleCloseMenu = () => {
+    this.setState({ menuLayer: null });
+  };
+
+  handleRename = () => {
+    const layer = this.state.menuLayer;
+    if (!layer) return;
+    this.setState({
+      renamingLayerUuid: layer.uuid,
+      renamingName: layer.name || '',
+      menuLayer: null,
+    });
+  };
+
+  commitRename = (layer) => {
+    if (this.state.renamingName.trim()) {
+      layer.name = this.state.renamingName.trim();
+      if (this.props.projectDidChange) {
+        this.props.projectDidChange({ actionName: 'Rename Layer' });
       }
     }
+    this.setState({ renamingLayerUuid: null, renamingName: '' });
+  };
 
-    while (ob1 !== ob2) {
-      temp = ob1;
-      ob1 = ob1.parent;
-      if (ob1.classname === 'Frame') {
-        indices1.unshift(ob1.getChildren().length - 1 - ob1.getChildren().indexOf(temp));
-      }
-      else {
-        indices1.unshift(ob1.getChildren().indexOf(temp));
-      }
-
-      temp = ob2;
-      ob2 = ob2.parent;
-      if (ob2.classname === 'Frame') {
-        indices2.unshift(ob2.getChildren().length - 1 - ob2.getChildren().indexOf(temp));
-      }
-      else {
-        indices2.unshift(ob2.getChildren().indexOf(temp));
+  handleSelectObjects = () => {
+    const layer = this.state.menuLayer;
+    if (!layer) return;
+    const playhead = this.props.project.activeTimeline.playheadPosition;
+    const frame = layer.getFrameAtPlayheadPosition(playhead);
+    if (frame && this.props.selectObjects && this.props.clearSelection) {
+      this.props.clearSelection();
+      const children = frame.getChildren ? frame.getChildren() : [];
+      if (children.length > 0) {
+        this.props.selectObjects(children);
       }
     }
-    return {ancestor: ob1, indices1: indices1, indices2: indices2};
-  }
+    this.handleCloseMenu();
+  };
 
-  //returns the object at indices[0:length] relative to ancestor
-  //null if invalid indices
-  getObjectAtIndices = (ancestor, indices, length) => {
-    let object = ancestor;
-    for (let j = 0; j < length; j++) {
-        let index = indices[j];
-        let children = object.getChildren();
-
-        if (0 <= index && index < children.length) {
-            if (object.classname === 'Frame') {
-                index = children.length - index - 1;
-            }
-            object = children[index];
-        }
-        else {
-            //bad indices
-            return null;
-        }
+  handleCopyLayer = () => {
+    this.handleSelectObjects();
+    if (this.props.editorActions && this.props.editorActions.copy) {
+      this.props.editorActions.copy.action();
     }
-    return object;
-  }
+    this.handleCloseMenu();
+  };
 
-  indicesEqual = (a, b) => {
-      if (a.length !== b.length) {
-          return false;
+  handleFillLayer = () => {
+    const layer = this.state.menuLayer;
+    if (!layer) return;
+    const fillCol = (this.props.getToolSetting && this.props.getToolSetting('fillColor')) ||
+      (this.props.project && this.props.project.backgroundColor) ||
+      new window.Wick.Color('#ffffff');
+    const playhead = this.props.project.activeTimeline.playheadPosition;
+    let frame = layer.getFrameAtPlayheadPosition(playhead);
+    if (!frame && layer.frames && layer.frames.length > 0) {
+      frame = layer.frames[0];
+    }
+    if (frame) {
+      const rect = new window.paper.Path.Rectangle({
+        point: [0, 0],
+        size: [this.props.project.width || 800, this.props.project.height || 600],
+        fillColor: fillCol.paperColor ? fillCol.paperColor : (fillCol.rgba || '#ffffff'),
+        strokeColor: null,
+      });
+      rect.insert = false;
+      const wickPath = new window.Wick.Path({ path: rect, project: this.props.project });
+      frame.addPath(wickPath);
+      if (this.props.project.view) this.props.project.view.render();
+      if (this.props.projectDidChange) {
+        this.props.projectDidChange({ actionName: 'Fill Layer' });
       }
-      for (let i = a.length - 1; i >= 0; i--) {
-          if (a[i] !== b[i]) {
-              return false;
-          }
+    }
+    this.handleCloseMenu();
+  };
+
+  handleClearLayer = () => {
+    const layer = this.state.menuLayer;
+    if (!layer) return;
+    const playhead = this.props.project.activeTimeline.playheadPosition;
+    const frame = layer.getFrameAtPlayheadPosition(playhead);
+    if (frame) {
+      const children = frame.getChildren ? [...frame.getChildren()] : [];
+      children.forEach((c) => frame.removeChild(c));
+      if (this.props.project.view) this.props.project.view.render();
+      if (this.props.projectDidChange) {
+        this.props.projectDidChange({ actionName: 'Clear Layer' });
       }
-      return true;
-  }
+    }
+    this.handleCloseMenu();
+  };
 
-  isActive = (object) => {
-    if (object === null || object === undefined) {
-        return false;
-    }
-    if (object.classname === 'Layer') {
-        return true;
-    }
-    else if (object.classname === 'Frame') {
-        return object.start <= this.props.project.activeTimeline.playheadPosition &&
-               this.props.project.activeTimeline.playheadPosition <= object.end;
-    }
-    else if (object.classname === 'Path') {
-        return this.state.display[object.pathType];
-    }
-    else {
-        return this.state.display[object.classname.toLowerCase()];
-    }
-  }
-
-  select = (e, indices) => {
-    if (indices === undefined || indices.length === 0) {return;}
-    
-    let object = this.getObjectAtIndices(this.props.project.activeTimeline, indices, indices.length);
-    if (object === null) {
-        //bad indices
-        return;
-    }
-
-    let is_same_depth = this.state.highlighted !== null &&
-        this.getDepth(this.state.highlighted) === this.getDepth(object);
-
-    if (e.shiftKey && is_same_depth) {
-        let {ancestor, indices1, indices2} = this.getCommonAncestorIndices(this.state.highlighted, object);
-        if (indices1[0] > indices2[0]) {
-            let temp = indices1;
-            indices1 = indices2;
-            indices2 = temp;
+  handleInvertLayer = () => {
+    const layer = this.state.menuLayer;
+    if (!layer) return;
+    const playhead = this.props.project.activeTimeline.playheadPosition;
+    const frame = layer.getFrameAtPlayheadPosition(playhead);
+    if (frame) {
+      const paths = frame.getPaths ? frame.getPaths() : [];
+      paths.forEach((p) => {
+        if (p.fillColor && p.fillColor.hex) {
+          const inv = '#' + (0xffffff ^ parseInt(p.fillColor.hex.replace('#', ''), 16)).toString(16).padStart(6, '0');
+          p.fillColor = new window.Wick.Color(inv);
         }
-        //traverse the timeline's items at depth=getDepth(object) from indices1 to indices2
-        //and select each item
-        let keep_going = true;
-        let to_select = [];
-        while (keep_going) {
-            keep_going = !this.indicesEqual(indices1, indices2);
-
-            //get item at indices1
-            let item = this.getObjectAtIndices(ancestor, indices1, indices1.length);
-
-            //select item if it's active
-            if (this.isActive(item)) {
-                to_select.push(item);
-            }
-
-            //increment indices1
-            indices1[indices1.length-1] ++;
-            for (let i = indices1.length - 1; i >= 0; i--) {
-                item = this.getObjectAtIndices(ancestor, indices1, i);
-                let length = item === null ? 0 : item.getChildren().length;
-                if (indices1[i] >= length) {
-                    indices1[i] = 0;
-                    indices1[i - 1]++;
-                }
-                else {
-                    break;
-                }
-            }
-        } 
-
-        this.props.selectObjects(to_select);
-        this.setState({highlighted: object});
-        if (object.classname === 'Layer') {
-          this.props.setActiveLayerIndex(object.index);
-        }
-        else {
-          this.props.setActiveLayerIndex(object.parentLayer.index);
-        }
+      });
+      if (this.props.project.view) this.props.project.view.render();
+      if (this.props.projectDidChange) {
+        this.props.projectDidChange({ actionName: 'Invert Layer Colors' });
+      }
     }
-    else if (e.ctrlKey && is_same_depth) {
-        if (object.isSelected) {
-            this.props.deselectObjects([object]);
-        }
-        else {
-            this.props.selectObjects([object]);
-            if (object.classname === 'Layer') {
-              this.props.setActiveLayerIndex(object.index);
-            }
-            else {
-              this.props.setActiveLayerIndex(object.parentLayer.index);
-            }
-        }
-        this.setState({highlighted: object});
-    }
-    else {
-        this.props.clearSelection();
-        this.props.selectObjects([object]);
-        this.setState({highlighted: object});
-        if (object.classname === 'Layer') {
-            this.props.setActiveLayerIndex(object.index);
-        }
-        else {
-            this.props.setActiveLayerIndex(object.parentLayer.index);
-        }
-    }
-  }
+    this.handleCloseMenu();
+  };
 
-  toggleDropdown = (e, indices) => {
-    let object = this.getObjectAtIndices(this.props.project.activeTimeline, indices, indices.length);
-    let newCollapsedUUIDs = {...this.state.collapsedUUIDs};
-    if (this.state.collapsedUUIDs[object.uuid]) {
-      delete newCollapsedUUIDs[object.uuid];
+  handleMergeDown = () => {
+    const layer = this.state.menuLayer;
+    const activeTimeline = this.props.project && this.props.project.activeTimeline;
+    if (!layer || !activeTimeline) return;
+    const currentIdx = activeTimeline.layers.indexOf(layer);
+    if (currentIdx > 0) {
+      const targetLayer = activeTimeline.layers[currentIdx - 1];
+      layer.frames.forEach((srcFrame) => {
+        let destFrame = targetLayer.getFrameAtPlayheadPosition(srcFrame.startPos);
+        if (!destFrame) {
+          destFrame = new window.Wick.Frame({ startPos: srcFrame.startPos, duration: srcFrame.duration });
+          targetLayer.addFrame(destFrame);
+        }
+        const children = srcFrame.getChildren ? [...srcFrame.getChildren()] : [];
+        children.forEach((c) => {
+          srcFrame.removeChild(c);
+          destFrame.addChild(c);
+        });
+      });
+      activeTimeline.removeLayer(layer);
+      activeTimeline.activeLayerIndex = currentIdx - 1;
+      if (this.props.project.view) this.props.project.view.render();
+      if (this.props.projectDidChange) {
+        this.props.projectDidChange({ actionName: 'Merge Layer Down' });
+      }
     }
-    else {
-      newCollapsedUUIDs[object.uuid] = true;
+    this.handleCloseMenu();
+  };
+
+  handleDeleteLayer = () => {
+    const layer = this.state.menuLayer;
+    const activeTimeline = this.props.project && this.props.project.activeTimeline;
+    if (!layer || !activeTimeline) return;
+    if (activeTimeline.layers.length > 1) {
+      activeTimeline.removeLayer(layer);
+      if (this.props.project.view) this.props.project.view.render();
+      if (this.props.projectDidChange) {
+        this.props.projectDidChange({ actionName: 'Delete Layer' });
+      }
     }
-    this.setState({collapsedUUIDs: newCollapsedUUIDs});
-  }
+    this.handleCloseMenu();
+  };
+
+  handleChangeBackgroundColor = (col) => {
+    if (this.props.updateProjectSettings) {
+      this.props.updateProjectSettings({
+        backgroundColor: new window.Wick.Color(col),
+      });
+    } else if (this.props.project) {
+      this.props.project.backgroundColor = new window.Wick.Color(col);
+      if (this.props.projectDidChange) {
+        this.props.projectDidChange({ actionName: 'Update Background Color' });
+      }
+    }
+  };
 
   render() {
-      var timelineHierarchy = [this.props.project.activeTimeline];
-      while (timelineHierarchy[0].parentTimeline !== null) {
-          timelineHierarchy.unshift(timelineHierarchy[0].parentTimeline);
-      }
+    const project = this.props.project;
+    if (!project || !project.activeTimeline) return null;
 
-      return (
-      <div className={classNames("docked-pane outliner", this.props.className)} aria-label="Outliner">
-          <div className="outliner-title-container">
-            <OutlinerTitle/>
-          </div>
+    const activeTimeline = project.activeTimeline;
+    const layers = activeTimeline.layers || [];
+    // Display in reverse order (top layer at top of stack, matching Procreate)
+    const reversedLayers = [...layers].reverse();
+    const activeIndex = activeTimeline.activeLayerIndex;
 
-          <div className="outliner-body">
+    const bgColorHex = (project.backgroundColor && (project.backgroundColor.hex || project.backgroundColor.rgba)) || '#ffffff';
 
-            <div className="outliner-item">
-                <OutlinerDisplay
-                tooltip="Display"
-                display={this.state.display}
-                onChange={(val) => {this.setState({"display": val});}}
-                />
+    return (
+      <div className={classNames("docked-pane outliner procreate-layers-panel", this.props.className)} aria-label="Layers">
+        {/* Header matching Procreate: 'Layers' title and '+' button */}
+        <div className="procreate-layers-header">
+          <span className="procreate-layers-title">Layers</span>
+          <button
+            className="procreate-layers-add-btn"
+            onClick={this.handleAddLayer}
+            title="Add Layer"
+            aria-label="Add Layer"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+
+        {/* Main layout */}
+        <div className="procreate-layers-main-layout" onClick={this.handleCloseMenu}>
+          {/* Layer Action Menu Flyout */}
+          {this.state.menuLayer && (
+            <div className="procreate-layer-action-menu" onClick={(e) => e.stopPropagation()}>
+              <div className="action-menu-item" onClick={this.handleRename}>Rename</div>
+              <div className="action-menu-item" onClick={this.handleSelectObjects}>Select</div>
+              <div className="action-menu-item" onClick={this.handleCopyLayer}>Copy</div>
+              <div className="action-menu-item" onClick={this.handleFillLayer}>Fill Layer</div>
+              <div className="action-menu-item" onClick={this.handleClearLayer}>Clear</div>
+              <div className="action-menu-item disabled">Alpha Lock</div>
+              <div className="action-menu-item disabled">Mask</div>
+              <div className="action-menu-item" onClick={this.handleInvertLayer}>Invert</div>
+              <div className="action-menu-item disabled">Reference</div>
+              <div
+                className={classNames('action-menu-item', activeTimeline.layers.indexOf(this.state.menuLayer) <= 0 && 'disabled')}
+                onClick={this.handleMergeDown}
+              >
+                Merge Down
+              </div>
+              <div className="action-menu-item disabled">Combine Down</div>
+              {activeTimeline.layers.length > 1 && (
+                <div className="action-menu-item delete-action" onClick={this.handleDeleteLayer}>Delete</div>
+              )}
             </div>
+          )}
 
-            <div className="outliner-item">
-            {this.props.project.activeTimeline.getChildren().map((layer, i) => {
-                return (
-                <OutlinerObject
-                key={layer.uuid}
-                clearSelection={this.props.clearSelection}
-                selectObjects={this.props.selectObjects}
-                editScript={this.props.editScript}
-                playhead={this.props.project.activeTimeline.playheadPosition}
-                depth={1}
-                maxDepth={this.maxDepth}
-                display={this.state.display}
-                highlighted={this.state.highlighted}
-                toggle={(e, indices, property) => {
-                    indices.unshift(i);
-                    if (property === 'select') {
-                        this.select(e, indices);
-                    }
-                    else if (property === 'dropdown') {
-                        this.toggleDropdown(e, indices);
-                    }
-                    else if (property === 'locked') {
-                        let layer = this.getObjectAtIndices(this.props.project.activeTimeline, indices, indices.length);
-                        this.props.toggleLocked(layer);
-                    }
-                    else if (property === 'hidden') {
-                        let layer = this.getObjectAtIndices(this.props.project.activeTimeline, indices, indices.length);
-                        this.props.toggleHidden(layer);
-                    }
-                }}
-                data={layer}
-                isActive={this.isActive}
-                collapsedUUIDs={this.state.collapsedUUIDs}
-                dragging={this.state.dragging}
-                setDragging={(d) => {this.setState({dragging: d})}}
-                setFocusObject={this.props.setFocusObject}
-                setActiveLayerIndex={this.props.setActiveLayerIndex}
-                moveSelection={this.props.moveSelection}
-                />
-                )
+          {/* Layer Items List */}
+          <div className="procreate-layers-list">
+            {reversedLayers.map((layer) => {
+              const isSelected = layer.index === activeIndex;
+              const isRenaming = this.state.renamingLayerUuid === layer.uuid;
+              const isVisible = !layer.hidden;
+
+              return (
+                <div
+                  key={layer.uuid}
+                  className={classNames('procreate-layer-row', { selected: isSelected })}
+                  onClick={(e) => this.handleSelectLayer(layer, e)}
+                >
+                  {/* Layer Thumbnail */}
+                  <div
+                    className="layer-thumbnail"
+                    onClick={(e) => this.handleOpenMenu(layer, e)}
+                    title="Layer Options"
+                  >
+                    <div className="thumbnail-inner">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Layer Name / Renaming Input */}
+                  <div className="layer-name-container">
+                    {isRenaming ? (
+                      <input
+                        type="text"
+                        className="layer-name-input"
+                        autoFocus
+                        value={this.state.renamingName}
+                        onChange={(e) => this.setState({ renamingName: e.target.value })}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') this.commitRename(layer);
+                          if (e.key === 'Escape') this.setState({ renamingLayerUuid: null });
+                        }}
+                        onBlur={() => this.commitRename(layer)}
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    ) : (
+                      <span className="layer-name-text">
+                        {layer.name || `Layer ${layer.index + 1}`}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Blend Mode Badge ('N' for Normal) */}
+                  <div className="layer-mode-badge" title="Blend Mode: Normal">
+                    N
+                  </div>
+
+                  {/* Visibility Checkbox */}
+                  <div
+                    className="layer-visibility-container"
+                    onClick={(e) => this.handleToggleVisibility(layer, e)}
+                    title={isVisible ? 'Hide Layer' : 'Show Layer'}
+                  >
+                    <div className={classNames('layer-checkbox', { checked: isVisible })}>
+                      {isVisible && (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
             })}
+
+            {/* Background Color Row */}
+            <div className="procreate-layer-row background-color-row">
+              {/* Swatch thumbnail */}
+              <div
+                id="outliner-bg-color-swatch"
+                className="layer-thumbnail bg-swatch-thumbnail"
+                style={{ backgroundColor: bgColorHex }}
+                onClick={() => this.setState({ bgColorPickerOpen: !this.state.bgColorPickerOpen })}
+                title="Change Background Color"
+              />
+
+              <div
+                className="layer-name-container"
+                onClick={() => this.setState({ bgColorPickerOpen: !this.state.bgColorPickerOpen })}
+              >
+                <span className="layer-name-text">Background color</span>
+              </div>
+
+              {/* Popover for background color picker */}
+              <Popover
+                placement="left"
+                isOpen={this.state.bgColorPickerOpen}
+                toggle={() => this.setState({ bgColorPickerOpen: !this.state.bgColorPickerOpen })}
+                target="outliner-bg-color-swatch"
+                className="procreate-bg-color-popover"
+              >
+                <div className="p-2" onClick={(e) => e.stopPropagation()}>
+                  <WickColorPicker
+                    color={bgColorHex}
+                    colorPickerType="swatches"
+                    changeColorPickerType={() => {}}
+                    onChangeComplete={(c) => this.handleChangeBackgroundColor(c)}
+                    toggle={() => this.setState({ bgColorPickerOpen: false })}
+                  />
+                </div>
+              </Popover>
+
+              {/* Background visibility checkbox */}
+              <div className="layer-visibility-container">
+                <div className="layer-checkbox checked">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
-      </div>);
+        </div>
+      </div>
+    );
   }
 }
 
-export default Outliner
+export default Outliner;

@@ -1,5 +1,5 @@
 /*Wick Engine https://github.com/Wicklets/wick-engine*/
-var WICK_ENGINE_BUILD_VERSION = "2026.3.29.21.49.12";
+var WICK_ENGINE_BUILD_VERSION = "2026.10.2.22.15.49";
 /*!
  * Paper.js v0.12.4 - The Swiss Army Knife of Vector Graphics Scripting.
  * http://paperjs.org/
@@ -17384,7 +17384,7 @@ if (typeof define === 'function' && define.amd) {
 return paper;
 }.call(this, typeof self === 'object' ? self : null);
 
-;/*
+/*
  * 
  * @license base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer
@@ -17458,11 +17458,11 @@ var Base64ArrayBuffer = (function () {
 
 })();
 
-;// @license https://stackoverflow.com/questions/14224535/scaling-between-two-number-ranges
+// @license https://stackoverflow.com/questions/14224535/scaling-between-two-number-ranges
 function convertRange( value, r1, r2 ) { 
     return ( value - r1[ 0 ] ) * ( r2[ 1 ] - r2[ 0 ] ) / ( r1[ 1 ] - r1[ 0 ] ) + r2[ 0 ];
 }
-;/* @license croquis.js */
+/* @license croquis.js */
 /* https://github.com/disjukr/croquis.js/tree/master */
 
 function Croquis(imageDataList, properties) {
@@ -19013,7 +19013,7 @@ Croquis.Brush = function () {
     };
 };
 
-;/**
+/**
  * @license
  * @fileoverview Implement 'currentTransform' of CanvasRenderingContext2D prototype (polyfill)
  * @author Stefan Goessner (c) 2015
@@ -19163,7 +19163,7 @@ if (!("currentTransform" in CanvasRenderingContext2D.prototype)) {
    }
 }
 
-;/**
+/**
  * @license esprima.js
  * Copyright JS Foundation and other contributors, https://js.foundation/
  * 
@@ -25897,7 +25897,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-;	/**
+	/**
 	 * @license floodfill Copyright(c) Max Irwin - 2011, 2015, 2016
 	 * MIT License
 	 */
@@ -26046,7 +26046,7 @@ var floodfill = (function() {
 
 })();
 
-;/**
+/**
  * @license howler.js 
  * howler.js v2.1.1
  *  howlerjs.com
@@ -29183,7 +29183,7 @@ var floodfill = (function() {
   };
 })();
 
-;// Copyright (c) 2014-2019, Andrii Heonia
+// Copyright (c) 2014-2019, Andrii Heonia
 // All rights reserved.
 
 // Redistribution and use in source and binary forms, with or without
@@ -29582,10 +29582,10 @@ module.exports = intersect;
 },{}]},{},[4])(4)
 });
 
-;/*! @license MIT. https://github.com/onury/invert-color */
+/*! @license MIT. https://github.com/onury/invert-color */
 !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define("invert",[],t):"object"==typeof exports?exports.invert=t():e.invert=t()}(this,function(){return function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="lib/",r(r.s=0)}([function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=Math.sqrt(1.05*.05)-.05,o=/^(?:[0-9a-f]{3}){1,2}$/i,i={black:"#000000",white:"#ffffff"};function u(e){if("#"===e.slice(0,1)&&(e=e.slice(1)),!o.test(e))throw new Error('Invalid HEX color: "'+e+'"');return 3===e.length&&(e=e[0]+e[0]+e[1]+e[1]+e[2]+e[2]),[parseInt(e.slice(0,2),16),parseInt(e.slice(2,4),16),parseInt(e.slice(4,6),16)]}function f(e){if(!e)throw new Error("Invalid color value");return Array.isArray(e)?e:"string"==typeof e?u(e):[e.r,e.g,e.b]}function c(e,t,r){var o=!0===t?i:Object.assign({},i,t);return function(e){var t,r,n=[];for(t=0;t<e.length;t++)r=e[t]/255,n[t]=r<=.03928?r/12.92:Math.pow((r+.055)/1.055,2.4);return.2126*n[0]+.7152*n[1]+.0722*n[2]}(e)>n?r?u(o.black):o.black:r?u(o.white):o.white}function a(e,t){return void 0===t&&(t=!1),e=f(e),t?c(e,t):"#"+e.map(function(e){return t=(255-e).toString(16),void 0===r&&(r=2),(new Array(r).join("0")+t).slice(-r);var t,r}).join("")}t.invert=a,function(e){function t(e,t){void 0===t&&(t=!1),e=f(e);var r,n=t?c(e,t,!0):e.map(function(e){return 255-e});return{r:(r=n)[0],g:r[1],b:r[2]}}e.asRGB=t,e.asRgbArray=function(e,t){return void 0===t&&(t=!1),e=f(e),t?c(e,t,!0):e.map(function(e){return 255-e})},e.asRgbObject=t}(a||(a={})),t.invert=a,t.default=a}]).default});
 
-;'use strict';
+'use strict';
 
 /**
  * @license is-var-name | ISC (c) Shinnosuke Watanabe
@@ -29608,10 +29608,10 @@ function isVarName(str) {
 
 	return true;
 }
-;/*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org/license */
+/*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org/license */
 !function(e,t){"use strict";"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?t(e,!0):function(e){if(!e.document)throw new Error("jQuery requires a window with a document");return t(e)}:t(e)}("undefined"!=typeof window?window:this,function(e,t){"use strict";var n=[],r=e.document,i=Object.getPrototypeOf,o=n.slice,a=n.concat,s=n.push,u=n.indexOf,l={},c=l.toString,f=l.hasOwnProperty,p=f.toString,d=p.call(Object),h={},g=function e(t){return"function"==typeof t&&"number"!=typeof t.nodeType},y=function e(t){return null!=t&&t===t.window},v={type:!0,src:!0,noModule:!0};function m(e,t,n){var i,o=(t=t||r).createElement("script");if(o.text=e,n)for(i in v)n[i]&&(o[i]=n[i]);t.head.appendChild(o).parentNode.removeChild(o)}function x(e){return null==e?e+"":"object"==typeof e||"function"==typeof e?l[c.call(e)]||"object":typeof e}var b="3.3.1",w=function(e,t){return new w.fn.init(e,t)},T=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;w.fn=w.prototype={jquery:"3.3.1",constructor:w,length:0,toArray:function(){return o.call(this)},get:function(e){return null==e?o.call(this):e<0?this[e+this.length]:this[e]},pushStack:function(e){var t=w.merge(this.constructor(),e);return t.prevObject=this,t},each:function(e){return w.each(this,e)},map:function(e){return this.pushStack(w.map(this,function(t,n){return e.call(t,n,t)}))},slice:function(){return this.pushStack(o.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(e){var t=this.length,n=+e+(e<0?t:0);return this.pushStack(n>=0&&n<t?[this[n]]:[])},end:function(){return this.prevObject||this.constructor()},push:s,sort:n.sort,splice:n.splice},w.extend=w.fn.extend=function(){var e,t,n,r,i,o,a=arguments[0]||{},s=1,u=arguments.length,l=!1;for("boolean"==typeof a&&(l=a,a=arguments[s]||{},s++),"object"==typeof a||g(a)||(a={}),s===u&&(a=this,s--);s<u;s++)if(null!=(e=arguments[s]))for(t in e)n=a[t],a!==(r=e[t])&&(l&&r&&(w.isPlainObject(r)||(i=Array.isArray(r)))?(i?(i=!1,o=n&&Array.isArray(n)?n:[]):o=n&&w.isPlainObject(n)?n:{},a[t]=w.extend(l,o,r)):void 0!==r&&(a[t]=r));return a},w.extend({expando:"jQuery"+("3.3.1"+Math.random()).replace(/\D/g,""),isReady:!0,error:function(e){throw new Error(e)},noop:function(){},isPlainObject:function(e){var t,n;return!(!e||"[object Object]"!==c.call(e))&&(!(t=i(e))||"function"==typeof(n=f.call(t,"constructor")&&t.constructor)&&p.call(n)===d)},isEmptyObject:function(e){var t;for(t in e)return!1;return!0},globalEval:function(e){m(e)},each:function(e,t){var n,r=0;if(C(e)){for(n=e.length;r<n;r++)if(!1===t.call(e[r],r,e[r]))break}else for(r in e)if(!1===t.call(e[r],r,e[r]))break;return e},trim:function(e){return null==e?"":(e+"").replace(T,"")},makeArray:function(e,t){var n=t||[];return null!=e&&(C(Object(e))?w.merge(n,"string"==typeof e?[e]:e):s.call(n,e)),n},inArray:function(e,t,n){return null==t?-1:u.call(t,e,n)},merge:function(e,t){for(var n=+t.length,r=0,i=e.length;r<n;r++)e[i++]=t[r];return e.length=i,e},grep:function(e,t,n){for(var r,i=[],o=0,a=e.length,s=!n;o<a;o++)(r=!t(e[o],o))!==s&&i.push(e[o]);return i},map:function(e,t,n){var r,i,o=0,s=[];if(C(e))for(r=e.length;o<r;o++)null!=(i=t(e[o],o,n))&&s.push(i);else for(o in e)null!=(i=t(e[o],o,n))&&s.push(i);return a.apply([],s)},guid:1,support:h}),"function"==typeof Symbol&&(w.fn[Symbol.iterator]=n[Symbol.iterator]),w.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "),function(e,t){l["[object "+t+"]"]=t.toLowerCase()});function C(e){var t=!!e&&"length"in e&&e.length,n=x(e);return!g(e)&&!y(e)&&("array"===n||0===t||"number"==typeof t&&t>0&&t-1 in e)}var E=function(e){var t,n,r,i,o,a,s,u,l,c,f,p,d,h,g,y,v,m,x,b="sizzle"+1*new Date,w=e.document,T=0,C=0,E=ae(),k=ae(),S=ae(),D=function(e,t){return e===t&&(f=!0),0},N={}.hasOwnProperty,A=[],j=A.pop,q=A.push,L=A.push,H=A.slice,O=function(e,t){for(var n=0,r=e.length;n<r;n++)if(e[n]===t)return n;return-1},P="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",M="[\\x20\\t\\r\\n\\f]",R="(?:\\\\.|[\\w-]|[^\0-\\xa0])+",I="\\["+M+"*("+R+")(?:"+M+"*([*^$|!~]?=)"+M+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+R+"))|)"+M+"*\\]",W=":("+R+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+I+")*)|.*)\\)|)",$=new RegExp(M+"+","g"),B=new RegExp("^"+M+"+|((?:^|[^\\\\])(?:\\\\.)*)"+M+"+$","g"),F=new RegExp("^"+M+"*,"+M+"*"),_=new RegExp("^"+M+"*([>+~]|"+M+")"+M+"*"),z=new RegExp("="+M+"*([^\\]'\"]*?)"+M+"*\\]","g"),X=new RegExp(W),U=new RegExp("^"+R+"$"),V={ID:new RegExp("^#("+R+")"),CLASS:new RegExp("^\\.("+R+")"),TAG:new RegExp("^("+R+"|[*])"),ATTR:new RegExp("^"+I),PSEUDO:new RegExp("^"+W),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+M+"*(even|odd|(([+-]|)(\\d*)n|)"+M+"*(?:([+-]|)"+M+"*(\\d+)|))"+M+"*\\)|)","i"),bool:new RegExp("^(?:"+P+")$","i"),needsContext:new RegExp("^"+M+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+M+"*((?:-\\d)?\\d*)"+M+"*\\)|)(?=[^-]|$)","i")},G=/^(?:input|select|textarea|button)$/i,Y=/^h\d$/i,Q=/^[^{]+\{\s*\[native \w/,J=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,K=/[+~]/,Z=new RegExp("\\\\([\\da-f]{1,6}"+M+"?|("+M+")|.)","ig"),ee=function(e,t,n){var r="0x"+t-65536;return r!==r||n?t:r<0?String.fromCharCode(r+65536):String.fromCharCode(r>>10|55296,1023&r|56320)},te=/([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g,ne=function(e,t){return t?"\0"===e?"\ufffd":e.slice(0,-1)+"\\"+e.charCodeAt(e.length-1).toString(16)+" ":"\\"+e},re=function(){p()},ie=me(function(e){return!0===e.disabled&&("form"in e||"label"in e)},{dir:"parentNode",next:"legend"});try{L.apply(A=H.call(w.childNodes),w.childNodes),A[w.childNodes.length].nodeType}catch(e){L={apply:A.length?function(e,t){q.apply(e,H.call(t))}:function(e,t){var n=e.length,r=0;while(e[n++]=t[r++]);e.length=n-1}}}function oe(e,t,r,i){var o,s,l,c,f,h,v,m=t&&t.ownerDocument,T=t?t.nodeType:9;if(r=r||[],"string"!=typeof e||!e||1!==T&&9!==T&&11!==T)return r;if(!i&&((t?t.ownerDocument||t:w)!==d&&p(t),t=t||d,g)){if(11!==T&&(f=J.exec(e)))if(o=f[1]){if(9===T){if(!(l=t.getElementById(o)))return r;if(l.id===o)return r.push(l),r}else if(m&&(l=m.getElementById(o))&&x(t,l)&&l.id===o)return r.push(l),r}else{if(f[2])return L.apply(r,t.getElementsByTagName(e)),r;if((o=f[3])&&n.getElementsByClassName&&t.getElementsByClassName)return L.apply(r,t.getElementsByClassName(o)),r}if(n.qsa&&!S[e+" "]&&(!y||!y.test(e))){if(1!==T)m=t,v=e;else if("object"!==t.nodeName.toLowerCase()){(c=t.getAttribute("id"))?c=c.replace(te,ne):t.setAttribute("id",c=b),s=(h=a(e)).length;while(s--)h[s]="#"+c+" "+ve(h[s]);v=h.join(","),m=K.test(e)&&ge(t.parentNode)||t}if(v)try{return L.apply(r,m.querySelectorAll(v)),r}catch(e){}finally{c===b&&t.removeAttribute("id")}}}return u(e.replace(B,"$1"),t,r,i)}function ae(){var e=[];function t(n,i){return e.push(n+" ")>r.cacheLength&&delete t[e.shift()],t[n+" "]=i}return t}function se(e){return e[b]=!0,e}function ue(e){var t=d.createElement("fieldset");try{return!!e(t)}catch(e){return!1}finally{t.parentNode&&t.parentNode.removeChild(t),t=null}}function le(e,t){var n=e.split("|"),i=n.length;while(i--)r.attrHandle[n[i]]=t}function ce(e,t){var n=t&&e,r=n&&1===e.nodeType&&1===t.nodeType&&e.sourceIndex-t.sourceIndex;if(r)return r;if(n)while(n=n.nextSibling)if(n===t)return-1;return e?1:-1}function fe(e){return function(t){return"input"===t.nodeName.toLowerCase()&&t.type===e}}function pe(e){return function(t){var n=t.nodeName.toLowerCase();return("input"===n||"button"===n)&&t.type===e}}function de(e){return function(t){return"form"in t?t.parentNode&&!1===t.disabled?"label"in t?"label"in t.parentNode?t.parentNode.disabled===e:t.disabled===e:t.isDisabled===e||t.isDisabled!==!e&&ie(t)===e:t.disabled===e:"label"in t&&t.disabled===e}}function he(e){return se(function(t){return t=+t,se(function(n,r){var i,o=e([],n.length,t),a=o.length;while(a--)n[i=o[a]]&&(n[i]=!(r[i]=n[i]))})})}function ge(e){return e&&"undefined"!=typeof e.getElementsByTagName&&e}n=oe.support={},o=oe.isXML=function(e){var t=e&&(e.ownerDocument||e).documentElement;return!!t&&"HTML"!==t.nodeName},p=oe.setDocument=function(e){var t,i,a=e?e.ownerDocument||e:w;return a!==d&&9===a.nodeType&&a.documentElement?(d=a,h=d.documentElement,g=!o(d),w!==d&&(i=d.defaultView)&&i.top!==i&&(i.addEventListener?i.addEventListener("unload",re,!1):i.attachEvent&&i.attachEvent("onunload",re)),n.attributes=ue(function(e){return e.className="i",!e.getAttribute("className")}),n.getElementsByTagName=ue(function(e){return e.appendChild(d.createComment("")),!e.getElementsByTagName("*").length}),n.getElementsByClassName=Q.test(d.getElementsByClassName),n.getById=ue(function(e){return h.appendChild(e).id=b,!d.getElementsByName||!d.getElementsByName(b).length}),n.getById?(r.filter.ID=function(e){var t=e.replace(Z,ee);return function(e){return e.getAttribute("id")===t}},r.find.ID=function(e,t){if("undefined"!=typeof t.getElementById&&g){var n=t.getElementById(e);return n?[n]:[]}}):(r.filter.ID=function(e){var t=e.replace(Z,ee);return function(e){var n="undefined"!=typeof e.getAttributeNode&&e.getAttributeNode("id");return n&&n.value===t}},r.find.ID=function(e,t){if("undefined"!=typeof t.getElementById&&g){var n,r,i,o=t.getElementById(e);if(o){if((n=o.getAttributeNode("id"))&&n.value===e)return[o];i=t.getElementsByName(e),r=0;while(o=i[r++])if((n=o.getAttributeNode("id"))&&n.value===e)return[o]}return[]}}),r.find.TAG=n.getElementsByTagName?function(e,t){return"undefined"!=typeof t.getElementsByTagName?t.getElementsByTagName(e):n.qsa?t.querySelectorAll(e):void 0}:function(e,t){var n,r=[],i=0,o=t.getElementsByTagName(e);if("*"===e){while(n=o[i++])1===n.nodeType&&r.push(n);return r}return o},r.find.CLASS=n.getElementsByClassName&&function(e,t){if("undefined"!=typeof t.getElementsByClassName&&g)return t.getElementsByClassName(e)},v=[],y=[],(n.qsa=Q.test(d.querySelectorAll))&&(ue(function(e){h.appendChild(e).innerHTML="<a id='"+b+"'></a><select id='"+b+"-\r\\' msallowcapture=''><option selected=''></option></select>",e.querySelectorAll("[msallowcapture^='']").length&&y.push("[*^$]="+M+"*(?:''|\"\")"),e.querySelectorAll("[selected]").length||y.push("\\["+M+"*(?:value|"+P+")"),e.querySelectorAll("[id~="+b+"-]").length||y.push("~="),e.querySelectorAll(":checked").length||y.push(":checked"),e.querySelectorAll("a#"+b+"+*").length||y.push(".#.+[+~]")}),ue(function(e){e.innerHTML="<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";var t=d.createElement("input");t.setAttribute("type","hidden"),e.appendChild(t).setAttribute("name","D"),e.querySelectorAll("[name=d]").length&&y.push("name"+M+"*[*^$|!~]?="),2!==e.querySelectorAll(":enabled").length&&y.push(":enabled",":disabled"),h.appendChild(e).disabled=!0,2!==e.querySelectorAll(":disabled").length&&y.push(":enabled",":disabled"),e.querySelectorAll("*,:x"),y.push(",.*:")})),(n.matchesSelector=Q.test(m=h.matches||h.webkitMatchesSelector||h.mozMatchesSelector||h.oMatchesSelector||h.msMatchesSelector))&&ue(function(e){n.disconnectedMatch=m.call(e,"*"),m.call(e,"[s!='']:x"),v.push("!=",W)}),y=y.length&&new RegExp(y.join("|")),v=v.length&&new RegExp(v.join("|")),t=Q.test(h.compareDocumentPosition),x=t||Q.test(h.contains)?function(e,t){var n=9===e.nodeType?e.documentElement:e,r=t&&t.parentNode;return e===r||!(!r||1!==r.nodeType||!(n.contains?n.contains(r):e.compareDocumentPosition&&16&e.compareDocumentPosition(r)))}:function(e,t){if(t)while(t=t.parentNode)if(t===e)return!0;return!1},D=t?function(e,t){if(e===t)return f=!0,0;var r=!e.compareDocumentPosition-!t.compareDocumentPosition;return r||(1&(r=(e.ownerDocument||e)===(t.ownerDocument||t)?e.compareDocumentPosition(t):1)||!n.sortDetached&&t.compareDocumentPosition(e)===r?e===d||e.ownerDocument===w&&x(w,e)?-1:t===d||t.ownerDocument===w&&x(w,t)?1:c?O(c,e)-O(c,t):0:4&r?-1:1)}:function(e,t){if(e===t)return f=!0,0;var n,r=0,i=e.parentNode,o=t.parentNode,a=[e],s=[t];if(!i||!o)return e===d?-1:t===d?1:i?-1:o?1:c?O(c,e)-O(c,t):0;if(i===o)return ce(e,t);n=e;while(n=n.parentNode)a.unshift(n);n=t;while(n=n.parentNode)s.unshift(n);while(a[r]===s[r])r++;return r?ce(a[r],s[r]):a[r]===w?-1:s[r]===w?1:0},d):d},oe.matches=function(e,t){return oe(e,null,null,t)},oe.matchesSelector=function(e,t){if((e.ownerDocument||e)!==d&&p(e),t=t.replace(z,"='$1']"),n.matchesSelector&&g&&!S[t+" "]&&(!v||!v.test(t))&&(!y||!y.test(t)))try{var r=m.call(e,t);if(r||n.disconnectedMatch||e.document&&11!==e.document.nodeType)return r}catch(e){}return oe(t,d,null,[e]).length>0},oe.contains=function(e,t){return(e.ownerDocument||e)!==d&&p(e),x(e,t)},oe.attr=function(e,t){(e.ownerDocument||e)!==d&&p(e);var i=r.attrHandle[t.toLowerCase()],o=i&&N.call(r.attrHandle,t.toLowerCase())?i(e,t,!g):void 0;return void 0!==o?o:n.attributes||!g?e.getAttribute(t):(o=e.getAttributeNode(t))&&o.specified?o.value:null},oe.escape=function(e){return(e+"").replace(te,ne)},oe.error=function(e){throw new Error("Syntax error, unrecognized expression: "+e)},oe.uniqueSort=function(e){var t,r=[],i=0,o=0;if(f=!n.detectDuplicates,c=!n.sortStable&&e.slice(0),e.sort(D),f){while(t=e[o++])t===e[o]&&(i=r.push(o));while(i--)e.splice(r[i],1)}return c=null,e},i=oe.getText=function(e){var t,n="",r=0,o=e.nodeType;if(o){if(1===o||9===o||11===o){if("string"==typeof e.textContent)return e.textContent;for(e=e.firstChild;e;e=e.nextSibling)n+=i(e)}else if(3===o||4===o)return e.nodeValue}else while(t=e[r++])n+=i(t);return n},(r=oe.selectors={cacheLength:50,createPseudo:se,match:V,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(e){return e[1]=e[1].replace(Z,ee),e[3]=(e[3]||e[4]||e[5]||"").replace(Z,ee),"~="===e[2]&&(e[3]=" "+e[3]+" "),e.slice(0,4)},CHILD:function(e){return e[1]=e[1].toLowerCase(),"nth"===e[1].slice(0,3)?(e[3]||oe.error(e[0]),e[4]=+(e[4]?e[5]+(e[6]||1):2*("even"===e[3]||"odd"===e[3])),e[5]=+(e[7]+e[8]||"odd"===e[3])):e[3]&&oe.error(e[0]),e},PSEUDO:function(e){var t,n=!e[6]&&e[2];return V.CHILD.test(e[0])?null:(e[3]?e[2]=e[4]||e[5]||"":n&&X.test(n)&&(t=a(n,!0))&&(t=n.indexOf(")",n.length-t)-n.length)&&(e[0]=e[0].slice(0,t),e[2]=n.slice(0,t)),e.slice(0,3))}},filter:{TAG:function(e){var t=e.replace(Z,ee).toLowerCase();return"*"===e?function(){return!0}:function(e){return e.nodeName&&e.nodeName.toLowerCase()===t}},CLASS:function(e){var t=E[e+" "];return t||(t=new RegExp("(^|"+M+")"+e+"("+M+"|$)"))&&E(e,function(e){return t.test("string"==typeof e.className&&e.className||"undefined"!=typeof e.getAttribute&&e.getAttribute("class")||"")})},ATTR:function(e,t,n){return function(r){var i=oe.attr(r,e);return null==i?"!="===t:!t||(i+="","="===t?i===n:"!="===t?i!==n:"^="===t?n&&0===i.indexOf(n):"*="===t?n&&i.indexOf(n)>-1:"$="===t?n&&i.slice(-n.length)===n:"~="===t?(" "+i.replace($," ")+" ").indexOf(n)>-1:"|="===t&&(i===n||i.slice(0,n.length+1)===n+"-"))}},CHILD:function(e,t,n,r,i){var o="nth"!==e.slice(0,3),a="last"!==e.slice(-4),s="of-type"===t;return 1===r&&0===i?function(e){return!!e.parentNode}:function(t,n,u){var l,c,f,p,d,h,g=o!==a?"nextSibling":"previousSibling",y=t.parentNode,v=s&&t.nodeName.toLowerCase(),m=!u&&!s,x=!1;if(y){if(o){while(g){p=t;while(p=p[g])if(s?p.nodeName.toLowerCase()===v:1===p.nodeType)return!1;h=g="only"===e&&!h&&"nextSibling"}return!0}if(h=[a?y.firstChild:y.lastChild],a&&m){x=(d=(l=(c=(f=(p=y)[b]||(p[b]={}))[p.uniqueID]||(f[p.uniqueID]={}))[e]||[])[0]===T&&l[1])&&l[2],p=d&&y.childNodes[d];while(p=++d&&p&&p[g]||(x=d=0)||h.pop())if(1===p.nodeType&&++x&&p===t){c[e]=[T,d,x];break}}else if(m&&(x=d=(l=(c=(f=(p=t)[b]||(p[b]={}))[p.uniqueID]||(f[p.uniqueID]={}))[e]||[])[0]===T&&l[1]),!1===x)while(p=++d&&p&&p[g]||(x=d=0)||h.pop())if((s?p.nodeName.toLowerCase()===v:1===p.nodeType)&&++x&&(m&&((c=(f=p[b]||(p[b]={}))[p.uniqueID]||(f[p.uniqueID]={}))[e]=[T,x]),p===t))break;return(x-=i)===r||x%r==0&&x/r>=0}}},PSEUDO:function(e,t){var n,i=r.pseudos[e]||r.setFilters[e.toLowerCase()]||oe.error("unsupported pseudo: "+e);return i[b]?i(t):i.length>1?(n=[e,e,"",t],r.setFilters.hasOwnProperty(e.toLowerCase())?se(function(e,n){var r,o=i(e,t),a=o.length;while(a--)e[r=O(e,o[a])]=!(n[r]=o[a])}):function(e){return i(e,0,n)}):i}},pseudos:{not:se(function(e){var t=[],n=[],r=s(e.replace(B,"$1"));return r[b]?se(function(e,t,n,i){var o,a=r(e,null,i,[]),s=e.length;while(s--)(o=a[s])&&(e[s]=!(t[s]=o))}):function(e,i,o){return t[0]=e,r(t,null,o,n),t[0]=null,!n.pop()}}),has:se(function(e){return function(t){return oe(e,t).length>0}}),contains:se(function(e){return e=e.replace(Z,ee),function(t){return(t.textContent||t.innerText||i(t)).indexOf(e)>-1}}),lang:se(function(e){return U.test(e||"")||oe.error("unsupported lang: "+e),e=e.replace(Z,ee).toLowerCase(),function(t){var n;do{if(n=g?t.lang:t.getAttribute("xml:lang")||t.getAttribute("lang"))return(n=n.toLowerCase())===e||0===n.indexOf(e+"-")}while((t=t.parentNode)&&1===t.nodeType);return!1}}),target:function(t){var n=e.location&&e.location.hash;return n&&n.slice(1)===t.id},root:function(e){return e===h},focus:function(e){return e===d.activeElement&&(!d.hasFocus||d.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},enabled:de(!1),disabled:de(!0),checked:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&!!e.checked||"option"===t&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,!0===e.selected},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeType<6)return!1;return!0},parent:function(e){return!r.pseudos.empty(e)},header:function(e){return Y.test(e.nodeName)},input:function(e){return G.test(e.nodeName)},button:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&"button"===e.type||"button"===t},text:function(e){var t;return"input"===e.nodeName.toLowerCase()&&"text"===e.type&&(null==(t=e.getAttribute("type"))||"text"===t.toLowerCase())},first:he(function(){return[0]}),last:he(function(e,t){return[t-1]}),eq:he(function(e,t,n){return[n<0?n+t:n]}),even:he(function(e,t){for(var n=0;n<t;n+=2)e.push(n);return e}),odd:he(function(e,t){for(var n=1;n<t;n+=2)e.push(n);return e}),lt:he(function(e,t,n){for(var r=n<0?n+t:n;--r>=0;)e.push(r);return e}),gt:he(function(e,t,n){for(var r=n<0?n+t:n;++r<t;)e.push(r);return e})}}).pseudos.nth=r.pseudos.eq;for(t in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})r.pseudos[t]=fe(t);for(t in{submit:!0,reset:!0})r.pseudos[t]=pe(t);function ye(){}ye.prototype=r.filters=r.pseudos,r.setFilters=new ye,a=oe.tokenize=function(e,t){var n,i,o,a,s,u,l,c=k[e+" "];if(c)return t?0:c.slice(0);s=e,u=[],l=r.preFilter;while(s){n&&!(i=F.exec(s))||(i&&(s=s.slice(i[0].length)||s),u.push(o=[])),n=!1,(i=_.exec(s))&&(n=i.shift(),o.push({value:n,type:i[0].replace(B," ")}),s=s.slice(n.length));for(a in r.filter)!(i=V[a].exec(s))||l[a]&&!(i=l[a](i))||(n=i.shift(),o.push({value:n,type:a,matches:i}),s=s.slice(n.length));if(!n)break}return t?s.length:s?oe.error(e):k(e,u).slice(0)};function ve(e){for(var t=0,n=e.length,r="";t<n;t++)r+=e[t].value;return r}function me(e,t,n){var r=t.dir,i=t.next,o=i||r,a=n&&"parentNode"===o,s=C++;return t.first?function(t,n,i){while(t=t[r])if(1===t.nodeType||a)return e(t,n,i);return!1}:function(t,n,u){var l,c,f,p=[T,s];if(u){while(t=t[r])if((1===t.nodeType||a)&&e(t,n,u))return!0}else while(t=t[r])if(1===t.nodeType||a)if(f=t[b]||(t[b]={}),c=f[t.uniqueID]||(f[t.uniqueID]={}),i&&i===t.nodeName.toLowerCase())t=t[r]||t;else{if((l=c[o])&&l[0]===T&&l[1]===s)return p[2]=l[2];if(c[o]=p,p[2]=e(t,n,u))return!0}return!1}}function xe(e){return e.length>1?function(t,n,r){var i=e.length;while(i--)if(!e[i](t,n,r))return!1;return!0}:e[0]}function be(e,t,n){for(var r=0,i=t.length;r<i;r++)oe(e,t[r],n);return n}function we(e,t,n,r,i){for(var o,a=[],s=0,u=e.length,l=null!=t;s<u;s++)(o=e[s])&&(n&&!n(o,r,i)||(a.push(o),l&&t.push(s)));return a}function Te(e,t,n,r,i,o){return r&&!r[b]&&(r=Te(r)),i&&!i[b]&&(i=Te(i,o)),se(function(o,a,s,u){var l,c,f,p=[],d=[],h=a.length,g=o||be(t||"*",s.nodeType?[s]:s,[]),y=!e||!o&&t?g:we(g,p,e,s,u),v=n?i||(o?e:h||r)?[]:a:y;if(n&&n(y,v,s,u),r){l=we(v,d),r(l,[],s,u),c=l.length;while(c--)(f=l[c])&&(v[d[c]]=!(y[d[c]]=f))}if(o){if(i||e){if(i){l=[],c=v.length;while(c--)(f=v[c])&&l.push(y[c]=f);i(null,v=[],l,u)}c=v.length;while(c--)(f=v[c])&&(l=i?O(o,f):p[c])>-1&&(o[l]=!(a[l]=f))}}else v=we(v===a?v.splice(h,v.length):v),i?i(null,a,v,u):L.apply(a,v)})}function Ce(e){for(var t,n,i,o=e.length,a=r.relative[e[0].type],s=a||r.relative[" "],u=a?1:0,c=me(function(e){return e===t},s,!0),f=me(function(e){return O(t,e)>-1},s,!0),p=[function(e,n,r){var i=!a&&(r||n!==l)||((t=n).nodeType?c(e,n,r):f(e,n,r));return t=null,i}];u<o;u++)if(n=r.relative[e[u].type])p=[me(xe(p),n)];else{if((n=r.filter[e[u].type].apply(null,e[u].matches))[b]){for(i=++u;i<o;i++)if(r.relative[e[i].type])break;return Te(u>1&&xe(p),u>1&&ve(e.slice(0,u-1).concat({value:" "===e[u-2].type?"*":""})).replace(B,"$1"),n,u<i&&Ce(e.slice(u,i)),i<o&&Ce(e=e.slice(i)),i<o&&ve(e))}p.push(n)}return xe(p)}function Ee(e,t){var n=t.length>0,i=e.length>0,o=function(o,a,s,u,c){var f,h,y,v=0,m="0",x=o&&[],b=[],w=l,C=o||i&&r.find.TAG("*",c),E=T+=null==w?1:Math.random()||.1,k=C.length;for(c&&(l=a===d||a||c);m!==k&&null!=(f=C[m]);m++){if(i&&f){h=0,a||f.ownerDocument===d||(p(f),s=!g);while(y=e[h++])if(y(f,a||d,s)){u.push(f);break}c&&(T=E)}n&&((f=!y&&f)&&v--,o&&x.push(f))}if(v+=m,n&&m!==v){h=0;while(y=t[h++])y(x,b,a,s);if(o){if(v>0)while(m--)x[m]||b[m]||(b[m]=j.call(u));b=we(b)}L.apply(u,b),c&&!o&&b.length>0&&v+t.length>1&&oe.uniqueSort(u)}return c&&(T=E,l=w),x};return n?se(o):o}return s=oe.compile=function(e,t){var n,r=[],i=[],o=S[e+" "];if(!o){t||(t=a(e)),n=t.length;while(n--)(o=Ce(t[n]))[b]?r.push(o):i.push(o);(o=S(e,Ee(i,r))).selector=e}return o},u=oe.select=function(e,t,n,i){var o,u,l,c,f,p="function"==typeof e&&e,d=!i&&a(e=p.selector||e);if(n=n||[],1===d.length){if((u=d[0]=d[0].slice(0)).length>2&&"ID"===(l=u[0]).type&&9===t.nodeType&&g&&r.relative[u[1].type]){if(!(t=(r.find.ID(l.matches[0].replace(Z,ee),t)||[])[0]))return n;p&&(t=t.parentNode),e=e.slice(u.shift().value.length)}o=V.needsContext.test(e)?0:u.length;while(o--){if(l=u[o],r.relative[c=l.type])break;if((f=r.find[c])&&(i=f(l.matches[0].replace(Z,ee),K.test(u[0].type)&&ge(t.parentNode)||t))){if(u.splice(o,1),!(e=i.length&&ve(u)))return L.apply(n,i),n;break}}}return(p||s(e,d))(i,t,!g,n,!t||K.test(e)&&ge(t.parentNode)||t),n},n.sortStable=b.split("").sort(D).join("")===b,n.detectDuplicates=!!f,p(),n.sortDetached=ue(function(e){return 1&e.compareDocumentPosition(d.createElement("fieldset"))}),ue(function(e){return e.innerHTML="<a href='#'></a>","#"===e.firstChild.getAttribute("href")})||le("type|href|height|width",function(e,t,n){if(!n)return e.getAttribute(t,"type"===t.toLowerCase()?1:2)}),n.attributes&&ue(function(e){return e.innerHTML="<input/>",e.firstChild.setAttribute("value",""),""===e.firstChild.getAttribute("value")})||le("value",function(e,t,n){if(!n&&"input"===e.nodeName.toLowerCase())return e.defaultValue}),ue(function(e){return null==e.getAttribute("disabled")})||le(P,function(e,t,n){var r;if(!n)return!0===e[t]?t.toLowerCase():(r=e.getAttributeNode(t))&&r.specified?r.value:null}),oe}(e);w.find=E,w.expr=E.selectors,w.expr[":"]=w.expr.pseudos,w.uniqueSort=w.unique=E.uniqueSort,w.text=E.getText,w.isXMLDoc=E.isXML,w.contains=E.contains,w.escapeSelector=E.escape;var k=function(e,t,n){var r=[],i=void 0!==n;while((e=e[t])&&9!==e.nodeType)if(1===e.nodeType){if(i&&w(e).is(n))break;r.push(e)}return r},S=function(e,t){for(var n=[];e;e=e.nextSibling)1===e.nodeType&&e!==t&&n.push(e);return n},D=w.expr.match.needsContext;function N(e,t){return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()}var A=/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i;function j(e,t,n){return g(t)?w.grep(e,function(e,r){return!!t.call(e,r,e)!==n}):t.nodeType?w.grep(e,function(e){return e===t!==n}):"string"!=typeof t?w.grep(e,function(e){return u.call(t,e)>-1!==n}):w.filter(t,e,n)}w.filter=function(e,t,n){var r=t[0];return n&&(e=":not("+e+")"),1===t.length&&1===r.nodeType?w.find.matchesSelector(r,e)?[r]:[]:w.find.matches(e,w.grep(t,function(e){return 1===e.nodeType}))},w.fn.extend({find:function(e){var t,n,r=this.length,i=this;if("string"!=typeof e)return this.pushStack(w(e).filter(function(){for(t=0;t<r;t++)if(w.contains(i[t],this))return!0}));for(n=this.pushStack([]),t=0;t<r;t++)w.find(e,i[t],n);return r>1?w.uniqueSort(n):n},filter:function(e){return this.pushStack(j(this,e||[],!1))},not:function(e){return this.pushStack(j(this,e||[],!0))},is:function(e){return!!j(this,"string"==typeof e&&D.test(e)?w(e):e||[],!1).length}});var q,L=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/;(w.fn.init=function(e,t,n){var i,o;if(!e)return this;if(n=n||q,"string"==typeof e){if(!(i="<"===e[0]&&">"===e[e.length-1]&&e.length>=3?[null,e,null]:L.exec(e))||!i[1]&&t)return!t||t.jquery?(t||n).find(e):this.constructor(t).find(e);if(i[1]){if(t=t instanceof w?t[0]:t,w.merge(this,w.parseHTML(i[1],t&&t.nodeType?t.ownerDocument||t:r,!0)),A.test(i[1])&&w.isPlainObject(t))for(i in t)g(this[i])?this[i](t[i]):this.attr(i,t[i]);return this}return(o=r.getElementById(i[2]))&&(this[0]=o,this.length=1),this}return e.nodeType?(this[0]=e,this.length=1,this):g(e)?void 0!==n.ready?n.ready(e):e(w):w.makeArray(e,this)}).prototype=w.fn,q=w(r);var H=/^(?:parents|prev(?:Until|All))/,O={children:!0,contents:!0,next:!0,prev:!0};w.fn.extend({has:function(e){var t=w(e,this),n=t.length;return this.filter(function(){for(var e=0;e<n;e++)if(w.contains(this,t[e]))return!0})},closest:function(e,t){var n,r=0,i=this.length,o=[],a="string"!=typeof e&&w(e);if(!D.test(e))for(;r<i;r++)for(n=this[r];n&&n!==t;n=n.parentNode)if(n.nodeType<11&&(a?a.index(n)>-1:1===n.nodeType&&w.find.matchesSelector(n,e))){o.push(n);break}return this.pushStack(o.length>1?w.uniqueSort(o):o)},index:function(e){return e?"string"==typeof e?u.call(w(e),this[0]):u.call(this,e.jquery?e[0]:e):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(e,t){return this.pushStack(w.uniqueSort(w.merge(this.get(),w(e,t))))},addBack:function(e){return this.add(null==e?this.prevObject:this.prevObject.filter(e))}});function P(e,t){while((e=e[t])&&1!==e.nodeType);return e}w.each({parent:function(e){var t=e.parentNode;return t&&11!==t.nodeType?t:null},parents:function(e){return k(e,"parentNode")},parentsUntil:function(e,t,n){return k(e,"parentNode",n)},next:function(e){return P(e,"nextSibling")},prev:function(e){return P(e,"previousSibling")},nextAll:function(e){return k(e,"nextSibling")},prevAll:function(e){return k(e,"previousSibling")},nextUntil:function(e,t,n){return k(e,"nextSibling",n)},prevUntil:function(e,t,n){return k(e,"previousSibling",n)},siblings:function(e){return S((e.parentNode||{}).firstChild,e)},children:function(e){return S(e.firstChild)},contents:function(e){return N(e,"iframe")?e.contentDocument:(N(e,"template")&&(e=e.content||e),w.merge([],e.childNodes))}},function(e,t){w.fn[e]=function(n,r){var i=w.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=w.filter(r,i)),this.length>1&&(O[e]||w.uniqueSort(i),H.test(e)&&i.reverse()),this.pushStack(i)}});var M=/[^\x20\t\r\n\f]+/g;function R(e){var t={};return w.each(e.match(M)||[],function(e,n){t[n]=!0}),t}w.Callbacks=function(e){e="string"==typeof e?R(e):w.extend({},e);var t,n,r,i,o=[],a=[],s=-1,u=function(){for(i=i||e.once,r=t=!0;a.length;s=-1){n=a.shift();while(++s<o.length)!1===o[s].apply(n[0],n[1])&&e.stopOnFalse&&(s=o.length,n=!1)}e.memory||(n=!1),t=!1,i&&(o=n?[]:"")},l={add:function(){return o&&(n&&!t&&(s=o.length-1,a.push(n)),function t(n){w.each(n,function(n,r){g(r)?e.unique&&l.has(r)||o.push(r):r&&r.length&&"string"!==x(r)&&t(r)})}(arguments),n&&!t&&u()),this},remove:function(){return w.each(arguments,function(e,t){var n;while((n=w.inArray(t,o,n))>-1)o.splice(n,1),n<=s&&s--}),this},has:function(e){return e?w.inArray(e,o)>-1:o.length>0},empty:function(){return o&&(o=[]),this},disable:function(){return i=a=[],o=n="",this},disabled:function(){return!o},lock:function(){return i=a=[],n||t||(o=n=""),this},locked:function(){return!!i},fireWith:function(e,n){return i||(n=[e,(n=n||[]).slice?n.slice():n],a.push(n),t||u()),this},fire:function(){return l.fireWith(this,arguments),this},fired:function(){return!!r}};return l};function I(e){return e}function W(e){throw e}function $(e,t,n,r){var i;try{e&&g(i=e.promise)?i.call(e).done(t).fail(n):e&&g(i=e.then)?i.call(e,t,n):t.apply(void 0,[e].slice(r))}catch(e){n.apply(void 0,[e])}}w.extend({Deferred:function(t){var n=[["notify","progress",w.Callbacks("memory"),w.Callbacks("memory"),2],["resolve","done",w.Callbacks("once memory"),w.Callbacks("once memory"),0,"resolved"],["reject","fail",w.Callbacks("once memory"),w.Callbacks("once memory"),1,"rejected"]],r="pending",i={state:function(){return r},always:function(){return o.done(arguments).fail(arguments),this},"catch":function(e){return i.then(null,e)},pipe:function(){var e=arguments;return w.Deferred(function(t){w.each(n,function(n,r){var i=g(e[r[4]])&&e[r[4]];o[r[1]](function(){var e=i&&i.apply(this,arguments);e&&g(e.promise)?e.promise().progress(t.notify).done(t.resolve).fail(t.reject):t[r[0]+"With"](this,i?[e]:arguments)})}),e=null}).promise()},then:function(t,r,i){var o=0;function a(t,n,r,i){return function(){var s=this,u=arguments,l=function(){var e,l;if(!(t<o)){if((e=r.apply(s,u))===n.promise())throw new TypeError("Thenable self-resolution");l=e&&("object"==typeof e||"function"==typeof e)&&e.then,g(l)?i?l.call(e,a(o,n,I,i),a(o,n,W,i)):(o++,l.call(e,a(o,n,I,i),a(o,n,W,i),a(o,n,I,n.notifyWith))):(r!==I&&(s=void 0,u=[e]),(i||n.resolveWith)(s,u))}},c=i?l:function(){try{l()}catch(e){w.Deferred.exceptionHook&&w.Deferred.exceptionHook(e,c.stackTrace),t+1>=o&&(r!==W&&(s=void 0,u=[e]),n.rejectWith(s,u))}};t?c():(w.Deferred.getStackHook&&(c.stackTrace=w.Deferred.getStackHook()),e.setTimeout(c))}}return w.Deferred(function(e){n[0][3].add(a(0,e,g(i)?i:I,e.notifyWith)),n[1][3].add(a(0,e,g(t)?t:I)),n[2][3].add(a(0,e,g(r)?r:W))}).promise()},promise:function(e){return null!=e?w.extend(e,i):i}},o={};return w.each(n,function(e,t){var a=t[2],s=t[5];i[t[1]]=a.add,s&&a.add(function(){r=s},n[3-e][2].disable,n[3-e][3].disable,n[0][2].lock,n[0][3].lock),a.add(t[3].fire),o[t[0]]=function(){return o[t[0]+"With"](this===o?void 0:this,arguments),this},o[t[0]+"With"]=a.fireWith}),i.promise(o),t&&t.call(o,o),o},when:function(e){var t=arguments.length,n=t,r=Array(n),i=o.call(arguments),a=w.Deferred(),s=function(e){return function(n){r[e]=this,i[e]=arguments.length>1?o.call(arguments):n,--t||a.resolveWith(r,i)}};if(t<=1&&($(e,a.done(s(n)).resolve,a.reject,!t),"pending"===a.state()||g(i[n]&&i[n].then)))return a.then();while(n--)$(i[n],s(n),a.reject);return a.promise()}});var B=/^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;w.Deferred.exceptionHook=function(t,n){e.console&&e.console.warn&&t&&B.test(t.name)&&e.console.warn("jQuery.Deferred exception: "+t.message,t.stack,n)},w.readyException=function(t){e.setTimeout(function(){throw t})};var F=w.Deferred();w.fn.ready=function(e){return F.then(e)["catch"](function(e){w.readyException(e)}),this},w.extend({isReady:!1,readyWait:1,ready:function(e){(!0===e?--w.readyWait:w.isReady)||(w.isReady=!0,!0!==e&&--w.readyWait>0||F.resolveWith(r,[w]))}}),w.ready.then=F.then;function _(){r.removeEventListener("DOMContentLoaded",_),e.removeEventListener("load",_),w.ready()}"complete"===r.readyState||"loading"!==r.readyState&&!r.documentElement.doScroll?e.setTimeout(w.ready):(r.addEventListener("DOMContentLoaded",_),e.addEventListener("load",_));var z=function(e,t,n,r,i,o,a){var s=0,u=e.length,l=null==n;if("object"===x(n)){i=!0;for(s in n)z(e,t,s,n[s],!0,o,a)}else if(void 0!==r&&(i=!0,g(r)||(a=!0),l&&(a?(t.call(e,r),t=null):(l=t,t=function(e,t,n){return l.call(w(e),n)})),t))for(;s<u;s++)t(e[s],n,a?r:r.call(e[s],s,t(e[s],n)));return i?e:l?t.call(e):u?t(e[0],n):o},X=/^-ms-/,U=/-([a-z])/g;function V(e,t){return t.toUpperCase()}function G(e){return e.replace(X,"ms-").replace(U,V)}var Y=function(e){return 1===e.nodeType||9===e.nodeType||!+e.nodeType};function Q(){this.expando=w.expando+Q.uid++}Q.uid=1,Q.prototype={cache:function(e){var t=e[this.expando];return t||(t={},Y(e)&&(e.nodeType?e[this.expando]=t:Object.defineProperty(e,this.expando,{value:t,configurable:!0}))),t},set:function(e,t,n){var r,i=this.cache(e);if("string"==typeof t)i[G(t)]=n;else for(r in t)i[G(r)]=t[r];return i},get:function(e,t){return void 0===t?this.cache(e):e[this.expando]&&e[this.expando][G(t)]},access:function(e,t,n){return void 0===t||t&&"string"==typeof t&&void 0===n?this.get(e,t):(this.set(e,t,n),void 0!==n?n:t)},remove:function(e,t){var n,r=e[this.expando];if(void 0!==r){if(void 0!==t){n=(t=Array.isArray(t)?t.map(G):(t=G(t))in r?[t]:t.match(M)||[]).length;while(n--)delete r[t[n]]}(void 0===t||w.isEmptyObject(r))&&(e.nodeType?e[this.expando]=void 0:delete e[this.expando])}},hasData:function(e){var t=e[this.expando];return void 0!==t&&!w.isEmptyObject(t)}};var J=new Q,K=new Q,Z=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,ee=/[A-Z]/g;function te(e){return"true"===e||"false"!==e&&("null"===e?null:e===+e+""?+e:Z.test(e)?JSON.parse(e):e)}function ne(e,t,n){var r;if(void 0===n&&1===e.nodeType)if(r="data-"+t.replace(ee,"-$&").toLowerCase(),"string"==typeof(n=e.getAttribute(r))){try{n=te(n)}catch(e){}K.set(e,t,n)}else n=void 0;return n}w.extend({hasData:function(e){return K.hasData(e)||J.hasData(e)},data:function(e,t,n){return K.access(e,t,n)},removeData:function(e,t){K.remove(e,t)},_data:function(e,t,n){return J.access(e,t,n)},_removeData:function(e,t){J.remove(e,t)}}),w.fn.extend({data:function(e,t){var n,r,i,o=this[0],a=o&&o.attributes;if(void 0===e){if(this.length&&(i=K.get(o),1===o.nodeType&&!J.get(o,"hasDataAttrs"))){n=a.length;while(n--)a[n]&&0===(r=a[n].name).indexOf("data-")&&(r=G(r.slice(5)),ne(o,r,i[r]));J.set(o,"hasDataAttrs",!0)}return i}return"object"==typeof e?this.each(function(){K.set(this,e)}):z(this,function(t){var n;if(o&&void 0===t){if(void 0!==(n=K.get(o,e)))return n;if(void 0!==(n=ne(o,e)))return n}else this.each(function(){K.set(this,e,t)})},null,t,arguments.length>1,null,!0)},removeData:function(e){return this.each(function(){K.remove(this,e)})}}),w.extend({queue:function(e,t,n){var r;if(e)return t=(t||"fx")+"queue",r=J.get(e,t),n&&(!r||Array.isArray(n)?r=J.access(e,t,w.makeArray(n)):r.push(n)),r||[]},dequeue:function(e,t){t=t||"fx";var n=w.queue(e,t),r=n.length,i=n.shift(),o=w._queueHooks(e,t),a=function(){w.dequeue(e,t)};"inprogress"===i&&(i=n.shift(),r--),i&&("fx"===t&&n.unshift("inprogress"),delete o.stop,i.call(e,a,o)),!r&&o&&o.empty.fire()},_queueHooks:function(e,t){var n=t+"queueHooks";return J.get(e,n)||J.access(e,n,{empty:w.Callbacks("once memory").add(function(){J.remove(e,[t+"queue",n])})})}}),w.fn.extend({queue:function(e,t){var n=2;return"string"!=typeof e&&(t=e,e="fx",n--),arguments.length<n?w.queue(this[0],e):void 0===t?this:this.each(function(){var n=w.queue(this,e,t);w._queueHooks(this,e),"fx"===e&&"inprogress"!==n[0]&&w.dequeue(this,e)})},dequeue:function(e){return this.each(function(){w.dequeue(this,e)})},clearQueue:function(e){return this.queue(e||"fx",[])},promise:function(e,t){var n,r=1,i=w.Deferred(),o=this,a=this.length,s=function(){--r||i.resolveWith(o,[o])};"string"!=typeof e&&(t=e,e=void 0),e=e||"fx";while(a--)(n=J.get(o[a],e+"queueHooks"))&&n.empty&&(r++,n.empty.add(s));return s(),i.promise(t)}});var re=/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,ie=new RegExp("^(?:([+-])=|)("+re+")([a-z%]*)$","i"),oe=["Top","Right","Bottom","Left"],ae=function(e,t){return"none"===(e=t||e).style.display||""===e.style.display&&w.contains(e.ownerDocument,e)&&"none"===w.css(e,"display")},se=function(e,t,n,r){var i,o,a={};for(o in t)a[o]=e.style[o],e.style[o]=t[o];i=n.apply(e,r||[]);for(o in t)e.style[o]=a[o];return i};function ue(e,t,n,r){var i,o,a=20,s=r?function(){return r.cur()}:function(){return w.css(e,t,"")},u=s(),l=n&&n[3]||(w.cssNumber[t]?"":"px"),c=(w.cssNumber[t]||"px"!==l&&+u)&&ie.exec(w.css(e,t));if(c&&c[3]!==l){u/=2,l=l||c[3],c=+u||1;while(a--)w.style(e,t,c+l),(1-o)*(1-(o=s()/u||.5))<=0&&(a=0),c/=o;c*=2,w.style(e,t,c+l),n=n||[]}return n&&(c=+c||+u||0,i=n[1]?c+(n[1]+1)*n[2]:+n[2],r&&(r.unit=l,r.start=c,r.end=i)),i}var le={};function ce(e){var t,n=e.ownerDocument,r=e.nodeName,i=le[r];return i||(t=n.body.appendChild(n.createElement(r)),i=w.css(t,"display"),t.parentNode.removeChild(t),"none"===i&&(i="block"),le[r]=i,i)}function fe(e,t){for(var n,r,i=[],o=0,a=e.length;o<a;o++)(r=e[o]).style&&(n=r.style.display,t?("none"===n&&(i[o]=J.get(r,"display")||null,i[o]||(r.style.display="")),""===r.style.display&&ae(r)&&(i[o]=ce(r))):"none"!==n&&(i[o]="none",J.set(r,"display",n)));for(o=0;o<a;o++)null!=i[o]&&(e[o].style.display=i[o]);return e}w.fn.extend({show:function(){return fe(this,!0)},hide:function(){return fe(this)},toggle:function(e){return"boolean"==typeof e?e?this.show():this.hide():this.each(function(){ae(this)?w(this).show():w(this).hide()})}});var pe=/^(?:checkbox|radio)$/i,de=/<([a-z][^\/\0>\x20\t\r\n\f]+)/i,he=/^$|^module$|\/(?:java|ecma)script/i,ge={option:[1,"<select multiple='multiple'>","</select>"],thead:[1,"<table>","</table>"],col:[2,"<table><colgroup>","</colgroup></table>"],tr:[2,"<table><tbody>","</tbody></table>"],td:[3,"<table><tbody><tr>","</tr></tbody></table>"],_default:[0,"",""]};ge.optgroup=ge.option,ge.tbody=ge.tfoot=ge.colgroup=ge.caption=ge.thead,ge.th=ge.td;function ye(e,t){var n;return n="undefined"!=typeof e.getElementsByTagName?e.getElementsByTagName(t||"*"):"undefined"!=typeof e.querySelectorAll?e.querySelectorAll(t||"*"):[],void 0===t||t&&N(e,t)?w.merge([e],n):n}function ve(e,t){for(var n=0,r=e.length;n<r;n++)J.set(e[n],"globalEval",!t||J.get(t[n],"globalEval"))}var me=/<|&#?\w+;/;function xe(e,t,n,r,i){for(var o,a,s,u,l,c,f=t.createDocumentFragment(),p=[],d=0,h=e.length;d<h;d++)if((o=e[d])||0===o)if("object"===x(o))w.merge(p,o.nodeType?[o]:o);else if(me.test(o)){a=a||f.appendChild(t.createElement("div")),s=(de.exec(o)||["",""])[1].toLowerCase(),u=ge[s]||ge._default,a.innerHTML=u[1]+w.htmlPrefilter(o)+u[2],c=u[0];while(c--)a=a.lastChild;w.merge(p,a.childNodes),(a=f.firstChild).textContent=""}else p.push(t.createTextNode(o));f.textContent="",d=0;while(o=p[d++])if(r&&w.inArray(o,r)>-1)i&&i.push(o);else if(l=w.contains(o.ownerDocument,o),a=ye(f.appendChild(o),"script"),l&&ve(a),n){c=0;while(o=a[c++])he.test(o.type||"")&&n.push(o)}return f}!function(){var e=r.createDocumentFragment().appendChild(r.createElement("div")),t=r.createElement("input");t.setAttribute("type","radio"),t.setAttribute("checked","checked"),t.setAttribute("name","t"),e.appendChild(t),h.checkClone=e.cloneNode(!0).cloneNode(!0).lastChild.checked,e.innerHTML="<textarea>x</textarea>",h.noCloneChecked=!!e.cloneNode(!0).lastChild.defaultValue}();var be=r.documentElement,we=/^key/,Te=/^(?:mouse|pointer|contextmenu|drag|drop)|click/,Ce=/^([^.]*)(?:\.(.+)|)/;function Ee(){return!0}function ke(){return!1}function Se(){try{return r.activeElement}catch(e){}}function De(e,t,n,r,i,o){var a,s;if("object"==typeof t){"string"!=typeof n&&(r=r||n,n=void 0);for(s in t)De(e,s,n,r,t[s],o);return e}if(null==r&&null==i?(i=n,r=n=void 0):null==i&&("string"==typeof n?(i=r,r=void 0):(i=r,r=n,n=void 0)),!1===i)i=ke;else if(!i)return e;return 1===o&&(a=i,(i=function(e){return w().off(e),a.apply(this,arguments)}).guid=a.guid||(a.guid=w.guid++)),e.each(function(){w.event.add(this,t,i,r,n)})}w.event={global:{},add:function(e,t,n,r,i){var o,a,s,u,l,c,f,p,d,h,g,y=J.get(e);if(y){n.handler&&(n=(o=n).handler,i=o.selector),i&&w.find.matchesSelector(be,i),n.guid||(n.guid=w.guid++),(u=y.events)||(u=y.events={}),(a=y.handle)||(a=y.handle=function(t){return"undefined"!=typeof w&&w.event.triggered!==t.type?w.event.dispatch.apply(e,arguments):void 0}),l=(t=(t||"").match(M)||[""]).length;while(l--)d=g=(s=Ce.exec(t[l])||[])[1],h=(s[2]||"").split(".").sort(),d&&(f=w.event.special[d]||{},d=(i?f.delegateType:f.bindType)||d,f=w.event.special[d]||{},c=w.extend({type:d,origType:g,data:r,handler:n,guid:n.guid,selector:i,needsContext:i&&w.expr.match.needsContext.test(i),namespace:h.join(".")},o),(p=u[d])||((p=u[d]=[]).delegateCount=0,f.setup&&!1!==f.setup.call(e,r,h,a)||e.addEventListener&&e.addEventListener(d,a)),f.add&&(f.add.call(e,c),c.handler.guid||(c.handler.guid=n.guid)),i?p.splice(p.delegateCount++,0,c):p.push(c),w.event.global[d]=!0)}},remove:function(e,t,n,r,i){var o,a,s,u,l,c,f,p,d,h,g,y=J.hasData(e)&&J.get(e);if(y&&(u=y.events)){l=(t=(t||"").match(M)||[""]).length;while(l--)if(s=Ce.exec(t[l])||[],d=g=s[1],h=(s[2]||"").split(".").sort(),d){f=w.event.special[d]||{},p=u[d=(r?f.delegateType:f.bindType)||d]||[],s=s[2]&&new RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"),a=o=p.length;while(o--)c=p[o],!i&&g!==c.origType||n&&n.guid!==c.guid||s&&!s.test(c.namespace)||r&&r!==c.selector&&("**"!==r||!c.selector)||(p.splice(o,1),c.selector&&p.delegateCount--,f.remove&&f.remove.call(e,c));a&&!p.length&&(f.teardown&&!1!==f.teardown.call(e,h,y.handle)||w.removeEvent(e,d,y.handle),delete u[d])}else for(d in u)w.event.remove(e,d+t[l],n,r,!0);w.isEmptyObject(u)&&J.remove(e,"handle events")}},dispatch:function(e){var t=w.event.fix(e),n,r,i,o,a,s,u=new Array(arguments.length),l=(J.get(this,"events")||{})[t.type]||[],c=w.event.special[t.type]||{};for(u[0]=t,n=1;n<arguments.length;n++)u[n]=arguments[n];if(t.delegateTarget=this,!c.preDispatch||!1!==c.preDispatch.call(this,t)){s=w.event.handlers.call(this,t,l),n=0;while((o=s[n++])&&!t.isPropagationStopped()){t.currentTarget=o.elem,r=0;while((a=o.handlers[r++])&&!t.isImmediatePropagationStopped())t.rnamespace&&!t.rnamespace.test(a.namespace)||(t.handleObj=a,t.data=a.data,void 0!==(i=((w.event.special[a.origType]||{}).handle||a.handler).apply(o.elem,u))&&!1===(t.result=i)&&(t.preventDefault(),t.stopPropagation()))}return c.postDispatch&&c.postDispatch.call(this,t),t.result}},handlers:function(e,t){var n,r,i,o,a,s=[],u=t.delegateCount,l=e.target;if(u&&l.nodeType&&!("click"===e.type&&e.button>=1))for(;l!==this;l=l.parentNode||this)if(1===l.nodeType&&("click"!==e.type||!0!==l.disabled)){for(o=[],a={},n=0;n<u;n++)void 0===a[i=(r=t[n]).selector+" "]&&(a[i]=r.needsContext?w(i,this).index(l)>-1:w.find(i,this,null,[l]).length),a[i]&&o.push(r);o.length&&s.push({elem:l,handlers:o})}return l=this,u<t.length&&s.push({elem:l,handlers:t.slice(u)}),s},addProp:function(e,t){Object.defineProperty(w.Event.prototype,e,{enumerable:!0,configurable:!0,get:g(t)?function(){if(this.originalEvent)return t(this.originalEvent)}:function(){if(this.originalEvent)return this.originalEvent[e]},set:function(t){Object.defineProperty(this,e,{enumerable:!0,configurable:!0,writable:!0,value:t})}})},fix:function(e){return e[w.expando]?e:new w.Event(e)},special:{load:{noBubble:!0},focus:{trigger:function(){if(this!==Se()&&this.focus)return this.focus(),!1},delegateType:"focusin"},blur:{trigger:function(){if(this===Se()&&this.blur)return this.blur(),!1},delegateType:"focusout"},click:{trigger:function(){if("checkbox"===this.type&&this.click&&N(this,"input"))return this.click(),!1},_default:function(e){return N(e.target,"a")}},beforeunload:{postDispatch:function(e){void 0!==e.result&&e.originalEvent&&(e.originalEvent.returnValue=e.result)}}}},w.removeEvent=function(e,t,n){e.removeEventListener&&e.removeEventListener(t,n)},w.Event=function(e,t){if(!(this instanceof w.Event))return new w.Event(e,t);e&&e.type?(this.originalEvent=e,this.type=e.type,this.isDefaultPrevented=e.defaultPrevented||void 0===e.defaultPrevented&&!1===e.returnValue?Ee:ke,this.target=e.target&&3===e.target.nodeType?e.target.parentNode:e.target,this.currentTarget=e.currentTarget,this.relatedTarget=e.relatedTarget):this.type=e,t&&w.extend(this,t),this.timeStamp=e&&e.timeStamp||Date.now(),this[w.expando]=!0},w.Event.prototype={constructor:w.Event,isDefaultPrevented:ke,isPropagationStopped:ke,isImmediatePropagationStopped:ke,isSimulated:!1,preventDefault:function(){var e=this.originalEvent;this.isDefaultPrevented=Ee,e&&!this.isSimulated&&e.preventDefault()},stopPropagation:function(){var e=this.originalEvent;this.isPropagationStopped=Ee,e&&!this.isSimulated&&e.stopPropagation()},stopImmediatePropagation:function(){var e=this.originalEvent;this.isImmediatePropagationStopped=Ee,e&&!this.isSimulated&&e.stopImmediatePropagation(),this.stopPropagation()}},w.each({altKey:!0,bubbles:!0,cancelable:!0,changedTouches:!0,ctrlKey:!0,detail:!0,eventPhase:!0,metaKey:!0,pageX:!0,pageY:!0,shiftKey:!0,view:!0,"char":!0,charCode:!0,key:!0,keyCode:!0,button:!0,buttons:!0,clientX:!0,clientY:!0,offsetX:!0,offsetY:!0,pointerId:!0,pointerType:!0,screenX:!0,screenY:!0,targetTouches:!0,toElement:!0,touches:!0,which:function(e){var t=e.button;return null==e.which&&we.test(e.type)?null!=e.charCode?e.charCode:e.keyCode:!e.which&&void 0!==t&&Te.test(e.type)?1&t?1:2&t?3:4&t?2:0:e.which}},w.event.addProp),w.each({mouseenter:"mouseover",mouseleave:"mouseout",pointerenter:"pointerover",pointerleave:"pointerout"},function(e,t){w.event.special[e]={delegateType:t,bindType:t,handle:function(e){var n,r=this,i=e.relatedTarget,o=e.handleObj;return i&&(i===r||w.contains(r,i))||(e.type=o.origType,n=o.handler.apply(this,arguments),e.type=t),n}}}),w.fn.extend({on:function(e,t,n,r){return De(this,e,t,n,r)},one:function(e,t,n,r){return De(this,e,t,n,r,1)},off:function(e,t,n){var r,i;if(e&&e.preventDefault&&e.handleObj)return r=e.handleObj,w(e.delegateTarget).off(r.namespace?r.origType+"."+r.namespace:r.origType,r.selector,r.handler),this;if("object"==typeof e){for(i in e)this.off(i,t,e[i]);return this}return!1!==t&&"function"!=typeof t||(n=t,t=void 0),!1===n&&(n=ke),this.each(function(){w.event.remove(this,e,n,t)})}});var Ne=/<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,Ae=/<script|<style|<link/i,je=/checked\s*(?:[^=]|=\s*.checked.)/i,qe=/^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;function Le(e,t){return N(e,"table")&&N(11!==t.nodeType?t:t.firstChild,"tr")?w(e).children("tbody")[0]||e:e}function He(e){return e.type=(null!==e.getAttribute("type"))+"/"+e.type,e}function Oe(e){return"true/"===(e.type||"").slice(0,5)?e.type=e.type.slice(5):e.removeAttribute("type"),e}function Pe(e,t){var n,r,i,o,a,s,u,l;if(1===t.nodeType){if(J.hasData(e)&&(o=J.access(e),a=J.set(t,o),l=o.events)){delete a.handle,a.events={};for(i in l)for(n=0,r=l[i].length;n<r;n++)w.event.add(t,i,l[i][n])}K.hasData(e)&&(s=K.access(e),u=w.extend({},s),K.set(t,u))}}function Me(e,t){var n=t.nodeName.toLowerCase();"input"===n&&pe.test(e.type)?t.checked=e.checked:"input"!==n&&"textarea"!==n||(t.defaultValue=e.defaultValue)}function Re(e,t,n,r){t=a.apply([],t);var i,o,s,u,l,c,f=0,p=e.length,d=p-1,y=t[0],v=g(y);if(v||p>1&&"string"==typeof y&&!h.checkClone&&je.test(y))return e.each(function(i){var o=e.eq(i);v&&(t[0]=y.call(this,i,o.html())),Re(o,t,n,r)});if(p&&(i=xe(t,e[0].ownerDocument,!1,e,r),o=i.firstChild,1===i.childNodes.length&&(i=o),o||r)){for(u=(s=w.map(ye(i,"script"),He)).length;f<p;f++)l=i,f!==d&&(l=w.clone(l,!0,!0),u&&w.merge(s,ye(l,"script"))),n.call(e[f],l,f);if(u)for(c=s[s.length-1].ownerDocument,w.map(s,Oe),f=0;f<u;f++)l=s[f],he.test(l.type||"")&&!J.access(l,"globalEval")&&w.contains(c,l)&&(l.src&&"module"!==(l.type||"").toLowerCase()?w._evalUrl&&w._evalUrl(l.src):m(l.textContent.replace(qe,""),c,l))}return e}function Ie(e,t,n){for(var r,i=t?w.filter(t,e):e,o=0;null!=(r=i[o]);o++)n||1!==r.nodeType||w.cleanData(ye(r)),r.parentNode&&(n&&w.contains(r.ownerDocument,r)&&ve(ye(r,"script")),r.parentNode.removeChild(r));return e}w.extend({htmlPrefilter:function(e){return e.replace(Ne,"<$1></$2>")},clone:function(e,t,n){var r,i,o,a,s=e.cloneNode(!0),u=w.contains(e.ownerDocument,e);if(!(h.noCloneChecked||1!==e.nodeType&&11!==e.nodeType||w.isXMLDoc(e)))for(a=ye(s),r=0,i=(o=ye(e)).length;r<i;r++)Me(o[r],a[r]);if(t)if(n)for(o=o||ye(e),a=a||ye(s),r=0,i=o.length;r<i;r++)Pe(o[r],a[r]);else Pe(e,s);return(a=ye(s,"script")).length>0&&ve(a,!u&&ye(e,"script")),s},cleanData:function(e){for(var t,n,r,i=w.event.special,o=0;void 0!==(n=e[o]);o++)if(Y(n)){if(t=n[J.expando]){if(t.events)for(r in t.events)i[r]?w.event.remove(n,r):w.removeEvent(n,r,t.handle);n[J.expando]=void 0}n[K.expando]&&(n[K.expando]=void 0)}}}),w.fn.extend({detach:function(e){return Ie(this,e,!0)},remove:function(e){return Ie(this,e)},text:function(e){return z(this,function(e){return void 0===e?w.text(this):this.empty().each(function(){1!==this.nodeType&&11!==this.nodeType&&9!==this.nodeType||(this.textContent=e)})},null,e,arguments.length)},append:function(){return Re(this,arguments,function(e){1!==this.nodeType&&11!==this.nodeType&&9!==this.nodeType||Le(this,e).appendChild(e)})},prepend:function(){return Re(this,arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=Le(this,e);t.insertBefore(e,t.firstChild)}})},before:function(){return Re(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this)})},after:function(){return Re(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this.nextSibling)})},empty:function(){for(var e,t=0;null!=(e=this[t]);t++)1===e.nodeType&&(w.cleanData(ye(e,!1)),e.textContent="");return this},clone:function(e,t){return e=null!=e&&e,t=null==t?e:t,this.map(function(){return w.clone(this,e,t)})},html:function(e){return z(this,function(e){var t=this[0]||{},n=0,r=this.length;if(void 0===e&&1===t.nodeType)return t.innerHTML;if("string"==typeof e&&!Ae.test(e)&&!ge[(de.exec(e)||["",""])[1].toLowerCase()]){e=w.htmlPrefilter(e);try{for(;n<r;n++)1===(t=this[n]||{}).nodeType&&(w.cleanData(ye(t,!1)),t.innerHTML=e);t=0}catch(e){}}t&&this.empty().append(e)},null,e,arguments.length)},replaceWith:function(){var e=[];return Re(this,arguments,function(t){var n=this.parentNode;w.inArray(this,e)<0&&(w.cleanData(ye(this)),n&&n.replaceChild(t,this))},e)}}),w.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(e,t){w.fn[e]=function(e){for(var n,r=[],i=w(e),o=i.length-1,a=0;a<=o;a++)n=a===o?this:this.clone(!0),w(i[a])[t](n),s.apply(r,n.get());return this.pushStack(r)}});var We=new RegExp("^("+re+")(?!px)[a-z%]+$","i"),$e=function(t){var n=t.ownerDocument.defaultView;return n&&n.opener||(n=e),n.getComputedStyle(t)},Be=new RegExp(oe.join("|"),"i");!function(){function t(){if(c){l.style.cssText="position:absolute;left:-11111px;width:60px;margin-top:1px;padding:0;border:0",c.style.cssText="position:relative;display:block;box-sizing:border-box;overflow:scroll;margin:auto;border:1px;padding:1px;width:60%;top:1%",be.appendChild(l).appendChild(c);var t=e.getComputedStyle(c);i="1%"!==t.top,u=12===n(t.marginLeft),c.style.right="60%",s=36===n(t.right),o=36===n(t.width),c.style.position="absolute",a=36===c.offsetWidth||"absolute",be.removeChild(l),c=null}}function n(e){return Math.round(parseFloat(e))}var i,o,a,s,u,l=r.createElement("div"),c=r.createElement("div");c.style&&(c.style.backgroundClip="content-box",c.cloneNode(!0).style.backgroundClip="",h.clearCloneStyle="content-box"===c.style.backgroundClip,w.extend(h,{boxSizingReliable:function(){return t(),o},pixelBoxStyles:function(){return t(),s},pixelPosition:function(){return t(),i},reliableMarginLeft:function(){return t(),u},scrollboxSize:function(){return t(),a}}))}();function Fe(e,t,n){var r,i,o,a,s=e.style;return(n=n||$e(e))&&(""!==(a=n.getPropertyValue(t)||n[t])||w.contains(e.ownerDocument,e)||(a=w.style(e,t)),!h.pixelBoxStyles()&&We.test(a)&&Be.test(t)&&(r=s.width,i=s.minWidth,o=s.maxWidth,s.minWidth=s.maxWidth=s.width=a,a=n.width,s.width=r,s.minWidth=i,s.maxWidth=o)),void 0!==a?a+"":a}function _e(e,t){return{get:function(){if(!e())return(this.get=t).apply(this,arguments);delete this.get}}}var ze=/^(none|table(?!-c[ea]).+)/,Xe=/^--/,Ue={position:"absolute",visibility:"hidden",display:"block"},Ve={letterSpacing:"0",fontWeight:"400"},Ge=["Webkit","Moz","ms"],Ye=r.createElement("div").style;function Qe(e){if(e in Ye)return e;var t=e[0].toUpperCase()+e.slice(1),n=Ge.length;while(n--)if((e=Ge[n]+t)in Ye)return e}function Je(e){var t=w.cssProps[e];return t||(t=w.cssProps[e]=Qe(e)||e),t}function Ke(e,t,n){var r=ie.exec(t);return r?Math.max(0,r[2]-(n||0))+(r[3]||"px"):t}function Ze(e,t,n,r,i,o){var a="width"===t?1:0,s=0,u=0;if(n===(r?"border":"content"))return 0;for(;a<4;a+=2)"margin"===n&&(u+=w.css(e,n+oe[a],!0,i)),r?("content"===n&&(u-=w.css(e,"padding"+oe[a],!0,i)),"margin"!==n&&(u-=w.css(e,"border"+oe[a]+"Width",!0,i))):(u+=w.css(e,"padding"+oe[a],!0,i),"padding"!==n?u+=w.css(e,"border"+oe[a]+"Width",!0,i):s+=w.css(e,"border"+oe[a]+"Width",!0,i));return!r&&o>=0&&(u+=Math.max(0,Math.ceil(e["offset"+t[0].toUpperCase()+t.slice(1)]-o-u-s-.5))),u}function et(e,t,n){var r=$e(e),i=Fe(e,t,r),o="border-box"===w.css(e,"boxSizing",!1,r),a=o;if(We.test(i)){if(!n)return i;i="auto"}return a=a&&(h.boxSizingReliable()||i===e.style[t]),("auto"===i||!parseFloat(i)&&"inline"===w.css(e,"display",!1,r))&&(i=e["offset"+t[0].toUpperCase()+t.slice(1)],a=!0),(i=parseFloat(i)||0)+Ze(e,t,n||(o?"border":"content"),a,r,i)+"px"}w.extend({cssHooks:{opacity:{get:function(e,t){if(t){var n=Fe(e,"opacity");return""===n?"1":n}}}},cssNumber:{animationIterationCount:!0,columnCount:!0,fillOpacity:!0,flexGrow:!0,flexShrink:!0,fontWeight:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,widows:!0,zIndex:!0,zoom:!0},cssProps:{},style:function(e,t,n,r){if(e&&3!==e.nodeType&&8!==e.nodeType&&e.style){var i,o,a,s=G(t),u=Xe.test(t),l=e.style;if(u||(t=Je(s)),a=w.cssHooks[t]||w.cssHooks[s],void 0===n)return a&&"get"in a&&void 0!==(i=a.get(e,!1,r))?i:l[t];"string"==(o=typeof n)&&(i=ie.exec(n))&&i[1]&&(n=ue(e,t,i),o="number"),null!=n&&n===n&&("number"===o&&(n+=i&&i[3]||(w.cssNumber[s]?"":"px")),h.clearCloneStyle||""!==n||0!==t.indexOf("background")||(l[t]="inherit"),a&&"set"in a&&void 0===(n=a.set(e,n,r))||(u?l.setProperty(t,n):l[t]=n))}},css:function(e,t,n,r){var i,o,a,s=G(t);return Xe.test(t)||(t=Je(s)),(a=w.cssHooks[t]||w.cssHooks[s])&&"get"in a&&(i=a.get(e,!0,n)),void 0===i&&(i=Fe(e,t,r)),"normal"===i&&t in Ve&&(i=Ve[t]),""===n||n?(o=parseFloat(i),!0===n||isFinite(o)?o||0:i):i}}),w.each(["height","width"],function(e,t){w.cssHooks[t]={get:function(e,n,r){if(n)return!ze.test(w.css(e,"display"))||e.getClientRects().length&&e.getBoundingClientRect().width?et(e,t,r):se(e,Ue,function(){return et(e,t,r)})},set:function(e,n,r){var i,o=$e(e),a="border-box"===w.css(e,"boxSizing",!1,o),s=r&&Ze(e,t,r,a,o);return a&&h.scrollboxSize()===o.position&&(s-=Math.ceil(e["offset"+t[0].toUpperCase()+t.slice(1)]-parseFloat(o[t])-Ze(e,t,"border",!1,o)-.5)),s&&(i=ie.exec(n))&&"px"!==(i[3]||"px")&&(e.style[t]=n,n=w.css(e,t)),Ke(e,n,s)}}}),w.cssHooks.marginLeft=_e(h.reliableMarginLeft,function(e,t){if(t)return(parseFloat(Fe(e,"marginLeft"))||e.getBoundingClientRect().left-se(e,{marginLeft:0},function(){return e.getBoundingClientRect().left}))+"px"}),w.each({margin:"",padding:"",border:"Width"},function(e,t){w.cssHooks[e+t]={expand:function(n){for(var r=0,i={},o="string"==typeof n?n.split(" "):[n];r<4;r++)i[e+oe[r]+t]=o[r]||o[r-2]||o[0];return i}},"margin"!==e&&(w.cssHooks[e+t].set=Ke)}),w.fn.extend({css:function(e,t){return z(this,function(e,t,n){var r,i,o={},a=0;if(Array.isArray(t)){for(r=$e(e),i=t.length;a<i;a++)o[t[a]]=w.css(e,t[a],!1,r);return o}return void 0!==n?w.style(e,t,n):w.css(e,t)},e,t,arguments.length>1)}});function tt(e,t,n,r,i){return new tt.prototype.init(e,t,n,r,i)}w.Tween=tt,tt.prototype={constructor:tt,init:function(e,t,n,r,i,o){this.elem=e,this.prop=n,this.easing=i||w.easing._default,this.options=t,this.start=this.now=this.cur(),this.end=r,this.unit=o||(w.cssNumber[n]?"":"px")},cur:function(){var e=tt.propHooks[this.prop];return e&&e.get?e.get(this):tt.propHooks._default.get(this)},run:function(e){var t,n=tt.propHooks[this.prop];return this.options.duration?this.pos=t=w.easing[this.easing](e,this.options.duration*e,0,1,this.options.duration):this.pos=t=e,this.now=(this.end-this.start)*t+this.start,this.options.step&&this.options.step.call(this.elem,this.now,this),n&&n.set?n.set(this):tt.propHooks._default.set(this),this}},tt.prototype.init.prototype=tt.prototype,tt.propHooks={_default:{get:function(e){var t;return 1!==e.elem.nodeType||null!=e.elem[e.prop]&&null==e.elem.style[e.prop]?e.elem[e.prop]:(t=w.css(e.elem,e.prop,""))&&"auto"!==t?t:0},set:function(e){w.fx.step[e.prop]?w.fx.step[e.prop](e):1!==e.elem.nodeType||null==e.elem.style[w.cssProps[e.prop]]&&!w.cssHooks[e.prop]?e.elem[e.prop]=e.now:w.style(e.elem,e.prop,e.now+e.unit)}}},tt.propHooks.scrollTop=tt.propHooks.scrollLeft={set:function(e){e.elem.nodeType&&e.elem.parentNode&&(e.elem[e.prop]=e.now)}},w.easing={linear:function(e){return e},swing:function(e){return.5-Math.cos(e*Math.PI)/2},_default:"swing"},w.fx=tt.prototype.init,w.fx.step={};var nt,rt,it=/^(?:toggle|show|hide)$/,ot=/queueHooks$/;function at(){rt&&(!1===r.hidden&&e.requestAnimationFrame?e.requestAnimationFrame(at):e.setTimeout(at,w.fx.interval),w.fx.tick())}function st(){return e.setTimeout(function(){nt=void 0}),nt=Date.now()}function ut(e,t){var n,r=0,i={height:e};for(t=t?1:0;r<4;r+=2-t)i["margin"+(n=oe[r])]=i["padding"+n]=e;return t&&(i.opacity=i.width=e),i}function lt(e,t,n){for(var r,i=(pt.tweeners[t]||[]).concat(pt.tweeners["*"]),o=0,a=i.length;o<a;o++)if(r=i[o].call(n,t,e))return r}function ct(e,t,n){var r,i,o,a,s,u,l,c,f="width"in t||"height"in t,p=this,d={},h=e.style,g=e.nodeType&&ae(e),y=J.get(e,"fxshow");n.queue||(null==(a=w._queueHooks(e,"fx")).unqueued&&(a.unqueued=0,s=a.empty.fire,a.empty.fire=function(){a.unqueued||s()}),a.unqueued++,p.always(function(){p.always(function(){a.unqueued--,w.queue(e,"fx").length||a.empty.fire()})}));for(r in t)if(i=t[r],it.test(i)){if(delete t[r],o=o||"toggle"===i,i===(g?"hide":"show")){if("show"!==i||!y||void 0===y[r])continue;g=!0}d[r]=y&&y[r]||w.style(e,r)}if((u=!w.isEmptyObject(t))||!w.isEmptyObject(d)){f&&1===e.nodeType&&(n.overflow=[h.overflow,h.overflowX,h.overflowY],null==(l=y&&y.display)&&(l=J.get(e,"display")),"none"===(c=w.css(e,"display"))&&(l?c=l:(fe([e],!0),l=e.style.display||l,c=w.css(e,"display"),fe([e]))),("inline"===c||"inline-block"===c&&null!=l)&&"none"===w.css(e,"float")&&(u||(p.done(function(){h.display=l}),null==l&&(c=h.display,l="none"===c?"":c)),h.display="inline-block")),n.overflow&&(h.overflow="hidden",p.always(function(){h.overflow=n.overflow[0],h.overflowX=n.overflow[1],h.overflowY=n.overflow[2]})),u=!1;for(r in d)u||(y?"hidden"in y&&(g=y.hidden):y=J.access(e,"fxshow",{display:l}),o&&(y.hidden=!g),g&&fe([e],!0),p.done(function(){g||fe([e]),J.remove(e,"fxshow");for(r in d)w.style(e,r,d[r])})),u=lt(g?y[r]:0,r,p),r in y||(y[r]=u.start,g&&(u.end=u.start,u.start=0))}}function ft(e,t){var n,r,i,o,a;for(n in e)if(r=G(n),i=t[r],o=e[n],Array.isArray(o)&&(i=o[1],o=e[n]=o[0]),n!==r&&(e[r]=o,delete e[n]),(a=w.cssHooks[r])&&"expand"in a){o=a.expand(o),delete e[r];for(n in o)n in e||(e[n]=o[n],t[n]=i)}else t[r]=i}function pt(e,t,n){var r,i,o=0,a=pt.prefilters.length,s=w.Deferred().always(function(){delete u.elem}),u=function(){if(i)return!1;for(var t=nt||st(),n=Math.max(0,l.startTime+l.duration-t),r=1-(n/l.duration||0),o=0,a=l.tweens.length;o<a;o++)l.tweens[o].run(r);return s.notifyWith(e,[l,r,n]),r<1&&a?n:(a||s.notifyWith(e,[l,1,0]),s.resolveWith(e,[l]),!1)},l=s.promise({elem:e,props:w.extend({},t),opts:w.extend(!0,{specialEasing:{},easing:w.easing._default},n),originalProperties:t,originalOptions:n,startTime:nt||st(),duration:n.duration,tweens:[],createTween:function(t,n){var r=w.Tween(e,l.opts,t,n,l.opts.specialEasing[t]||l.opts.easing);return l.tweens.push(r),r},stop:function(t){var n=0,r=t?l.tweens.length:0;if(i)return this;for(i=!0;n<r;n++)l.tweens[n].run(1);return t?(s.notifyWith(e,[l,1,0]),s.resolveWith(e,[l,t])):s.rejectWith(e,[l,t]),this}}),c=l.props;for(ft(c,l.opts.specialEasing);o<a;o++)if(r=pt.prefilters[o].call(l,e,c,l.opts))return g(r.stop)&&(w._queueHooks(l.elem,l.opts.queue).stop=r.stop.bind(r)),r;return w.map(c,lt,l),g(l.opts.start)&&l.opts.start.call(e,l),l.progress(l.opts.progress).done(l.opts.done,l.opts.complete).fail(l.opts.fail).always(l.opts.always),w.fx.timer(w.extend(u,{elem:e,anim:l,queue:l.opts.queue})),l}w.Animation=w.extend(pt,{tweeners:{"*":[function(e,t){var n=this.createTween(e,t);return ue(n.elem,e,ie.exec(t),n),n}]},tweener:function(e,t){g(e)?(t=e,e=["*"]):e=e.match(M);for(var n,r=0,i=e.length;r<i;r++)n=e[r],pt.tweeners[n]=pt.tweeners[n]||[],pt.tweeners[n].unshift(t)},prefilters:[ct],prefilter:function(e,t){t?pt.prefilters.unshift(e):pt.prefilters.push(e)}}),w.speed=function(e,t,n){var r=e&&"object"==typeof e?w.extend({},e):{complete:n||!n&&t||g(e)&&e,duration:e,easing:n&&t||t&&!g(t)&&t};return w.fx.off?r.duration=0:"number"!=typeof r.duration&&(r.duration in w.fx.speeds?r.duration=w.fx.speeds[r.duration]:r.duration=w.fx.speeds._default),null!=r.queue&&!0!==r.queue||(r.queue="fx"),r.old=r.complete,r.complete=function(){g(r.old)&&r.old.call(this),r.queue&&w.dequeue(this,r.queue)},r},w.fn.extend({fadeTo:function(e,t,n,r){return this.filter(ae).css("opacity",0).show().end().animate({opacity:t},e,n,r)},animate:function(e,t,n,r){var i=w.isEmptyObject(e),o=w.speed(t,n,r),a=function(){var t=pt(this,w.extend({},e),o);(i||J.get(this,"finish"))&&t.stop(!0)};return a.finish=a,i||!1===o.queue?this.each(a):this.queue(o.queue,a)},stop:function(e,t,n){var r=function(e){var t=e.stop;delete e.stop,t(n)};return"string"!=typeof e&&(n=t,t=e,e=void 0),t&&!1!==e&&this.queue(e||"fx",[]),this.each(function(){var t=!0,i=null!=e&&e+"queueHooks",o=w.timers,a=J.get(this);if(i)a[i]&&a[i].stop&&r(a[i]);else for(i in a)a[i]&&a[i].stop&&ot.test(i)&&r(a[i]);for(i=o.length;i--;)o[i].elem!==this||null!=e&&o[i].queue!==e||(o[i].anim.stop(n),t=!1,o.splice(i,1));!t&&n||w.dequeue(this,e)})},finish:function(e){return!1!==e&&(e=e||"fx"),this.each(function(){var t,n=J.get(this),r=n[e+"queue"],i=n[e+"queueHooks"],o=w.timers,a=r?r.length:0;for(n.finish=!0,w.queue(this,e,[]),i&&i.stop&&i.stop.call(this,!0),t=o.length;t--;)o[t].elem===this&&o[t].queue===e&&(o[t].anim.stop(!0),o.splice(t,1));for(t=0;t<a;t++)r[t]&&r[t].finish&&r[t].finish.call(this);delete n.finish})}}),w.each(["toggle","show","hide"],function(e,t){var n=w.fn[t];w.fn[t]=function(e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(ut(t,!0),e,r,i)}}),w.each({slideDown:ut("show"),slideUp:ut("hide"),slideToggle:ut("toggle"),fadeIn:{opacity:"show"},fadeOut:{opacity:"hide"},fadeToggle:{opacity:"toggle"}},function(e,t){w.fn[e]=function(e,n,r){return this.animate(t,e,n,r)}}),w.timers=[],w.fx.tick=function(){var e,t=0,n=w.timers;for(nt=Date.now();t<n.length;t++)(e=n[t])()||n[t]!==e||n.splice(t--,1);n.length||w.fx.stop(),nt=void 0},w.fx.timer=function(e){w.timers.push(e),w.fx.start()},w.fx.interval=13,w.fx.start=function(){rt||(rt=!0,at())},w.fx.stop=function(){rt=null},w.fx.speeds={slow:600,fast:200,_default:400},w.fn.delay=function(t,n){return t=w.fx?w.fx.speeds[t]||t:t,n=n||"fx",this.queue(n,function(n,r){var i=e.setTimeout(n,t);r.stop=function(){e.clearTimeout(i)}})},function(){var e=r.createElement("input"),t=r.createElement("select").appendChild(r.createElement("option"));e.type="checkbox",h.checkOn=""!==e.value,h.optSelected=t.selected,(e=r.createElement("input")).value="t",e.type="radio",h.radioValue="t"===e.value}();var dt,ht=w.expr.attrHandle;w.fn.extend({attr:function(e,t){return z(this,w.attr,e,t,arguments.length>1)},removeAttr:function(e){return this.each(function(){w.removeAttr(this,e)})}}),w.extend({attr:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return"undefined"==typeof e.getAttribute?w.prop(e,t,n):(1===o&&w.isXMLDoc(e)||(i=w.attrHooks[t.toLowerCase()]||(w.expr.match.bool.test(t)?dt:void 0)),void 0!==n?null===n?void w.removeAttr(e,t):i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:(e.setAttribute(t,n+""),n):i&&"get"in i&&null!==(r=i.get(e,t))?r:null==(r=w.find.attr(e,t))?void 0:r)},attrHooks:{type:{set:function(e,t){if(!h.radioValue&&"radio"===t&&N(e,"input")){var n=e.value;return e.setAttribute("type",t),n&&(e.value=n),t}}}},removeAttr:function(e,t){var n,r=0,i=t&&t.match(M);if(i&&1===e.nodeType)while(n=i[r++])e.removeAttribute(n)}}),dt={set:function(e,t,n){return!1===t?w.removeAttr(e,n):e.setAttribute(n,n),n}},w.each(w.expr.match.bool.source.match(/\w+/g),function(e,t){var n=ht[t]||w.find.attr;ht[t]=function(e,t,r){var i,o,a=t.toLowerCase();return r||(o=ht[a],ht[a]=i,i=null!=n(e,t,r)?a:null,ht[a]=o),i}});var gt=/^(?:input|select|textarea|button)$/i,yt=/^(?:a|area)$/i;w.fn.extend({prop:function(e,t){return z(this,w.prop,e,t,arguments.length>1)},removeProp:function(e){return this.each(function(){delete this[w.propFix[e]||e]})}}),w.extend({prop:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return 1===o&&w.isXMLDoc(e)||(t=w.propFix[t]||t,i=w.propHooks[t]),void 0!==n?i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:e[t]=n:i&&"get"in i&&null!==(r=i.get(e,t))?r:e[t]},propHooks:{tabIndex:{get:function(e){var t=w.find.attr(e,"tabindex");return t?parseInt(t,10):gt.test(e.nodeName)||yt.test(e.nodeName)&&e.href?0:-1}}},propFix:{"for":"htmlFor","class":"className"}}),h.optSelected||(w.propHooks.selected={get:function(e){var t=e.parentNode;return t&&t.parentNode&&t.parentNode.selectedIndex,null},set:function(e){var t=e.parentNode;t&&(t.selectedIndex,t.parentNode&&t.parentNode.selectedIndex)}}),w.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){w.propFix[this.toLowerCase()]=this});function vt(e){return(e.match(M)||[]).join(" ")}function mt(e){return e.getAttribute&&e.getAttribute("class")||""}function xt(e){return Array.isArray(e)?e:"string"==typeof e?e.match(M)||[]:[]}w.fn.extend({addClass:function(e){var t,n,r,i,o,a,s,u=0;if(g(e))return this.each(function(t){w(this).addClass(e.call(this,t,mt(this)))});if((t=xt(e)).length)while(n=this[u++])if(i=mt(n),r=1===n.nodeType&&" "+vt(i)+" "){a=0;while(o=t[a++])r.indexOf(" "+o+" ")<0&&(r+=o+" ");i!==(s=vt(r))&&n.setAttribute("class",s)}return this},removeClass:function(e){var t,n,r,i,o,a,s,u=0;if(g(e))return this.each(function(t){w(this).removeClass(e.call(this,t,mt(this)))});if(!arguments.length)return this.attr("class","");if((t=xt(e)).length)while(n=this[u++])if(i=mt(n),r=1===n.nodeType&&" "+vt(i)+" "){a=0;while(o=t[a++])while(r.indexOf(" "+o+" ")>-1)r=r.replace(" "+o+" "," ");i!==(s=vt(r))&&n.setAttribute("class",s)}return this},toggleClass:function(e,t){var n=typeof e,r="string"===n||Array.isArray(e);return"boolean"==typeof t&&r?t?this.addClass(e):this.removeClass(e):g(e)?this.each(function(n){w(this).toggleClass(e.call(this,n,mt(this),t),t)}):this.each(function(){var t,i,o,a;if(r){i=0,o=w(this),a=xt(e);while(t=a[i++])o.hasClass(t)?o.removeClass(t):o.addClass(t)}else void 0!==e&&"boolean"!==n||((t=mt(this))&&J.set(this,"__className__",t),this.setAttribute&&this.setAttribute("class",t||!1===e?"":J.get(this,"__className__")||""))})},hasClass:function(e){var t,n,r=0;t=" "+e+" ";while(n=this[r++])if(1===n.nodeType&&(" "+vt(mt(n))+" ").indexOf(t)>-1)return!0;return!1}});var bt=/\r/g;w.fn.extend({val:function(e){var t,n,r,i=this[0];{if(arguments.length)return r=g(e),this.each(function(n){var i;1===this.nodeType&&(null==(i=r?e.call(this,n,w(this).val()):e)?i="":"number"==typeof i?i+="":Array.isArray(i)&&(i=w.map(i,function(e){return null==e?"":e+""})),(t=w.valHooks[this.type]||w.valHooks[this.nodeName.toLowerCase()])&&"set"in t&&void 0!==t.set(this,i,"value")||(this.value=i))});if(i)return(t=w.valHooks[i.type]||w.valHooks[i.nodeName.toLowerCase()])&&"get"in t&&void 0!==(n=t.get(i,"value"))?n:"string"==typeof(n=i.value)?n.replace(bt,""):null==n?"":n}}}),w.extend({valHooks:{option:{get:function(e){var t=w.find.attr(e,"value");return null!=t?t:vt(w.text(e))}},select:{get:function(e){var t,n,r,i=e.options,o=e.selectedIndex,a="select-one"===e.type,s=a?null:[],u=a?o+1:i.length;for(r=o<0?u:a?o:0;r<u;r++)if(((n=i[r]).selected||r===o)&&!n.disabled&&(!n.parentNode.disabled||!N(n.parentNode,"optgroup"))){if(t=w(n).val(),a)return t;s.push(t)}return s},set:function(e,t){var n,r,i=e.options,o=w.makeArray(t),a=i.length;while(a--)((r=i[a]).selected=w.inArray(w.valHooks.option.get(r),o)>-1)&&(n=!0);return n||(e.selectedIndex=-1),o}}}}),w.each(["radio","checkbox"],function(){w.valHooks[this]={set:function(e,t){if(Array.isArray(t))return e.checked=w.inArray(w(e).val(),t)>-1}},h.checkOn||(w.valHooks[this].get=function(e){return null===e.getAttribute("value")?"on":e.value})}),h.focusin="onfocusin"in e;var wt=/^(?:focusinfocus|focusoutblur)$/,Tt=function(e){e.stopPropagation()};w.extend(w.event,{trigger:function(t,n,i,o){var a,s,u,l,c,p,d,h,v=[i||r],m=f.call(t,"type")?t.type:t,x=f.call(t,"namespace")?t.namespace.split("."):[];if(s=h=u=i=i||r,3!==i.nodeType&&8!==i.nodeType&&!wt.test(m+w.event.triggered)&&(m.indexOf(".")>-1&&(m=(x=m.split(".")).shift(),x.sort()),c=m.indexOf(":")<0&&"on"+m,t=t[w.expando]?t:new w.Event(m,"object"==typeof t&&t),t.isTrigger=o?2:3,t.namespace=x.join("."),t.rnamespace=t.namespace?new RegExp("(^|\\.)"+x.join("\\.(?:.*\\.|)")+"(\\.|$)"):null,t.result=void 0,t.target||(t.target=i),n=null==n?[t]:w.makeArray(n,[t]),d=w.event.special[m]||{},o||!d.trigger||!1!==d.trigger.apply(i,n))){if(!o&&!d.noBubble&&!y(i)){for(l=d.delegateType||m,wt.test(l+m)||(s=s.parentNode);s;s=s.parentNode)v.push(s),u=s;u===(i.ownerDocument||r)&&v.push(u.defaultView||u.parentWindow||e)}a=0;while((s=v[a++])&&!t.isPropagationStopped())h=s,t.type=a>1?l:d.bindType||m,(p=(J.get(s,"events")||{})[t.type]&&J.get(s,"handle"))&&p.apply(s,n),(p=c&&s[c])&&p.apply&&Y(s)&&(t.result=p.apply(s,n),!1===t.result&&t.preventDefault());return t.type=m,o||t.isDefaultPrevented()||d._default&&!1!==d._default.apply(v.pop(),n)||!Y(i)||c&&g(i[m])&&!y(i)&&((u=i[c])&&(i[c]=null),w.event.triggered=m,t.isPropagationStopped()&&h.addEventListener(m,Tt),i[m](),t.isPropagationStopped()&&h.removeEventListener(m,Tt),w.event.triggered=void 0,u&&(i[c]=u)),t.result}},simulate:function(e,t,n){var r=w.extend(new w.Event,n,{type:e,isSimulated:!0});w.event.trigger(r,null,t)}}),w.fn.extend({trigger:function(e,t){return this.each(function(){w.event.trigger(e,t,this)})},triggerHandler:function(e,t){var n=this[0];if(n)return w.event.trigger(e,t,n,!0)}}),h.focusin||w.each({focus:"focusin",blur:"focusout"},function(e,t){var n=function(e){w.event.simulate(t,e.target,w.event.fix(e))};w.event.special[t]={setup:function(){var r=this.ownerDocument||this,i=J.access(r,t);i||r.addEventListener(e,n,!0),J.access(r,t,(i||0)+1)},teardown:function(){var r=this.ownerDocument||this,i=J.access(r,t)-1;i?J.access(r,t,i):(r.removeEventListener(e,n,!0),J.remove(r,t))}}});var Ct=e.location,Et=Date.now(),kt=/\?/;w.parseXML=function(t){var n;if(!t||"string"!=typeof t)return null;try{n=(new e.DOMParser).parseFromString(t,"text/xml")}catch(e){n=void 0}return n&&!n.getElementsByTagName("parsererror").length||w.error("Invalid XML: "+t),n};var St=/\[\]$/,Dt=/\r?\n/g,Nt=/^(?:submit|button|image|reset|file)$/i,At=/^(?:input|select|textarea|keygen)/i;function jt(e,t,n,r){var i;if(Array.isArray(t))w.each(t,function(t,i){n||St.test(e)?r(e,i):jt(e+"["+("object"==typeof i&&null!=i?t:"")+"]",i,n,r)});else if(n||"object"!==x(t))r(e,t);else for(i in t)jt(e+"["+i+"]",t[i],n,r)}w.param=function(e,t){var n,r=[],i=function(e,t){var n=g(t)?t():t;r[r.length]=encodeURIComponent(e)+"="+encodeURIComponent(null==n?"":n)};if(Array.isArray(e)||e.jquery&&!w.isPlainObject(e))w.each(e,function(){i(this.name,this.value)});else for(n in e)jt(n,e[n],t,i);return r.join("&")},w.fn.extend({serialize:function(){return w.param(this.serializeArray())},serializeArray:function(){return this.map(function(){var e=w.prop(this,"elements");return e?w.makeArray(e):this}).filter(function(){var e=this.type;return this.name&&!w(this).is(":disabled")&&At.test(this.nodeName)&&!Nt.test(e)&&(this.checked||!pe.test(e))}).map(function(e,t){var n=w(this).val();return null==n?null:Array.isArray(n)?w.map(n,function(e){return{name:t.name,value:e.replace(Dt,"\r\n")}}):{name:t.name,value:n.replace(Dt,"\r\n")}}).get()}});var qt=/%20/g,Lt=/#.*$/,Ht=/([?&])_=[^&]*/,Ot=/^(.*?):[ \t]*([^\r\n]*)$/gm,Pt=/^(?:about|app|app-storage|.+-extension|file|res|widget):$/,Mt=/^(?:GET|HEAD)$/,Rt=/^\/\//,It={},Wt={},$t="*/".concat("*"),Bt=r.createElement("a");Bt.href=Ct.href;function Ft(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(M)||[];if(g(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function _t(e,t,n,r){var i={},o=e===Wt;function a(s){var u;return i[s]=!0,w.each(e[s]||[],function(e,s){var l=s(t,n,r);return"string"!=typeof l||o||i[l]?o?!(u=l):void 0:(t.dataTypes.unshift(l),a(l),!1)}),u}return a(t.dataTypes[0])||!i["*"]&&a("*")}function zt(e,t){var n,r,i=w.ajaxSettings.flatOptions||{};for(n in t)void 0!==t[n]&&((i[n]?e:r||(r={}))[n]=t[n]);return r&&w.extend(!0,e,r),e}function Xt(e,t,n){var r,i,o,a,s=e.contents,u=e.dataTypes;while("*"===u[0])u.shift(),void 0===r&&(r=e.mimeType||t.getResponseHeader("Content-Type"));if(r)for(i in s)if(s[i]&&s[i].test(r)){u.unshift(i);break}if(u[0]in n)o=u[0];else{for(i in n){if(!u[0]||e.converters[i+" "+u[0]]){o=i;break}a||(a=i)}o=o||a}if(o)return o!==u[0]&&u.unshift(o),n[o]}function Ut(e,t,n,r){var i,o,a,s,u,l={},c=e.dataTypes.slice();if(c[1])for(a in e.converters)l[a.toLowerCase()]=e.converters[a];o=c.shift();while(o)if(e.responseFields[o]&&(n[e.responseFields[o]]=t),!u&&r&&e.dataFilter&&(t=e.dataFilter(t,e.dataType)),u=o,o=c.shift())if("*"===o)o=u;else if("*"!==u&&u!==o){if(!(a=l[u+" "+o]||l["* "+o]))for(i in l)if((s=i.split(" "))[1]===o&&(a=l[u+" "+s[0]]||l["* "+s[0]])){!0===a?a=l[i]:!0!==l[i]&&(o=s[0],c.unshift(s[1]));break}if(!0!==a)if(a&&e["throws"])t=a(t);else try{t=a(t)}catch(e){return{state:"parsererror",error:a?e:"No conversion from "+u+" to "+o}}}return{state:"success",data:t}}w.extend({active:0,lastModified:{},etag:{},ajaxSettings:{url:Ct.href,type:"GET",isLocal:Pt.test(Ct.protocol),global:!0,processData:!0,async:!0,contentType:"application/x-www-form-urlencoded; charset=UTF-8",accepts:{"*":$t,text:"text/plain",html:"text/html",xml:"application/xml, text/xml",json:"application/json, text/javascript"},contents:{xml:/\bxml\b/,html:/\bhtml/,json:/\bjson\b/},responseFields:{xml:"responseXML",text:"responseText",json:"responseJSON"},converters:{"* text":String,"text html":!0,"text json":JSON.parse,"text xml":w.parseXML},flatOptions:{url:!0,context:!0}},ajaxSetup:function(e,t){return t?zt(zt(e,w.ajaxSettings),t):zt(w.ajaxSettings,e)},ajaxPrefilter:Ft(It),ajaxTransport:Ft(Wt),ajax:function(t,n){"object"==typeof t&&(n=t,t=void 0),n=n||{};var i,o,a,s,u,l,c,f,p,d,h=w.ajaxSetup({},n),g=h.context||h,y=h.context&&(g.nodeType||g.jquery)?w(g):w.event,v=w.Deferred(),m=w.Callbacks("once memory"),x=h.statusCode||{},b={},T={},C="canceled",E={readyState:0,getResponseHeader:function(e){var t;if(c){if(!s){s={};while(t=Ot.exec(a))s[t[1].toLowerCase()]=t[2]}t=s[e.toLowerCase()]}return null==t?null:t},getAllResponseHeaders:function(){return c?a:null},setRequestHeader:function(e,t){return null==c&&(e=T[e.toLowerCase()]=T[e.toLowerCase()]||e,b[e]=t),this},overrideMimeType:function(e){return null==c&&(h.mimeType=e),this},statusCode:function(e){var t;if(e)if(c)E.always(e[E.status]);else for(t in e)x[t]=[x[t],e[t]];return this},abort:function(e){var t=e||C;return i&&i.abort(t),k(0,t),this}};if(v.promise(E),h.url=((t||h.url||Ct.href)+"").replace(Rt,Ct.protocol+"//"),h.type=n.method||n.type||h.method||h.type,h.dataTypes=(h.dataType||"*").toLowerCase().match(M)||[""],null==h.crossDomain){l=r.createElement("a");try{l.href=h.url,l.href=l.href,h.crossDomain=Bt.protocol+"//"+Bt.host!=l.protocol+"//"+l.host}catch(e){h.crossDomain=!0}}if(h.data&&h.processData&&"string"!=typeof h.data&&(h.data=w.param(h.data,h.traditional)),_t(It,h,n,E),c)return E;(f=w.event&&h.global)&&0==w.active++&&w.event.trigger("ajaxStart"),h.type=h.type.toUpperCase(),h.hasContent=!Mt.test(h.type),o=h.url.replace(Lt,""),h.hasContent?h.data&&h.processData&&0===(h.contentType||"").indexOf("application/x-www-form-urlencoded")&&(h.data=h.data.replace(qt,"+")):(d=h.url.slice(o.length),h.data&&(h.processData||"string"==typeof h.data)&&(o+=(kt.test(o)?"&":"?")+h.data,delete h.data),!1===h.cache&&(o=o.replace(Ht,"$1"),d=(kt.test(o)?"&":"?")+"_="+Et+++d),h.url=o+d),h.ifModified&&(w.lastModified[o]&&E.setRequestHeader("If-Modified-Since",w.lastModified[o]),w.etag[o]&&E.setRequestHeader("If-None-Match",w.etag[o])),(h.data&&h.hasContent&&!1!==h.contentType||n.contentType)&&E.setRequestHeader("Content-Type",h.contentType),E.setRequestHeader("Accept",h.dataTypes[0]&&h.accepts[h.dataTypes[0]]?h.accepts[h.dataTypes[0]]+("*"!==h.dataTypes[0]?", "+$t+"; q=0.01":""):h.accepts["*"]);for(p in h.headers)E.setRequestHeader(p,h.headers[p]);if(h.beforeSend&&(!1===h.beforeSend.call(g,E,h)||c))return E.abort();if(C="abort",m.add(h.complete),E.done(h.success),E.fail(h.error),i=_t(Wt,h,n,E)){if(E.readyState=1,f&&y.trigger("ajaxSend",[E,h]),c)return E;h.async&&h.timeout>0&&(u=e.setTimeout(function(){E.abort("timeout")},h.timeout));try{c=!1,i.send(b,k)}catch(e){if(c)throw e;k(-1,e)}}else k(-1,"No Transport");function k(t,n,r,s){var l,p,d,b,T,C=n;c||(c=!0,u&&e.clearTimeout(u),i=void 0,a=s||"",E.readyState=t>0?4:0,l=t>=200&&t<300||304===t,r&&(b=Xt(h,E,r)),b=Ut(h,b,E,l),l?(h.ifModified&&((T=E.getResponseHeader("Last-Modified"))&&(w.lastModified[o]=T),(T=E.getResponseHeader("etag"))&&(w.etag[o]=T)),204===t||"HEAD"===h.type?C="nocontent":304===t?C="notmodified":(C=b.state,p=b.data,l=!(d=b.error))):(d=C,!t&&C||(C="error",t<0&&(t=0))),E.status=t,E.statusText=(n||C)+"",l?v.resolveWith(g,[p,C,E]):v.rejectWith(g,[E,C,d]),E.statusCode(x),x=void 0,f&&y.trigger(l?"ajaxSuccess":"ajaxError",[E,h,l?p:d]),m.fireWith(g,[E,C]),f&&(y.trigger("ajaxComplete",[E,h]),--w.active||w.event.trigger("ajaxStop")))}return E},getJSON:function(e,t,n){return w.get(e,t,n,"json")},getScript:function(e,t){return w.get(e,void 0,t,"script")}}),w.each(["get","post"],function(e,t){w[t]=function(e,n,r,i){return g(n)&&(i=i||r,r=n,n=void 0),w.ajax(w.extend({url:e,type:t,dataType:i,data:n,success:r},w.isPlainObject(e)&&e))}}),w._evalUrl=function(e){return w.ajax({url:e,type:"GET",dataType:"script",cache:!0,async:!1,global:!1,"throws":!0})},w.fn.extend({wrapAll:function(e){var t;return this[0]&&(g(e)&&(e=e.call(this[0])),t=w(e,this[0].ownerDocument).eq(0).clone(!0),this[0].parentNode&&t.insertBefore(this[0]),t.map(function(){var e=this;while(e.firstElementChild)e=e.firstElementChild;return e}).append(this)),this},wrapInner:function(e){return g(e)?this.each(function(t){w(this).wrapInner(e.call(this,t))}):this.each(function(){var t=w(this),n=t.contents();n.length?n.wrapAll(e):t.append(e)})},wrap:function(e){var t=g(e);return this.each(function(n){w(this).wrapAll(t?e.call(this,n):e)})},unwrap:function(e){return this.parent(e).not("body").each(function(){w(this).replaceWith(this.childNodes)}),this}}),w.expr.pseudos.hidden=function(e){return!w.expr.pseudos.visible(e)},w.expr.pseudos.visible=function(e){return!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length)},w.ajaxSettings.xhr=function(){try{return new e.XMLHttpRequest}catch(e){}};var Vt={0:200,1223:204},Gt=w.ajaxSettings.xhr();h.cors=!!Gt&&"withCredentials"in Gt,h.ajax=Gt=!!Gt,w.ajaxTransport(function(t){var n,r;if(h.cors||Gt&&!t.crossDomain)return{send:function(i,o){var a,s=t.xhr();if(s.open(t.type,t.url,t.async,t.username,t.password),t.xhrFields)for(a in t.xhrFields)s[a]=t.xhrFields[a];t.mimeType&&s.overrideMimeType&&s.overrideMimeType(t.mimeType),t.crossDomain||i["X-Requested-With"]||(i["X-Requested-With"]="XMLHttpRequest");for(a in i)s.setRequestHeader(a,i[a]);n=function(e){return function(){n&&(n=r=s.onload=s.onerror=s.onabort=s.ontimeout=s.onreadystatechange=null,"abort"===e?s.abort():"error"===e?"number"!=typeof s.status?o(0,"error"):o(s.status,s.statusText):o(Vt[s.status]||s.status,s.statusText,"text"!==(s.responseType||"text")||"string"!=typeof s.responseText?{binary:s.response}:{text:s.responseText},s.getAllResponseHeaders()))}},s.onload=n(),r=s.onerror=s.ontimeout=n("error"),void 0!==s.onabort?s.onabort=r:s.onreadystatechange=function(){4===s.readyState&&e.setTimeout(function(){n&&r()})},n=n("abort");try{s.send(t.hasContent&&t.data||null)}catch(e){if(n)throw e}},abort:function(){n&&n()}}}),w.ajaxPrefilter(function(e){e.crossDomain&&(e.contents.script=!1)}),w.ajaxSetup({accepts:{script:"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"},contents:{script:/\b(?:java|ecma)script\b/},converters:{"text script":function(e){return w.globalEval(e),e}}}),w.ajaxPrefilter("script",function(e){void 0===e.cache&&(e.cache=!1),e.crossDomain&&(e.type="GET")}),w.ajaxTransport("script",function(e){if(e.crossDomain){var t,n;return{send:function(i,o){t=w("<script>").prop({charset:e.scriptCharset,src:e.url}).on("load error",n=function(e){t.remove(),n=null,e&&o("error"===e.type?404:200,e.type)}),r.head.appendChild(t[0])},abort:function(){n&&n()}}}});var Yt=[],Qt=/(=)\?(?=&|$)|\?\?/;w.ajaxSetup({jsonp:"callback",jsonpCallback:function(){var e=Yt.pop()||w.expando+"_"+Et++;return this[e]=!0,e}}),w.ajaxPrefilter("json jsonp",function(t,n,r){var i,o,a,s=!1!==t.jsonp&&(Qt.test(t.url)?"url":"string"==typeof t.data&&0===(t.contentType||"").indexOf("application/x-www-form-urlencoded")&&Qt.test(t.data)&&"data");if(s||"jsonp"===t.dataTypes[0])return i=t.jsonpCallback=g(t.jsonpCallback)?t.jsonpCallback():t.jsonpCallback,s?t[s]=t[s].replace(Qt,"$1"+i):!1!==t.jsonp&&(t.url+=(kt.test(t.url)?"&":"?")+t.jsonp+"="+i),t.converters["script json"]=function(){return a||w.error(i+" was not called"),a[0]},t.dataTypes[0]="json",o=e[i],e[i]=function(){a=arguments},r.always(function(){void 0===o?w(e).removeProp(i):e[i]=o,t[i]&&(t.jsonpCallback=n.jsonpCallback,Yt.push(i)),a&&g(o)&&o(a[0]),a=o=void 0}),"script"}),h.createHTMLDocument=function(){var e=r.implementation.createHTMLDocument("").body;return e.innerHTML="<form></form><form></form>",2===e.childNodes.length}(),w.parseHTML=function(e,t,n){if("string"!=typeof e)return[];"boolean"==typeof t&&(n=t,t=!1);var i,o,a;return t||(h.createHTMLDocument?((i=(t=r.implementation.createHTMLDocument("")).createElement("base")).href=r.location.href,t.head.appendChild(i)):t=r),o=A.exec(e),a=!n&&[],o?[t.createElement(o[1])]:(o=xe([e],t,a),a&&a.length&&w(a).remove(),w.merge([],o.childNodes))},w.fn.load=function(e,t,n){var r,i,o,a=this,s=e.indexOf(" ");return s>-1&&(r=vt(e.slice(s)),e=e.slice(0,s)),g(t)?(n=t,t=void 0):t&&"object"==typeof t&&(i="POST"),a.length>0&&w.ajax({url:e,type:i||"GET",dataType:"html",data:t}).done(function(e){o=arguments,a.html(r?w("<div>").append(w.parseHTML(e)).find(r):e)}).always(n&&function(e,t){a.each(function(){n.apply(this,o||[e.responseText,t,e])})}),this},w.each(["ajaxStart","ajaxStop","ajaxComplete","ajaxError","ajaxSuccess","ajaxSend"],function(e,t){w.fn[t]=function(e){return this.on(t,e)}}),w.expr.pseudos.animated=function(e){return w.grep(w.timers,function(t){return e===t.elem}).length},w.offset={setOffset:function(e,t,n){var r,i,o,a,s,u,l,c=w.css(e,"position"),f=w(e),p={};"static"===c&&(e.style.position="relative"),s=f.offset(),o=w.css(e,"top"),u=w.css(e,"left"),(l=("absolute"===c||"fixed"===c)&&(o+u).indexOf("auto")>-1)?(a=(r=f.position()).top,i=r.left):(a=parseFloat(o)||0,i=parseFloat(u)||0),g(t)&&(t=t.call(e,n,w.extend({},s))),null!=t.top&&(p.top=t.top-s.top+a),null!=t.left&&(p.left=t.left-s.left+i),"using"in t?t.using.call(e,p):f.css(p)}},w.fn.extend({offset:function(e){if(arguments.length)return void 0===e?this:this.each(function(t){w.offset.setOffset(this,e,t)});var t,n,r=this[0];if(r)return r.getClientRects().length?(t=r.getBoundingClientRect(),n=r.ownerDocument.defaultView,{top:t.top+n.pageYOffset,left:t.left+n.pageXOffset}):{top:0,left:0}},position:function(){if(this[0]){var e,t,n,r=this[0],i={top:0,left:0};if("fixed"===w.css(r,"position"))t=r.getBoundingClientRect();else{t=this.offset(),n=r.ownerDocument,e=r.offsetParent||n.documentElement;while(e&&(e===n.body||e===n.documentElement)&&"static"===w.css(e,"position"))e=e.parentNode;e&&e!==r&&1===e.nodeType&&((i=w(e).offset()).top+=w.css(e,"borderTopWidth",!0),i.left+=w.css(e,"borderLeftWidth",!0))}return{top:t.top-i.top-w.css(r,"marginTop",!0),left:t.left-i.left-w.css(r,"marginLeft",!0)}}},offsetParent:function(){return this.map(function(){var e=this.offsetParent;while(e&&"static"===w.css(e,"position"))e=e.offsetParent;return e||be})}}),w.each({scrollLeft:"pageXOffset",scrollTop:"pageYOffset"},function(e,t){var n="pageYOffset"===t;w.fn[e]=function(r){return z(this,function(e,r,i){var o;if(y(e)?o=e:9===e.nodeType&&(o=e.defaultView),void 0===i)return o?o[t]:e[r];o?o.scrollTo(n?o.pageXOffset:i,n?i:o.pageYOffset):e[r]=i},e,r,arguments.length)}}),w.each(["top","left"],function(e,t){w.cssHooks[t]=_e(h.pixelPosition,function(e,n){if(n)return n=Fe(e,t),We.test(n)?w(e).position()[t]+"px":n})}),w.each({Height:"height",Width:"width"},function(e,t){w.each({padding:"inner"+e,content:t,"":"outer"+e},function(n,r){w.fn[r]=function(i,o){var a=arguments.length&&(n||"boolean"!=typeof i),s=n||(!0===i||!0===o?"margin":"border");return z(this,function(t,n,i){var o;return y(t)?0===r.indexOf("outer")?t["inner"+e]:t.document.documentElement["client"+e]:9===t.nodeType?(o=t.documentElement,Math.max(t.body["scroll"+e],o["scroll"+e],t.body["offset"+e],o["offset"+e],o["client"+e])):void 0===i?w.css(t,n,s):w.style(t,n,i,s)},t,a?i:void 0,a)}})}),w.each("blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu".split(" "),function(e,t){w.fn[t]=function(e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}}),w.fn.extend({hover:function(e,t){return this.mouseenter(e).mouseleave(t||e)}}),w.fn.extend({bind:function(e,t,n){return this.on(e,null,t,n)},unbind:function(e,t){return this.off(e,null,t)},delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)}}),w.proxy=function(e,t){var n,r,i;if("string"==typeof t&&(n=e[t],t=e,e=n),g(e))return r=o.call(arguments,2),i=function(){return e.apply(t||this,r.concat(o.call(arguments)))},i.guid=e.guid=e.guid||w.guid++,i},w.holdReady=function(e){e?w.readyWait++:w.ready(!0)},w.isArray=Array.isArray,w.parseJSON=JSON.parse,w.nodeName=N,w.isFunction=g,w.isWindow=y,w.camelCase=G,w.type=x,w.now=Date.now,w.isNumeric=function(e){var t=w.type(e);return("number"===t||"string"===t)&&!isNaN(e-parseFloat(e))},"function"==typeof define&&define.amd&&define("jquery",[],function(){return w});var Jt=e.jQuery,Kt=e.$;return w.noConflict=function(t){return e.$===w&&(e.$=Kt),t&&e.jQuery===w&&(e.jQuery=Jt),w},t||(e.jQuery=e.$=w),w});
 
-;// Pressure v2.1.2 | Created By Stuart Yamartino | MIT License | 2015 - 2017
+// Pressure v2.1.2 | Created By Stuart Yamartino | MIT License | 2015 - 2017
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
@@ -30183,7 +30183,7 @@ if (typeof window !== 'undefined') {
 return void 0;
 }));
 
-;/*!
+/*!
  * jQuery Mousewheel 3.1.13
  *
  * Copyright jQuery Foundation and other contributors
@@ -30405,7 +30405,7 @@ return void 0;
 
 }));
 
-;/*!
+/*!
 
 JSZip v3.1.5 - A JavaScript class for generating and reading zip files
 <http://stuartk.com/jszip>
@@ -42028,16 +42028,16 @@ module.exports = ZStream;
 
 },{}]},{},[10])(10)
 });
-;//https://github.com/mattdesl/lerp/blob/master/index.js
+//https://github.com/mattdesl/lerp/blob/master/index.js
 var lerp = function (v0, v1, t) { return v0*(1-t)+v1*t; };
-;/**
+/**
  * @license localForage -- Offline Storage, Improved
  * Version 1.7.3
  * https://localforage.github.io/localForage
  * (c) 2013-2017 Mozilla, Apache License 2.0
 */
 !function(a){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=a();else if("function"==typeof define&&define.amd)define([],a);else{var b;b="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,b.localforage=a()}}(function(){return function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i="function"==typeof require&&require;if(!h&&i)return i(g,!0);if(f)return f(g,!0);var j=new Error("Cannot find module '"+g+"'");throw j.code="MODULE_NOT_FOUND",j}var k=c[g]={exports:{}};b[g][0].call(k.exports,function(a){var c=b[g][1][a];return e(c||a)},k,k.exports,a,b,c,d)}return c[g].exports}for(var f="function"==typeof require&&require,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b,c){(function(a){"use strict";function c(){k=!0;for(var a,b,c=l.length;c;){for(b=l,l=[],a=-1;++a<c;)b[a]();c=l.length}k=!1}function d(a){1!==l.push(a)||k||e()}var e,f=a.MutationObserver||a.WebKitMutationObserver;if(f){var g=0,h=new f(c),i=a.document.createTextNode("");h.observe(i,{characterData:!0}),e=function(){i.data=g=++g%2}}else if(a.setImmediate||void 0===a.MessageChannel)e="document"in a&&"onreadystatechange"in a.document.createElement("script")?function(){var b=a.document.createElement("script");b.onreadystatechange=function(){c(),b.onreadystatechange=null,b.parentNode.removeChild(b),b=null},a.document.documentElement.appendChild(b)}:function(){setTimeout(c,0)};else{var j=new a.MessageChannel;j.port1.onmessage=c,e=function(){j.port2.postMessage(0)}}var k,l=[];b.exports=d}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{}],2:[function(a,b,c){"use strict";function d(){}function e(a){if("function"!=typeof a)throw new TypeError("resolver must be a function");this.state=s,this.queue=[],this.outcome=void 0,a!==d&&i(this,a)}function f(a,b,c){this.promise=a,"function"==typeof b&&(this.onFulfilled=b,this.callFulfilled=this.otherCallFulfilled),"function"==typeof c&&(this.onRejected=c,this.callRejected=this.otherCallRejected)}function g(a,b,c){o(function(){var d;try{d=b(c)}catch(b){return p.reject(a,b)}d===a?p.reject(a,new TypeError("Cannot resolve promise with itself")):p.resolve(a,d)})}function h(a){var b=a&&a.then;if(a&&("object"==typeof a||"function"==typeof a)&&"function"==typeof b)return function(){b.apply(a,arguments)}}function i(a,b){function c(b){f||(f=!0,p.reject(a,b))}function d(b){f||(f=!0,p.resolve(a,b))}function e(){b(d,c)}var f=!1,g=j(e);"error"===g.status&&c(g.value)}function j(a,b){var c={};try{c.value=a(b),c.status="success"}catch(a){c.status="error",c.value=a}return c}function k(a){return a instanceof this?a:p.resolve(new this(d),a)}function l(a){var b=new this(d);return p.reject(b,a)}function m(a){function b(a,b){function d(a){g[b]=a,++h!==e||f||(f=!0,p.resolve(j,g))}c.resolve(a).then(d,function(a){f||(f=!0,p.reject(j,a))})}var c=this;if("[object Array]"!==Object.prototype.toString.call(a))return this.reject(new TypeError("must be an array"));var e=a.length,f=!1;if(!e)return this.resolve([]);for(var g=new Array(e),h=0,i=-1,j=new this(d);++i<e;)b(a[i],i);return j}function n(a){function b(a){c.resolve(a).then(function(a){f||(f=!0,p.resolve(h,a))},function(a){f||(f=!0,p.reject(h,a))})}var c=this;if("[object Array]"!==Object.prototype.toString.call(a))return this.reject(new TypeError("must be an array"));var e=a.length,f=!1;if(!e)return this.resolve([]);for(var g=-1,h=new this(d);++g<e;)b(a[g]);return h}var o=a(1),p={},q=["REJECTED"],r=["FULFILLED"],s=["PENDING"];b.exports=e,e.prototype.catch=function(a){return this.then(null,a)},e.prototype.then=function(a,b){if("function"!=typeof a&&this.state===r||"function"!=typeof b&&this.state===q)return this;var c=new this.constructor(d);if(this.state!==s){g(c,this.state===r?a:b,this.outcome)}else this.queue.push(new f(c,a,b));return c},f.prototype.callFulfilled=function(a){p.resolve(this.promise,a)},f.prototype.otherCallFulfilled=function(a){g(this.promise,this.onFulfilled,a)},f.prototype.callRejected=function(a){p.reject(this.promise,a)},f.prototype.otherCallRejected=function(a){g(this.promise,this.onRejected,a)},p.resolve=function(a,b){var c=j(h,b);if("error"===c.status)return p.reject(a,c.value);var d=c.value;if(d)i(a,d);else{a.state=r,a.outcome=b;for(var e=-1,f=a.queue.length;++e<f;)a.queue[e].callFulfilled(b)}return a},p.reject=function(a,b){a.state=q,a.outcome=b;for(var c=-1,d=a.queue.length;++c<d;)a.queue[c].callRejected(b);return a},e.resolve=k,e.reject=l,e.all=m,e.race=n},{1:1}],3:[function(a,b,c){(function(b){"use strict";"function"!=typeof b.Promise&&(b.Promise=a(2))}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{2:2}],4:[function(a,b,c){"use strict";function d(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function e(){try{if("undefined"!=typeof indexedDB)return indexedDB;if("undefined"!=typeof webkitIndexedDB)return webkitIndexedDB;if("undefined"!=typeof mozIndexedDB)return mozIndexedDB;if("undefined"!=typeof OIndexedDB)return OIndexedDB;if("undefined"!=typeof msIndexedDB)return msIndexedDB}catch(a){return}}function f(){try{if(!ua)return!1;var a="undefined"!=typeof openDatabase&&/(Safari|iPhone|iPad|iPod)/.test(navigator.userAgent)&&!/Chrome/.test(navigator.userAgent)&&!/BlackBerry/.test(navigator.platform),b="function"==typeof fetch&&-1!==fetch.toString().indexOf("[native code");return(!a||b)&&"undefined"!=typeof indexedDB&&"undefined"!=typeof IDBKeyRange}catch(a){return!1}}function g(a,b){a=a||[],b=b||{};try{return new Blob(a,b)}catch(f){if("TypeError"!==f.name)throw f;for(var c="undefined"!=typeof BlobBuilder?BlobBuilder:"undefined"!=typeof MSBlobBuilder?MSBlobBuilder:"undefined"!=typeof MozBlobBuilder?MozBlobBuilder:WebKitBlobBuilder,d=new c,e=0;e<a.length;e+=1)d.append(a[e]);return d.getBlob(b.type)}}function h(a,b){b&&a.then(function(a){b(null,a)},function(a){b(a)})}function i(a,b,c){"function"==typeof b&&a.then(b),"function"==typeof c&&a.catch(c)}function j(a){return"string"!=typeof a&&(console.warn(a+" used as a key, but it is not a string."),a=String(a)),a}function k(){if(arguments.length&&"function"==typeof arguments[arguments.length-1])return arguments[arguments.length-1]}function l(a){for(var b=a.length,c=new ArrayBuffer(b),d=new Uint8Array(c),e=0;e<b;e++)d[e]=a.charCodeAt(e);return c}function m(a){return new va(function(b){var c=a.transaction(wa,Ba),d=g([""]);c.objectStore(wa).put(d,"key"),c.onabort=function(a){a.preventDefault(),a.stopPropagation(),b(!1)},c.oncomplete=function(){var a=navigator.userAgent.match(/Chrome\/(\d+)/),c=navigator.userAgent.match(/Edge\//);b(c||!a||parseInt(a[1],10)>=43)}}).catch(function(){return!1})}function n(a){return"boolean"==typeof xa?va.resolve(xa):m(a).then(function(a){return xa=a})}function o(a){var b=ya[a.name],c={};c.promise=new va(function(a,b){c.resolve=a,c.reject=b}),b.deferredOperations.push(c),b.dbReady?b.dbReady=b.dbReady.then(function(){return c.promise}):b.dbReady=c.promise}function p(a){var b=ya[a.name],c=b.deferredOperations.pop();if(c)return c.resolve(),c.promise}function q(a,b){var c=ya[a.name],d=c.deferredOperations.pop();if(d)return d.reject(b),d.promise}function r(a,b){return new va(function(c,d){if(ya[a.name]=ya[a.name]||B(),a.db){if(!b)return c(a.db);o(a),a.db.close()}var e=[a.name];b&&e.push(a.version);var f=ua.open.apply(ua,e);b&&(f.onupgradeneeded=function(b){var c=f.result;try{c.createObjectStore(a.storeName),b.oldVersion<=1&&c.createObjectStore(wa)}catch(c){if("ConstraintError"!==c.name)throw c;console.warn('The database "'+a.name+'" has been upgraded from version '+b.oldVersion+" to version "+b.newVersion+', but the storage "'+a.storeName+'" already exists.')}}),f.onerror=function(a){a.preventDefault(),d(f.error)},f.onsuccess=function(){c(f.result),p(a)}})}function s(a){return r(a,!1)}function t(a){return r(a,!0)}function u(a,b){if(!a.db)return!0;var c=!a.db.objectStoreNames.contains(a.storeName),d=a.version<a.db.version,e=a.version>a.db.version;if(d&&(a.version!==b&&console.warn('The database "'+a.name+"\" can't be downgraded from version "+a.db.version+" to version "+a.version+"."),a.version=a.db.version),e||c){if(c){var f=a.db.version+1;f>a.version&&(a.version=f)}return!0}return!1}function v(a){return new va(function(b,c){var d=new FileReader;d.onerror=c,d.onloadend=function(c){var d=btoa(c.target.result||"");b({__local_forage_encoded_blob:!0,data:d,type:a.type})},d.readAsBinaryString(a)})}function w(a){return g([l(atob(a.data))],{type:a.type})}function x(a){return a&&a.__local_forage_encoded_blob}function y(a){var b=this,c=b._initReady().then(function(){var a=ya[b._dbInfo.name];if(a&&a.dbReady)return a.dbReady});return i(c,a,a),c}function z(a){o(a);for(var b=ya[a.name],c=b.forages,d=0;d<c.length;d++){var e=c[d];e._dbInfo.db&&(e._dbInfo.db.close(),e._dbInfo.db=null)}return a.db=null,s(a).then(function(b){return a.db=b,u(a)?t(a):b}).then(function(d){a.db=b.db=d;for(var e=0;e<c.length;e++)c[e]._dbInfo.db=d}).catch(function(b){throw q(a,b),b})}function A(a,b,c,d){void 0===d&&(d=1);try{var e=a.db.transaction(a.storeName,b);c(null,e)}catch(e){if(d>0&&(!a.db||"InvalidStateError"===e.name||"NotFoundError"===e.name))return va.resolve().then(function(){if(!a.db||"NotFoundError"===e.name&&!a.db.objectStoreNames.contains(a.storeName)&&a.version<=a.db.version)return a.db&&(a.version=a.db.version+1),t(a)}).then(function(){return z(a).then(function(){A(a,b,c,d-1)})}).catch(c);c(e)}}function B(){return{forages:[],db:null,dbReady:null,deferredOperations:[]}}function C(a){function b(){return va.resolve()}var c=this,d={db:null};if(a)for(var e in a)d[e]=a[e];var f=ya[d.name];f||(f=B(),ya[d.name]=f),f.forages.push(c),c._initReady||(c._initReady=c.ready,c.ready=y);for(var g=[],h=0;h<f.forages.length;h++){var i=f.forages[h];i!==c&&g.push(i._initReady().catch(b))}var j=f.forages.slice(0);return va.all(g).then(function(){return d.db=f.db,s(d)}).then(function(a){return d.db=a,u(d,c._defaultConfig.version)?t(d):a}).then(function(a){d.db=f.db=a,c._dbInfo=d;for(var b=0;b<j.length;b++){var e=j[b];e!==c&&(e._dbInfo.db=d.db,e._dbInfo.version=d.version)}})}function D(a,b){var c=this;a=j(a);var d=new va(function(b,d){c.ready().then(function(){A(c._dbInfo,Aa,function(e,f){if(e)return d(e);try{var g=f.objectStore(c._dbInfo.storeName),h=g.get(a);h.onsuccess=function(){var a=h.result;void 0===a&&(a=null),x(a)&&(a=w(a)),b(a)},h.onerror=function(){d(h.error)}}catch(a){d(a)}})}).catch(d)});return h(d,b),d}function E(a,b){var c=this,d=new va(function(b,d){c.ready().then(function(){A(c._dbInfo,Aa,function(e,f){if(e)return d(e);try{var g=f.objectStore(c._dbInfo.storeName),h=g.openCursor(),i=1;h.onsuccess=function(){var c=h.result;if(c){var d=c.value;x(d)&&(d=w(d));var e=a(d,c.key,i++);void 0!==e?b(e):c.continue()}else b()},h.onerror=function(){d(h.error)}}catch(a){d(a)}})}).catch(d)});return h(d,b),d}function F(a,b,c){var d=this;a=j(a);var e=new va(function(c,e){var f;d.ready().then(function(){return f=d._dbInfo,"[object Blob]"===za.call(b)?n(f.db).then(function(a){return a?b:v(b)}):b}).then(function(b){A(d._dbInfo,Ba,function(f,g){if(f)return e(f);try{var h=g.objectStore(d._dbInfo.storeName);null===b&&(b=void 0);var i=h.put(b,a);g.oncomplete=function(){void 0===b&&(b=null),c(b)},g.onabort=g.onerror=function(){var a=i.error?i.error:i.transaction.error;e(a)}}catch(a){e(a)}})}).catch(e)});return h(e,c),e}function G(a,b){var c=this;a=j(a);var d=new va(function(b,d){c.ready().then(function(){A(c._dbInfo,Ba,function(e,f){if(e)return d(e);try{var g=f.objectStore(c._dbInfo.storeName),h=g.delete(a);f.oncomplete=function(){b()},f.onerror=function(){d(h.error)},f.onabort=function(){var a=h.error?h.error:h.transaction.error;d(a)}}catch(a){d(a)}})}).catch(d)});return h(d,b),d}function H(a){var b=this,c=new va(function(a,c){b.ready().then(function(){A(b._dbInfo,Ba,function(d,e){if(d)return c(d);try{var f=e.objectStore(b._dbInfo.storeName),g=f.clear();e.oncomplete=function(){a()},e.onabort=e.onerror=function(){var a=g.error?g.error:g.transaction.error;c(a)}}catch(a){c(a)}})}).catch(c)});return h(c,a),c}function I(a){var b=this,c=new va(function(a,c){b.ready().then(function(){A(b._dbInfo,Aa,function(d,e){if(d)return c(d);try{var f=e.objectStore(b._dbInfo.storeName),g=f.count();g.onsuccess=function(){a(g.result)},g.onerror=function(){c(g.error)}}catch(a){c(a)}})}).catch(c)});return h(c,a),c}function J(a,b){var c=this,d=new va(function(b,d){if(a<0)return void b(null);c.ready().then(function(){A(c._dbInfo,Aa,function(e,f){if(e)return d(e);try{var g=f.objectStore(c._dbInfo.storeName),h=!1,i=g.openCursor();i.onsuccess=function(){var c=i.result;if(!c)return void b(null);0===a?b(c.key):h?b(c.key):(h=!0,c.advance(a))},i.onerror=function(){d(i.error)}}catch(a){d(a)}})}).catch(d)});return h(d,b),d}function K(a){var b=this,c=new va(function(a,c){b.ready().then(function(){A(b._dbInfo,Aa,function(d,e){if(d)return c(d);try{var f=e.objectStore(b._dbInfo.storeName),g=f.openCursor(),h=[];g.onsuccess=function(){var b=g.result;if(!b)return void a(h);h.push(b.key),b.continue()},g.onerror=function(){c(g.error)}}catch(a){c(a)}})}).catch(c)});return h(c,a),c}function L(a,b){b=k.apply(this,arguments);var c=this.config();a="function"!=typeof a&&a||{},a.name||(a.name=a.name||c.name,a.storeName=a.storeName||c.storeName);var d,e=this;if(a.name){var f=a.name===c.name&&e._dbInfo.db,g=f?va.resolve(e._dbInfo.db):s(a).then(function(b){var c=ya[a.name],d=c.forages;c.db=b;for(var e=0;e<d.length;e++)d[e]._dbInfo.db=b;return b});d=a.storeName?g.then(function(b){if(b.objectStoreNames.contains(a.storeName)){var c=b.version+1;o(a);var d=ya[a.name],e=d.forages;b.close();for(var f=0;f<e.length;f++){var g=e[f];g._dbInfo.db=null,g._dbInfo.version=c}return new va(function(b,d){var e=ua.open(a.name,c);e.onerror=function(a){e.result.close(),d(a)},e.onupgradeneeded=function(){e.result.deleteObjectStore(a.storeName)},e.onsuccess=function(){var a=e.result;a.close(),b(a)}}).then(function(a){d.db=a;for(var b=0;b<e.length;b++){var c=e[b];c._dbInfo.db=a,p(c._dbInfo)}}).catch(function(b){throw(q(a,b)||va.resolve()).catch(function(){}),b})}}):g.then(function(b){o(a);var c=ya[a.name],d=c.forages;b.close();for(var e=0;e<d.length;e++){d[e]._dbInfo.db=null}return new va(function(b,c){var d=ua.deleteDatabase(a.name);d.onerror=d.onblocked=function(a){var b=d.result;b&&b.close(),c(a)},d.onsuccess=function(){var a=d.result;a&&a.close(),b(a)}}).then(function(a){c.db=a;for(var b=0;b<d.length;b++)p(d[b]._dbInfo)}).catch(function(b){throw(q(a,b)||va.resolve()).catch(function(){}),b})})}else d=va.reject("Invalid arguments");return h(d,b),d}function M(){return"function"==typeof openDatabase}function N(a){var b,c,d,e,f,g=.75*a.length,h=a.length,i=0;"="===a[a.length-1]&&(g--,"="===a[a.length-2]&&g--);var j=new ArrayBuffer(g),k=new Uint8Array(j);for(b=0;b<h;b+=4)c=Da.indexOf(a[b]),d=Da.indexOf(a[b+1]),e=Da.indexOf(a[b+2]),f=Da.indexOf(a[b+3]),k[i++]=c<<2|d>>4,k[i++]=(15&d)<<4|e>>2,k[i++]=(3&e)<<6|63&f;return j}function O(a){var b,c=new Uint8Array(a),d="";for(b=0;b<c.length;b+=3)d+=Da[c[b]>>2],d+=Da[(3&c[b])<<4|c[b+1]>>4],d+=Da[(15&c[b+1])<<2|c[b+2]>>6],d+=Da[63&c[b+2]];return c.length%3==2?d=d.substring(0,d.length-1)+"=":c.length%3==1&&(d=d.substring(0,d.length-2)+"=="),d}function P(a,b){var c="";if(a&&(c=Ua.call(a)),a&&("[object ArrayBuffer]"===c||a.buffer&&"[object ArrayBuffer]"===Ua.call(a.buffer))){var d,e=Ga;a instanceof ArrayBuffer?(d=a,e+=Ia):(d=a.buffer,"[object Int8Array]"===c?e+=Ka:"[object Uint8Array]"===c?e+=La:"[object Uint8ClampedArray]"===c?e+=Ma:"[object Int16Array]"===c?e+=Na:"[object Uint16Array]"===c?e+=Pa:"[object Int32Array]"===c?e+=Oa:"[object Uint32Array]"===c?e+=Qa:"[object Float32Array]"===c?e+=Ra:"[object Float64Array]"===c?e+=Sa:b(new Error("Failed to get type for BinaryArray"))),b(e+O(d))}else if("[object Blob]"===c){var f=new FileReader;f.onload=function(){var c=Ea+a.type+"~"+O(this.result);b(Ga+Ja+c)},f.readAsArrayBuffer(a)}else try{b(JSON.stringify(a))}catch(c){console.error("Couldn't convert value into a JSON string: ",a),b(null,c)}}function Q(a){if(a.substring(0,Ha)!==Ga)return JSON.parse(a);var b,c=a.substring(Ta),d=a.substring(Ha,Ta);if(d===Ja&&Fa.test(c)){var e=c.match(Fa);b=e[1],c=c.substring(e[0].length)}var f=N(c);switch(d){case Ia:return f;case Ja:return g([f],{type:b});case Ka:return new Int8Array(f);case La:return new Uint8Array(f);case Ma:return new Uint8ClampedArray(f);case Na:return new Int16Array(f);case Pa:return new Uint16Array(f);case Oa:return new Int32Array(f);case Qa:return new Uint32Array(f);case Ra:return new Float32Array(f);case Sa:return new Float64Array(f);default:throw new Error("Unkown type: "+d)}}function R(a,b,c,d){a.executeSql("CREATE TABLE IF NOT EXISTS "+b.storeName+" (id INTEGER PRIMARY KEY, key unique, value)",[],c,d)}function S(a){var b=this,c={db:null};if(a)for(var d in a)c[d]="string"!=typeof a[d]?a[d].toString():a[d];var e=new va(function(a,d){try{c.db=openDatabase(c.name,String(c.version),c.description,c.size)}catch(a){return d(a)}c.db.transaction(function(e){R(e,c,function(){b._dbInfo=c,a()},function(a,b){d(b)})},d)});return c.serializer=Va,e}function T(a,b,c,d,e,f){a.executeSql(c,d,e,function(a,g){g.code===g.SYNTAX_ERR?a.executeSql("SELECT name FROM sqlite_master WHERE type='table' AND name = ?",[b.storeName],function(a,h){h.rows.length?f(a,g):R(a,b,function(){a.executeSql(c,d,e,f)},f)},f):f(a,g)},f)}function U(a,b){var c=this;a=j(a);var d=new va(function(b,d){c.ready().then(function(){var e=c._dbInfo;e.db.transaction(function(c){T(c,e,"SELECT * FROM "+e.storeName+" WHERE key = ? LIMIT 1",[a],function(a,c){var d=c.rows.length?c.rows.item(0).value:null;d&&(d=e.serializer.deserialize(d)),b(d)},function(a,b){d(b)})})}).catch(d)});return h(d,b),d}function V(a,b){var c=this,d=new va(function(b,d){c.ready().then(function(){var e=c._dbInfo;e.db.transaction(function(c){T(c,e,"SELECT * FROM "+e.storeName,[],function(c,d){for(var f=d.rows,g=f.length,h=0;h<g;h++){var i=f.item(h),j=i.value;if(j&&(j=e.serializer.deserialize(j)),void 0!==(j=a(j,i.key,h+1)))return void b(j)}b()},function(a,b){d(b)})})}).catch(d)});return h(d,b),d}function W(a,b,c,d){var e=this;a=j(a);var f=new va(function(f,g){e.ready().then(function(){void 0===b&&(b=null);var h=b,i=e._dbInfo;i.serializer.serialize(b,function(b,j){j?g(j):i.db.transaction(function(c){T(c,i,"INSERT OR REPLACE INTO "+i.storeName+" (key, value) VALUES (?, ?)",[a,b],function(){f(h)},function(a,b){g(b)})},function(b){if(b.code===b.QUOTA_ERR){if(d>0)return void f(W.apply(e,[a,h,c,d-1]));g(b)}})})}).catch(g)});return h(f,c),f}function X(a,b,c){return W.apply(this,[a,b,c,1])}function Y(a,b){var c=this;a=j(a);var d=new va(function(b,d){c.ready().then(function(){var e=c._dbInfo;e.db.transaction(function(c){T(c,e,"DELETE FROM "+e.storeName+" WHERE key = ?",[a],function(){b()},function(a,b){d(b)})})}).catch(d)});return h(d,b),d}function Z(a){var b=this,c=new va(function(a,c){b.ready().then(function(){var d=b._dbInfo;d.db.transaction(function(b){T(b,d,"DELETE FROM "+d.storeName,[],function(){a()},function(a,b){c(b)})})}).catch(c)});return h(c,a),c}function $(a){var b=this,c=new va(function(a,c){b.ready().then(function(){var d=b._dbInfo;d.db.transaction(function(b){T(b,d,"SELECT COUNT(key) as c FROM "+d.storeName,[],function(b,c){var d=c.rows.item(0).c;a(d)},function(a,b){c(b)})})}).catch(c)});return h(c,a),c}function _(a,b){var c=this,d=new va(function(b,d){c.ready().then(function(){var e=c._dbInfo;e.db.transaction(function(c){T(c,e,"SELECT key FROM "+e.storeName+" WHERE id = ? LIMIT 1",[a+1],function(a,c){var d=c.rows.length?c.rows.item(0).key:null;b(d)},function(a,b){d(b)})})}).catch(d)});return h(d,b),d}function aa(a){var b=this,c=new va(function(a,c){b.ready().then(function(){var d=b._dbInfo;d.db.transaction(function(b){T(b,d,"SELECT key FROM "+d.storeName,[],function(b,c){for(var d=[],e=0;e<c.rows.length;e++)d.push(c.rows.item(e).key);a(d)},function(a,b){c(b)})})}).catch(c)});return h(c,a),c}function ba(a){return new va(function(b,c){a.transaction(function(d){d.executeSql("SELECT name FROM sqlite_master WHERE type='table' AND name <> '__WebKitDatabaseInfoTable__'",[],function(c,d){for(var e=[],f=0;f<d.rows.length;f++)e.push(d.rows.item(f).name);b({db:a,storeNames:e})},function(a,b){c(b)})},function(a){c(a)})})}function ca(a,b){b=k.apply(this,arguments);var c=this.config();a="function"!=typeof a&&a||{},a.name||(a.name=a.name||c.name,a.storeName=a.storeName||c.storeName);var d,e=this;return d=a.name?new va(function(b){var d;d=a.name===c.name?e._dbInfo.db:openDatabase(a.name,"","",0),b(a.storeName?{db:d,storeNames:[a.storeName]}:ba(d))}).then(function(a){return new va(function(b,c){a.db.transaction(function(d){function e(a){return new va(function(b,c){d.executeSql("DROP TABLE IF EXISTS "+a,[],function(){b()},function(a,b){c(b)})})}for(var f=[],g=0,h=a.storeNames.length;g<h;g++)f.push(e(a.storeNames[g]));va.all(f).then(function(){b()}).catch(function(a){c(a)})},function(a){c(a)})})}):va.reject("Invalid arguments"),h(d,b),d}function da(){try{return"undefined"!=typeof localStorage&&"setItem"in localStorage&&!!localStorage.setItem}catch(a){return!1}}function ea(a,b){var c=a.name+"/";return a.storeName!==b.storeName&&(c+=a.storeName+"/"),c}function fa(){var a="_localforage_support_test";try{return localStorage.setItem(a,!0),localStorage.removeItem(a),!1}catch(a){return!0}}function ga(){return!fa()||localStorage.length>0}function ha(a){var b=this,c={};if(a)for(var d in a)c[d]=a[d];return c.keyPrefix=ea(a,b._defaultConfig),ga()?(b._dbInfo=c,c.serializer=Va,va.resolve()):va.reject()}function ia(a){var b=this,c=b.ready().then(function(){for(var a=b._dbInfo.keyPrefix,c=localStorage.length-1;c>=0;c--){var d=localStorage.key(c);0===d.indexOf(a)&&localStorage.removeItem(d)}});return h(c,a),c}function ja(a,b){var c=this;a=j(a);var d=c.ready().then(function(){var b=c._dbInfo,d=localStorage.getItem(b.keyPrefix+a);return d&&(d=b.serializer.deserialize(d)),d});return h(d,b),d}function ka(a,b){var c=this,d=c.ready().then(function(){for(var b=c._dbInfo,d=b.keyPrefix,e=d.length,f=localStorage.length,g=1,h=0;h<f;h++){var i=localStorage.key(h);if(0===i.indexOf(d)){var j=localStorage.getItem(i);if(j&&(j=b.serializer.deserialize(j)),void 0!==(j=a(j,i.substring(e),g++)))return j}}});return h(d,b),d}function la(a,b){var c=this,d=c.ready().then(function(){var b,d=c._dbInfo;try{b=localStorage.key(a)}catch(a){b=null}return b&&(b=b.substring(d.keyPrefix.length)),b});return h(d,b),d}function ma(a){var b=this,c=b.ready().then(function(){for(var a=b._dbInfo,c=localStorage.length,d=[],e=0;e<c;e++){var f=localStorage.key(e);0===f.indexOf(a.keyPrefix)&&d.push(f.substring(a.keyPrefix.length))}return d});return h(c,a),c}function na(a){var b=this,c=b.keys().then(function(a){return a.length});return h(c,a),c}function oa(a,b){var c=this;a=j(a);var d=c.ready().then(function(){var b=c._dbInfo;localStorage.removeItem(b.keyPrefix+a)});return h(d,b),d}function pa(a,b,c){var d=this;a=j(a);var e=d.ready().then(function(){void 0===b&&(b=null);var c=b;return new va(function(e,f){var g=d._dbInfo;g.serializer.serialize(b,function(b,d){if(d)f(d);else try{localStorage.setItem(g.keyPrefix+a,b),e(c)}catch(a){"QuotaExceededError"!==a.name&&"NS_ERROR_DOM_QUOTA_REACHED"!==a.name||f(a),f(a)}})})});return h(e,c),e}function qa(a,b){if(b=k.apply(this,arguments),a="function"!=typeof a&&a||{},!a.name){var c=this.config();a.name=a.name||c.name,a.storeName=a.storeName||c.storeName}var d,e=this;return d=a.name?new va(function(b){b(a.storeName?ea(a,e._defaultConfig):a.name+"/")}).then(function(a){for(var b=localStorage.length-1;b>=0;b--){var c=localStorage.key(b);0===c.indexOf(a)&&localStorage.removeItem(c)}}):va.reject("Invalid arguments"),h(d,b),d}function ra(a,b){a[b]=function(){var c=arguments;return a.ready().then(function(){return a[b].apply(a,c)})}}function sa(){for(var a=1;a<arguments.length;a++){var b=arguments[a];if(b)for(var c in b)b.hasOwnProperty(c)&&($a(b[c])?arguments[0][c]=b[c].slice():arguments[0][c]=b[c])}return arguments[0]}var ta="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},ua=e();"undefined"==typeof Promise&&a(3);var va=Promise,wa="local-forage-detect-blob-support",xa=void 0,ya={},za=Object.prototype.toString,Aa="readonly",Ba="readwrite",Ca={_driver:"asyncStorage",_initStorage:C,_support:f(),iterate:E,getItem:D,setItem:F,removeItem:G,clear:H,length:I,key:J,keys:K,dropInstance:L},Da="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",Ea="~~local_forage_type~",Fa=/^~~local_forage_type~([^~]+)~/,Ga="__lfsc__:",Ha=Ga.length,Ia="arbf",Ja="blob",Ka="si08",La="ui08",Ma="uic8",Na="si16",Oa="si32",Pa="ur16",Qa="ui32",Ra="fl32",Sa="fl64",Ta=Ha+Ia.length,Ua=Object.prototype.toString,Va={serialize:P,deserialize:Q,stringToBuffer:N,bufferToString:O},Wa={_driver:"webSQLStorage",_initStorage:S,_support:M(),iterate:V,getItem:U,setItem:X,removeItem:Y,clear:Z,length:$,key:_,keys:aa,dropInstance:ca},Xa={_driver:"localStorageWrapper",_initStorage:ha,_support:da(),iterate:ka,getItem:ja,setItem:pa,removeItem:oa,clear:ia,length:na,key:la,keys:ma,dropInstance:qa},Ya=function(a,b){return a===b||"number"==typeof a&&"number"==typeof b&&isNaN(a)&&isNaN(b)},Za=function(a,b){for(var c=a.length,d=0;d<c;){if(Ya(a[d],b))return!0;d++}return!1},$a=Array.isArray||function(a){return"[object Array]"===Object.prototype.toString.call(a)},_a={},ab={},bb={INDEXEDDB:Ca,WEBSQL:Wa,LOCALSTORAGE:Xa},cb=[bb.INDEXEDDB._driver,bb.WEBSQL._driver,bb.LOCALSTORAGE._driver],db=["dropInstance"],eb=["clear","getItem","iterate","key","keys","length","removeItem","setItem"].concat(db),fb={description:"",driver:cb.slice(),name:"localforage",size:4980736,storeName:"keyvaluepairs",version:1},gb=function(){function a(b){d(this,a);for(var c in bb)if(bb.hasOwnProperty(c)){var e=bb[c],f=e._driver;this[c]=f,_a[f]||this.defineDriver(e)}this._defaultConfig=sa({},fb),this._config=sa({},this._defaultConfig,b),this._driverSet=null,this._initDriver=null,this._ready=!1,this._dbInfo=null,this._wrapLibraryMethodsWithReady(),this.setDriver(this._config.driver).catch(function(){})}return a.prototype.config=function(a){if("object"===(void 0===a?"undefined":ta(a))){if(this._ready)return new Error("Can't call config() after localforage has been used.");for(var b in a){if("storeName"===b&&(a[b]=a[b].replace(/\W/g,"_")),"version"===b&&"number"!=typeof a[b])return new Error("Database version must be a number.");this._config[b]=a[b]}return!("driver"in a&&a.driver)||this.setDriver(this._config.driver)}return"string"==typeof a?this._config[a]:this._config},a.prototype.defineDriver=function(a,b,c){var d=new va(function(b,c){try{var d=a._driver,e=new Error("Custom driver not compliant; see https://mozilla.github.io/localForage/#definedriver");if(!a._driver)return void c(e);for(var f=eb.concat("_initStorage"),g=0,i=f.length;g<i;g++){var j=f[g];if((!Za(db,j)||a[j])&&"function"!=typeof a[j])return void c(e)}(function(){for(var b=function(a){return function(){var b=new Error("Method "+a+" is not implemented by the current driver"),c=va.reject(b);return h(c,arguments[arguments.length-1]),c}},c=0,d=db.length;c<d;c++){var e=db[c];a[e]||(a[e]=b(e))}})();var k=function(c){_a[d]&&console.info("Redefining LocalForage driver: "+d),_a[d]=a,ab[d]=c,b()};"_support"in a?a._support&&"function"==typeof a._support?a._support().then(k,c):k(!!a._support):k(!0)}catch(a){c(a)}});return i(d,b,c),d},a.prototype.driver=function(){return this._driver||null},a.prototype.getDriver=function(a,b,c){var d=_a[a]?va.resolve(_a[a]):va.reject(new Error("Driver not found."));return i(d,b,c),d},a.prototype.getSerializer=function(a){var b=va.resolve(Va);return i(b,a),b},a.prototype.ready=function(a){var b=this,c=b._driverSet.then(function(){return null===b._ready&&(b._ready=b._initDriver()),b._ready});return i(c,a,a),c},a.prototype.setDriver=function(a,b,c){function d(){g._config.driver=g.driver()}function e(a){return g._extend(a),d(),g._ready=g._initStorage(g._config),g._ready}function f(a){return function(){function b(){for(;c<a.length;){var f=a[c];return c++,g._dbInfo=null,g._ready=null,g.getDriver(f).then(e).catch(b)}d();var h=new Error("No available storage method found.");return g._driverSet=va.reject(h),g._driverSet}var c=0;return b()}}var g=this;$a(a)||(a=[a]);var h=this._getSupportedDrivers(a),j=null!==this._driverSet?this._driverSet.catch(function(){return va.resolve()}):va.resolve();return this._driverSet=j.then(function(){var a=h[0];return g._dbInfo=null,g._ready=null,g.getDriver(a).then(function(a){g._driver=a._driver,d(),g._wrapLibraryMethodsWithReady(),g._initDriver=f(h)})}).catch(function(){d();var a=new Error("No available storage method found.");return g._driverSet=va.reject(a),g._driverSet}),i(this._driverSet,b,c),this._driverSet},a.prototype.supports=function(a){return!!ab[a]},a.prototype._extend=function(a){sa(this,a)},a.prototype._getSupportedDrivers=function(a){for(var b=[],c=0,d=a.length;c<d;c++){var e=a[c];this.supports(e)&&b.push(e)}return b},a.prototype._wrapLibraryMethodsWithReady=function(){for(var a=0,b=eb.length;a<b;a++)ra(this,eb[a])},a.prototype.createInstance=function(b){return new a(b)},a}(),hb=new gb;b.exports=hb},{3:3}]},{},[4])(4)});
-;/*!
+/*!
  * Platform.js
  * Copyright 2014-2018 Benjamin Tan
  * Copyright 2011-2013 John-David Dalton
@@ -43255,7 +43255,7 @@ var lerp = function (v0, v1, t) { return v0*(1-t)+v1*t; };
   }
 }.call(this));
 
-;/**
+/**
  * @license potrace
  * TypeScript port of Potrace (http://potrace.sourceforge.net).
  * https://github.com/oov/potrace
@@ -44424,7 +44424,7 @@ var potrace;
     potrace.Bitmap = Bitmap;
     potrace.PathList = PathList;
 })(potrace || (potrace = {}));
-;/*
+/*
 The MIT License (MIT)
 
 Copyright 2015 Alexej Yaroshevich and other contributors
@@ -44636,7 +44636,7 @@ var reserved = (() => {
     return exports;
 })();
 
-;// A helper function for drawing rounded rectangles on a canvas.
+// A helper function for drawing rounded rectangles on a canvas.
 // https://stackoverflow.com/a/7838871
 
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
@@ -44653,7 +44653,7 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
   return this;
 }
 
-;// https://gist.github.com/hurjas/2660489
+// https://gist.github.com/hurjas/2660489
 
 /**
  * Return a timestamp with the format "m/d/yy h:MM:ss TT"
@@ -44691,7 +44691,7 @@ function Timestamp() {
 // Return the formatted string
   return date.join("") + "-" + time.join(".") + "" + suffix;
 }
-;/* https://github.com/Idnan/soundcloud-waveform-generator */
+/* https://github.com/Idnan/soundcloud-waveform-generator */
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
@@ -44828,7 +44828,7 @@ var SCWF = function () {
 	return SoundCloudWaveform;
 }
 
-;/**
+/**
  * Tween.js - Licensed under the MIT license
  * https://github.com/tweenjs/tween.js
  * ----------------------------------------------
@@ -45711,9 +45711,9 @@ TWEEN.Interpolation = {
 
 })(this);
 
-;/* https://github.com/kelektiv/node-uuid */
+/* https://github.com/kelektiv/node-uuid */
 !function(r){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=r();else if("function"==typeof define&&define.amd)define([],r);else{var e;e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,e.uuidv4=r()}}(function(){return function r(e,n,t){function o(f,u){if(!n[f]){if(!e[f]){var a="function"==typeof require&&require;if(!u&&a)return a(f,!0);if(i)return i(f,!0);var d=new Error("Cannot find module '"+f+"'");throw d.code="MODULE_NOT_FOUND",d}var p=n[f]={exports:{}};e[f][0].call(p.exports,function(r){var n=e[f][1][r];return o(n?n:r)},p,p.exports,r,e,n,t)}return n[f].exports}for(var i="function"==typeof require&&require,f=0;f<t.length;f++)o(t[f]);return o}({1:[function(r,e,n){function t(r,e){var n=e||0,t=o;return t[r[n++]]+t[r[n++]]+t[r[n++]]+t[r[n++]]+"-"+t[r[n++]]+t[r[n++]]+"-"+t[r[n++]]+t[r[n++]]+"-"+t[r[n++]]+t[r[n++]]+"-"+t[r[n++]]+t[r[n++]]+t[r[n++]]+t[r[n++]]+t[r[n++]]+t[r[n++]]}for(var o=[],i=0;i<256;++i)o[i]=(i+256).toString(16).substr(1);e.exports=t},{}],2:[function(r,e,n){var t="undefined"!=typeof crypto&&crypto.getRandomValues.bind(crypto)||"undefined"!=typeof msCrypto&&msCrypto.getRandomValues.bind(msCrypto);if(t){var o=new Uint8Array(16);e.exports=function(){return t(o),o}}else{var i=new Array(16);e.exports=function(){for(var r,e=0;e<16;e++)0===(3&e)&&(r=4294967296*Math.random()),i[e]=r>>>((3&e)<<3)&255;return i}}},{}],3:[function(r,e,n){function t(r,e,n){var t=e&&n||0;"string"==typeof r&&(e="binary"===r?new Array(16):null,r=null),r=r||{};var f=r.random||(r.rng||o)();if(f[6]=15&f[6]|64,f[8]=63&f[8]|128,e)for(var u=0;u<16;++u)e[t+u]=f[u];return e||i(f)}var o=r("./lib/rng"),i=r("./lib/bytesToUuid");e.exports=t},{"./lib/bytesToUuid":1,"./lib/rng":2}]},{},[3])(3)});
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -45739,12 +45739,12 @@ Wick = {
   version: window.WICK_ENGINE_BUILD_VERSION || "dev",
   resourcepath: '../dist/',
   _originals: {} // Eventually store a single instance of each type of Wick.Base object (see Wick.Base constructor).
-
 };
-console.log('Wick Engine version "' + Wick.version + '" is available.'); // Ensure that the Wick namespace is accessible in environments where globals are finicky (react, webpack, etc)
+console.log('Wick Engine version "' + Wick.version + '" is available.');
 
+// Ensure that the Wick namespace is accessible in environments where globals are finicky (react, webpack, etc)
 window.Wick = Wick;
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -45770,45 +45770,41 @@ Wick.Clipboard = class {
   static get LOCALSTORAGE_KEY() {
     return 'wick_engine_clipboard';
   }
-
   static get PASTE_OFFSET() {
     // how many pixels should we shift objects over when we paste (canvas only)
     return 20;
   }
+
   /**
    * Create a new Clipboard object.
    */
-
-
   constructor() {
     this._copyLocation = null;
     this._copyLayerIndex = 0;
     this._originalObjects = [];
   }
+
   /**
    * The data of copied objects, stored as JSON.
    * @type {Object}
    */
-
-
   get clipboardData() {
     var json = localStorage[Wick.Clipboard.LOCALSTORAGE_KEY];
     if (!json) return null;
     return JSON.parse(json);
   }
-
   set clipboardData(clipboardData) {
     localStorage[Wick.Clipboard.LOCALSTORAGE_KEY] = JSON.stringify(clipboardData);
   }
+
   /**
    * Replace the current contents of the clipboard with new objects.
    * @param {Wick.Base[]} objects - the objects to copy to the clipboard
    */
-
-
   copyObjectsToClipboard(project, objects) {
-    if (!project || !project instanceof Wick.Project) console.error('copyObjectsToClipboard(): project is required'); // Get the playhead position of the "first" frame in the list of objects
+    if (!project || !project instanceof Wick.Project) console.error('copyObjectsToClipboard(): project is required');
 
+    // Get the playhead position of the "first" frame in the list of objects
     var playheadCopyOffset = null;
     objects.filter(object => {
       return object instanceof Wick.Frame;
@@ -45816,10 +45812,12 @@ Wick.Clipboard = class {
       if (playheadCopyOffset === null || frame.start < playheadCopyOffset) {
         playheadCopyOffset = frame.start;
       }
-    }); // Keep track of where objects were originally copied from
+    });
 
-    this._copyLocation = project.activeFrame && project.activeFrame.uuid; // Keep track of the topmost layer of the selection (we use this later to position frames)
+    // Keep track of where objects were originally copied from
+    this._copyLocation = project.activeFrame && project.activeFrame.uuid;
 
+    // Keep track of the topmost layer of the selection (we use this later to position frames)
     this._copyLayerIndex = Infinity;
     objects.filter(object => {
       return object instanceof Wick.Frame || object instanceof Wick.Tween;
@@ -45827,16 +45825,19 @@ Wick.Clipboard = class {
       return frame.parentLayer.index;
     }).forEach(i => {
       this._copyLayerIndex = Math.min(this._copyLayerIndex, i);
-    }); // Make deep copies of every object
+    });
 
+    // Make deep copies of every object
     var exportedData = objects.map(object => {
       return object.export();
-    }); // Save references to the original objects
+    });
 
+    // Save references to the original objects
     this._originalObjects = objects.map(object => {
       return object;
-    }); // Shift frames and tweens so that they copy from the relative position of the first frame
+    });
 
+    // Shift frames and tweens so that they copy from the relative position of the first frame
     var startPlayheadPosition = Number.MAX_SAFE_INTEGER;
     exportedData.forEach(data => {
       if (data.object.classname === 'Frame') {
@@ -45844,7 +45845,6 @@ Wick.Clipboard = class {
           startPlayheadPosition = data.object.start;
         }
       }
-
       if (data.object.classname === 'Tween') {
         if (data.object.playheadPosition < startPlayheadPosition) {
           startPlayheadPosition = data.object.playheadPosition;
@@ -45856,43 +45856,40 @@ Wick.Clipboard = class {
         data.object.start -= startPlayheadPosition - 1;
         data.object.end -= startPlayheadPosition - 1;
       }
-
       if (data.object.classname === 'Tween') {
         data.object.playheadPosition -= startPlayheadPosition - 1;
       }
-    }); // Set the new clipboard data
+    });
 
+    // Set the new clipboard data
     this.clipboardData = exportedData;
   }
+
   /**
    * Paste the content of the clipboard into the project.
    * @param {Wick.Project} project - the project to paste objects into.
    * @returns {boolean} True if there is something to paste in the clipboard, false if the clipboard is empty.
    */
-
-
   pasteObjectsFromClipboard(project) {
     if (!project || !project instanceof Wick.Project) console.error('pasteObjectsFromClipboard(): project is required');
-
     if (!this.clipboardData) {
       return false;
-    } // Prevent crash when pasting into an empty space
+    }
 
-
+    // Prevent crash when pasting into an empty space
     if (!project.activeFrame) {
       project.insertBlankFrame();
-    } // Always paste in-place if the original objects are no longer visible
+    }
 
-
+    // Always paste in-place if the original objects are no longer visible
     var pasteInPlace = true;
-
     this._originalObjects.forEach(origObj => {
       if (origObj.parentFrame && origObj.parentFrame.onScreen) {
         pasteInPlace = false;
       }
-    }); // Use this value later to position frames on the corrent pasted layer
+    });
 
-
+    // Use this value later to position frames on the corrent pasted layer
     var layerIndicesMoved = project.activeLayer.index - this._copyLayerIndex;
     project.selection.clear();
     var objectsToSelect = [];
@@ -45904,37 +45901,35 @@ Wick.Clipboard = class {
         object._originalLayerIndex += layerIndicesMoved;
         object.start += project.focus.timeline.playheadPosition - 1;
         object.end += project.focus.timeline.playheadPosition - 1;
-      } // Paste tweens at the position of the playhead
+      }
 
-
+      // Paste tweens at the position of the playhead
       if (object instanceof Wick.Tween) {
         object._originalLayerIndex += layerIndicesMoved;
         object.playheadPosition += project.focus.timeline.playheadPosition - 1;
       }
-
       project.addObject(object);
-      object.identifier = object._getUniqueIdentifier(object.identifier); // Add offset to Paths and Clips if pasteInPlace is NOT enabled.
+      object.identifier = object._getUniqueIdentifier(object.identifier);
 
+      // Add offset to Paths and Clips if pasteInPlace is NOT enabled.
       if (!pasteInPlace && (object instanceof Wick.Path || object instanceof Wick.Clip)) {
         object.view.render(); //This render call updates the json, I think... so without this call the path loses its data somehow :(
-
         object.x += Wick.Clipboard.PASTE_OFFSET;
         object.y += Wick.Clipboard.PASTE_OFFSET;
-      } // Wait to select objects.
+      }
 
-
+      // Wait to select objects.
       objectsToSelect.push(object);
-    }); // Select newly added objects.
+    });
 
+    // Select newly added objects.
     if (objectsToSelect.length > 0) {
       project.selection.selectMultipleObjects(objectsToSelect);
     }
-
     return true;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -45966,82 +45961,71 @@ Wick.Color = class {
       this._color = new paper.Color();
     }
   }
+
   /**
    * The red value of the color. Ranges from 0.0 to 1.0.
    * @type {Number}
    */
-
-
   get r() {
     return this._color.red;
   }
-
   set r(r) {
     this._color.red = r;
   }
+
   /**
    * The green value of the color. Ranges from 0.0 to 1.0.
    * @type {Number}
    */
-
-
   get g() {
     return this._color.green;
   }
-
   set g(g) {
     this._color.green = g;
   }
+
   /**
    * The blue value of the color. Ranges from 0.0 to 1.0.
    * @type {Number}
    */
-
-
   get b() {
     return this._color.blue;
   }
-
   set b(b) {
     this._color.blue = b;
   }
+
   /**
    * The alpha value of the color. Ranges from 0.0 to 1.0.
    * @type {Number}
    */
-
-
   get a() {
     return this._color.alpha;
   }
-
   set a(a) {
     this._color.alpha = a;
   }
+
   /**
    * The color as a hex string. Example: "#AABBCC"
    * @type {String}
    */
-
-
   get hex() {
     return this._color.toCSS(true);
   }
+
   /**
    * The color as an rgba string. Example: "rgba(r,g,b,a)"
    */
-
-
   get rgba() {
     return this._color.toCSS();
   }
+
   /**
    * Adds together the r, g, and b values of both colors and produces a new color.
    * @param {Wick.Color} color - the color to add to this color
    * @returns {Wick.Color} the resulting color
    */
-
-
   add(color) {
     var newColor = new Wick.Color();
     newColor.r = this.r + color.r;
@@ -46049,13 +46033,12 @@ Wick.Color = class {
     newColor.b = this.b + color.b;
     return newColor;
   }
+
   /**
    * Multiplies the r, g, and b values of both colors to produce a new color.
    * @param {Wick.Color} color - the color to multiply with this color
    * @returns {Wick.Color} the resulting color
    */
-
-
   multiply(n) {
     var newColor = new Wick.Color();
     newColor.r = this.r * n;
@@ -46063,20 +46046,18 @@ Wick.Color = class {
     newColor.b = this.b * n;
     return newColor;
   }
+
   /**
    * Averages the r, g, and b values of two colors.
    * @param {Wick.Color} colorA - a color to average with another color (order does not matter)
    * @param {Wick.Color} colorB - a color to average with another color (order does not matter)
    * @returns {Wick.Color} The resulting averaged color.
    */
-
-
   static average(colorA, colorB) {
     return colorA.multiply(0.5).add(colorB.multiply(0.5));
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -46106,30 +46087,28 @@ Wick.FileCache = class {
   static get FILE_LOCALFORAGE_KEY_PREFIX() {
     return 'filesrc_'; // This should never change.
   }
+
   /**
    * Add a file to the cache.
    * @param {string} src - The file source
    * @param {string} uuid - The UUID of the file
    */
-
-
   static addFile(src, uuid) {
     this._files[uuid] = {
       src: src
-    }; // Save asset to localforage
+    };
 
+    // Save asset to localforage
     localforage.setItem(this.getLocalForageKeyForUUID(uuid), src).then(() => {});
   }
+
   /**
    * Get info for a file by its UUID.
    * @param {string} uuid - The UUID of the file
    * @returns {object} The file info
    */
-
-
   static getFile(uuid) {
     var file = this._files[uuid];
-
     if (!file) {
       console.error('Asset with UUID ' + uuid + ' was not found in FileCache!');
       return null;
@@ -46137,24 +46116,23 @@ Wick.FileCache = class {
       return file;
     }
   }
+
   /**
    * Removes a file from the FileCache with a given UUID.
    * @param {string} uuid - the UUID of the file to remove.
    */
-
-
   static removeFile(uuid) {
-    delete this._files[uuid]; // Remove file from localforage
+    delete this._files[uuid];
 
+    // Remove file from localforage
     localforage.removeItem(this.getLocalForageKeyForUUID(uuid)).then(() => {});
   }
+
   /**
    * Loads all files from local forage associated with a previously saved project, if possible.
    * @param {Wick.Project} project - the project that we want to load assets for.
    * @param {function} callback - called when the assets are done being loaded.
    */
-
-
   static loadFilesFromLocalforage(project, callback) {
     Promise.all(project.getAssets().map(asset => {
       return localforage.getItem(this.getLocalForageKeyForUUID(asset.uuid));
@@ -46162,51 +46140,43 @@ Wick.FileCache = class {
       for (var i = 0; i < assets.length; i++) {
         this.addFile(assets[i], project.getAssets()[i].uuid);
       }
-
       callback();
     });
   }
+
   /**
    * On object containing all files in WickFileCache.
    * @returns {object} All the files in an object with the format:
    */
-
-
   static getAllFiles() {
     var files = [];
-
     for (var uuid in this._files) {
       files.push({
         uuid: uuid,
         src: this._files[uuid].src
       });
     }
-
     return files;
   }
+
   /**
    * Clear the cache.
    */
-
-
   static clear() {
     this._files = {};
   }
-
   static clearLocalforage() {
     // Clear all files from localforage
     for (var uuid in this._files) {
       localforage.removeItem(this.getLocalForageKeyForUUID(uuid)).then(() => {});
     }
   }
-
   static getLocalForageKeyForUUID(uuid) {
     return this.FILE_LOCALFORAGE_KEY_PREFIX + uuid;
   }
-
 };
 Wick.FileCache._files = {};
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -46236,11 +46206,10 @@ Wick.History = class {
   static get VERBOSE() {
     return false;
   }
+
   /**
    * An Enum of all types of state saves.
    */
-
-
   static get StateType() {
     return {
       ALL_OBJECTS: 1,
@@ -46248,57 +46217,48 @@ Wick.History = class {
       ONLY_VISIBLE_OBJECTS: 3
     };
   }
+
   /**
    * Creates a new history object
    */
-
-
   constructor() {
     this.reset();
     this.lastHistoryPush = Date.now();
   }
+
   /**
    * Resets history in the editor. This is non-reversible.
    */
-
-
   reset() {
     this._undoStack = [];
     this._redoStack = [];
     this._snapshots = {};
   }
+
   /**
    * Returns all objects that are currently referenced by the history.
    * @returns {Set} uuids of all objects currently referenced in the history.
    */
-
-
   getObjectUUIDs() {
     let objects = new Set();
-
     for (let state of this._undoStack) {
       objects = new Set([...objects, ...state.objects]);
     }
-
     for (let state of this._redoStack) {
       objects = new Set([...objects, ...state.objects]);
     }
-
     return objects;
   }
+
   /**
    * Push the current state of the ObjectCache to the undo stack.
    * @param {number} filter - the filter to choose which objects to serialize. See Wick.History.StateType
    * @param {string} actionName - Optional: Name of the action conducted to generate this state. If no name is presented, "Unknown Action" is presented in its place.
    */
-
-
   pushState(filter, actionName) {
     this._redoStack = [];
     let now = Date.now();
-
     let state = this._generateState(filter);
-
     let objects = new Set(state.map(obj => obj.uuid));
     let stateObject = {
       state: this._generateState(filter),
@@ -46307,103 +46267,84 @@ Wick.History = class {
       timeSinceLastPush: now - this.lastHistoryPush
     };
     this.lastHistoryPush = now;
-
     this._undoStack.push(stateObject);
-
     this._undoStack = this._undoStack.slice(-64); // get the last 64 items in the undo stack
   }
+
   /**
    * Pop the last state in the undo stack off and apply the new last state to the project.
    * @returns {boolean} True if the undo stack is non-empty, false otherwise
    */
-
-
   popState() {
     if (this._undoStack.length <= 1) {
       return false;
     }
-
     var lastState = this._undoStack.pop();
-
     this._redoStack.push(lastState);
+    var currentStateObject = this._undoStack[this._undoStack.length - 1];
 
-    var currentStateObject = this._undoStack[this._undoStack.length - 1]; // 1.17.1 History update, pull actual state information out, aside from names.
-
+    // 1.17.1 History update, pull actual state information out, aside from names.
     var currentState = currentStateObject;
-
     if (currentStateObject.state) {
       currentState = currentStateObject.state;
     }
-
     this._recoverState(currentState);
-
     return true;
   }
+
   /**
    * Recover a state that was undone.
    * @returns {boolean} True if the redo stack is non-empty, false otherwise
    */
-
-
   recoverState() {
     if (this._redoStack.length === 0) {
       return false;
     }
-
     var recoveredState = this._redoStack.pop().state;
-
     this._undoStack.push(recoveredState);
-
     this._recoverState(recoveredState);
-
     return true;
   }
+
   /**
    *
    * @param {string} name - the name of the snapshot
    * @param {number} filter - the filter to choose which objects to serialize. See Wick.History.StateType
    */
-
-
   saveSnapshot(name, filter) {
     this._snapshots[name] = this._generateState(filter || Wick.History.StateType.ALL_OBJECTS_WITHOUT_PATHS);
   }
+
   /**
    * Save a state to the list of snapshots to be recovered at any time.
    * @param {string} name - the name of the snapshot to recover
    */
-
-
   loadSnapshot(name) {
     this._recoverState(this._snapshots[name]);
   }
+
   /**
    * The number of states currently stored for undoing.
    * @type {number}
    */
-
-
   get numUndoStates() {
     return this._undoStack.length;
   }
+
   /**
    * The number of states currently stored for redoing.
    * @type {number}
    */
-
-
   get numRedoStates() {
     return this._redoStack.length;
-  } // NOTE: State saving/recovery can be greatly optimized by only saving the state of the things that were actually changed.
+  }
 
-
+  // NOTE: State saving/recovery can be greatly optimized by only saving the state of the things that were actually changed.
   _generateState(stateType) {
     var objects = [];
-
     if (stateType === undefined) {
       stateType = Wick.History.StateType.ALL_OBJECTS;
     }
-
     if (stateType === Wick.History.StateType.ALL_OBJECTS) {
       objects = this._getAllObjects();
     } else if (stateType === Wick.History.StateType.ALL_OBJECTS_WITHOUT_PATHS) {
@@ -46414,61 +46355,64 @@ Wick.History = class {
       console.error('Wick.History._generateState: A valid stateType is required.');
       return;
     }
-
     if (Wick.History.VERBOSE) {
       console.log('Wick.History._generateState: Serializing ' + objects.length + ' objects using mode=' + stateType);
     }
-
     return objects.map(object => {
       // The object most likely was altered in some way, make sure those changes will be reflected in the autosave.
       object.needsAutosave = true;
       return object.serialize();
     });
   }
-
   _recoverState(state) {
     state.forEach(objectData => {
       var object = Wick.ObjectCache.getObjectByUUID(objectData.uuid);
       object.deserialize(objectData);
     });
   }
-
   _getAllObjects() {
     var objects = Wick.ObjectCache.getActiveObjects(this.project);
     objects.push(this.project);
     return objects;
-  } // this is used for an optimization when snapshots are saved for preview playing.
+  }
 
-
+  // this is used for an optimization when snapshots are saved for preview playing.
   _getAllObjectsWithoutPaths() {
     return this._getAllObjects().filter(object => {
       return !(object instanceof Wick.Path);
     });
   }
-
   _getVisibleObjects() {
-    var stateObjects = []; // the project itself (for focus, options, etc)
+    var stateObjects = [];
 
-    stateObjects.push(this.project); // the assets in the project
+    // the project itself (for focus, options, etc)
+    stateObjects.push(this.project);
 
+    // the assets in the project
     this.project.getAssets().forEach(asset => {
       stateObjects.push(asset);
-    }); // the focused clip
+    });
 
-    stateObjects.push(this.project.focus); // the focused timeline
+    // the focused clip
+    stateObjects.push(this.project.focus);
 
-    stateObjects.push(this.project.focus.timeline); // the selection
+    // the focused timeline
+    stateObjects.push(this.project.focus.timeline);
 
-    stateObjects.push(this.project.selection); // layers on focused timeline
+    // the selection
+    stateObjects.push(this.project.selection);
 
+    // layers on focused timeline
     this.project.activeTimeline.layers.forEach(layer => {
       stateObjects.push(layer);
-    }); // frames on focused timeline
+    });
 
+    // frames on focused timeline
     this.project.activeTimeline.frames.forEach(frame => {
       stateObjects.push(frame);
-    }); // objects+tweens on active frames
+    });
 
+    // objects+tweens on active frames
     this.project.activeFrames.forEach(frame => {
       frame.paths.forEach(path => {
         stateObjects.push(path);
@@ -46482,9 +46426,8 @@ Wick.History = class {
     });
     return stateObjects;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -46502,6 +46445,7 @@ Wick.History = class {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 // NOTE:
 // This should probably not be global, and instead, each Wick.Project should own an ObjectCache.
 // It's too hard to test if there's a shared ObjectCache between many projects.
@@ -46517,63 +46461,56 @@ WickObjectCache = class {
     this._objects = {};
     this._objectsNeedAutosave = {};
   }
+
   /**
    * Add an object to the cache.
    * @param {Wick.Base} object - the object to add
    */
-
-
   addObject(object) {
     this._objects[object.uuid] = object;
+
     /*object.children.forEach(child => {
         this.addObject(child);
     });*/
   }
+
   /**
    * Remove an object from the cache.
    * @param {Wick.Base} object - the object to remove from the cache
    */
-
-
   removeObject(object) {
     if (object.classname === 'Project') {
       object.destroy();
       return; // TODO, remove this.
     }
-
     delete this._objects[object.uuid];
   }
+
   /**
    * Remove an object from the cache.
    * @param {string} uuid - uuid of the object to remove from the cache
    */
-
-
   removeObjectByUUID(uuid) {
     delete this._objects[uuid];
   }
+
   /**
    * Remove all objects from the Object Cache.
    */
-
-
   clear() {
     this._objects = {};
     this._objectsNeedAutosave = {};
   }
+
   /**
    * Get an object by its UUID.
    * @returns {Wick.Base}
    */
-
-
   getObjectByUUID(uuid) {
     if (!uuid) {
       console.error('ObjectCache: getObjectByUUID: uuid is required.');
     }
-
     var object = this._objects[uuid];
-
     if (!object) {
       console.error("Warning: object with uuid " + uuid + " was not found in the cache.");
       return null;
@@ -46581,29 +46518,25 @@ WickObjectCache = class {
       return object;
     }
   }
+
   /**
    * All objects in the cache.
    * @returns {Wick.Base[]}
    */
-
-
   getAllObjects() {
     var allObjects = [];
-
     for (var uuid in this._objects) {
       allObjects.push(this._objects[uuid]);
     }
-
     return allObjects;
   }
+
   /**
    * Remove all objects that are in the project, but are no longer linked to the root object.
    * This is basically a garbage collection function. This function attempts to keep objects
    * that are referenced in undo/redo.
    * @param {Wick.Project} project - the project to use to determine which objects have no references
    */
-
-
   removeUnusedObjects(project) {
     var activeObjects = this.getActiveObjects(project);
     let uuids = activeObjects.map(obj => obj.uuid);
@@ -46618,11 +46551,10 @@ WickObjectCache = class {
       }
     });
   }
+
   /**
    * Removes all objects with the temporary flag set to true.
    */
-
-
   removeTemporaryObjects() {
     this.getAllObjects().forEach(obj => {
       if (obj.temporary) {
@@ -46630,59 +46562,53 @@ WickObjectCache = class {
       }
     });
   }
+
   /**
    * Get all objects that are referenced in the given project.
    * @param {Wick.Project} project - the project to check if children are active in.
    * @returns {Wick.Base[]} the active objects.
    */
-
-
   getActiveObjects(project) {
     // This does the same thing, but it's WAY faster.
     return project.getChildrenRecursive().map(object => {
       return this.getObjectByUUID(object.uuid);
     });
   }
+
   /**
    * Saves an object to be autosaved upon the next auto save.
    * @param {Wick.Base} object object to be saved.
    */
-
-
   markObjectToBeAutosaved(object) {
     this._objectsNeedAutosave[object.uuid] = true;
   }
+
   /**
    * Removes a given object from the list of objects that must be autosaved.
    * @param {Wick.Base} object - the object to remove from the list of objects to be autosaved.
    */
-
-
   clearObjectToBeAutosaved(object) {
     delete this._objectsNeedAutosave[object.uuid];
   }
+
   /**
    * Returns true if a given object is marked to be autosaved during the next autosave.
    * @param {Wick.Base} object - the object to check for autosave
    */
-
-
   objectNeedsAutosave(object) {
     return Wick.ObjectCache._objectsNeedAutosave[object.uuid];
   }
+
   /**
    * Returns an array of objects that currently need to be autosaved.
    * @returns {Wick.Base[]} The objects that are marked to be autosaved.
    */
-
-
   getObjectsNeedAutosaved() {
     return Object.keys(this._objectsNeedAutosave).map(uuid => this.getObjectByUUID(uuid));
   }
-
 };
 Wick.ObjectCache = new WickObjectCache();
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -46721,11 +46647,10 @@ Wick.Transformation = class {
     this.rotation = args.rotation === undefined ? 0 : args.rotation;
     this.opacity = args.opacity === undefined ? 1 : args.opacity;
   }
+
   /**
    * An object containing the values of this transformation.
    */
-
-
   get values() {
     return {
       x: this.x,
@@ -46736,18 +46661,16 @@ Wick.Transformation = class {
       opacity: this.opacity
     };
   }
+
   /**
    * Creates a copy of this transformation.
    * @returns {Wick.Transformation} the copied transformation.
    */
-
-
   copy() {
     return new Wick.Transformation(this.values);
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -46765,6 +46688,7 @@ Wick.Transformation = class {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.ToolSettings = class {
   static get DEFAULT_SETTINGS() {
     return [{
@@ -46858,45 +46782,74 @@ Wick.ToolSettings = class {
       options: ['none', 'behind', 'inside']
     }, {
       type: "boolean",
-      name: 'snapEnabled',
+      name: 'gridEnabled',
       default: false
+    }, {
+      type: "number",
+      name: 'gridSize',
+      default: 20,
+      min: 5,
+      max: 200,
+      step: 5
+    }, {
+      type: "number",
+      name: 'gridOpacity',
+      default: 0.25,
+      min: 0.05,
+      max: 1.0,
+      step: 0.05
+    }, {
+      type: "boolean",
+      name: 'snapGrid',
+      default: false
+    }, {
+      type: "boolean",
+      name: 'snapObject',
+      default: true
+    }, {
+      type: "boolean",
+      name: 'snapCanvas',
+      default: true
+    }, {
+      type: "number",
+      name: 'snapTolerance',
+      default: 8,
+      min: 2,
+      max: 30,
+      step: 1
     }];
   }
+
   /**
    * Create a new ToolSettings object.
    */
-
-
   constructor() {
     this._settings = {};
-
     this._onSettingsChangedCallback = () => {};
-
     this.resetAllSettings();
     this.loadSettingsFromLocalstorage();
   }
+
   /**
    * Returns the appropriate key to use to store a tool setting by name.
    * @param {String} settingName name of tool setting.
    * @returns {String} Key to be used.
    */
-
-
   getStorageKey(settingName) {
     return "WICK.TOOLSETTINGS." + settingName;
   }
+
   /**
    * Creates the tool settings at the start of the editor. Will open with previously used settings if they exist.
    */
-
-
   createSetting(args) {
     if (!args) console.error('createSetting: args is required');
     if (!args.name) console.error('createSetting: args.name is required');
     if (args.default === undefined) console.error('createSetting: args.default is required');
     let name = args.name;
-    let type = args.type; // Create a default setting to start.
+    let type = args.type;
 
+    // Create a default setting to start.
     this._settings[args.name] = {
       type: args.type,
       name: args.name,
@@ -46908,68 +46861,57 @@ Wick.ToolSettings = class {
       options: args.options
     };
   }
+
   /**
    * Update a value in the settings.
    * @param {string} name - The name of the setting to update.
    * @param {string|number|Color} value - The value of the setting to change to.
    */
-
-
   setSetting(name, value) {
     var setting = this._settings[name];
-    if (!setting) return; // Check to make sure there's no type mismatch
+    if (!setting) return;
 
+    // Check to make sure there's no type mismatch
     if (typeof value !== typeof setting.value) {
       console.warn('Warning: Wick.ToolSettings: Type mismatch while setting ' + name);
       console.warn(value);
       return;
     }
-
     var min = setting.min;
-
     if (min !== undefined) {
       value = Math.max(min, value);
     }
-
     var max = setting.max;
-
     if (max !== undefined) {
       value = Math.min(max, value);
     }
-
     setting.value = value;
-
     this._fireOnSettingsChanged(name, value);
-
     if (setting.type === 'color') {
       localforage.setItem(this.getStorageKey(name), value.rgba);
     } else {
       localforage.setItem(this.getStorageKey(name), value);
     }
   }
+
   /**
    * Retrieve a value in the settings.
    * @param {string} name - The name of the setting to retrieve.
    */
-
-
   getSetting(name) {
     var setting = this._settings[name];
-
     if (!setting) {
       console.error("ToolSettings.getSetting: invalid setting: " + name);
       return;
     }
-
     return setting.value;
   }
+
   /**
    * Returns an object with the setting restrictions for a provided setting.
    * @param {String} name name of tool setting
    * @returns {Object} an object containing the values min, max, step and options where appropriate.
    */
-
-
   getSettingRestrictions(name) {
     var setting = this._settings[name];
     if (!setting) console.error("ToolSettings.getSettingRestrictions: invalid setting: " + name);
@@ -46980,44 +46922,38 @@ Wick.ToolSettings = class {
       options: setting.options
     };
   }
+
   /**
    * Returns an array containing all settings with all information.
    * @returns {Object[]} Array of settings objects.
    */
-
-
   getAllSettings() {
     var allSettings = [];
-
     for (var name in this._settings) {
       allSettings.push(this._settings[name]);
     }
-
     return allSettings;
   }
+
   /**
    * Receives a call back that will be provided the name and value of the setting that was changed.
    */
-
-
   onSettingsChanged(callback) {
     this._onSettingsChangedCallback = callback;
   }
+
   /**
    * Reset settings to the deafults.
    */
-
-
   resetAllSettings() {
     Wick.ToolSettings.DEFAULT_SETTINGS.forEach(setting => {
       this.createSetting(setting);
     });
   }
+
   /**
    * Load settings from localstorage if they exist.
    */
-
-
   loadSettingsFromLocalstorage() {
     Wick.ToolSettings.DEFAULT_SETTINGS.forEach(setting => {
       // Get stored tool setting if it exists.
@@ -47037,13 +46973,11 @@ Wick.ToolSettings = class {
       });
     });
   }
-
   _fireOnSettingsChanged(name, value) {
     this._onSettingsChangedCallback(name, value);
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -47061,40 +46995,38 @@ Wick.ToolSettings = class {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 GlobalAPI = class {
   /**
    * Defines all api members such as functions and properties.
    * @type {string[]}
    */
   static get apiMemberNames() {
-    return ['stop', 'play', 'gotoAndStop', 'gotoAndPlay', 'gotoNextFrame', 'gotoPrevFrame', // These are currently disabled, they are very slow for some reason.
+    return ['stop', 'play', 'gotoAndStop', 'gotoAndPlay', 'gotoNextFrame', 'gotoPrevFrame',
+    // These are currently disabled, they are very slow for some reason.
     // They are currently hacked in inside Tickable._runFunction
     //'project','root','parent','parentObject',
     'isMouseDown', 'mouseX', 'mouseY', 'mouseMoveX', 'mouseMoveY', 'key', 'keys', 'isKeyDown', 'keyIsDown', 'isKeyJustPressed', 'keyIsJustPressed', 'random', 'playSound', 'stopAllSounds', 'onEvent', 'hideCursor', 'showCursor', 'hitTestOptions'];
   }
+
   /**
    * @param {object} scriptOwner The tickable object which owns the script being evaluated.
    */
-
-
   constructor(scriptOwner) {
     this.scriptOwner = scriptOwner;
   }
+
   /**
    * Returns a list of api members bound to the script owner.
    * @returns {object[]} Array of functions, properties, and api members.
    */
-
-
   get apiMembers() {
     var members = [];
     GlobalAPI.apiMemberNames.forEach(name => {
       var fn = this[name];
-
       if (fn instanceof Function) {
         fn = fn.bind(this);
       }
-
       members.push({
         name: name,
         fn: fn
@@ -47102,69 +47034,60 @@ GlobalAPI = class {
     });
     return members;
   }
+
   /**
    * Stops the timeline of the object's parent clip.
    */
-
-
   stop() {
     this.scriptOwner.parentClip.stop();
   }
+
   /**
    * Plays the timeline of the object's parent clip.
    */
-
-
   play() {
     this.scriptOwner.parentClip.play();
   }
+
   /**
    * Moves the plahead of the parent clip to a frame and stops the timeline of that parent clip.
    * @param {string | number} frame Frame name or number to move playhead to.
    */
-
-
   gotoAndStop(frame) {
     this.scriptOwner.parentClip.gotoAndStop(frame);
   }
+
   /**
    * Moves the plahead of the parent clip to a frame and plays the timeline of that parent clip.
    * @param {string | number} frame Frame name or number to move playhead to.
    */
-
-
   gotoAndPlay(frame) {
     this.scriptOwner.parentClip.gotoAndPlay(frame);
   }
+
   /**
    * Moves the playhead of the parent clip of the object to the next frame.
    */
-
-
   gotoNextFrame() {
     this.scriptOwner.parentClip.gotoNextFrame();
   }
+
   /**
    * Moves the playhead of the parent clip of this object to the previous frame.
    */
-
-
   gotoPrevFrame() {
     this.scriptOwner.parentClip.gotoPrevFrame();
   }
-
   hitTestOptions(options) {
     this.scriptOwner.project.hitTestOptions = options;
   }
+
   /**
    * Returns an object representing the project with properties such as width, height, framerate, background color, and name.
    * @returns {object} Project object.
    */
-
-
   get project() {
     var project = this.scriptOwner.project && this.scriptOwner.project.root;
-
     if (project) {
       // Attach some aliases to the project settings
       project.width = this.scriptOwner.project.width;
@@ -47174,219 +47097,197 @@ GlobalAPI = class {
       project.name = this.scriptOwner.project.name;
       project.hitTestOptions = this.scriptOwner.project.hitTestOptions;
     }
-
     return project;
   }
+
   /**
    * @deprecated
    * Legacy item which returns the project. Use 'project' instead.
    */
-
-
   get root() {
     return this.project;
   }
+
   /**
    * Returns a reference to the current object's parent.
    * @returns Current object's parent.
    */
-
-
   get parent() {
     return this.scriptOwner.parentClip;
   }
+
   /**
    * @deprecated
    * Legacy item which returns the parent clip. Use 'parent' instead.
    */
-
-
   get parentObject() {
     return this.scriptOwner.parentClip;
   }
+
   /**
    * Returns the last key pressed down.
    * @returns {string | null} Returns null if no key has been pressed yet.
    */
-
-
   get key() {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.currentKey;
   }
+
   /**
    * Returns a list of all keys currently pressed down.
    * @returns {string[]} All keys represented as strings. If no keys are pressed, an empty array is returned.
    */
-
-
   get keys() {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.keysDown;
   }
+
   /**
    * Returns true if the given key is currently down.
    * @param {string} key
    * @returns {bool}
    */
-
-
   isKeyDown(key) {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.isKeyDown(key);
   }
+
   /**
    * @deprecated
    * Legacy item, use 'isKeyDown' instead.
    */
-
-
   keyIsDown(key) {
     return this.isKeyDown(key.toLowerCase());
   }
+
   /**
    * Returns true if the given key was just pressed within the last tick.
    * @param {string} key
    * @returns {bool}
    */
-
-
   isKeyJustPressed(key) {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.isKeyJustPressed(key);
   }
+
   /**
    * @deprecated
    * Legacy item, use 'isKeyJustPressed' instead.
    */
-
-
   keyIsJustPressed(key) {
     return this.keyIsJustPressed(key.toLowerCase());
   }
+
   /**
    * Returns true if the mouse is currently held down.
    * @returns {bool | null} Returns null if the object does not have a project.
    */
-
-
   isMouseDown() {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.isMouseDown;
   }
+
   /**
    * Returns the current x position of the mouse in relation to the canvas.
    * @returns {number}
    */
-
-
   get mouseX() {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.mousePosition.x;
   }
+
   /**
    * Returns the current y position of the mouse in relation to the canvas.
    * @returns {number}
    */
-
-
   get mouseY() {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.mousePosition.y;
   }
+
   /**
    * Returns the amount the mouse moved in the last tick on the x axis.
    * @returns {number}
    */
-
-
   get mouseMoveX() {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.mouseMove.x;
   }
+
   /**
    * Returns the amount the mouse moved in the last tick on the y axis.
    * @returns {number}
    */
-
-
   get mouseMoveY() {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.mouseMove.y;
   }
+
   /**
    * Returns a new random object.
    * @returns {GlobalAPI.Random}
    */
-
-
   get random() {
     return new GlobalAPI.Random();
   }
+
   /**
    * Plays a sound which is currently in the asset library.
    * @param {string} name - name of the sound asset in the library.
    * @param {Object} options - options for the sound. See Wick.SoundAsset.play
    * @returns {object} object representing the sound which was played.
    */
-
-
   playSound(assetName, options) {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.playSound(assetName, options);
   }
+
   /**
    * Stops sound(s) currently playing.
    * @param {string} assetName - The name of the SoundAsset to stop.
    * @param {number} id - (optional) The ID of the sound to stop. Returned by playSound. If an ID is not given, all instances of the given sound asset will be stopped.
    */
-
-
   stopSound(assetName, id) {
     if (!this.scriptOwner.project) return null;
     return this.scriptOwner.project.stopSound(assetName, id);
   }
+
   /**
    * Stops all currently playing sounds.
    */
-
-
   stopAllSounds() {
     if (!this.scriptOwner.project) return null;
     this.scriptOwner.project.stopAllSounds();
   }
+
   /**
    * Attach a function to an event with a given name.
    * @param {string} name - the name of the event to attach the function to
    * @param {function} fn - the function to attach to the event
    */
-
-
   onEvent(name, fn) {
     this.scriptOwner.onEvent(name, fn);
   }
+
   /**
    * Hide the cursor while the project is running.
    */
-
-
   hideCursor() {
     if (!this.scriptOwner.project) return null;
     this.scriptOwner.project.hideCursor = true;
   }
+
   /**
    * Don't hide the cursor while the project is running.
    */
-
-
   showCursor() {
     if (!this.scriptOwner.project) return null;
     this.scriptOwner.project.hideCursor = false;
   }
-
 };
 GlobalAPI.Random = class {
   constructor() {}
+
   /**
    * Returns a random integer (whole number) between two given numbers, 0 and a given number, or 0 and 1. The random number is inclusive of the maximum range.
    * @param {number} min The minimum of the returned integer, or the maximum of the returned number if it is the only argument.
@@ -47394,8 +47295,6 @@ GlobalAPI.Random = class {
    * @returns {number} A random number between num1 and num2, 0 and num1, or 0 and 1. Will return 0 if max is greater than min.
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
    */
-
-
   integer(min, max) {
     if (typeof min === 'undefined' && typeof max === 'undefined') {
       min = 0;
@@ -47404,11 +47303,12 @@ GlobalAPI.Random = class {
       max = Math.ceil(min);
       min = 0;
     }
+    if (max < min) return 0;
 
-    if (max < min) return 0; // The maximum is inclusive and the minimum is inclusive
-
+    // The maximum is inclusive and the minimum is inclusive
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
+
   /**
    * Returns a random floating point (decimal) number between two given numbers, 0 and a given number, or 0 and 1.
    * @param {number} num1 The minimum of the returned number, or the maximum of the returned number if it is the only argument.
@@ -47416,8 +47316,6 @@ GlobalAPI.Random = class {
    * @returns {number} A random number between num1 and num2, 0 and num1, or 0 and 1.
    * https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
    */
-
-
   float(num1, num2) {
     if (typeof num1 !== "undefined" && typeof num2 !== "undefined") {
       return Math.random() * (num2 - num1) + num1;
@@ -47427,21 +47325,19 @@ GlobalAPI.Random = class {
       return Math.random();
     }
   }
+
   /**
    * Returns a random item from an array of items.
    * @param {array} An array of objects.
    * @returns {object | null} A random item contained in the array. Returns null if the given array has no items.
    * https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array
    */
-
-
   choice(array) {
     if (array.length <= 0) return null;
     return array[Math.floor(Math.random() * array.length)];
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -47470,22 +47366,26 @@ BuiltinAssets = class {
       width: 720,
       height: 480
     };
-    var defaultCrosshairSize = 75; // Vcam outline (hidden when project plays)
+    var defaultCrosshairSize = 75;
 
-    var vcamBorderPaths = [// Cam border
+    // Vcam outline (hidden when project plays)
+    var vcamBorderPaths = [
+    // Cam border
     new paper.Path.Rectangle({
       from: new paper.Point(-defaultVcamWH.width / 2, -defaultVcamWH.height / 2),
       to: new paper.Point(defaultVcamWH.width / 2, defaultVcamWH.height / 2),
       strokeWidth: 1,
       strokeColor: '#000',
       fillColor: 'rgba(74,144,226,0.19)'
-    }), // Cam center crosshair (vertical line)
+    }),
+    // Cam center crosshair (vertical line)
     new paper.Path.Line({
       from: new paper.Point(0, -defaultCrosshairSize / 2),
       to: new paper.Point(0, defaultCrosshairSize / 2),
       strokeWidth: 1,
       strokeColor: '#000'
-    }), // Cam center crosshair (horizontal line)
+    }),
+    // Cam center crosshair (horizontal line)
     new paper.Path.Line({
       from: new paper.Point(-defaultCrosshairSize / 2, 0),
       to: new paper.Point(defaultCrosshairSize / 2, 0),
@@ -47496,31 +47396,36 @@ BuiltinAssets = class {
       vcam.activeFrame.addPath(new Wick.Path({
         path: vcamPath
       }));
-    }); // Vcam black borders (only visible when project is playing and showBlackBorders is set to true)
+    });
 
+    // Vcam black borders (only visible when project is playing and showBlackBorders is set to true)
     var borderSize = 10000;
-    var blackBorderPaths = [// Black border top
+    var blackBorderPaths = [
+    // Black border top
     new paper.Path.Rectangle({
       from: new paper.Point(-borderSize, -borderSize),
       to: new paper.Point(borderSize, -defaultVcamWH.height / 2),
       strokeWidth: 1,
       strokeColor: '#000',
       fillColor: '#000'
-    }), // Black border bottom
+    }),
+    // Black border bottom
     new paper.Path.Rectangle({
       from: new paper.Point(-borderSize, defaultVcamWH.height / 2),
       to: new paper.Point(borderSize, borderSize),
       strokeWidth: 1,
       strokeColor: '#000',
       fillColor: '#000'
-    }), // Black border left
+    }),
+    // Black border left
     new paper.Path.Rectangle({
       from: new paper.Point(-borderSize, -borderSize),
       to: new paper.Point(-defaultVcamWH.width / 2, borderSize),
       strokeWidth: 1,
       strokeColor: '#000',
       fillColor: '#000'
-    }), // Black border right
+    }),
+    // Black border right
     new paper.Path.Rectangle({
       from: new paper.Point(defaultVcamWH.width / 2, -borderSize),
       to: new paper.Point(borderSize, borderSize),
@@ -47535,12 +47440,14 @@ BuiltinAssets = class {
       vcam.activeLayer.getFrameAtPlayheadPosition(2).addPath(new Wick.Path({
         path: vcamPath
       }));
-    }); // Blank frame
+    });
 
+    // Blank frame
     vcam.activeLayer.addFrame(new Wick.Frame({
       start: 3
-    })); // Build script
+    }));
 
+    // Build script
     var vcamScript = "";
     vcamScript += "// Wick VCam Beta v0.02\n";
     vcamScript += "\n";
@@ -47574,10 +47481,9 @@ BuiltinAssets = class {
     vcam.removeScript('default');
     return vcam;
   }
-
 };
 Wick.BuiltinAssets = new BuiltinAssets();
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -47595,32 +47501,36 @@ Wick.BuiltinAssets = new BuiltinAssets();
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.ExportUtils = class {
   // https://stackoverflow.com/questions/12168909/blob-from-dataurl
   static dataURItoBlob(dataURI) {
     // convert base64 to raw binary data held in a string
     // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
-    var byteString = atob(dataURI.split(',')[1]); // separate out the mime component
+    var byteString = atob(dataURI.split(',')[1]);
 
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]; // write the bytes of the string to an ArrayBuffer
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
 
-    var ab = new ArrayBuffer(byteString.length); // create a view into the buffer
+    // write the bytes of the string to an ArrayBuffer
+    var ab = new ArrayBuffer(byteString.length);
 
-    var ia = new Uint8Array(ab); // set the bytes of the buffer to the correct values
+    // create a view into the buffer
+    var ia = new Uint8Array(ab);
 
+    // set the bytes of the buffer to the correct values
     for (var i = 0; i < byteString.length; i++) {
       ia[i] = byteString.charCodeAt(i);
-    } // write the ArrayBuffer to a blob, and you're done
+    }
 
-
+    // write the ArrayBuffer to a blob, and you're done
     var blob = new Blob([ab], {
       type: mimeString
     });
     return blob;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -47638,6 +47548,7 @@ Wick.ExportUtils = class {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.AudioTrack = class {
   /**
    * @type {Wick.Project}
@@ -47645,46 +47556,40 @@ Wick.AudioTrack = class {
   get project() {
     return this._project;
   }
-
   set project(project) {
     this._project = project;
   }
+
   /**
    * Create a new AudioTrack
    * @param {Wick.Project} project - the project to use audio from
    */
-
-
   constructor(project) {
     this._project = project;
   }
+
   /**
    * Generate an AudioBuffer of all the project's sounds as one audio track.
    * Can take sound information from a generated sequence.
    * @param {Object} args - callback, onProgress, soundInfo
    */
-
-
   toAudioBuffer(args) {
     if (!args) args = {};
     if (!args.callback) args.callback = () => {};
     if (!args.onProgress) args.onProgress = (frame, maxFrames) => {};
-
     let genBuffer = audioInfo => {
       if (!audioInfo) args.callback(null);
-
       if (audioInfo.length === 0) {
         // No audio in the project, no AudioBuffer to create
         args.callback(null);
         return;
       }
-
       Wick.AudioTrack.generateProjectAudioBuffer(audioInfo, audioArraybuffer => {
         args.callback(audioArraybuffer);
       }, args.onProgress);
-    }; // If audio information is passed in from a previous render, use that. Otherwise, render it again.
+    };
 
-
+    // If audio information is passed in from a previous render, use that. Otherwise, render it again.
     if (args.soundInfo) {
       genBuffer(args.soundInfo);
     } else {
@@ -47694,19 +47599,17 @@ Wick.AudioTrack = class {
       });
     }
   }
+
   /**
    * Create an AudioBuffer from given sounds.
    * @param {object[]} projectAudioInfo - infor generated on sounds played in the project.
    * @param {Function} callback - callback to recieve the generated AudioBuffer
    * @param {Function} onProgress(message, progress) - A function which receive a message.
    */
-
-
   static generateProjectAudioBuffer(projectAudioInfo, callback, onProgress) {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     var ctx = new AudioContext();
     let audiobuffers = [];
-
     let mergeAudio = () => {
       onProgress && onProgress("Merging Audio");
       audiobuffers.sort((a, b) => {
@@ -47720,12 +47623,10 @@ Wick.AudioTrack = class {
       });
       callback(mergedAudioBuffer);
     };
-
     for (let i = 0; i < projectAudioInfo.length; i++) {
       let audioInfo = projectAudioInfo[i];
       this.base64ToAudioBuffer(audioInfo.src, ctx, audiobuffer => {
         let offset = audioInfo.offset || 0; // Milliseconds to offset.
-
         let offsetSeconds = offset / 1000; // Adjust to seconds.
 
         let startSeconds = audioInfo.start / 1000;
@@ -47738,67 +47639,64 @@ Wick.AudioTrack = class {
         let delayedAudiobuffer = this.addStartDelayToAudioBuffer(volumeAdjustedAudioBuffer, startSeconds, ctx);
         onProgress && onProgress("Creating Audio " + (i + 1) + "/" + projectAudioInfo.length, (i + 1) / projectAudioInfo.length);
         audiobuffers.push(delayedAudiobuffer);
-
         if (audiobuffers.length >= projectAudioInfo.length) {
           mergeAudio();
         }
       });
     }
   }
+
   /*
    * Merges multiple audiobuffers into a single audiobuffer.
    * @param {AudioBuffer[]} buffers - the AudioBuffers to merge together
    * @param {AudioContext} ac - An AudioContext instance
    */
-
-
   static mergeBuffers(buffers, ac, onProgress) {
     // original function from:
     // https://github.com/meandavejustice/merge-audio-buffers/blob/master/index.js
-    var maxChannels = 0;
-    var maxDuration = 0; // Send back an empty buffer if no information was sent in.
 
+    var maxChannels = 0;
+    var maxDuration = 0;
+
+    // Send back an empty buffer if no information was sent in.
     if (!buffers || buffers && buffers.length === 0) {
       return ac.createBuffer(2, 1000, 48000);
-    } // Review the incoming audio to determine output buffer size.
+    }
 
-
+    // Review the incoming audio to determine output buffer size.
     for (let i = 0; i < buffers.length; i++) {
       onProgress("Reviewing Audio " + (i + 1) + "/" + buffers.length, i + 1 + "/" + buffers.length);
-
       if (buffers[i].numberOfChannels > maxChannels) {
         maxChannels = buffers[i].numberOfChannels;
       }
-
       if (buffers[i].duration > maxDuration) {
         maxDuration = buffers[i].duration;
       }
-    } // Create new output buffer.
+    }
 
-
+    // Create new output buffer.
     var out = ac.createBuffer(maxChannels, ac.sampleRate * maxDuration, ac.sampleRate);
-
     for (var i = 0; i < buffers.length; i++) {
-      onProgress("Merging Audio " + (i + 1) + "/" + buffers.length, i + 1 + "/" + buffers.length); // Go through each channel of the new audio source and copy that data into the output buffer.
+      onProgress("Merging Audio " + (i + 1) + "/" + buffers.length, i + 1 + "/" + buffers.length);
 
+      // Go through each channel of the new audio source and copy that data into the output buffer.
       for (var srcChannel = 0; srcChannel < buffers[i].numberOfChannels; srcChannel++) {
         var outt = out.getChannelData(srcChannel);
         var inn = buffers[i].getChannelData(srcChannel);
-
         for (let j = 0; j < inn.length; j++) {
-          let val = inn[j]; // Some sounds may have corrupted data... don't copy that over.
+          let val = inn[j];
 
+          // Some sounds may have corrupted data... don't copy that over.
           if (val) {
             outt[j] += val;
           }
         }
-
         out.getChannelData(srcChannel).set(outt, 0);
       }
     }
-
     return out;
   }
+
   /**
    * Offsets an audio buffer by a number of seconds.
    * @param {audioBuffer} originalBuffer - Buffer to offset.
@@ -47806,41 +47704,37 @@ Wick.AudioTrack = class {
    * @param {AudioContext} ctx - Context to use.
    * @returns {audioBuffer} - A copy of the audio buffer, offset by the provided number of seconds.
    */
-
-
   static offsetAudioBuffer(originalBuffer, offsetSeconds, ctx) {
     // Create a blank buffer with the length of the original buffer.
     var offsetBuffer = ctx.createBuffer(originalBuffer.numberOfChannels, originalBuffer.length, ctx.sampleRate);
     let copyto = 0;
     let copyfrom = 0;
-
     if (offsetSeconds < 0) {
       copyto = -1 * offsetSeconds * ctx.sampleRate;
     } else {
       copyfrom = offsetSeconds * ctx.sampleRate;
-    } // Copy buffer information.
+    }
 
-
+    // Copy buffer information.
     for (var srcChannel = 0; srcChannel < offsetBuffer.numberOfChannels; srcChannel++) {
       // Retrieve sample data...
       var offsetBufferChannelData = offsetBuffer.getChannelData(srcChannel);
-      var originalBufferChannelData = originalBuffer.getChannelData(srcChannel); // Copy samples from the original buffer to the adjusted buffer, adjusting for the number of seconds to offset.
+      var originalBufferChannelData = originalBuffer.getChannelData(srcChannel);
 
+      // Copy samples from the original buffer to the adjusted buffer, adjusting for the number of seconds to offset.
       for (var i = 0; i < offsetBufferChannelData.length; i++) {
         if (i + copyfrom > originalBufferChannelData.length) {
           break;
         } else if (i + copyto > offsetBufferChannelData.length) {
           break;
         }
-
         offsetBufferChannelData[i + copyto] = originalBufferChannelData[i + copyfrom];
       }
-
       offsetBuffer.getChannelData(srcChannel).set(offsetBufferChannelData, 0);
     }
-
     return offsetBuffer;
   }
+
   /**
    * Crops an AudioBuffer to a given length.
    * @param {AudioBuffer} originalBuffer - the buffer to crop
@@ -47848,26 +47742,25 @@ Wick.AudioTrack = class {
    * @param {AudioContext} ctx - An AudioContext instance
    * @returns {AudioBuffer} - The a copy of the buffer, cropped to the specified length.
    */
-
-
   static cropAudioBuffer(originalBuffer, lengthSeconds, ctx) {
     // Create a blank buffer with a length of the crop amount
-    var croppedBuffer = ctx.createBuffer(originalBuffer.numberOfChannels, ctx.sampleRate * lengthSeconds, ctx.sampleRate); // Copy data from the original buffer into the cropped buffer
+    var croppedBuffer = ctx.createBuffer(originalBuffer.numberOfChannels, ctx.sampleRate * lengthSeconds, ctx.sampleRate);
 
+    // Copy data from the original buffer into the cropped buffer
     for (var srcChannel = 0; srcChannel < croppedBuffer.numberOfChannels; srcChannel++) {
       // Retrieve sample data...
       var croppedBufferChannelData = croppedBuffer.getChannelData(srcChannel);
-      var originalBufferChannelData = originalBuffer.getChannelData(srcChannel); // Copy samples from the original buffer to the cropped buffer
+      var originalBufferChannelData = originalBuffer.getChannelData(srcChannel);
 
+      // Copy samples from the original buffer to the cropped buffer
       for (var i = 0; i < croppedBufferChannelData.length; i++) {
         croppedBufferChannelData[i] = originalBufferChannelData[i];
       }
-
       croppedBuffer.getChannelData(srcChannel).set(croppedBufferChannelData, 0);
     }
-
     return croppedBuffer;
   }
+
   /**
    * Adjusts the volume of an audio buffer.
    * @param {*} originalBuffer - The original buffer to adjust.
@@ -47875,48 +47768,46 @@ Wick.AudioTrack = class {
    * @param {*} ctx - The audio context to use for buffer generation.
    * @returns {AudioBuffer} - Adjusted audio buffer with new volume.
    */
-
-
   static adjustBufferVolume(originalBuffer, volume, ctx) {
     // Create a blank buffer with the length of the original buffer.
-    var adjustedBuffer = ctx.createBuffer(originalBuffer.numberOfChannels, originalBuffer.length, ctx.sampleRate); // Volume should be at least 0.
+    var adjustedBuffer = ctx.createBuffer(originalBuffer.numberOfChannels, originalBuffer.length, ctx.sampleRate);
 
+    // Volume should be at least 0.
     volume = Math.max(volume, 0);
-
     for (var srcChannel = 0; srcChannel < adjustedBuffer.numberOfChannels; srcChannel++) {
       // Retrieve sample data...
       var adjustedBufferChannelData = adjustedBuffer.getChannelData(srcChannel);
-      var originalBufferChannelData = originalBuffer.getChannelData(srcChannel); // Copy samples from the original buffer to the adjusted buffer, adjusting for volume.
+      var originalBufferChannelData = originalBuffer.getChannelData(srcChannel);
 
+      // Copy samples from the original buffer to the adjusted buffer, adjusting for volume.
       for (var i = 0; i < adjustedBufferChannelData.length; i++) {
         adjustedBufferChannelData[i] = originalBufferChannelData[i] * volume;
       }
-
       adjustedBuffer.getChannelData(srcChannel).set(adjustedBufferChannelData, 0);
     }
-
     return adjustedBuffer;
   }
+
   /**
    * Adds silence to the beginning of an AudioBuffer with a given length.
    * @param {AudioBuffer} originalBuffer - the buffer to pad with silence
    * @param {number} delaySeconds - the amount of time, in seconds, to delay the sound
    * @param {AudioContext} ctx - An AudioContext instance
    */
-
-
   static addStartDelayToAudioBuffer(originalBuffer, delaySeconds, ctx) {
     // Create buffer with a length equal to the original buffer's length plus the requested delay
+
     let lengthOfDelay = ctx.sampleRate * delaySeconds;
     let lengthOfOriginalSound = ctx.sampleRate * originalBuffer.duration;
-    var delayedBuffer = ctx.createBuffer(originalBuffer.numberOfChannels, lengthOfDelay + lengthOfOriginalSound, ctx.sampleRate); // For each channel in the audiobuffer...
+    var delayedBuffer = ctx.createBuffer(originalBuffer.numberOfChannels, lengthOfDelay + lengthOfOriginalSound, ctx.sampleRate);
 
+    // For each channel in the audiobuffer...
     for (var srcChannel = 0; srcChannel < originalBuffer.numberOfChannels; srcChannel++) {
       // Retrieve sample data...
-      var originalBufferChannelData = originalBuffer.getChannelData(srcChannel); // Copy samples from the original buffer to the delayed buffer with an offset equal to the delay
+      var originalBufferChannelData = originalBuffer.getChannelData(srcChannel);
 
+      // Copy samples from the original buffer to the delayed buffer with an offset equal to the delay
       var delayOffset = ctx.sampleRate * delaySeconds;
-
       try {
         // Copy in the data from the original buffer into the delayed buffer, starting at the delayed position.
         delayedBuffer.getChannelData(srcChannel).set(originalBufferChannelData, delayOffset);
@@ -47925,17 +47816,15 @@ Wick.AudioTrack = class {
         console.error("A sound was not added to the project.");
       }
     }
-
     return delayedBuffer;
   }
+
   /**
    * Convert a base64 string of an audio file into an AudioBuffer.
    * @param {string} base64 - a base64 dataURI of an audio file.
    * @param {AudioContext} ctx - an AudioContext instance.
    * @param {Function} callback - callback to recieve the generated AudioBuffer
    */
-
-
   static base64ToAudioBuffer(base64, ctx, callback) {
     let base64DataOnly = base64.split(',')[1];
     let arraybuffer = Base64ArrayBuffer.decode(base64DataOnly);
@@ -47946,9 +47835,8 @@ Wick.AudioTrack = class {
       console.log(e);
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -47978,21 +47866,19 @@ Wick.AutoSave = class {
   static get AUTOSAVES_LIST_KEY() {
     return 'autosaveList';
   }
+
   /**
    * The prefix to use for keys to save project autosave data.
    * @type {string}
    */
-
-
   static get AUTOSAVE_DATA_PREFIX() {
     return 'autosave_';
   }
+
   /**
    * Saves a given project to localforage.
    * @param {Wick.Project} project - the project to store in the AutoSave system.
    */
-
-
   static save(project, callback) {
     if (Wick.AutoSave.ENABLE_PERF_TIMERS) console.time('serialize step');
     var autosaveData = this.generateAutosaveData(project);
@@ -48005,13 +47891,12 @@ Wick.AutoSave = class {
       });
     });
   }
+
   /**
    * Loads a given project from localforage.
    * @param {string} uuid - the UUID of the project to load from the AutoSave system.
    * @param {function} callback
    */
-
-
   static load(uuid, callback) {
     this.readAutosaveData(uuid, autosaveData => {
       this.generateProjectFromAutosaveData(autosaveData, project => {
@@ -48019,13 +47904,12 @@ Wick.AutoSave = class {
       });
     });
   }
+
   /**
    * Deletes a project with a given UUID in the autosaves.
    * @param {string} uuid - uuid of project ot delete.
    * @param {function} callback
    */
-
-
   static delete(uuid, callback) {
     this.removeAutosaveFromList(uuid, () => {
       this.deleteAutosaveData(uuid, () => {
@@ -48033,12 +47917,11 @@ Wick.AutoSave = class {
       });
     });
   }
+
   /**
    * Generates an object that is writable to localforage from a project.
    * @param {Wick.Project} project - The project to generate data for.
    */
-
-
   static generateAutosaveData(project) {
     if (Wick.AutoSave.ENABLE_PERF_TIMERS) console.time('generate objects list');
     var objects = Wick.ObjectCache.getActiveObjects(project);
@@ -48056,32 +47939,32 @@ Wick.AutoSave = class {
       lastModified: lastModified
     };
   }
+
   /**
    * Creates a project from data loaded from the autosave system
    * @param {object} autosaveData - An autosave data object, use generateAutosaveData/readAutosaveData to get this object
    */
-
-
   static generateProjectFromAutosaveData(autosaveData, callback) {
     // Deserialize all objects in the project so they are added to the ObjectCache
     autosaveData.objectsData.forEach(objectData => {
       var object = Wick.Base.fromData(objectData);
-    }); // Deserialize the project itself
+    });
 
-    var project = Wick.Base.fromData(autosaveData.projectData); // Load source files for assets from localforage
+    // Deserialize the project itself
+    var project = Wick.Base.fromData(autosaveData.projectData);
 
+    // Load source files for assets from localforage
     Wick.FileCache.loadFilesFromLocalforage(project, () => {
       project.loadAssets(() => {
         callback(project);
       });
     });
   }
+
   /**
    * Adds autosaved project data to the list of autosaved projects.
    * @param {Object} projectData -
    */
-
-
   static addAutosaveToList(autosaveData, callback) {
     this.getAutosavesList(list => {
       list.push({
@@ -48093,12 +47976,11 @@ Wick.AutoSave = class {
       });
     });
   }
+
   /**
    * Removes autosaved project data to the list of autosaved projects.
    * @param {string} uuid -
    */
-
-
   static removeAutosaveFromList(uuid, callback) {
     this.getAutosavesList(list => {
       list = list.filter(item => {
@@ -48109,75 +47991,69 @@ Wick.AutoSave = class {
       });
     });
   }
+
   /**
    * Get the list of autosaved projects currently in the AutoSave system.
    * @param {function} callback - function to be passed object containing all autosaved projects.
    */
-
-
   static getAutosavesList(callback) {
     localforage.getItem(this.AUTOSAVES_LIST_KEY).then(result => {
-      var projectList = result || []; // Sort by lastModified
+      var projectList = result || [];
 
+      // Sort by lastModified
       projectList.sort((a, b) => {
         return b.lastModified - a.lastModified;
       });
       callback(projectList);
     });
   }
+
   /**
    * Updates the list of autosaved projects currently in the AutoSave system.
    * @param {Object} autosaveList - the list of projects
    * @param {function} callback - called when saving is finished
    */
-
-
   static updateAutosavesList(autosaveList, callback) {
     localforage.setItem(this.AUTOSAVES_LIST_KEY, autosaveList).then(result => {
       callback();
     });
   }
+
   /**
    * Save project data into the autosave system.
    * @param {Object} autosaveData - Autosave data of a project, use generateAutosaveData to create this object
    */
-
-
   static writeAutosaveData(autosaveData, callback) {
     localforage.setItem(this.AUTOSAVE_DATA_PREFIX + autosaveData.projectData.uuid, autosaveData).then(() => {
       callback();
     });
   }
+
   /**
    * Load project data from the autosave system.
    * @param {string} uuid - the UUID of the project to load
    */
-
-
   static readAutosaveData(uuid, callback) {
     localforage.getItem(this.AUTOSAVE_DATA_PREFIX + uuid).then(result => {
       if (!result) {
         console.error('Could not load autosaveData for project: ' + uuid);
       }
-
       callback(result);
     });
   }
+
   /**
    * Deletes project data from the autosave system.
    * @param {string} uuid - the UUID of the project to delete
    */
-
-
   static deleteAutosaveData(uuid, callback) {
     localforage.removeItem(this.AUTOSAVE_DATA_PREFIX + uuid).then(() => {
       callback();
     });
   }
-
 };
 Wick.AutoSave.ENABLE_PERF_TIMERS = false;
-;/*
+/*
  * Copyright 2019 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -48223,78 +48099,66 @@ Wick.WickFile = class {
       }
     };
   }
+
   /**
    * Create a project from a wick file.
    * @param {File} wickFile - Wick file containing project data.
    * @param {function} callback - Function called when the project is created.
    * @param {string} format - The format to return. Can be 'blob' or 'base64'.
    */
-
-
   static fromWickFile(wickFile, callback, format) {
     if (!format) {
       format = 'blob';
     }
-
     if (format !== 'blob' && format !== 'base64') {
       console.error('WickFile.toWickFile: invalid format: ' + format);
       return;
     }
-
     var zip = new JSZip();
     zip.loadAsync(wickFile, {
       base64: format === 'base64'
     }).then(contents => {
       contents.files['project.json'].async('text').then(projectJSON => {
         var projectData = JSON.parse(projectJSON);
-
         if (!projectData.objects) {
           // No metadata! This is a pre 1.0.9a project. Convert it.
           console.log('Wick.WickFile: Converting old project format.');
           projectData = Wick.WickFile.Alpha.convertJsonProject(projectData);
         }
-
         projectData.assets = [];
-
         for (var uuid in projectData.objects) {
           var data = projectData.objects[uuid];
           var object = Wick.Base.fromData(data);
           Wick.ObjectCache.addObject(object);
         }
-
         var project = Wick.Base.fromData(projectData.project);
         Wick.ObjectCache.addObject(project);
         var loadedAssetCount = 0;
         let corruptedFiles = []; // Store a list of all files that are now missing. 
-        // Immediately end if the project has no assets.
 
+        // Immediately end if the project has no assets.
         if (project.getAssets().length === 0) {
           this._prepareProject(project);
-
           callback(project);
         } else {
           // Make a copy of the assets, as we may get rid of some mid process.
           let allAssets = project.getAssets().concat([]);
           allAssets.forEach(assetData => {
             var assetFile = contents.files['assets/' + assetData.uuid + '.' + assetData.fileExtension];
+
             /**
              * Checks if we've loaded all assets, logs an error if an error occurred 
              * while loading asset files.
              */
-
             var checkProjectLoad = () => {
               loadedAssetCount++;
-
               if (loadedAssetCount === allAssets.length) {
                 // Throw an error if any corrupted files were found.
                 project.errorOccured && corruptedFiles.length > 0 && project.errorOccured("Corrupted Files Were Deleted: " + corruptedFiles);
-
                 this._prepareProject(project);
-
                 callback(project);
               }
             };
-
             if (!assetFile) {
               // Try removing the asset from the project here.
               assetData.removeAllInstances();
@@ -48303,7 +48167,6 @@ Wick.WickFile = class {
               checkProjectLoad();
               return;
             }
-
             assetFile.async('base64').then(assetFileData => {
               var assetSrc = 'data:' + assetData.MIMEType + ';base64,' + assetFileData;
               Wick.FileCache.addFile(assetSrc, assetData.uuid);
@@ -48325,28 +48188,27 @@ Wick.WickFile = class {
       callback(null);
     });
   }
+
   /**
    * Create a wick file from the project.
    * @param {Wick.Project} project - the project to create a wick file from
    * @param {function} callback - Function called when the file is created. Contains the file as a parameter.
    * @param {string} format - The format to return. Can be 'blob' or 'base64'.
    */
-
-
   static toWickFile(project, callback, format) {
     if (!format) {
       format = 'blob';
     }
-
     if (format !== 'blob' && format !== 'base64') {
       console.error('WickFile.toWickFile: invalid format: ' + format);
       return;
     }
+    var zip = new JSZip();
 
-    var zip = new JSZip(); // Create assets folder
+    // Create assets folder
+    var assetsFolder = zip.folder("assets");
 
-    var assetsFolder = zip.folder("assets"); // Populate assets folder with files
-
+    // Populate assets folder with files
     project.getAssets().filter(asset => {
       return asset instanceof Wick.ImageAsset || asset instanceof Wick.SoundAsset || asset instanceof Wick.FontAsset || asset instanceof Wick.ClipAsset || asset instanceof Wick.SVGAsset;
     }).forEach(asset => {
@@ -48363,42 +48225,36 @@ Wick.WickFile = class {
       objectCacheSerialized[object.uuid] = object.serialize();
     });
     var projectSerialized = project.serialize();
-
     for (var uuid in objectCacheSerialized) {
       if (objectCacheSerialized[uuid].classname === 'Project') {
         delete objectCacheSerialized[uuid];
       }
-    } // Remove some extra data that we don't actually want to save
+    }
+
+    // Remove some extra data that we don't actually want to save
     // Clear selection:
-
-
     for (var uuid in objectCacheSerialized) {
       var object = objectCacheSerialized[uuid];
-
       if (object.classname === 'Selection') {
         object.selectedObjects = [];
       }
-    } // Set focus to root
-
-
+    }
+    // Set focus to root
     for (var uuid in objectCacheSerialized) {
       var object = objectCacheSerialized[uuid];
-
       if (projectSerialized.children.indexOf(uuid) !== -1 && object.classname === 'Clip') {
         projectSerialized.focus = uuid;
       }
-    } // Reset all playhead positions
-
-
+    }
+    // Reset all playhead positions
     for (var uuid in objectCacheSerialized) {
       var object = objectCacheSerialized[uuid];
-
       if (object.classname === 'Timeline') {
         object.playheadPosition = 1;
       }
-    } // Add project json to root directory of zip file
+    }
 
-
+    // Add project json to root directory of zip file
     var projectData = {
       project: projectSerialized,
       objects: objectCacheSerialized
@@ -48412,9 +48268,8 @@ Wick.WickFile = class {
       }
     }).then(callback);
   }
+
   /* Make any small backwards compatibility fixes needed */
-
-
   static _prepareProject(project) {
     // 1.16+ projects don't allow gaps between frames.
     Wick.ObjectCache.getAllObjects().filter(object => {
@@ -48426,9 +48281,8 @@ Wick.WickFile = class {
       timeline.fillGapsMethod = oldFrameGapFillMethod;
     });
   }
-
 };
-;/*
+/*
  * Utility class to convert Pre 1.0.9a projects into the most recent format
  */
 Wick.WickFile.Alpha = class {
@@ -48449,25 +48303,21 @@ Wick.WickFile.Alpha = class {
       objects: newProjectObjects
     };
   }
-
   static flattenWickObject(objectJSON, parentJSON, objects) {
     objectJSON.children = [];
     if (parentJSON) parentJSON.children.push(objectJSON.uuid);
     objects[objectJSON.uuid] = objectJSON;
-
     if (objectJSON.root) {
       objectJSON.focus = objectJSON.root.uuid;
       Wick.WickFile.Alpha.flattenWickObject(objectJSON.root, objectJSON, objects);
       delete objectJSON.root;
     }
-
     if (objectJSON.assets) {
       objectJSON.assets.forEach(asset => {
         Wick.WickFile.Alpha.flattenWickObject(asset, objectJSON, objects);
       });
       delete objectJSON.assets;
     }
-
     if (objectJSON.selection) {
       objectJSON.selection.widgetRotation = 0;
       objectJSON.selection.pivotPoint = {
@@ -48477,7 +48327,6 @@ Wick.WickFile.Alpha = class {
       Wick.WickFile.Alpha.flattenWickObject(objectJSON.selection, objectJSON, objects);
       delete objectJSON.selection;
     }
-
     if (objectJSON.transform) {
       objectJSON.transformation = {
         x: objectJSON.transform.x,
@@ -48489,55 +48338,47 @@ Wick.WickFile.Alpha = class {
       };
       delete objectJSON.transform;
     }
-
     if (objectJSON.timeline) {
       Wick.WickFile.Alpha.flattenWickObject(objectJSON.timeline, objectJSON, objects);
       delete objectJSON.timeline;
     }
-
     if (objectJSON.layers) {
       objectJSON.layers.forEach(layer => {
         Wick.WickFile.Alpha.flattenWickObject(layer, objectJSON, objects);
       });
       delete objectJSON.layers;
     }
-
     if (objectJSON.frames) {
       objectJSON.frames.forEach(frame => {
         Wick.WickFile.Alpha.flattenWickObject(frame, objectJSON, objects);
       });
       delete objectJSON.frames;
     }
-
     if (objectJSON.clips) {
       objectJSON.clips.forEach(clip => {
         Wick.WickFile.Alpha.flattenWickObject(clip, objectJSON, objects);
       });
       delete objectJSON.clips;
     }
-
     if (objectJSON.paths) {
       objectJSON.paths.forEach(path => {
         Wick.WickFile.Alpha.flattenWickObject(path, objectJSON, objects);
       });
       delete objectJSON.paths;
     }
-
     if (objectJSON.tweens) {
       objectJSON.tweens.forEach(tween => {
         Wick.WickFile.Alpha.flattenWickObject(tween, objectJSON, objects);
       });
       delete objectJSON.tweens;
     }
-
     if (objectJSON.pathJSON) {
       objectJSON.json = objectJSON.pathJSON;
       delete objectJSON.pathJSON;
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -48570,23 +48411,19 @@ Wick.WickObjectFile = class {
     if (typeof wickObjectFile === 'string') {
       wickObjectFile = Wick.ExportUtils.dataURItoBlob(wickObjectFile);
     }
-
     var fr = new FileReader();
-
     fr.onload = () => {
       var data = JSON.parse(fr.result);
       callback(data);
     };
-
     fr.readAsText(wickObjectFile);
   }
+
   /**
    * Create a wick file from the project.
    * @param {Wick.Project} clip - the clip to create a wickobject file from
    * @param {string} format - Can be 'blob' or 'dataurl'.
    */
-
-
   static toWickObjectFile(clip, format, callback) {
     if (!format) format = 'blob';
     var data = clip.export();
@@ -48594,24 +48431,20 @@ Wick.WickObjectFile = class {
     var blob = new Blob([json], {
       type: "application/json"
     });
-
     if (format === 'blob') {
       callback(blob);
     } else if (format === 'dataurl') {
       var fr = new FileReader();
-
       fr.onload = function (e) {
         callback(e.target.result);
       };
-
       fr.readAsDataURL(blob);
     } else {
       console.error('toWickObjectFile: invalid format: ' + format);
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -48649,9 +48482,8 @@ Wick.HTMLExport = class {
       });
     }, 'base64');
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -48683,20 +48515,17 @@ Wick.HTMLPreview = class {
     Wick.HTMLExport.bundleProject(project, html => {
       var windowFeatures = "height=" + project.height + ",width=" + project.width;
       var popupWindow = window.open('', '_blank', windowFeatures);
-
       if (popupWindow) {
         popupWindow.document.title = project.name;
         popupWindow.document.open();
         popupWindow.document.write(html);
         popupWindow.document.close();
       }
-
       callback(popupWindow);
     });
   }
-
 };
-;/*
+/*
  * Copyright 2019 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -48728,15 +48557,13 @@ Wick.SVGFile = class {
     if (typeof svgFile === 'string') {
       svgFile = Wick.ExportUtils.dataURItoBlob(svgFile);
     }
-
     var fr = new FileReader();
-
     fr.onload = function () {
       callback(fr.result);
     };
-
     fr.readAsText(svgFile);
   }
+
   /**
    * Create a wick file from the project.
    * @param {Wick.Timeline} timeline - the clip to create a wickobject file from
@@ -48744,8 +48571,6 @@ Wick.SVGFile = class {
    * @param {function(blob)} callback - function to call when done
    * @returns {Blob}
    */
-
-
   static toSVGFile(timeline, onError, callback) {
     var svgString = timeline.exportSVG(onError);
     var blob = new Blob([svgString], {
@@ -48754,9 +48579,8 @@ Wick.SVGFile = class {
     callback(blob);
     return blob;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -48791,7 +48615,6 @@ Wick.ImageSequence = class {
       onFinish
     } = args;
     var zip = new JSZip();
-
     let buildZip = files => {
       let index = 0;
       files.forEach(file => {
@@ -48808,7 +48631,6 @@ Wick.ImageSequence = class {
         }
       }).then(onFinish);
     };
-
     project.generateImageSequence({
       width: args.width,
       height: args.height,
@@ -48816,9 +48638,8 @@ Wick.ImageSequence = class {
       onProgress: onProgress
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -48848,7 +48669,6 @@ Wick.ZIPExport = class {
       });
     });
   }
-
   static _downloadDependenciesFiles(done) {
     var list = [];
     var urls = ["index.html", "preloadjs.min.js", "wickengine.js"];
@@ -48865,7 +48685,6 @@ Wick.ZIPExport = class {
       done(results);
     });
   }
-
   static _bundleFilesIntoZip(wickFile, dependenciesFiles, done) {
     var zip = new JSZip();
     dependenciesFiles.forEach(file => {
@@ -48880,9 +48699,8 @@ Wick.ZIPExport = class {
       }
     }).then(done);
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -48918,7 +48736,6 @@ Wick.Base = class {
       Wick._originals[this.classname] = {};
       Wick._originals[this.classname] = new Wick[this.classname]();
     }
-
     if (!args) args = {};
     this._uuid = args.uuid || uuidv4();
     this._identifier = args.identifier || null;
@@ -48930,8 +48747,9 @@ Wick.Base = class {
     this._classname = this.classname;
     this._children = [];
     this._childrenData = null;
-    this._parent = null; // If this is a project, use this object, otherwise use the passed in project if provided.
+    this._parent = null;
 
+    // If this is a project, use this object, otherwise use the passed in project if provided.
     this._project = this.classname === 'Project' ? this : args.project ? args.project : null;
     this.needsAutosave = true;
     this._cachedSerializeData = null;
@@ -48939,71 +48757,59 @@ Wick.Base = class {
 
     Wick.ObjectCache.addObject(this);
   }
+
   /**
    * @param {object} data - Serialized data to use to create a new object.
    */
-
-
   static fromData(data, project) {
     if (!data.classname) {
       console.warn('Wick.Base.fromData(): data was missing, did you mean to deserialize something else?');
     }
-
     if (!Wick[data.classname]) {
       console.warn('Tried to deserialize an object with no Wick class: ' + data.classname);
     }
-
     var object = new Wick[data.classname]({
       uuid: data.uuid,
       project: project
     });
     object.deserialize(data);
-
     if (data.classname === 'Project') {
       object.initialize();
     }
-
     return object;
   }
+
   /**
    * Converts this Wick Base object into a plain javascript object contianing raw data (no references).
    * @return {object} Plain JavaScript object representing this Wick Base object.
    */
-
-
   serialize(args) {
     // TEMPORARY: Force the cache to never be accessed.
     // This is because the cache was causing issues in the tests, and the
     // performance boost that came with the cache was not signifigant enough
     // to be worth fixing the bugs over...
     this.needsAutosave = true;
-
     if (this.needsAutosave || !this._cachedSerializeData) {
       // If the cache is outdated or does not exist, reserialize and cache.
       var data = this._serialize(args);
-
       this._cacheSerializeData(data);
-
       return data;
     } else {
       // Otherwise, just read from the cache
       return this._cachedSerializeData;
     }
   }
+
   /**
    * Parses serialized data representing Base Objects which have been serialized using the serialize function of their class.
    * @param {object} data Serialized data that was returned by a Base Object's serialize function.
    */
-
-
   deserialize(data) {
     this._deserialize(data);
-
     this._cacheSerializeData(data);
   }
+
   /* The internal serialize method that actually creates the data. Every class that inherits from Base must have one of these. */
-
-
   _serialize(args) {
     var data = {};
     data.classname = this.classname;
@@ -49015,63 +48821,63 @@ Wick.Base = class {
     });
     return data;
   }
+
   /* The internal deserialize method that actually reads the data. Every class that inherits from Base must have one of these. */
-
-
   _deserialize(data) {
     this._uuid = data.uuid;
     this._identifier = data.identifier;
     this._name = data.name;
     this._children = [];
-    this._childrenData = data.children; // Clear any custom attributes set by scripts
+    this._childrenData = data.children;
 
+    // Clear any custom attributes set by scripts
     var compareObj = Wick._originals[this.classname];
-
     for (var name in this) {
       if (compareObj[name] === undefined) {
         delete this[name];
       }
     }
   }
-
   _cacheSerializeData(data) {
     this._cachedSerializeData = data;
     this.needsAutosave = false;
   }
+
   /**
    * Returns a copy of a Wick Base object.
    * @return {Wick.Base} The object resulting from the copy
    */
-
-
   copy() {
     var data = this.serialize();
     data.uuid = uuidv4();
     var copy = Wick.Base.fromData(data);
-    copy._childrenData = null; // Copy children
+    copy._childrenData = null;
 
+    // Copy children
     this.getChildren().forEach(child => {
       copy.addChild(child.copy());
     });
     return copy;
   }
+
   /**
    * Returns an object containing serialied data of this object, as well as all of its children.
    * Use this to copy entire Wick.Base objects between projects, and to export individual Clips as files.
    * @returns {object} The exported data.
    */
-
-
   export() {
     var copy = this.copy();
-    copy._project = this.project; // the main object
+    copy._project = this.project;
 
-    var object = copy.serialize(); // children
+    // the main object
+    var object = copy.serialize();
 
+    // children
     var children = copy.getChildrenRecursive().map(child => {
       return child.serialize();
-    }); // assets
+    });
 
+    // assets
     var assets = [];
     copy.getChildrenRecursive().concat(copy).forEach(child => {
       child._project = copy._project;
@@ -49087,41 +48893,40 @@ Wick.Base = class {
       assets: assets
     };
   }
+
   /**
    * Import data created using Wick.Base.export().
    * @param {object} exportData - an object created from Wick.Base.export().
    */
-
-
   static import(exportData, project) {
     if (!exportData) console.error('Wick.Base.import(): exportData is required');
     if (!exportData.object) console.error('Wick.Base.import(): exportData is missing data');
-    if (!exportData.children) console.error('Wick.Base.import(): exportData is missing data'); // Import assets first in case the objects need them!
+    if (!exportData.children) console.error('Wick.Base.import(): exportData is missing data');
 
+    // Import assets first in case the objects need them!
     exportData.assets.forEach(assetData => {
       // Don't import assets if they exist in the project already
       // (Assets only get reimported when objects are pasted between projects)
       if (project.getAssetByUUID(assetData.uuid)) {
         return;
       }
-
       var asset = Wick.Base.fromData(assetData, project);
       project.addAsset(asset);
     });
-    var object = Wick.Base.fromData(exportData.object, project); // Import children as well
+    var object = Wick.Base.fromData(exportData.object, project);
 
+    // Import children as well
     exportData.children.forEach(childData => {
       // Only need to call deserialize here, we just want the object to get added to ObjectCache
       var child = Wick.Base.fromData(childData, project);
     });
     return object;
   }
+
   /**
    * Marks the object as possibly changed, so that next time autosave happens, this object is written to the save.
    * @type {boolean}
    */
-
-
   set needsAutosave(needsAutosave) {
     if (needsAutosave) {
       Wick.ObjectCache.markObjectToBeAutosaved(this);
@@ -49129,167 +48934,149 @@ Wick.Base = class {
       Wick.ObjectCache.clearObjectToBeAutosaved(this);
     }
   }
-
   get needsAutosave() {
     return Wick.ObjectCache.objectNeedsAutosave(this);
   }
+
   /**
    * Signals if an object is removed from the project while playing.
    * This is a temprary variable.
    * @type {boolean}
    */
-
-
   get removed() {
     return typeof this._removed === 'undefined' ? false : this._removed;
   }
-
   set removed(bool) {
     this._removed = bool;
   }
+
   /**
    * Returns the classname of a Wick Base object.
    * @type {string}
    */
-
-
   get classname() {
     return 'Base';
   }
+
   /**
    * A marker if this object is temporary. Meaning it 
    * should be garbage collected after a play.
    */
-
-
   get temporary() {
     return this._temporary;
   }
+
   /**
    * The uuid of a Wick Base object.
    * @type {string}
    */
-
-
   get uuid() {
     return this._uuid;
   }
+
   /**
    * Changes an object's uuid. This function should not be used consistently, as it creates an entire copy of the object
    * in the object cache. Avoid using this if possile.
    */
-
-
   set uuid(uuid) {
     this._uuid = uuid;
     Wick.ObjectCache.addObject(this);
   }
+
   /**
    * The name of the object that is used to access the object through scripts. Must be a valid JS variable name.
    * @type {string}
    */
-
-
   get identifier() {
     return this._identifier;
   }
-
   set identifier(identifier) {
     // Treat empty string identifier as null
     if (identifier === '' || identifier === null) {
       this._identifier = null;
       return;
-    } // Make sure the identifier doesn't squash any attributes of the window
+    }
 
+    // Make sure the identifier doesn't squash any attributes of the window
+    if (this._identifierNameExistsInWindowContext(identifier)) return;
 
-    if (this._identifierNameExistsInWindowContext(identifier)) return; // Make sure the identifier will not be squashed by Wick API functions
+    // Make sure the identifier will not be squashed by Wick API functions
+    if (this._identiferNameIsPartOfWickAPI(identifier)) return;
 
-    if (this._identiferNameIsPartOfWickAPI(identifier)) return; // Make sure the identifier is a valid js variable name
-
+    // Make sure the identifier is a valid js variable name
     if (!isVarName(identifier)) {
       this.project && this.project.errorOccured('Identifier must be a valid variable name.');
       return;
-    } // Make sure the identifier is not a reserved word in js
+    }
 
+    // Make sure the identifier is not a reserved word in js
+    if (reserved.check(identifier)) return;
 
-    if (reserved.check(identifier)) return; // Ensure no objects with duplicate identifiers can exist
-
+    // Ensure no objects with duplicate identifiers can exist
     this._identifier = this._getUniqueIdentifier(identifier);
   }
+
   /**
    * The name of the object.
    * @type {string}
    */
-
-
   get name() {
     return this._name;
   }
-
   set name(name) {
     if (typeof name !== 'string') return;
     if (name === '') this._name = null;
     this._name = name;
   }
+
   /**
    * The Wick.View object that is used for rendering this object on the canvas.
    */
-
-
   get view() {
     return this._view;
   }
-
   set view(view) {
     if (view) view.model = this;
     this._view = view;
   }
+
   /**
    * The object that is used for rendering this object in the timeline GUI.
    */
-
-
   get guiElement() {
     return this._guiElement;
   }
-
   set guiElement(guiElement) {
     if (guiElement) guiElement.model = this;
     this._guiElement = guiElement;
   }
+
   /**
    * Returns a single child of this object with a given classname.
    * @param {string} classname - the classname to use
    */
-
-
   getChild(classname) {
     return this.getChildren(classname)[0];
   }
+
   /**
    * Gets all children with a given classname(s).
    * @param {Array|string} classname - (optional) A string, or list of strings, of classnames.
    */
-
-
   getChildren(classname) {
     // Lazily generate children list from serialized data
     if (this._childrenData) {
       this._childrenData.forEach(uuid => {
         this.addChild(Wick.ObjectCache.getObjectByUUID(uuid));
       });
-
       this._childrenData = null;
     }
-
     if (classname instanceof Array) {
       let classNames = new Set(classname);
       var children = [];
-
       if (this._children !== undefined) {
         children = this._children.filter(child => classNames.has(child.classname));
       }
-
       return children;
     } else if (classname === undefined) {
       // Retrieve all children if no classname was given
@@ -49297,16 +49084,14 @@ Wick.Base = class {
     } else {
       // Retrieve children by classname
       var children = this._children.filter(child => child.classname === classname);
-
       return children || [];
     }
   }
+
   /**
    * Get an array of all children of this object, and the children of those children, recursively.
    * @type {Wick.Base[]}
    */
-
-
   getChildrenRecursive(level, original) {
     var children = this.getChildren();
     this.getChildren().forEach(child => {
@@ -49314,57 +49099,51 @@ Wick.Base = class {
     });
     return children;
   }
+
   /**
    * The parent of this object.
    * @type {Wick.Base}
    */
-
-
   get parent() {
     return this._parent;
   }
+
   /**
    * The parent Clip of this object.
    * @type {Wick.Clip}
    */
-
-
   get parentClip() {
     return this._getParentByClassName('Clip');
   }
+
   /**
    * The parent Layer of this object.
    * @type {Wick.Layer}
    */
-
-
   get parentLayer() {
     return this._getParentByClassName('Layer');
   }
+
   /**
    * The parent Frame of this object.
    * @type {Wick.Frame}
    */
-
-
   get parentFrame() {
     return this._getParentByClassName('Frame');
   }
+
   /**
    * The parent Timeline of this object.
    * @type {Wick.Timeline}
    */
-
-
   get parentTimeline() {
     return this._getParentByClassName('Timeline');
   }
+
   /**
    * The project that this object belongs to. Can be null if the object is not in a project.
    * @type {Wick.Project}
    */
-
-
   get project() {
     if (this._project) {
       return this._project;
@@ -49374,35 +49153,30 @@ Wick.Base = class {
       return null;
     }
   }
+
   /**
    * Check if an object is selected or not.
    * @type {boolean}
    */
-
-
   get isSelected() {
     if (!this.project) return false;
     return this.project.selection.isObjectSelected(this);
   }
+
   /**
    * Add a child to this object.
    * @param {Wick.Base} child - the child to add.
    */
-
-
   addChild(child) {
     var classname = child.classname;
-
     if (!this._children) {
       this._children = [];
     }
-
     child._parent = this;
-
     child._setProject(this.project);
-
     this._children.push(child);
   }
+
   /**
    * Insert a child into this at specified index.
    * 
@@ -49417,93 +49191,71 @@ Wick.Base = class {
    * @param {number} index - where to add the child
    * @returns {boolean} - true if an item before index was moved
    */
-
-
   insertChild(child, index) {
     var classname = child.classname;
-
     if (child._parent === this) {
       let result = 0;
-
       let old_index = this._children.indexOf(child);
-
       if (old_index < index) {
         index--;
         result = 1;
       }
-
       this._children.splice(index, 0, this._children.splice(old_index, 1)[0]);
-
       return result;
     }
-
     if (child._parent) {
       child._parent.removeChild(child);
     }
-
     if (!this._children) {
       this._children = [];
     }
-
     child._parent = this;
-
     child._setProject(this.project);
-
     this._children.splice(index, 0, child);
-
     return 0;
   }
+
   /**
    * Remove a child from this object.
    * @param {Wick.Base} child - the child to remove.
    */
-
-
   removeChild(child) {
     if (!this._children) {
       return;
     }
-
     child._parent = null;
     child._project = null;
     this._children = this._children.filter(seekChild => {
       return seekChild !== child;
     });
   }
+
   /**
    * Assets attached to this object.
    * @returns {Wick.Base[]}
    */
-
-
   getLinkedAssets() {
     // Implemented by Wick.Frame and Wick.Clip
     return [];
   }
-
   _generateView() {
     var viewClass = Wick.View[this.classname];
-
     if (viewClass) {
       return new viewClass(this);
     } else {
       return null;
     }
   }
-
   _generateGUIElement() {
     var guiElementClass = Wick.GUIElement[this.classname];
-
     if (guiElementClass && guiElementClass !== Wick.Button) {
       return new guiElementClass(this);
     } else {
       return null;
     }
   }
-
   _getParentByClassName(classname) {
     if (!this.parent) return null;
-
     if (this.parent instanceof Wick[classname]) {
       return this.parent;
     } else {
@@ -49511,7 +49263,6 @@ Wick.Base = class {
       return this.parent._getParentByClassName(classname);
     }
   }
-
   _setProject(project) {
     this._project = project;
     this.getChildren().forEach(child => {
@@ -49520,7 +49271,6 @@ Wick.Base = class {
       }
     });
   }
-
   _getUniqueIdentifier(identifier) {
     if (!this.parent) return identifier;
     var otherIdentifiers = this.parent.getChildren(['Clip', 'Frame', 'Button']).filter(child => {
@@ -49528,14 +49278,12 @@ Wick.Base = class {
     }).map(child => {
       return child.identifier;
     });
-
     if (otherIdentifiers.indexOf(identifier) === -1) {
       return identifier;
     } else {
       return this._getUniqueIdentifier(identifier + '_copy');
     }
   }
-
   _identifierNameExistsInWindowContext(identifier) {
     if (window[identifier]) {
       return true;
@@ -49543,19 +49291,16 @@ Wick.Base = class {
       return false;
     }
   }
-
   _identiferNameIsPartOfWickAPI(identifier) {
     var globalAPI = new GlobalAPI(this);
-
     if (globalAPI[identifier]) {
       return true;
     } else {
       return false;
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -49590,66 +49335,56 @@ Wick.Layer = class extends Wick.Base {
     this.hidden = args.hidden === undefined ? false : args.hidden;
     this.name = args.name || null;
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.locked = this.locked;
     data.hidden = this.hidden;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.locked = data.locked;
     this.hidden = data.hidden;
   }
-
   get classname() {
     return 'Layer';
   }
+
   /**
    * The frames belonging to this layer.
    * @type {Wick.Frame[]}
    */
-
-
   get frames() {
     return this.getChildren('Frame');
   }
+
   /**
    * The order of the Layer in the timeline.
    * @type {number}
    */
-
-
   get index() {
     return this.parent && this.parent.layers.indexOf(this);
   }
+
   /**
    * Set this layer to be the active layer in its timeline.
    */
-
-
   activate() {
     this.parent.activeLayerIndex = this.index;
   }
+
   /**
    * True if this layer is the active layer in its timeline.
    * @type {boolean}
    */
-
-
   get isActive() {
     return this.parent && this === this.parent.activeLayer;
   }
+
   /**
    * The length of the layer in frames.
    * @type {number}
    */
-
-
   get length() {
     var end = 0;
     this.frames.forEach(function (frame) {
@@ -49659,165 +49394,153 @@ Wick.Layer = class extends Wick.Base {
     });
     return end;
   }
+
   /**
    * The active frame on the layer.
    * @type {Wick.Frame}
    */
-
-
   get activeFrame() {
     if (!this.parent) return null;
     return this.getFrameAtPlayheadPosition(this.parent.playheadPosition);
   }
+
   /**
    * Moves this layer to a different position, inserting it before/after other layers if needed.
    * @param {number} index - the new position to move the layer to.
    */
-
-
   move(index) {
     this.parentTimeline.moveLayer(this, index);
   }
+
   /**
    * Remove this layer from its timeline.
    */
-
-
   remove() {
     this.parentTimeline.removeLayer(this);
   }
+
   /**
    * Adds a frame to the layer.
    * @param {Wick.Frame} frame - The frame to add to the Layer.
    */
-
-
   addFrame(frame) {
     this.addChild(frame);
     this.resolveOverlap([frame]);
     this.resolveGaps([frame]);
   }
+
   /**
    * Adds a tween to the active frame of this layer (if one exists).
    * @param {Wick.Tween} tween - the tween to add
    */
-
-
   addTween(tween) {
     this.activeFrame && this.activeFrame.addChild(tween);
   }
+
   /**
    * Adds a frame to the layer. If there is an existing frame where the new frame is
    * inserted, then the existing frame will be cut, and the new frame will fill the
    * gap created by that cut.
    * @param {number} playheadPosition - Where to add the blank frame.
    */
-
-
   insertBlankFrame(playheadPosition) {
     if (!playheadPosition) {
       throw new Error('insertBlankFrame: playheadPosition is required');
     }
-
     var frame = new Wick.Frame({
       start: playheadPosition
     });
-    this.addChild(frame); // If there is is overlap with an existing frame
+    this.addChild(frame);
 
+    // If there is is overlap with an existing frame
     var existingFrame = this.getFrameAtPlayheadPosition(playheadPosition);
-
     if (existingFrame) {
       // Make sure the new frame fills the empty space
       frame.end = existingFrame.end;
     }
-
     this.resolveOverlap([frame]);
     this.resolveGaps([frame]);
     return frame;
   }
+
   /**
    * Removes a frame from the Layer.
    * @param  {Wick.Frame} frame Frame to remove.
    */
-
-
   removeFrame(frame) {
     this.removeChild(frame);
     this.resolveGaps();
   }
+
   /**
    * Gets the frame at a specific playhead position.
    * @param {number} playheadPosition - Playhead position to search for frame at.
    * @return {Wick.Frame} The frame at the given playheadPosition.
    */
-
-
   getFrameAtPlayheadPosition(playheadPosition) {
     return this.frames.find(frame => {
       return frame.inPosition(playheadPosition);
     }) || null;
   }
+
   /**
    * Gets all frames in the layer that are between the two given playhead positions.
    * @param {number} playheadPositionStart - The start of the range to search
    * @param {number} playheadPositionEnd - The end of the range to search
    * @return {Wick.Frame[]} The frames in the given range.
    */
-
-
   getFramesInRange(playheadPositionStart, playheadPositionEnd) {
     return this.frames.filter(frame => {
       return frame.inRange(playheadPositionStart, playheadPositionEnd);
     });
   }
+
   /**
    * Gets all frames in the layer that are contained within the two given playhead positions.
    * @param {number} playheadPositionStart - The start of the range to search
    * @param {number} playheadPositionEnd - The end of the range to search
    * @return {Wick.Frame[]} The frames contained in the given range.
    */
-
-
   getFramesContainedWithin(playheadPositionStart, playheadPositionEnd) {
     return this.frames.filter(frame => {
       return frame.containedWithin(playheadPositionStart, playheadPositionEnd);
     });
   }
+
   /**
    * Prevents frames from overlapping each other by removing pieces of frames that are touching.
    * @param {Wick.Frame[]} newOrModifiedFrames - the frames that should take precedence when determining which frames should get "eaten".
    */
-
-
   resolveOverlap(newOrModifiedFrames) {
-    newOrModifiedFrames = newOrModifiedFrames || []; // Ensure that frames never go beyond the beginning of the timeline
+    newOrModifiedFrames = newOrModifiedFrames || [];
 
+    // Ensure that frames never go beyond the beginning of the timeline
     newOrModifiedFrames.forEach(frame => {
       if (frame.start <= 1) {
         frame.start = 1;
       }
     });
-
     var isEdible = existingFrame => {
       return newOrModifiedFrames.indexOf(existingFrame) === -1;
     };
-
     newOrModifiedFrames.forEach(frame => {
       // "Full eat"
       // The frame completely eats the other frame.
       var containedFrames = this.getFramesContainedWithin(frame.start, frame.end);
       containedFrames.filter(isEdible).forEach(existingFrame => {
         existingFrame.remove();
-      }); // "Right eat"
-      // The frame takes a chunk out of the right side of another frame.
+      });
 
+      // "Right eat"
+      // The frame takes a chunk out of the right side of another frame.
       this.frames.filter(isEdible).forEach(existingFrame => {
         if (existingFrame.inPosition(frame.start) && existingFrame.start !== frame.start) {
           existingFrame.end = frame.start - 1;
         }
-      }); // "Left eat"
-      // The frame takes a chunk out of the left side of another frame.
+      });
 
+      // "Left eat"
+      // The frame takes a chunk out of the left side of another frame.
       this.frames.filter(isEdible).forEach(existingFrame => {
         if (existingFrame.inPosition(frame.end) && existingFrame.end !== frame.end) {
           existingFrame.start = frame.end + 1;
@@ -49825,11 +49548,10 @@ Wick.Layer = class extends Wick.Base {
       });
     });
   }
+
   /**
    * Prevents gaps between frames by extending frames to fill empty space between themselves.
    */
-
-
   resolveGaps(newOrModifiedFrames) {
     if (this.parentTimeline && this.parentTimeline.waitToFillFrameGaps) return;
     newOrModifiedFrames = newOrModifiedFrames || [];
@@ -49839,7 +49561,6 @@ Wick.Layer = class extends Wick.Base {
       // Method 1: Use the frame on the left (if there is one) to fill the gap
       if (fillGapsMethod === 'auto_extend') {
         var frameOnLeft = this.getFrameAtPlayheadPosition(gap.start - 1);
-
         if (!frameOnLeft || newOrModifiedFrames.indexOf(frameOnLeft) !== -1 || gap.start === 1) {
           // If there is no frame on the left, create a blank one
           var empty = new Wick.Frame({
@@ -49851,9 +49572,9 @@ Wick.Layer = class extends Wick.Base {
           // Otherwise, extend the frame to the left to fill the gap
           frameOnLeft.end = gap.end;
         }
-      } // Method 2: Always create empty frames to fill gaps
+      }
 
-
+      // Method 2: Always create empty frames to fill gaps
       if (fillGapsMethod === 'blank_frames') {
         var empty = new Wick.Frame({
           start: gap.start,
@@ -49863,37 +49584,34 @@ Wick.Layer = class extends Wick.Base {
       }
     });
   }
+
   /**
    * Generate a list of positions where there is empty space between frames.
    * @returns {Object[]} An array of objects with start/end positions describing gaps.
    */
-
-
   findGaps() {
     var gaps = [];
     var currentGap = null;
-
     for (var i = 1; i <= this.length; i++) {
-      var frame = this.getFrameAtPlayheadPosition(i); // Found the start of a gap
+      var frame = this.getFrameAtPlayheadPosition(i);
 
+      // Found the start of a gap
       if (!frame && !currentGap) {
         currentGap = {};
         currentGap.start = i;
-      } // Found the end of a gap
+      }
 
-
+      // Found the end of a gap
       if (frame && currentGap) {
         currentGap.end = i - 1;
         gaps.push(currentGap);
         currentGap = null;
       }
     }
-
     return gaps;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -49970,7 +49688,6 @@ Wick.Project = class extends Wick.Base {
     this._hideCursor = false;
     this._muted = false;
     this._publishedMode = false; // Review the publishedMode setter for rules.
-
     this._showClipBorders = true;
     this._userErrorCallback = null;
     this._tools = {
@@ -49991,71 +49708,64 @@ Wick.Project = class extends Wick.Base {
       text: new Wick.Tools.Text(),
       zoom: new Wick.Tools.Zoom()
     };
-
     for (var toolName in this._tools) {
       this._tools[toolName].project = this;
     }
-
     this.activeTool = 'cursor';
+    Wick.currentProject = this;
     this._toolSettings = new Wick.ToolSettings();
-
     this._toolSettings.onSettingsChanged((name, value) => {
       if (name === 'fillColor') {
         this.selection.fillColor = value.rgba;
       } else if (name === 'strokeColor') {
         this.selection.strokeColor = value.rgba;
+      } else if (name === 'gridEnabled' || name === 'gridSize' || name === 'gridOpacity') {
+        if (this.view) this.view.render();
       }
     });
-
     this._playing = false;
     this._scriptSchedule = [];
     this._error = null;
     this.history.project = this;
     this.history.pushState(Wick.History.StateType.ONLY_VISIBLE_OBJECTS);
   }
+
   /**
    * Prepares the project to be used in an editor.
    */
-
-
   prepareProjectForEditor() {
     this.project.resetCache();
     this.project.recenter();
     this.project.view.prerender();
     this.project.view.render();
   }
+
   /**
    * Used to initialize the state of elements within the project. Should only be called after
    * deserialization of project and all objects within the project.
    */
-
-
   initialize() {
     // Fixing all clip positions... This should be done in an internal method when the project is done loading...
     this.activeFrame && this.activeFrame.clips.forEach(clip => {
       clip.applySingleFramePosition();
     });
   }
+
   /**
    * Resets the cache and removes all unlinked items from the project.
    */
-
-
   resetCache() {
     Wick.ObjectCache.removeUnusedObjects(this);
   }
+
   /**
    * TODO: Remove all elements created by this project.
    */
-
-
   destroy() {
     this.guiElement.removeAllEventListeners();
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.name = data.name;
     this.width = data.width;
     this.height = data.height;
@@ -50065,15 +49775,14 @@ Wick.Project = class extends Wick.Base {
     this._hideCursor = false;
     this._muted = false;
     this._renderBlackBars = true;
-    this._hitTestOptions = this.getDefaultHitTestOptions(); // reset rotation, but not pan/zoom.
-    // not resetting pan/zoom is convenient when preview playing.
+    this._hitTestOptions = this.getDefaultHitTestOptions();
 
+    // reset rotation, but not pan/zoom.
+    // not resetting pan/zoom is convenient when preview playing.
     this.rotation = 0;
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.name = this.name;
     data.width = this.width;
     data.height = this.height;
@@ -50082,12 +49791,12 @@ Wick.Project = class extends Wick.Base {
     data.onionSkinEnabled = this.onionSkinEnabled;
     data.onionSkinSeekForwards = this.onionSkinSeekForwards;
     data.onionSkinSeekBackwards = this.onionSkinSeekBackwards;
-    data.focus = this.focus.uuid; // Save some metadata which will eventually end up in the wick file
+    data.focus = this.focus.uuid;
 
+    // Save some metadata which will eventually end up in the wick file
     data.metadata = Wick.WickFile.generateMetaData();
     return data;
   }
-
   getDefaultHitTestOptions() {
     return {
       mode: 'RECTANGLE',
@@ -50096,301 +49805,261 @@ Wick.Project = class extends Wick.Base {
       intersections: false
     };
   }
-
   get classname() {
     return 'Project';
   }
+
   /**
    * Assign a function to be called when a user error happens (not script
    * errors - errors such as drawing tool errors, invalid selection props, etc)
    * @param {Function} fn - the function to call when errors happen
    */
-
-
   onError(fn) {
     this._userErrorCallback = fn;
   }
+
   /**
    * Called when an error occurs to forward to the onError function
    * @param {String} message - the message to display for the error
    */
-
-
   errorOccured(message) {
     if (this._userErrorCallback) this._userErrorCallback(message);
-
     this._internalErrorMessages.push(message);
   }
+
   /**
    * The width of the project.
    * @type {number}
    */
-
-
   get width() {
     return this._width;
   }
-
   set width(width) {
     if (typeof width !== 'number') return;
     if (width < 1) width = 1;
     if (width > 200000) width = 200000;
     this._width = width;
   }
+
   /**
    * The height of the project.
    * @type {number}
    */
-
-
   get height() {
     return this._height;
   }
-
   set height(height) {
     if (typeof height !== 'number') return;
     if (height < 1) height = 1;
     if (height > 200000) height = 200000;
     this._height = height;
   }
+
   /**
    * The framerate of the project.
    * @type {number}
    */
-
-
   get framerate() {
     return this._framerate;
   }
-
   set framerate(framerate) {
     if (typeof framerate !== 'number') return;
     if (framerate < 1) framerate = 1;
     if (framerate > 9999) framerate = 9999;
     this._framerate = framerate;
   }
+
   /**
    * The background color of the project.
    * @type {string}
    */
-
-
   get backgroundColor() {
     return this._backgroundColor;
   }
-
   set backgroundColor(backgroundColor) {
     this._backgroundColor = backgroundColor;
   }
-
   get hitTestOptions() {
     return this._hitTestOptions;
   }
-
   set hitTestOptions(options) {
     if (options) {
       if (options.mode === 'CIRCLE' || options.mode === 'RECTANGLE' || options.mode === 'CONVEX') {
         this._hitTestOptions.mode = options.mode;
       }
-
       if (typeof options.offset === 'boolean') {
         this._hitTestOptions.offset = options.offset;
       }
-
       if (typeof options.overlap === 'boolean') {
         this._hitTestOptions.overlap = options.overlap;
       }
-
       if (typeof options.intersections === 'boolean') {
         this._hitTestOptions.intersections = options.intersections;
       }
     }
   }
+
   /**
    * The timeline of the active clip.
    * @type {Wick.Timeline}
    */
-
-
   get activeTimeline() {
     return this.focus.timeline;
   }
+
   /**
    * The active layer of the active timeline.
    * @type {Wick.Layer}
    */
-
-
   get activeLayer() {
     return this.activeTimeline.activeLayer;
   }
+
   /**
    * The active frame of the active layer.
    * @type {Wick.Frame}
    */
-
-
   get activeFrame() {
     return this.activeLayer.activeFrame;
   }
+
   /**
    * The active frames of the active timeline.
    * @type {Wick.Frame[]}
    */
-
-
   get activeFrames() {
     return this.focus.timeline.activeFrames;
   }
+
   /**
    * All frames in this project.
    * @type {Wick.Frame[]}
    */
-
-
   getAllFrames() {
     return this.root.timeline.getAllFrames(true);
   }
+
   /**
    * The project selection.
    * @type {Wick.Selection}
    */
-
-
   get selection() {
     return this.getChild('Selection');
   }
-
   set selection(selection) {
     if (this.selection) {
       this.removeChild(this.selection);
     }
-
     this.addChild(selection);
   }
+
   /**
    * An instance of the Wick.History utility class for undo/redo functionality.
    * @type {Wick.History}
    */
-
-
   get history() {
     return this._history;
   }
-
   set history(history) {
     this._history = history;
   }
+
   /**
    * Value used to determine the zoom of the canvas.
    */
-
-
   get zoom() {
     return this._zoom;
   }
-
   set zoom(z) {
     const max = this.view.calculateFitZoom() * 10;
     const min = .10;
     this._zoom = Math.max(min, Math.min(max, z));
   }
+
   /**
    * Undo the last action.
    * @returns {boolean} true if there was something to undo, false otherwise.
    */
-
-
   undo() {
     // Undo discards in-progress brush strokes.
     if (this._tools.brush.isInProgress()) {
       this._tools.brush.discard();
-
       return true;
     }
-
     this.selection.clear();
     var success = this.project.history.popState();
     return success;
   }
+
   /**
    * Redo the last action that was undone.
    * @returns {boolean} true if there was something to redo, false otherwise.
    */
-
-
   redo() {
     this.selection.clear();
     var success = this.project.history.recoverState();
     return success;
   }
+
   /**
    * The assets belonging to the project.
    * @type {Wick.Asset[]}
    */
-
-
   get assets() {
     return this.getChildren(['ImageAsset', 'SoundAsset', 'ClipAsset', 'FontAsset', 'SVGAsset']);
   }
+
   /**
    * Adds an asset to the project.
    * @param {Wick.Asset} asset - The asset to add to the project.
    */
-
-
   addAsset(asset) {
     if (this.assets.indexOf(asset) === -1) {
       this.addChild(asset);
     }
   }
+
   /**
    * Removes an asset from the project. Also removes all instances of that asset from the project.
    * @param {Wick.Asset} asset - The asset to remove from the project.
    */
-
-
   removeAsset(asset) {
     asset.removeAllInstances();
     this.removeChild(asset);
   }
+
   /**
    * Retrieve an asset from the project by its UUID.
    * @param {string} uuid - The UUID of the asset to get.
    * @return {Wick.Asset} The asset
    */
-
-
   getAssetByUUID(uuid) {
     var asset = this.getAssets().find(asset => {
       return asset.uuid === uuid;
     });
-
     if (asset) {
       return asset;
     } else {
       console.warn('Wick.Project.getAssetByUUID: No asset found with uuid ' + uuid);
     }
   }
+
   /**
    * Retrieve an asset from the project by its name.
    * @param {string} name - The name of the asset to get.
    * @return {Wick.Asset} The asset
    */
-
-
   getAssetByName(name) {
     return this.getAssets().find(asset => {
       return asset.name === name;
     });
   }
+
   /**
    * The assets belonging to the project.
    * @param {string} type - Optional, filter assets by type ("Sound"/"Image"/"Clip"/"Button")
    * @returns {Wick.Asset[]} The assets in the project
    */
-
-
   getAssets(type) {
     if (!type) {
       return this.assets;
@@ -50400,68 +50069,62 @@ Wick.Project = class extends Wick.Base {
       });
     }
   }
+
   /**
    * A list of all "fontFamily" in the asset library.
    * @returns {string[]}
    */
-
-
   getFonts() {
     return this.getAssets('Font').map(asset => {
       return asset.fontFamily;
     });
   }
+
   /**
    * Check if a FontAsset with a given fontFamily exists in the project.
    * @param {string} fontFamily - The font to check for
    * @returns {boolean}
    */
-
-
   hasFont(fontFamily) {
     return this.getFonts().find(seekFontFamily => {
       return seekFontFamily === fontFamily;
     }) !== undefined;
   }
+
   /**
    * The root clip.
    * @type {Wick.Clip}
    */
-
-
   get root() {
     return this.getChild('Clip');
   }
-
   set root(root) {
     if (this.root) {
       this.removeChild(this.root);
     }
-
     this.addChild(root);
   }
+
   /**
    * The currently focused clip.
    * @type {Wick.Clip}
    */
-
-
   get focus() {
     return this._focus && Wick.ObjectCache.getObjectByUUID(this._focus);
   }
-
   set focus(focus) {
     var focusChanged = this.focus !== null && this.focus !== focus;
     this._focus = focus.uuid;
-
     if (focusChanged) {
-      this.selection.clear(); // Reset timelines of subclips of the newly focused clip
+      this.selection.clear();
 
+      // Reset timelines of subclips of the newly focused clip
       focus.timeline.clips.forEach(subclip => {
         subclip.timeline.playheadPosition = 1;
         subclip.applySingleFramePosition(); // Make sure to visualize single frame clips properly.
-      }); // Reset pan and zoom and clear selection on focus change
+      });
 
+      // Reset pan and zoom and clear selection on focus change
       this.resetZoomAndPan();
     } else {
       // Make sure the single frame
@@ -50470,16 +50133,14 @@ Wick.Project = class extends Wick.Base {
       });
     }
   }
+
   /**
    * The position of the mouse
    * @type {object}
    */
-
-
   get mousePosition() {
     return this._mousePosition;
   }
-
   set mousePosition(mousePosition) {
     this._lastMousePosition = {
       x: this.mousePosition.x,
@@ -50487,12 +50148,11 @@ Wick.Project = class extends Wick.Base {
     };
     this._mousePosition = mousePosition;
   }
+
   /**
    * The amount the mouse has moved in the last tick
    * @type {object}
    */
-
-
   get mouseMove() {
     let moveX = this.mousePosition.x - this._lastMousePosition.x;
     let moveY = this.mousePosition.y - this._lastMousePosition.y;
@@ -50501,93 +50161,82 @@ Wick.Project = class extends Wick.Base {
       y: moveY
     };
   }
+
   /**
    * Determine if the mouse is down.
    * @type {boolean}
    */
-
-
   get isMouseDown() {
     return this._isMouseDown;
   }
-
   set isMouseDown(isMouseDown) {
     this._isMouseDown = isMouseDown;
   }
+
   /**
    * The keys that are currenty held down.
    * @type {string[]}
    */
-
-
   get keysDown() {
     return this._keysDown;
   }
-
   set keysDown(keysDown) {
     this._keysDown = keysDown;
   }
+
   /**
    * The keys were just pressed (i.e., are currently held down, but were not last tick).
    * @type {string[]}
    */
-
-
   get keysJustPressed() {
     // keys that are in _keysDown, but not in _keysLastDown
     return this._keysDown.filter(key => {
       return this._keysLastDown.indexOf(key) === -1;
     });
   }
+
   /**
    * The keys that were just released (i.e. were down last tick back are no longer down.)
    * @return {string[]}
    */
-
-
   get keysJustReleased() {
     return this._keysLastDown.filter(key => {
       return this._keysDown.indexOf(key) === -1;
     });
   }
+
   /**
    * Check if a key is being pressed.
    * @param {string} key - The name of the key to check
    */
-
-
   isKeyDown(key) {
     return this.keysDown.indexOf(key) !== -1;
   }
+
   /**
    * Check if a key was just pressed.
    * @param {string} key - The name of the key to check
    */
-
-
   isKeyJustPressed(key) {
     return this.keysJustPressed.indexOf(key) !== -1;
   }
+
   /**
    * The key to be used in the global 'key' variable in the scripting API. Update currentKey before you run any key script.
    * @type {string[]}
    */
-
-
   get currentKey() {
     return this._currentKey;
   }
-
   set currentKey(currentKey) {
     this._currentKey = currentKey;
   }
+
   /**
    * Creates an asset from a File object and adds that asset to the project.
    * @param {File} file - File object to be read and converted into an asset.
    * @param {function} callback Function with the created Wick Asset. Can be passed undefined on improper file input.
    */
-
-
   importFile(file, callback) {
     let imageTypes = Wick.ImageAsset.getValidMIMETypes();
     let soundTypes = Wick.SoundAsset.getValidMIMETypes();
@@ -50598,24 +50247,20 @@ Wick.Project = class extends Wick.Base {
     let soundExtensions = Wick.SoundAsset.getValidExtensions();
     let fontExtensions = Wick.FontAsset.getValidExtensions();
     let clipExtensions = Wick.ClipAsset.getValidExtensions();
-    let svgExtensions = Wick.SVGAsset.getValidExtensions(); // Fix missing mimetype for wickobj files
+    let svgExtensions = Wick.SVGAsset.getValidExtensions();
 
+    // Fix missing mimetype for wickobj files
     var type = file.type;
-
     if (file.type === '' && file.name.endsWith('.wickobj')) {
       type = 'application/json';
     }
-
     var extension = "";
-
     if (file.name) {
       extension = file.name.split('.').pop();
     } else if (file.file && typeof file.file === 'string') {
       extension = file.file.split('.').pop();
     }
-
     let asset = undefined;
-
     if (imageTypes.indexOf(type) !== -1 || imageExtensions.indexOf(extension) !== -1) {
       asset = new Wick.ImageAsset();
     } else if (soundTypes.indexOf(type) !== -1 || soundExtensions.indexOf(extension) !== -1) {
@@ -50627,7 +50272,6 @@ Wick.Project = class extends Wick.Base {
     } else if (svgTypes.indexOf(type) !== -1 || svgExtensions.indexOf(extension) !== -1) {
       asset = new Wick.SVGAsset();
     }
-
     if (asset === undefined) {
       console.warn('importFile(): Could not import file ' + file.name + ', filetype: "' + file.type + '" is not supported.');
       console.warn('Supported File Types Are:', {
@@ -50647,9 +50291,7 @@ Wick.Project = class extends Wick.Base {
       callback(null);
       return;
     }
-
     let reader = new FileReader();
-
     reader.onload = () => {
       let dataURL = reader.result;
       asset.src = dataURL;
@@ -50660,35 +50302,33 @@ Wick.Project = class extends Wick.Base {
         callback(asset);
       });
     };
-
     reader.readAsDataURL(file);
   }
+
   /**
    * True if onion skinning is on. False otherwise.
    */
-
-
   get onionSkinEnabled() {
     return this._onionSkinEnabled;
   }
-
   set onionSkinEnabled(bool) {
-    if (typeof bool !== "boolean") return; // Get all onion skinned frames, if we're turning off onion skinning.
+    if (typeof bool !== "boolean") return;
 
+    // Get all onion skinned frames, if we're turning off onion skinning.
     let onionSkinnedFrames = [];
     if (!bool) onionSkinnedFrames = this.getAllOnionSkinnedFrames();
-    this._onionSkinEnabled = bool; // Rerender any onion skinned frames.
+    this._onionSkinEnabled = bool;
 
+    // Rerender any onion skinned frames.
     onionSkinnedFrames.forEach(frame => {
       frame.view.render();
     });
   }
+
   /**
    * Returns all frames that should currently be onion skinned.
    * @returns {Wick.Frame[]} Array of Wick frames that sould be onion skinned.
    */
-
-
   getAllOnionSkinnedFrames() {
     let onionSkinnedFrames = [];
     this.activeTimeline.layers.forEach(layer => {
@@ -50699,11 +50339,10 @@ Wick.Project = class extends Wick.Base {
     });
     return onionSkinnedFrames;
   }
+
   /**
    * Deletes all objects in the selection.
    */
-
-
   deleteSelectedObjects() {
     var objects = this.selection.getSelectedObjects();
     this.selection.clear();
@@ -50717,12 +50356,11 @@ Wick.Project = class extends Wick.Base {
     });
     this.activeTimeline.resolveFrameGaps([]);
   }
+
   /**
    * Perform a boolean operation on all selected paths.
    * @param {string} booleanOpName - The name of the boolean op function to use. See Wick.Path.booleanOp.
    */
-
-
   doBooleanOperationOnSelection(booleanOpName) {
     var paths = this.selection.getSelectedObjects('Path');
     this.selection.clear();
@@ -50732,21 +50370,18 @@ Wick.Project = class extends Wick.Base {
       if (paths.indexOf(path) === paths.length - 1 && booleanOpName === 'subtract') {
         return;
       }
-
       path.remove();
     });
     this.activeFrame.addPath(booleanOpResult);
     this.selection.select(booleanOpResult);
   }
+
   /**
    * Copy the contents of the selection to the clipboard.
    * @returns {boolean} True if there was something to copy, false otherwise
    */
-
-
   copySelectionToClipboard() {
     var objects = this.selection.getSelectedObjects();
-
     if (objects.length === 0) {
       return false;
     } else {
@@ -50754,12 +50389,11 @@ Wick.Project = class extends Wick.Base {
       return true;
     }
   }
+
   /**
    * Copy the contents of the selection to the clipboard, and delete what was copied.
    * @returns {boolean} True if there was something to cut, false otherwise
    */
-
-
   cutSelectionToClipboard() {
     if (this.copySelectionToClipboard()) {
       this.deleteSelectedObjects();
@@ -50768,21 +50402,19 @@ Wick.Project = class extends Wick.Base {
       return false;
     }
   }
+
   /**
    * Paste the contents of the clipboard into the project.
    * @returns {boolean} True if there was something to paste in the clipboard, false otherwise.
    */
-
-
   pasteClipboardContents() {
     return this.clipboard.pasteObjectsFromClipboard(this);
   }
+
   /**
    * Copy and paste the current selection.
    * @returns {boolean} True if there was something to duplicate, false otherwise
    */
-
-
   duplicateSelection() {
     if (!this.copySelectionToClipboard()) {
       return false;
@@ -50790,35 +50422,29 @@ Wick.Project = class extends Wick.Base {
       return this.pasteClipboardContents();
     }
   }
+
   /**
    * Move the current selection above, below, or inside target.
    * @param {object} target - The target object (to become parent of selection)
    * @param {number} index - index to insert at
    * @returns {boolean} - true if project did change
    */
-
-
   moveSelection(target, index) {
     // Indices give us a way to order the selection from top to bottom
     let get_indices = obj => {
       var indices = [];
-
       while (obj.parent !== null) {
         let parent = obj.parent;
-
         if (parent.classname === 'Frame') {
           indices.unshift(parent.getChildren().length - 1 - parent.getChildren().indexOf(obj));
         } else {
           indices.unshift(parent.getChildren().indexOf(obj));
         }
-
         obj = parent;
       }
-
       return indices;
-    }; // Assumes i1, i2 same length, ordering same as outliner
-
-
+    };
+    // Assumes i1, i2 same length, ordering same as outliner
     let compare_indices = (i1, i2) => {
       for (let i = 0; i < i1.length; i++) {
         if (i1[i] < i2[i]) {
@@ -50827,67 +50453,56 @@ Wick.Project = class extends Wick.Base {
           return -1;
         }
       }
-
       return 0;
     };
-
     let selection = this.selection.getSelectedObjects();
-
     if (selection.length === 0) {
       return false;
     }
-
     let selection_indices = selection.map(get_indices);
     let l = selection_indices[0].length;
-
     for (let i = 0; i < selection_indices.length; i++) {
       if (selection_indices[i].length !== l) {
         // Must all have the same depth
         return false;
       }
     }
-
     let zip = selection_indices.map((o, i) => {
       return [o, selection[i]];
     });
     zip.sort(([i1], [i2]) => compare_indices(i1, i2));
-
     if (target.classname === 'Frame') {
       // Render order is reversed for children of frames
       zip.reverse();
     }
-
     for (let i = 0; i < zip.length; i++) {
       let [, obj] = zip[i];
       index -= target.insertChild(obj, index) ? 1 : 0;
     }
-
     return true;
   }
+
   /**
    * Cut the currently selected frames.
    */
-
-
   cutSelectedFrames() {
     this.selection.getSelectedObjects('Frame').forEach(frame => {
       frame.cut();
     });
   }
+
   /**
    * Inserts a blank frame into the timeline at the position of the playhead.
    * If the playhead is over an existing frame, that frame will be cut in half,
    * and a blank frame will be added to fill the empty space created by the cut.
    */
-
-
   insertBlankFrame() {
     var playheadPosition = this.activeTimeline.playheadPosition;
-    var newFrames = []; // Insert new frames
+    var newFrames = [];
 
+    // Insert new frames
     if (this.selection.numObjects > 0) {
       // Insert frames on all frames that are both active and selected
-
       /*this.activeTimeline.activeFrames.filter(frame => {
           return frame.isSelected;
       }).forEach(frame => {
@@ -50899,21 +50514,19 @@ Wick.Project = class extends Wick.Base {
     } else {
       // Insert one frame on the active layer
       newFrames.push(this.activeLayer.insertBlankFrame(playheadPosition));
-    } // Select the newly added frames
+    }
 
-
+    // Select the newly added frames
     this.selection.clear();
     this.selection.selectMultipleObjects(newFrames);
   }
+
   /**
    * A tween can be created if frames are selected or if there is a frame under the playhead on the active layer.
    */
-
-
   get canCreateTween() {
     // Frames are selected, a tween can be created
     var selectedFrames = this.selection.getSelectedObjects('Frame');
-
     if (selectedFrames.length > 0) {
       // Make sure you can only create tweens on contentful frames
       if (selectedFrames.find(frame => {
@@ -50923,26 +50536,22 @@ Wick.Project = class extends Wick.Base {
       } else {
         return true;
       }
-    } // There is a frame under the playhead on the active layer, a tween can be created
+    }
 
-
+    // There is a frame under the playhead on the active layer, a tween can be created
     var activeFrame = this.activeLayer.activeFrame;
-
     if (activeFrame) {
       // ...but only if that frame is contentful
       return activeFrame.contentful;
     }
-
     return false;
   }
+
   /**
    * Create a new tween on all selected frames OR on the active frame of the active layer.
    */
-
-
   createTween() {
     var selectedFrames = this.selection.getSelectedObjects('Frame');
-
     if (selectedFrames.length > 0) {
       // Create a tween on all selected frames
       this.selection.getSelectedObjects('Frame').forEach(frame => {
@@ -50953,23 +50562,20 @@ Wick.Project = class extends Wick.Base {
       this.activeLayer.activeFrame.createTween();
     }
   }
+
   /**
    * Tries to create a tween if there is an empty space between tweens.
    */
-
-
   tryToAutoCreateTween() {
     var frame = this.activeFrame;
-
     if (frame.tweens.length > 0 && !frame.getTweenAtPosition(frame.getRelativePlayheadPosition())) {
       frame.createTween();
     }
   }
+
   /**
    * Move the right edge of all frames right one frame.
    */
-
-
   extendFrames(frames) {
     frames.forEach(frame => {
       frame.end++;
@@ -50977,21 +50583,19 @@ Wick.Project = class extends Wick.Base {
     this.activeTimeline.resolveFrameOverlap(frames);
     this.activeTimeline.resolveFrameGaps(frames);
   }
+
   /**
    * Move the right edge of all frames right one frame, and push other frames away.
    */
-
-
   extendFramesAndPushOtherFrames(frames) {
     frames.forEach(frame => {
       frame.extendAndPushOtherFrames();
     });
   }
+
   /**
    * Move the right edge of all frames left one frame.
    */
-
-
   shrinkFrames(frames) {
     frames.forEach(frame => {
       if (frame.length === 1) return;
@@ -51000,21 +50604,19 @@ Wick.Project = class extends Wick.Base {
     this.activeTimeline.resolveFrameOverlap(frames);
     this.activeTimeline.resolveFrameGaps(frames);
   }
+
   /**
    * Move the right edge of all frames left one frame, and pull other frames along.
    */
-
-
   shrinkFramesAndPullOtherFrames(frames) {
     frames.forEach(frame => {
       frame.shrinkAndPullOtherFrames();
     });
   }
+
   /**
    * Shift all selected frames over one frame to the right
    */
-
-
   moveSelectedFramesRight() {
     var frames = this.selection.getSelectedObjects('Frame');
     frames.forEach(frame => {
@@ -51024,11 +50626,10 @@ Wick.Project = class extends Wick.Base {
     this.activeTimeline.resolveFrameOverlap(frames);
     this.activeTimeline.resolveFrameGaps();
   }
+
   /**
    * Shift all selected frames over one frame to the left
    */
-
-
   moveSelectedFramesLeft() {
     var frames = this.selection.getSelectedObjects('Frame');
     frames.forEach(frame => {
@@ -51038,11 +50639,10 @@ Wick.Project = class extends Wick.Base {
     this.activeTimeline.resolveFrameOverlap(frames);
     this.activeTimeline.resolveFrameGaps();
   }
+
   /**
    * Selects all objects that are visible on the canvas (excluding locked layers and onion skinned objects)
    */
-
-
   selectAll() {
     let objectsToAdd = [];
     this.selection.clear();
@@ -51058,6 +50658,7 @@ Wick.Project = class extends Wick.Base {
     });
     this.selection.selectMultipleObjects(objectsToAdd);
   }
+
   /**
    * Adds an image path to the active frame using a given asset as its image src.
    * @param {Wick.Asset} asset - the asset to use for the image src
@@ -51065,8 +50666,6 @@ Wick.Project = class extends Wick.Base {
    * @param {number} y - the y position to create the image path at
    * @param {function} callback - the function to call after the path is created.
    */
-
-
   createImagePathFromAsset(asset, x, y, callback) {
     let playheadPosition = this.focus.timeline.playheadPosition;
     if (!this.activeFrame) this.activeLayer.insertBlankFrame(playheadPosition);
@@ -51077,6 +50676,7 @@ Wick.Project = class extends Wick.Base {
       callback(path);
     });
   }
+
   /**
    * Adds an instance of a clip asset to the active frame.
    * @param {Wick.Asset} asset - the asset to create the clip instance from
@@ -51084,8 +50684,6 @@ Wick.Project = class extends Wick.Base {
    * @param {number} y - the y position to create the image path at
    * @param {function} callback - the function to call after the path is created.
    */
-
-
   createClipInstanceFromAsset(asset, x, y, callback) {
     let playheadPosition = this.focus.timeline.playheadPosition;
     if (!this.activeFrame) this.activeLayer.insertBlankFrame(playheadPosition);
@@ -51096,6 +50694,7 @@ Wick.Project = class extends Wick.Base {
       callback(clip);
     }, this);
   }
+
   /**
    * Adds an instance of a clip asset to the active frame.
    * @param {Wick.Asset} asset - the asset to create the SVG file instance from
@@ -51103,40 +50702,33 @@ Wick.Project = class extends Wick.Base {
    * @param {number} y - the y position to import the SVG file at
    * @param {function} callback - the function to call after the path is created.
    */
-
-
   createSVGInstanceFromAsset(asset, x, y, callback) {
     let playheadPosition = this.focus.timeline.playheadPosition;
     if (!this.activeFrame) this.activeLayer.insertBlankFrame(playheadPosition);
     asset.createInstance(svg => {
       this.addObject(svg);
       svg.x = x;
-      svg.y = y; //this.addObject(svg);
-
+      svg.y = y;
+      //this.addObject(svg);
       callback(svg);
     });
   }
+
   /**
    * Creates a symbol from the objects currently selected.
    * @param {string} identifier - the identifier to give the new symbol
    * @param {string} type - "Clip" or "Button"
    */
-
-
   createClipFromSelection(args) {
     if (!args) {
       args = {};
     }
-
     ;
-
     if (args.type !== 'Clip' && args.type !== 'Button') {
       console.error('createClipFromSelection: invalid type: ' + args.type);
       return;
     }
-
     let clip;
-
     if (args.type === 'Button') {
       clip = new Wick[args.type]({
         project: this,
@@ -51157,19 +50749,19 @@ Wick.Project = class extends Wick.Base {
         })
       });
       clip.addObjects(this.selection.getSelectedObjects('Canvas'));
-    } // Add the clip to the frame prior to adding objects.
+    }
 
+    // Add the clip to the frame prior to adding objects.
+    this.activeFrame.addClip(clip);
 
-    this.activeFrame.addClip(clip); // TODO add to asset library
-
+    // TODO add to asset library
     this.selection.clear();
     this.selection.select(clip);
   }
+
   /**
    * Breaks selected clips into their children clips and paths.
    */
-
-
   breakApartSelection() {
     var leftovers = [];
     var clips = this.selection.getSelectedObjects('Clip');
@@ -51182,31 +50774,30 @@ Wick.Project = class extends Wick.Base {
       if (path.pathType === 'text') {
         var textItem = path.view.item;
         var textContent = textItem.content;
-        var charLeftovers = []; // Capture the original global center of the text item to restore positioning after tracing
+        var charLeftovers = [];
 
-        var originalTextCenter = textItem.bounds.center.clone(); // New Robust Approach: Trace the whole text at once, then cluster sub-paths into characters
+        // Capture the original global center of the text item to restore positioning after tracing
+        var originalTextCenter = textItem.bounds.center.clone();
+
+        // New Robust Approach: Trace the whole text at once, then cluster sub-paths into characters
         // This ensures 100% accurate sizing and spacing (kerning, etc.)
-
         var fullShape = textItem.potrace({
           resolution: 3
         });
-
         if (fullShape) {
           var subPaths = [];
-
           if (fullShape.className === 'CompoundPath') {
             subPaths = fullShape.children.slice();
           } else {
             subPaths = [fullShape];
-          } // Cluster sub-paths into logical "characters"
+          }
 
-
+          // Cluster sub-paths into logical "characters"
           var clusters = [];
           subPaths.forEach(subPath => {
-            var found = false; // Use expanded bounds to catch dots on 'i', '!', etc.
-
+            var found = false;
+            // Use expanded bounds to catch dots on 'i', '!', etc.
             var subBounds = subPath.bounds.expand(2);
-
             for (var c = 0; c < clusters.length; c++) {
               if (clusters[c].bounds.expand(2).intersects(subBounds)) {
                 clusters[c].paths.push(subPath);
@@ -51215,20 +50806,18 @@ Wick.Project = class extends Wick.Base {
                 break;
               }
             }
-
             if (!found) {
               clusters.push({
                 paths: [subPath],
                 bounds: subPath.bounds.clone()
               });
             }
-          }); // Merge overlapping clusters (Connected Components)
+          });
 
+          // Merge overlapping clusters (Connected Components)
           var merged = true;
-
           while (merged) {
             merged = false;
-
             for (var i = 0; i < clusters.length; i++) {
               for (var j = i + 1; j < clusters.length; j++) {
                 if (clusters[i].bounds.expand(2).intersects(clusters[j].bounds)) {
@@ -51239,18 +50828,19 @@ Wick.Project = class extends Wick.Base {
                   break;
                 }
               }
-
               if (merged) break;
             }
-          } // Create Wick.Path for each cluster
+          }
 
-
+          // Create Wick.Path for each cluster
           clusters.forEach(cluster => {
             var charCompound = new paper.CompoundPath();
-            cluster.paths.forEach(p => charCompound.addChild(p)); // Center of this character relative to the (0,0) centered result
+            cluster.paths.forEach(p => charCompound.addChild(p));
 
-            var clusterLocalCenter = cluster.paths.length > 0 ? cluster.bounds.center.clone() : new paper.Point(0, 0); // Move paths to their own local origin for export (so Wick can handle positioning)
+            // Center of this character relative to the (0,0) centered result
+            var clusterLocalCenter = cluster.paths.length > 0 ? cluster.bounds.center.clone() : new paper.Point(0, 0);
 
+            // Move paths to their own local origin for export (so Wick can handle positioning)
             charCompound.position = new paper.Point(0, 0);
             var charWickPath = new Wick.Path({
               json: charCompound.exportJSON({
@@ -51259,13 +50849,15 @@ Wick.Project = class extends Wick.Base {
             });
             charWickPath.fillColor = path.fillColor;
             charWickPath.strokeColor = path.strokeColor;
-            charWickPath.strokeWidth = path.strokeWidth; // Set the final position by adding the original global offset
+            charWickPath.strokeWidth = path.strokeWidth;
 
+            // Set the final position by adding the original global offset
             charWickPath.x = originalTextCenter.x + clusterLocalCenter.x;
             charWickPath.y = originalTextCenter.y + clusterLocalCenter.y;
             path.parentFrame.addPath(charWickPath);
-            charLeftovers.push(charWickPath); // Cleanup
+            charLeftovers.push(charWickPath);
 
+            // Cleanup
             charCompound.remove();
           });
           leftovers = leftovers.concat(charLeftovers);
@@ -51278,44 +50870,38 @@ Wick.Project = class extends Wick.Base {
     });
     this.selection.selectMultipleObjects(leftovers);
   }
+
   /**
    * Sets the project focus to the timeline of the selected clip.
    * @returns {boolean} True if selected clip is focused, false otherwise.
    */
-
-
   focusTimelineOfSelectedClip() {
     if (this.selection.getSelectedObject() instanceof Wick.Clip) {
       this.focus = this.selection.getSelectedObject();
       return true;
     }
-
     return false;
   }
+
   /**
    * Sets the project focus to the parent timeline of the currently focused clip.
    * @returns {boolean} True if parent clip is focused, false otherwise.
    */
-
-
   focusTimelineOfParentClip() {
     if (!this.focus.isRoot) {
       this.focus = this.focus.parentClip;
       return true;
     }
-
     return false;
   }
+
   /**
    * Plays the sound in the asset library with the given name.
    * @param {string} assetName - Name of the sound asset to play
    * @param {Object} options - options for the sound. See Wick.SoundAsset.play
    */
-
-
   playSound(assetName, options) {
     var asset = this.getAssetByName(assetName);
-
     if (!asset) {
       console.warn('playSound(): No asset with name: "' + assetName + '"');
     } else if (!(asset instanceof Wick.SoundAsset)) {
@@ -51324,29 +50910,25 @@ Wick.Project = class extends Wick.Base {
       return this.playSoundFromAsset(asset, options);
     }
   }
+
   /**
    * Generates information for a single sound that is being played.
    * @param {Wick.Asset} asset - Asset to be played.
    * @param {Object} options - Options including start (ms), end (ms), offset (ms), src (sound source), filetype (string).
    */
-
-
   generateSoundInfo(asset, options) {
     if (!asset) return {};
     if (!options) options = {};
     let playheadPosition = this.focus.timeline.playheadPosition;
     let soundStartMS = 1000 / this.framerate * (playheadPosition - 1); // Adjust by one to account for sounds on frame 1 starting at 0ms.
-
     let soundEndMS = 0;
     let seekMS = options.seekMS || 0;
-
     if (options.frame) {
       let soundLengthInFrames = options.frame.end - (options.frame.start - 1);
       soundEndMS = soundStartMS + 1000 / this.framerate * soundLengthInFrames;
     } else {
       soundEndMS = soundStartMS + asset.duration * 1000;
     }
-
     let soundInfo = {
       playheadPosition: playheadPosition,
       start: soundStartMS,
@@ -51357,31 +50939,27 @@ Wick.Project = class extends Wick.Base {
       name: asset.name,
       volume: options.volume || 1,
       playedFrom: options.playedFrom || undefined // uuid of object that played the sound.
-
     };
     return soundInfo;
   }
+
   /**
    * Plays a sound from a presented asset.
    * @param {Wick.SoundAsset} asset - Name of the sound asset to play.
    */
-
-
   playSoundFromAsset(asset, options) {
     let soundInfo = this.generateSoundInfo(asset, options);
     this.soundsPlayed.push(soundInfo);
     return asset.play(options);
   }
+
   /**
    * Stops sound(s) currently playing.
    * @param {string} assetName - The name of the SoundAsset to stop.
    * @param {number} id - (optional) The ID of the sound to stop. Returned by playSound. If an ID is not given, all instances of the given sound asset will be stopped.
    */
-
-
   stopSound(id) {
     var asset = this.getAssetByName(assetName);
-
     if (!asset) {
       console.warn('stopSound(): No asset with name: "' + assetName + '"');
     } else if (!(asset instanceof Wick.SoundAsset)) {
@@ -51390,128 +50968,113 @@ Wick.Project = class extends Wick.Base {
       return asset.stop(id);
     }
   }
+
   /**
    * Stops all sounds playing from frames and sounds played using playSound().
    */
-
-
   stopAllSounds() {
     // Stop all sounds started with Wick.Project.playSound();
     this.getAssets('Sound').forEach(soundAsset => {
       soundAsset.stop();
-    }); // Stop all sounds on frames
+    });
 
+    // Stop all sounds on frames
     this.getAllFrames().forEach(frame => {
       frame.stopSound();
     });
   }
+
   /**
    * Disable all sounds from playing
    */
-
-
   mute() {
     this._muted = true;
   }
+
   /**
    * Enable all sounds to play
    */
-
-
   unmute() {
     this._muted = false;
   }
+
   /**
    * Is the project currently muted?
    * @type {boolean}
    */
-
-
   get muted() {
     return this._muted;
   }
+
   /**
    * Should the project render black bars around the canvas area?
    * (These only show up if the size of the window/element that the project
    * is inside is a different size than the project dimensions).
    * @type {boolean}
    */
-
-
   get renderBlackBars() {
     return this._renderBlackBars;
   }
-
   set renderBlackBars(renderBlackBars) {
     this._renderBlackBars = renderBlackBars;
   }
+
   /**
    * In "Published Mode", all layers will be rendered even if they are set to be hidden.
    * This is enabled during GIF/Video export, and enabled when the project is run standalone.
    * @type {boolean}
    */
-
-
   get publishedMode() {
     return this._publishedMode;
   }
-
   set publishedMode(publishedMode) {
     let validModes = [false, "interactive", "imageSequence", "audioSequence"];
-
     if (validModes.indexOf(publishedMode) === -1) {
       throw new Error("Published Mode: " + publishedMode + " is invalid. Must be one of type: " + validModes);
     }
-
     this._publishedMode = publishedMode;
   }
+
   /**
    * Returns true if the project is published, false otherwise.
    */
-
-
   get isPublished() {
     return this.publishedMode !== false;
   }
+
   /**
    * Toggle whether or not to render borders around clips.
    * @type {boolean}
    */
-
-
   get showClipBorders() {
     return this._showClipBorders;
   }
-
   set showClipBorders(showClipBorders) {
     this._showClipBorders = showClipBorders;
   }
+
   /**
    * The current error, if one was thrown, during the last tick.
    * @type {Object}
    */
-
-
   get error() {
     return this._error;
   }
-
   set error(error) {
     if (this._error && error) {
       return;
-    } else if (error && !this._error) {// console.error(error);
+    } else if (error && !this._error) {
+      // console.error(error);
     }
-
     this._error = error;
   }
+
   /**
    * Schedules a script to be run at the end of the current tick.
    * @param {string} uuid - the UUID of the object running the script.
    * @param {string} name - the name of the script to run, see Tickable.possibleScripts.
    * @param {Object} parameters - An object of key,value pairs to send as parameters to the script which runs.
    */
-
-
   scheduleScript(uuid, name, parameters) {
     this._scriptSchedule.push({
       uuid: uuid,
@@ -51519,11 +51082,10 @@ Wick.Project = class extends Wick.Base {
       parameters: parameters
     });
   }
+
   /**
    * Run scripts in schedule, in order based on Tickable.possibleScripts.
    */
-
-
   runScheduledScripts() {
     Wick.Tickable.possibleScripts.forEach(scriptOrderName => {
       this._scriptSchedule.forEach(scheduledScript => {
@@ -51531,26 +51093,27 @@ Wick.Project = class extends Wick.Base {
           uuid,
           name,
           parameters
-        } = scheduledScript; // Make sure we only run the script based on the current iteration through possibleScripts
+        } = scheduledScript;
 
+        // Make sure we only run the script based on the current iteration through possibleScripts
         if (name !== scriptOrderName) {
           return;
-        } // Run the script on the corresponding object!
+        }
 
-
+        // Run the script on the corresponding object!
         Wick.ObjectCache.getObjectByUUID(uuid).runScript(name, parameters);
       });
     });
   }
+
   /**
    * Checks if the project is currently playing.
    * @type {boolean}
    */
-
-
   get playing() {
     return this._playing;
   }
+
   /**
    * Start playing the project.
    * Arguments: onError: Called when a script error occurs during a tick.
@@ -51558,8 +51121,6 @@ Wick.Project = class extends Wick.Base {
    *            onAfterTick: Called after every tick
    * @param {object} args - Optional arguments
    */
-
-
   play(args) {
     if (!args) args = {};
     if (!args.onError) args.onError = () => {};
@@ -51568,77 +51129,80 @@ Wick.Project = class extends Wick.Base {
     window._scriptOnErrorCallback = args.onError;
     this._playing = true;
     this.view.paper.view.autoUpdate = false;
-
     if (this._tickIntervalID) {
       this.stop();
     }
-
     this.error = null;
     this.history.saveSnapshot('state-before-play');
-    this.selection.clear(); // Start tick loop
+    this.selection.clear();
 
+    // Start tick loop
     this._tickIntervalID = setInterval(() => {
       args.onBeforeTick();
-      this.tools.interact.determineMouseTargets(); // console.time('tick');
+      this.tools.interact.determineMouseTargets();
+      // console.time('tick');
+      var error = this.tick();
+      // console.timeEnd('tick');
 
-      var error = this.tick(); // console.timeEnd('tick');
       // console.time('update');
-
-      this.view.paper.view.update(); // console.timeEnd('update');
+      this.view.paper.view.update();
+      // console.timeEnd('update');
 
       if (error) {
         this.stop();
         return;
-      } // console.time('afterTick');
+      }
 
-
-      args.onAfterTick(); // console.timeEnd('afterTick');
+      // console.time('afterTick');
+      args.onAfterTick();
+      // console.timeEnd('afterTick');
     }, 1000 / this.framerate);
   }
+
   /**
    * Ticks the project.
    * @returns {object} An object containing information about an error, if one occured while running scripts. Null otherwise.
    */
-
-
   tick() {
-    this.root._identifier = 'Project'; // Process input
+    this.root._identifier = 'Project';
 
+    // Process input
     this._mousePosition = this.tools.interact.mousePosition;
     this._isMouseDown = this.tools.interact.mouseIsDown;
     this._keysDown = this.tools.interact.keysDown;
     this._currentKey = this.tools.interact.lastKeyDown;
-    this._mouseTargets = this.tools.interact.mouseTargets; // Reset scripts before ticking
+    this._mouseTargets = this.tools.interact.mouseTargets;
 
-    this._scriptSchedule = []; // Tick the focused clip
+    // Reset scripts before ticking
+    this._scriptSchedule = [];
 
+    // Tick the focused clip
     this.focus._attachChildClipReferences();
-
     this.focus.tick();
-    this.runScheduledScripts(); // Save the current keysDown
+    this.runScheduledScripts();
 
+    // Save the current keysDown
     this._lastMousePosition = {
       x: this._mousePosition.x,
       y: this._mousePosition.y
     };
     this._keysLastDown = [].concat(this._keysDown);
     this.view.render();
-
     if (this._error) {
       return this._error;
     } else {
       return null;
     }
   }
+
   /**
    * Stop playing the project.
    */
-
-
   stop() {
     this._playing = false;
-    this.view.paper.view.autoUpdate = true; // Run unload scripts on all objects
+    this.view.paper.view.autoUpdate = true;
 
+    // Run unload scripts on all objects
     this.getAllFrames().forEach(frame => {
       frame.clips.forEach(clip => {
         clip.scheduleScript('unload');
@@ -51647,45 +51211,46 @@ Wick.Project = class extends Wick.Base {
     this.runScheduledScripts();
     this.stopAllSounds();
     clearInterval(this._tickIntervalID);
-    this._tickIntervalID = null; // Loading the snapshot to restore project state also moves the playhead back to where it was originally.
+    this._tickIntervalID = null;
+
+    // Loading the snapshot to restore project state also moves the playhead back to where it was originally.
     // We actually don't want this, preview play should actually move the playhead after it's stopped.
+    var currentPlayhead = this.focus.timeline.playheadPosition;
 
-    var currentPlayhead = this.focus.timeline.playheadPosition; // Load the state of the project before it was played
-
-    this.history.loadSnapshot('state-before-play'); // Wick.ObjectCache.removeUnusedObjects(this);
+    // Load the state of the project before it was played
+    this.history.loadSnapshot('state-before-play');
+    // Wick.ObjectCache.removeUnusedObjects(this);
 
     if (this.error) {
       // An error occured.
       var errorObjUUID = this._error.uuid;
-      var errorObj = Wick.ObjectCache.getObjectByUUID(errorObjUUID); // Focus the parent of the object that caused the error so that we can select the error-causer.
+      var errorObj = Wick.ObjectCache.getObjectByUUID(errorObjUUID);
 
-      this.focus = errorObj.parentClip; // Select the object that caused the error
+      // Focus the parent of the object that caused the error so that we can select the error-causer.
+      this.focus = errorObj.parentClip;
 
+      // Select the object that caused the error
       this.selection.clear();
       this.selection.select(errorObj);
       window._scriptOnErrorCallback && window._scriptOnErrorCallback(this.error);
     } else {
       this.focus.timeline.playheadPosition = currentPlayhead;
     }
-
     this.resetCache();
     delete window._scriptOnErrorCallback;
   }
+
   /**
    * Inject the project into an element on a webpage and start playing the project.
    * @param {Element} element - the element to inject the project into
    */
-
-
   inject(element) {
     this.view.canvasContainer = element;
     this.view.fitMode = 'fill';
     this.view.canvasBGColor = this.backgroundColor.hex;
-
     window.onresize = function () {
       project.view.resize();
     };
-
     this.view.resize();
     this.view.prerender();
     this.focus = this.root;
@@ -51701,11 +51266,10 @@ Wick.Project = class extends Wick.Base {
       }
     });
   }
+
   /**
    * Sets zoom and pan such that the canvas fits in the window, with some padding.
    */
-
-
   recenter() {
     this.pan = {
       x: 0,
@@ -51715,11 +51279,10 @@ Wick.Project = class extends Wick.Base {
     this.zoom = this.view.calculateFitZoom();
     this.zoom *= paddingResize;
   }
+
   /**
    * Resets zoom and pan (zoom resets to 1.0, pan resets to (0,0)).
    */
-
-
   resetZoomAndPan() {
     this.pan = {
       x: 0,
@@ -51727,106 +51290,92 @@ Wick.Project = class extends Wick.Base {
     };
     this.zoom = 1;
   }
+
   /**
    * Zooms the canvas in.
    */
-
-
   zoomIn() {
     this.zoom *= 1.25;
   }
+
   /**
    * Zooms the canvas out.
    */
-
-
   zoomOut() {
     this.zoom *= 0.8;
   }
+
   /**
    * Resets all tools in the project.
    */
-
-
   resetTools() {
     for (let toolName of Object.keys(this.tools)) {
       let tool = this.tools[toolName];
       tool.reset();
     }
   }
+
   /**
    * All tools belonging to the project.
    * @type {Array<Wick.Tool>}
    */
-
-
   get tools() {
     return this._tools;
   }
+
   /**
    * The tool settings for the project's tools.
    * @type {Wick.ToolSettings}
    */
-
-
   get toolSettings() {
     return this._toolSettings;
   }
+
   /**
    * The currently activated tool.
    * @type {Wick.Tool}
    */
-
-
   get activeTool() {
     return this._activeTool;
   }
-
   set activeTool(activeTool) {
     var newTool;
-
     if (typeof activeTool === 'string') {
       var tool = this.tools[activeTool];
-
       if (!tool) {
         console.error('set activeTool: invalid tool: ' + activeTool);
       }
-
       newTool = tool;
     } else {
       newTool = activeTool;
-    } // Clear selection if we changed between drawing tools
+    }
 
-
+    // Clear selection if we changed between drawing tools
     if (newTool.name !== 'pan' && newTool.name !== 'eyedropper' && newTool.name !== 'cursor') {
       this.selection.clear();
     }
-
     this._activeTool = newTool;
   }
+
   /**
    * Returns an object associated with this project, by uuid.
    * @param {string} uuid 
    */
-
-
   getObjectByUUID(uuid) {
     return Wick.ObjectCache.getObjectByUUID(uuid);
   }
+
   /**
    * Adds an object to the project.
    * @param {Wick.Base} object
    * @return {boolean} returns true if the obejct was added successfully, false otherwise.
    */
-
-
   addObject(object) {
     if (object instanceof Wick.Path || object instanceof Wick.Clip) {
       if (!this.activeFrame) {
         this.activeLayer.insertBlankFrame(this.activeTimeline.playheadPosition);
       }
     }
-
     if (object instanceof Wick.Path) {
       this.activeFrame.addPath(object);
     } else if (object instanceof Wick.Clip) {
@@ -51842,9 +51391,9 @@ Wick.Project = class extends Wick.Base {
     } else {
       return false;
     }
-
     return true;
   }
+
   /**
    * Create a sequence of images from every frame in the project.
    * @param {object} args - Options for generating the image sequence
@@ -51852,8 +51401,6 @@ Wick.Project = class extends Wick.Base {
    * @param {function} onProgress - Function to call for each image loaded, useful for progress bars
    * @param {function} onFinish - Function to call when the images are all loaded.
    */
-
-
   generateImageSequence(args) {
     if (!args) args = {};
     if (!args.imageType) args.imageType = 'image/png';
@@ -51868,25 +51415,26 @@ Wick.Project = class extends Wick.Base {
     this.history.saveSnapshot('before-gif-render');
     this.mute();
     this.selection.clear();
-    this.publishedMode = "imageSequence"; // this.tick();
-    // Put the project canvas inside a div that's the same size as the project so the frames render at the correct resolution.
+    this.publishedMode = "imageSequence";
+    // this.tick();
 
+    // Put the project canvas inside a div that's the same size as the project so the frames render at the correct resolution.
     let container = window.document.createElement('div');
     container.style.width = args.width / window.devicePixelRatio + 'px';
     container.style.height = args.height / window.devicePixelRatio + 'px';
     window.document.body.appendChild(container);
     renderCopy.view.canvasContainer = container;
-    renderCopy.view.resize(); // Calculate the zoom needed to fit the project into the requested container width/height
+    renderCopy.view.resize();
 
+    // Calculate the zoom needed to fit the project into the requested container width/height
     var zoom = 1;
-
     if (args.height < args.width) {
       zoom = args.height / this.height;
     } else {
       zoom = args.width / this.width;
-    } // Set the initial state of the project.
+    }
 
-
+    // Set the initial state of the project.
     renderCopy.focus = renderCopy.root;
     renderCopy.focus.timeline.playheadPosition = 1;
     renderCopy.onionSkinEnabled = false;
@@ -51894,22 +51442,21 @@ Wick.Project = class extends Wick.Base {
     renderCopy.pan = {
       x: 0,
       y: 0
-    }; // renderCopy.tick();
+    };
+
+    // renderCopy.tick();
+
     // We need full control over when paper.js renders, if we leave autoUpdate on, it's possible to lose frames if paper.js doesnt automatically render as fast as we are generating the images.
     // (See paper.js docs for info about autoUpdate)
-
     renderCopy.view.paper.view.autoUpdate = false;
     var frameImages = [];
     var numMaxFrameImages = renderCopy.focus.timeline.length;
-
     var renderFrame = () => {
       var frameImage = new Image();
-
       frameImage.onload = () => {
         frameImages.push(frameImage);
         var currentPos = renderCopy.focus.timeline.playheadPosition;
         args.onProgress(currentPos, numMaxFrameImages);
-
         if (currentPos >= numMaxFrameImages) {
           // reset autoUpdate back to normal
           renderCopy.view.paper.view.autoUpdate = true;
@@ -51927,24 +51474,20 @@ Wick.Project = class extends Wick.Base {
           renderFrame();
         }
       };
-
       renderCopy.view.render();
       renderCopy.view.paper.view.update();
       frameImage.src = renderCopy.view.canvas.toDataURL(args.imageType);
     };
-
     this.resetSoundsPlayed();
     renderFrame();
   }
-
   resetSoundsPlayed() {
     this.soundsPlayed = [];
   }
+
   /**
    * Play the project through to generate an audio track.
    */
-
-
   generateAudioSequence(args) {
     if (!args) args = {};
     if (!args.onProgress) args.onProgress = (frame, maxFrames) => {};
@@ -51954,25 +51497,27 @@ Wick.Project = class extends Wick.Base {
     this.history.saveSnapshot('before-audio-render');
     this.mute();
     this.selection.clear();
-    this.publishedMode = "audioSequence"; // Put the project canvas inside a div that's the same size as the project so the frames render at the correct resolution.
+    this.publishedMode = "audioSequence";
 
+    // Put the project canvas inside a div that's the same size as the project so the frames render at the correct resolution.
     let container = window.document.createElement('div');
     container.style.width = args.width / window.devicePixelRatio + 'px';
     container.style.height = args.height / window.devicePixelRatio + 'px';
     window.document.body.appendChild(container);
     renderCopy.view.canvasContainer = container;
-    renderCopy.view.resize(); // Set the initial state of the project.
+    renderCopy.view.resize();
 
+    // Set the initial state of the project.
     renderCopy.focus = renderCopy.root;
-    renderCopy.focus.timeline.playheadPosition = 1; // renderCopy.tick(); // This is commented out to not miss frame 1.
+    renderCopy.focus.timeline.playheadPosition = 1;
+
+    // renderCopy.tick(); // This is commented out to not miss frame 1.
 
     renderCopy.view.paper.view.autoUpdate = false;
     var numMaxFrameImages = renderCopy.focus.timeline.length;
-
     var renderFrame = () => {
       var currentPos = renderCopy.focus.timeline.playheadPosition;
       args.onProgress(currentPos, numMaxFrameImages);
-
       if (currentPos >= numMaxFrameImages) {
         // reset autoUpdate back to normal
         renderCopy.view.paper.view.autoUpdate = true;
@@ -51990,10 +51535,10 @@ Wick.Project = class extends Wick.Base {
         renderFrame();
       }
     };
-
     this.resetSoundsPlayed();
     renderFrame();
   }
+
   /**
    * Create an object containing info on all sounds in the project.
    * Format:
@@ -52003,8 +51548,6 @@ Wick.Project = class extends Wick.Base {
    *   src: The source of the sound as a dataURL.
    *   filetype: The file type of the sound asset.
    */
-
-
   getAudioInfo() {
     return this.root.timeline.frames.filter(frame => {
       return frame.sound !== null;
@@ -52018,13 +51561,12 @@ Wick.Project = class extends Wick.Base {
       };
     });
   }
+
   /**
    * Generate an audiobuffer containing all the project's sounds merged together.
    * @param {object} args - takes soundInfo (list of soundInfo to use for audioGeneration).
    * @param {Function} callback - callback used to recieve the final audiobuffer.
    */
-
-
   generateAudioTrack(args, callback) {
     var audioTrack = new Wick.AudioTrack(this);
     audioTrack.toAudioBuffer({
@@ -52033,65 +51575,57 @@ Wick.Project = class extends Wick.Base {
       onProgress: args.onProgress
     });
   }
+
   /**
    * Check if an object is a mouse target (if the mouse is currently hovered over the object)
    * @param {Wick.Tickable} object - the object to check if it is a mouse target
    */
-
-
   objectIsMouseTarget(object) {
     return this._mouseTargets.indexOf(object) !== -1;
   }
+
   /**
    * Whether or not to hide the cursor while project is playing.
    * @type {boolean}
    */
-
-
   get hideCursor() {
     return this._hideCursor;
   }
-
   set hideCursor(hideCursor) {
     this._hideCursor = hideCursor;
   }
+
   /**
    * Returns true if there is currently an active frame to draw onto.
    * @type {boolean}
    */
-
-
   get canDraw() {
     return !this.activeLayer.locked && !this.activeLayer.hidden;
   }
+
   /**
    * Loads all Assets in the project's asset library. This must be called after opening a project.
    * @param {function} callback - Called when all assets are done loading.
    */
-
-
   loadAssets(callback) {
     if (this.assets.length === 0) {
       callback();
       return;
     }
-
     var loadedAssetCount = 0;
     this.assets.forEach(asset => {
       asset.load(() => {
         loadedAssetCount++;
-
         if (loadedAssetCount === this.assets.length) {
           callback();
         }
       });
     });
   }
+
   /**
    * Remove assets from the project that are never used.
    */
-
-
   cleanupUnusedAssets() {
     this.assets.forEach(asset => {
       if (!asset.hasInstances()) {
@@ -52099,9 +51633,8 @@ Wick.Project = class extends Wick.Base {
       }
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -52127,11 +51660,10 @@ Wick.Selection = class extends Wick.Base {
   static get LOCATION_NAMES() {
     return ['Canvas', 'Timeline', 'AssetLibrary'];
   }
+
   /**
    * Create a Wick Selection.
    */
-
-
   constructor(args) {
     if (!args) args = {};
     super(args);
@@ -52146,10 +51678,8 @@ Wick.Selection = class extends Wick.Base {
     this.SELECTABLE_OBJECT_TYPES = ['Path', 'Clip', 'Frame', 'Tween', 'Layer', 'Asset', 'Button', 'ClipAsset', 'FileAsset', 'FontAsset', 'GIFAsset', 'ImageAsset', 'SoundAsset', 'SVGAsset'];
     this.SELECTABLE_OBJECT_TYPES_SET = new Set(this.SELECTABLE_OBJECT_TYPES);
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.selectedObjects = Array.from(this._selectedObjectsUUIDs);
     data.widgetRotation = this._widgetRotation;
     data.pivotPoint = {
@@ -52160,10 +51690,8 @@ Wick.Selection = class extends Wick.Base {
     data.originalHeight = this._originalHeight;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this._selectedObjectsUUIDs = data.selectedObjects || [];
     this._widgetRotation = data.widgetRotation;
     this._pivotPoint = {
@@ -52173,79 +51701,73 @@ Wick.Selection = class extends Wick.Base {
     this._originalWidth = data.originalWidth;
     this._originalHeight = data.originalHeight;
   }
-
   get classname() {
     return 'Selection';
   }
+
   /**
    * The names of all attributes of the selection that can be changed.
    * @type {string[]}
    */
-
-
   get allAttributeNames() {
     return ["strokeWidth", "fillColor", "strokeColor", "name", "filename", "fontSize", "fontFamily", "fontWeight", "fontStyle", "src", "frameLength", "x", "y", "originX", "originY", "width", "height", "rotation", "opacity", "sound", "soundVolume", "soundStart", "identifier", "easingType", "fullRotations", "scaleX", "scaleY", "animationType", "singleFrameNumber", "isSynced"];
   }
+
   /**
    * Returns true if an object is selectable.
    * @param {object} object object to check if selectable
    * @returns {boolean} true if selectable, false otherwise.
    */
-
-
   isSelectable(object) {
     return this.SELECTABLE_OBJECT_TYPES_SET.has(object.classname);
   }
+
   /**
    * Add a wick object to the selection. If selecting multiple objects, you should use
    * selection.selectMultipleObjects.
    * @param {Wick.Base} object - The object to select.
    */
-
-
   select(object) {
     // Only allow specific objects to be selectable.
     if (!this.isSelectable(object)) {
       console.warn("Tried to select a " + object.classname + " object. This type is not selectable");
       return;
-    } // Don't do anything if the object is already selected
+    }
 
-
+    // Don't do anything if the object is already selected
     if (this.isObjectSelected(object)) {
       return;
-    } // Activate the cursor tool when selection changes
+    }
 
-
+    // Activate the cursor tool when selection changes
     if (this._locationOf(object) === 'Canvas') {
       this.project.activeTool = this.project.tools.cursor;
       object.parentLayer && object.parentLayer.activate();
-    } // Only allow selection of objects of in the same location
+    }
 
-
+    // Only allow selection of objects of in the same location
     if (this._locationOf(object) !== this.location) {
       this.clear();
-    } // Add the object to the selection!
+    }
 
+    // Add the object to the selection!
+    this._selectedObjectsUUIDs.push(object.uuid);
 
-    this._selectedObjectsUUIDs.push(object.uuid); // Select in between frames (for shift+click selecting frames)
-
-
+    // Select in between frames (for shift+click selecting frames)
     if (object instanceof Wick.Frame) {
       this._selectInBetweenFrames(object);
     }
+    this._resetPositioningValues();
 
-    this._resetPositioningValues(); // Make sure the view gets updated the next time its needed...
-
-
+    // Make sure the view gets updated the next time its needed...
     this.view.dirty = true;
   }
+
   /**
    * Select multiple objects. Must be selectable objects. Significantly faster than selecting multiple elements
    * with a select() independently.
    * @param {object[]} objects 
    */
-
-
   selectMultipleObjects(objects) {
     let UUIDsToAdd = [];
     objects.forEach(obj => {
@@ -52255,82 +51777,69 @@ Wick.Selection = class extends Wick.Base {
         if (this.location !== this._locationOf(obj)) {
           this.clear();
         }
-
         UUIDsToAdd.push(obj.uuid);
       }
     });
     UUIDsToAdd.forEach(uuid => {
       this._selectedObjectsUUIDs.push(uuid);
     });
-
     this._resetPositioningValues();
-
     this.view.dirty = true;
   }
+
   /**
    * Remove a wick object from the selection.
    * @param {Wick.Base} object - The object to deselect.
    */
-
-
   deselect(object) {
     this._selectedObjectsUUIDs = this._selectedObjectsUUIDs.filter(uuid => {
       return uuid !== object.uuid;
     });
+    this._resetPositioningValues();
 
-    this._resetPositioningValues(); // Make sure the view gets updated the next time its needed...
-
-
+    // Make sure the view gets updated the next time its needed...
     this.view.dirty = true;
   }
+
   /**
    * Remove multiple objects from the selection. Does nothing if an object is not selected.
    * @param {object[]} objects objects to remove from the selection.
    */
-
-
   deselectMultipleObjects(objects) {
     objects = objects.filter(obj => obj);
     let uuids = objects.map(obj => obj.uuid);
     uuids = new Set(uuids);
     this._selectedObjectsUUIDs = this._selectedObjectsUUIDs.filter(uuid => !uuids.has(uuid));
-
     this._resetPositioningValues();
-
     this.view.dirty = true;
   }
+
   /**
    * Remove all objects from the selection with an optional filter.
    * @param {string} filter - A location or a type (see SELECTABLE_OBJECT_TYPES and LOCATION_NAMES)
    */
-
-
   clear(filter) {
     if (filter === undefined) {
       this._selectedObjectsUUIDs = [];
-
       this._resetPositioningValues();
-
       this.view.dirty = true;
     } else {
       this.deselectMultipleObjects(this.project.selection.getSelectedObjects(filter));
     }
   }
+
   /**
    * Checks if a given object is selected.
    * @param {Wick.Base} object - The object to check selection of.
    */
-
-
   isObjectSelected(object) {
     return this._selectedObjectsUUIDs.indexOf(object.uuid) !== -1;
   }
+
   /**
    * Get the first object in the selection if there is a single object in the selection.
    * @return {Wick.Base} The first object in the selection.
    */
-
-
   getSelectedObject() {
     if (this.numObjects === 1) {
       return this.getSelectedObjects()[0];
@@ -52338,21 +51847,18 @@ Wick.Selection = class extends Wick.Base {
       return null;
     }
   }
+
   /**
    * Get the objects in the selection with an optional filter.
    * @param {string} filter - A location or a type (see SELECTABLE_OBJECT_TYPES and LOCATION_NAMES)
    * @return {Wick.Base[]} The selected objects.
    */
-
-
   getSelectedObjects(filter) {
     var objects = this._selectedObjectsUUIDs.map(uuid => {
       return Wick.ObjectCache.getObjectByUUID(uuid);
     });
-
     if (Wick.Selection.LOCATION_NAMES.indexOf(filter) !== -1) {
       var location = filter;
-
       if (this.location !== location) {
         return [];
       } else {
@@ -52364,37 +51870,33 @@ Wick.Selection = class extends Wick.Base {
         return object instanceof Wick[classname];
       });
     }
-
     return objects;
   }
+
   /**
    * Get the UUIDs of the objects in the selection with an optional filter.
    * @param {string} filter - A location or a type (see SELECTABLE_OBJECT_TYPES and LOCATION_NAMES)
    * @return {string[]} The UUIDs of the selected objects.
    */
-
-
   getSelectedObjectUUIDs(filter) {
     return this.getSelectedObjects(filter).map(object => {
       return object.uuid;
     });
   }
+
   /**
    * The location of the objects in the selection. (see LOCATION_NAMES)
    * @type {string}
    */
-
-
   get location() {
     if (this.numObjects === 0) return null;
     return this._locationOf(this.getSelectedObjects()[0]);
   }
+
   /**
    * The types of the objects in the selection. (see SELECTABLE_OBJECT_TYPES)
    * @type {string[]}
    */
-
-
   get types() {
     var types = this.getSelectedObjects().map(object => {
       return object.classname;
@@ -52402,19 +51904,16 @@ Wick.Selection = class extends Wick.Base {
     var uniqueTypes = [...new Set(types)];
     return uniqueTypes;
   }
+
   /**
    * A single string describing the contents of the selection.
    * @type {string}
    */
-
-
   get selectionType() {
     let selection = this;
-
     if (selection.location === 'Canvas') {
       if (selection.numObjects === 1) {
         var selectedObject = selection.getSelectedObject();
-
         if (selectedObject instanceof window.Wick.Path) {
           return selectedObject.pathType;
         } else if (selectedObject instanceof window.Wick.Button) {
@@ -52465,47 +51964,41 @@ Wick.Selection = class extends Wick.Base {
       return 'unknown';
     }
   }
+
   /**
    * The number of objects in the selection.
    * @type {number}
    */
-
-
   get numObjects() {
     return this._selectedObjectsUUIDs.length;
   }
+
   /**
    * The rotation of the selection (used for canvas selections)
    * @type {number}
    */
-
-
   get widgetRotation() {
     return this._widgetRotation;
   }
-
   set widgetRotation(widgetRotation) {
     this._widgetRotation = widgetRotation;
   }
+
   /**
    * The point that transformations to the selection will be based around.
    * @type {object}
    */
-
-
   get pivotPoint() {
     return this._pivotPoint;
   }
-
   set pivotPoint(pivotPoint) {
     this._pivotPoint = pivotPoint;
   }
+
   /**
    * The animation type of a clip.
    * @type {string}
    */
-
-
   get animationType() {
     if (this.getSelectedObject() && this.selectionType === 'clip') {
       return this.getSelectedObject().animationType;
@@ -52513,7 +52006,6 @@ Wick.Selection = class extends Wick.Base {
       return null;
     }
   }
-
   set animationType(newType) {
     if (this.getSelectedObject()) {
       this.getSelectedObject().animationType = newType;
@@ -52521,11 +52013,10 @@ Wick.Selection = class extends Wick.Base {
       console.error("Cannot set the animation type of multiple objects...");
     }
   }
+
   /**
    * If a clip is set to singleFrame, this number will be used to determine that frame.
    */
-
-
   get singleFrameNumber() {
     if (this.getSelectedObject() && this.selectionType === 'clip') {
       return this.getSelectedObject().singleFrameNumber;
@@ -52533,7 +52024,6 @@ Wick.Selection = class extends Wick.Base {
       return null;
     }
   }
-
   set singleFrameNumber(frame) {
     if (this.getSelectedObject()) {
       this.getSelectedObject().singleFrameNumber = frame;
@@ -52541,40 +52031,35 @@ Wick.Selection = class extends Wick.Base {
       console.error("Cannot set singleFrameNumber of multiple objects...");
     }
   }
+
   /**
    * The position of the selection.
    * @type {number}
    */
-
-
   get x() {
     return this.view.x;
   }
-
   set x(x) {
     this.view.x = x;
     this.project.tryToAutoCreateTween();
   }
+
   /**
    * The position of the selection.
    * @type {number}
    */
-
-
   get y() {
     return this.view.y;
   }
-
   set y(y) {
     this.view.y = y;
     this.project.tryToAutoCreateTween();
   }
+
   /**
    * The origin position the selection.
    * @type {number}
    */
-
-
   get originX() {
     // If there's only 1 object selected, the origin is that object's position.
     if (this.getSelectedObject() && (this.selectionType === "clip" || this.selectionType === "button")) {
@@ -52583,7 +52068,6 @@ Wick.Selection = class extends Wick.Base {
       return this.x + this.width / 2;
     }
   }
-
   set originX(x) {
     if (this.getSelectedObject() && (this.selectionType === "clip" || this.selectionType === "button")) {
       this.getSelectedObject().x = x;
@@ -52595,12 +52079,11 @@ Wick.Selection = class extends Wick.Base {
       this.x = x - this.width / 2;
     }
   }
+
   /**
    * The origin position the selection.
    * @type {number}
    */
-
-
   get originY() {
     // If there's only 1 object selected, the origin is that object's position.
     if (this.getSelectedObject() && (this.selectionType === "clip" || this.selectionType === "button")) {
@@ -52609,7 +52092,6 @@ Wick.Selection = class extends Wick.Base {
       return this.y + this.height / 2;
     }
   }
-
   set originY(y) {
     if (this.getSelectedObject() && (this.selectionType === "clip" || this.selectionType === "button")) {
       this.getSelectedObject().y = y;
@@ -52621,80 +52103,69 @@ Wick.Selection = class extends Wick.Base {
       this.y = y - this.height / 2;
     }
   }
+
   /**
    * The width of the selection.
    * @type {number}
    */
-
-
   get width() {
     return this.view.width;
   }
-
   set width(width) {
     this.project.tryToAutoCreateTween();
     this.view.width = width;
   }
+
   /**
    * The height of the selection.
    * @type {number}
    */
-
-
   get height() {
     return this.view.height;
   }
-
   set height(height) {
     this.project.tryToAutoCreateTween();
     this.view.height = height;
   }
+
   /**
    * The rotation of the selection.
    * @type {number}
    */
-
-
   get rotation() {
     return this.view.rotation;
   }
-
   set rotation(rotation) {
     this.project.tryToAutoCreateTween();
     this.view.rotation = rotation;
   }
+
   /**
    * It is the original width of the selection at creation.
    * @type {number}
    */
-
-
   get originalWidth() {
     return this._originalWidth;
   }
-
   set originalWidth(originalWidth) {
     this._originalWidth = originalWidth;
   }
+
   /**
    * It is the original height of the selection at creation.
    * @type {number}
    */
-
-
   get originalHeight() {
     return this._originalHeight;
   }
-
   set originalHeight(originalHeight) {
     this._originalHeight = originalHeight;
   }
+
   /**
    * The scale of the selection on the X axis.
    * @type {number}
    */
-
-
   get scaleX() {
     // Clips store their scale state internally
     if (this.selectionType === "clip" || this.selectionType === "button") {
@@ -52704,25 +52175,23 @@ Wick.Selection = class extends Wick.Base {
       return this.width / this.originalWidth;
     }
   }
-
   set scaleX(scaleX) {
-    this.project.tryToAutoCreateTween(); // Clips store their scale state internally
-
+    this.project.tryToAutoCreateTween();
+    // Clips store their scale state internally
     if (this.selectionType === "clip" || this.selectionType === "button") {
       let obj = this.getSelectedObject();
-      obj.scaleX = scaleX; // Force tween update
-
+      obj.scaleX = scaleX;
+      // Force tween update
       obj.transformation = obj.transformation;
     } else {
       this.width = this.originalWidth * scaleX;
     }
   }
+
   /**
    * The scale of the selection on the Y axis.
    * @type {number}
    */
-
-
   get scaleY() {
     // Clips store their scale state internally
     if (this.selectionType === "clip" || this.selectionType === "button") {
@@ -52731,24 +52200,22 @@ Wick.Selection = class extends Wick.Base {
       return this.height / this.originalHeight;
     }
   }
-
   set scaleY(scaleY) {
-    this.project.tryToAutoCreateTween(); // Clips store their scale state internally
-
+    this.project.tryToAutoCreateTween();
+    // Clips store their scale state internally
     if (this.selectionType === "clip" || this.selectionType === "button") {
       let obj = this.getSelectedObject();
-      obj.scaleY = scaleY; // Force tween update
-
+      obj.scaleY = scaleY;
+      // Force tween update
       obj.transformation = obj.transformation;
     } else {
       this.height = this.originalHeight * scaleY;
     }
   }
+
   /**
    * Determines if a clip is synced to the timeline.
    */
-
-
   get isSynced() {
     // Clips store can be synced to the animation timeline
     if (this.selectionType === "clip") {
@@ -52757,197 +52224,168 @@ Wick.Selection = class extends Wick.Base {
       return false;
     }
   }
-
   set isSynced(syncBool) {
     if (!typeof syncBool === "boolean") return;
-
     if (this.selectionType === "clip") {
       this.getSelectedObject().isSynced = syncBool;
     }
   }
+
   /**
    * Flips the selected obejcts horizontally.
    */
-
-
   flipHorizontally() {
     this.project.tryToAutoCreateTween();
     this.view.flipHorizontally();
   }
+
   /**
    * Flips the selected obejcts vertically.
    */
-
-
   flipVertically() {
     this.project.tryToAutoCreateTween();
     this.view.flipVertically();
   }
+
   /**
    * Sends the selected objects to the back.
    */
-
-
   sendToBack() {
     this.view.sendToBack();
   }
+
   /**
    * Brings the selected objects to the front.
    */
-
-
   bringToFront() {
     this.view.bringToFront();
   }
+
   /**
    * Moves the selected objects forwards.
    */
-
-
   moveForwards() {
     this.view.moveForwards();
   }
+
   /**
    * Moves the selected objects backwards.
    */
-
-
   moveBackwards() {
     this.view.moveBackwards();
   }
+
   /**
    * The identifier of the selected object.
    * @type {string}
    */
-
-
   get identifier() {
     return this._getSingleAttribute('identifier');
   }
-
   set identifier(identifier) {
     this._setSingleAttribute('identifier', identifier);
   }
+
   /**
    * The name of the selected object.
    * @type {string}
    */
-
-
   get name() {
     return this._getSingleAttribute('name');
   }
-
   set name(name) {
     this._setSingleAttribute('name', name);
   }
+
   /**
    * The fill color of the selected object.
    * @type {paper.Color}
    */
-
-
   get fillColor() {
     return this._getSingleAttribute('fillColor');
   }
-
   set fillColor(fillColor) {
     this._setSingleAttribute('fillColor', fillColor);
   }
+
   /**
    * The stroke color of the selected object.
    * @type {paper.Color}
    */
-
-
   get strokeColor() {
     return this._getSingleAttribute('strokeColor');
   }
-
   set strokeColor(strokeColor) {
     this._setSingleAttribute('strokeColor', strokeColor);
   }
+
   /**
    * The stroke width of the selected object.
    * @type {number}
    */
-
-
   get strokeWidth() {
     return this._getSingleAttribute('strokeWidth');
   }
-
   set strokeWidth(strokeWidth) {
     this._setSingleAttribute('strokeWidth', strokeWidth);
   }
+
   /**
    * The font family of the selected object.
    * @type {string}
    */
-
-
   get fontFamily() {
     return this._getSingleAttribute('fontFamily');
   }
-
   set fontFamily(fontFamily) {
     this._setSingleAttribute('fontFamily', fontFamily);
   }
+
   /**
    * The font size of the selected object.
    * @type {number}
    */
-
-
   get fontSize() {
     return this._getSingleAttribute('fontSize');
   }
-
   set fontSize(fontSize) {
     this._setSingleAttribute('fontSize', fontSize);
   }
+
   /**
    * The font weight of the selected object.
    * @type {number}
    */
-
-
   get fontWeight() {
     return this._getSingleAttribute('fontWeight');
   }
-
   set fontWeight(fontWeight) {
     this._setSingleAttribute('fontWeight', fontWeight);
   }
+
   /**
    * The font style of the selected object. ('italic' or 'oblique')
    * @type {string}
    */
-
-
   get fontStyle() {
     return this._getSingleAttribute('fontStyle');
   }
-
   set fontStyle(fontStyle) {
     this._setSingleAttribute('fontStyle', fontStyle);
   }
+
   /**
    * The opacity of the selected object.
    * @type {number}
    */
-
-
   get opacity() {
     return this._getSingleAttribute('opacity');
   }
-
   set opacity(opacity) {
     this.project.tryToAutoCreateTween();
+    this._setSingleAttribute('opacity', opacity);
 
-    this._setSingleAttribute('opacity', opacity); // Force tween update manually for opaque programmatic changes
-
-
+    // Force tween update manually for opaque programmatic changes
     if (this.selectionType === 'clip' || this.selectionType === 'button') {
       this.getSelectedObjects().forEach(obj => {
         if (obj.transformation) {
@@ -52956,164 +52394,139 @@ Wick.Selection = class extends Wick.Base {
       });
     }
   }
+
   /**
    * The sound attached to the selected frame.
    * @type {Wick.SoundAsset}
    */
-
-
   get sound() {
     return this._getSingleAttribute('sound');
   }
-
   set sound(sound) {
     this._setSingleAttribute('sound', sound);
   }
+
   /**
    * The length of the selected frame.
    * @type {number}
    */
-
-
   get frameLength() {
     return this._getSingleAttribute('length');
   }
-
   set frameLength(frameLength) {
     this._setSingleAttribute('length', frameLength);
-
     var layer = this.project.activeLayer;
     layer.resolveOverlap(this.getSelectedObjects());
     layer.resolveGaps();
   }
+
   /**
    * The volume of the sound attached to the selected frame.
    * @type {number}
    */
-
-
   get soundVolume() {
     return this._getSingleAttribute('soundVolume');
   }
-
   set soundVolume(soundVolume) {
     this._setSingleAttribute('soundVolume', soundVolume);
   }
+
   /**
    * The starting position of the sound on the frame in ms.
    * @type {number}
    */
-
-
   get soundStart() {
     return this._getSingleAttribute('soundStart');
   }
-
   set soundStart(soundStart) {
     this._setSingleAttribute('soundStart', soundStart);
   }
+
   /**
    * The easing type of a selected tween. See Wick.Tween.VALID_EASING_TYPES.
    * @type {string}
    */
-
-
   get easingType() {
     return this._getSingleAttribute('easingType');
   }
-
   set easingType(easingType) {
     return this._setSingleAttribute('easingType', easingType);
   }
+
   /**
    * The amount of rotations to perform during a tween. Positive value = clockwise rotation.
    * @type {Number}
    */
-
-
   get fullRotations() {
     return this._getSingleAttribute('fullRotations');
   }
-
   set fullRotations(fullRotations) {
     return this._setSingleAttribute('fullRotations', fullRotations);
   }
+
   /**
    * The filename of the selected asset. Read only.
    * @type {string}
    */
-
-
   get filename() {
     return this._getSingleAttribute('filename');
   }
+
   /**
    * True if the selection is scriptable. Read only.
    * @type {boolean}
    */
-
-
   get isScriptable() {
     return this.numObjects === 1 && this.getSelectedObjects()[0].isScriptable;
   }
+
   /**
    * The source (dataURL) of the selected ImageAsset or SoundAsset. Read only.
    * @type {string}
    */
-
-
   get src() {
     return this.numObjects === 1 && this.getSelectedObjects()[0].src;
   }
+
   /**
    * Get a list of only the farthest right frames on each layer.
    * @returns {Wick.Frame[]}
    */
-
-
   getRightmostFrames() {
     var selectedFrames = this.getSelectedObjects('Frame');
     var rightmostFrames = {};
     selectedFrames.forEach(frame => {
       var layerid = frame.parentLayer.uuid;
-
       if (!rightmostFrames[layerid] || frame.end > rightmostFrames[layerid].end) {
         rightmostFrames[layerid] = frame;
       }
     });
     var result = [];
-
     for (var id in rightmostFrames) {
       result.push(rightmostFrames[id]);
     }
-
     return result;
   }
+
   /**
    * Get a list of only the farthest left frames on each layer.
    * @returns {Wick.Frame[]}
    */
-
-
   getLeftmostFrames() {
     var selectedFrames = this.getSelectedObjects('Frame');
     var leftmostFrames = {};
     selectedFrames.forEach(frame => {
       var layerid = frame.parentLayer.uuid;
-
       if (!leftmostFrames[layerid] || frame.start < leftmostFrames[layerid].end) {
         leftmostFrames[layerid] = frame;
       }
     });
     var result = [];
-
     for (var id in leftmostFrames) {
       result.push(leftmostFrames[id]);
     }
-
     return result;
   }
-
   _locationOf(object) {
     if (object instanceof Wick.Frame || object instanceof Wick.Tween || object instanceof Wick.Layer) {
       return 'Timeline';
@@ -53123,12 +52536,10 @@ Wick.Selection = class extends Wick.Base {
       return 'Canvas';
     }
   }
+
   /* Helper function: Calculate the selection x,y */
-
-
   _resetPositioningValues() {
     var selectedObject = this.getSelectedObject();
-
     if (selectedObject instanceof Wick.Clip) {
       // Single clip selected: Use that Clip's transformation for the pivot point and rotation
       this._widgetRotation = selectedObject.transformation.rotation;
@@ -53139,72 +52550,66 @@ Wick.Selection = class extends Wick.Base {
     } else {
       // Path selected or multiple objects selected: Reset rotation and use center for pivot point
       this._widgetRotation = 0;
-
       var boundsCenter = this.view._getSelectedObjectsBounds().center;
-
       this._pivotPoint = {
         x: boundsCenter.x,
         y: boundsCenter.y
-      }; // Always pull original size values.
+      };
 
+      // Always pull original size values.
       this._originalWidth = this.view._getSelectedObjectsBounds().width;
       this._originalHeight = this.view._getSelectedObjectsBounds().height;
     }
   }
+
   /* helper function for getting a single value from multiple selected objects */
-
-
   _getSingleAttribute(attributeName) {
     if (this.numObjects === 0) return null;
     return this.getSelectedObjects()[0][attributeName];
   }
+
   /* helper function for updating the same attribute on all items in the selection  */
-
-
   _setSingleAttribute(attributeName, value) {
     this.getSelectedObjects().forEach(selectedObject => {
       selectedObject[attributeName] = value;
     });
   }
+
   /*helper function for shift+selecting frames*/
-
-
   _selectInBetweenFrames(selectedFrame) {
     var frameBounds = {
       playheadStart: null,
       playheadEnd: null
-    }; // Calculate bounding box of all selected frames
+    };
 
+    // Calculate bounding box of all selected frames
     var selectedFrames = this.getSelectedObjects('Frame');
     selectedFrames.filter(frame => {
       return frame.parentLayer === selectedFrame.parentLayer;
     }).forEach(frame => {
       var start = frame.start;
       var end = frame.end;
-
       if (!frameBounds.playheadStart || !frameBounds.playheadEnd) {
         frameBounds.playheadStart = start;
         frameBounds.playheadEnd = end;
       }
-
       if (start < frameBounds.playheadStart) {
         frameBounds.playheadStart = start;
       }
-
       if (end > frameBounds.playheadEnd) {
         frameBounds.playheadEnd = end;
       }
-    }); // Select all frames inside bounding box
+    });
 
+    // Select all frames inside bounding box
     this.project.activeTimeline.getAllFrames().filter(frame => {
       return !frame.isSelected && frame.parentLayer === selectedFrame.parentLayer && frame.inRange(frameBounds.playheadStart, frameBounds.playheadEnd);
     }).forEach(frame => {
       this._selectedObjectsUUIDs.push(frame.uuid);
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -53238,146 +52643,126 @@ Wick.Timeline = class extends Wick.Base {
     this._fillGapsMethod = "auto_extend";
     this._frameForced = false;
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.playheadPosition = this._playheadPosition;
     data.activeLayerIndex = this._activeLayerIndex;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this._playheadPosition = data.playheadPosition;
     this._activeLayerIndex = data.activeLayerIndex;
     this._playing = true;
   }
-
   get classname() {
     return 'Timeline';
   }
+
   /**
    * The layers that belong to this timeline.
    * @type {Wick.Layer}
    */
-
-
   get layers() {
     return this.getChildren('Layer');
   }
+
   /**
    * The position of the playhead. Determines which frames are visible.
    * @type {number}
    */
-
-
   get playheadPosition() {
     return this._playheadPosition;
   }
-
   set playheadPosition(playheadPosition) {
     // Automatically clear selection when any playhead in the project moves
     if (this.project && this._playheadPosition !== playheadPosition && this.parentClip.isFocus) {
       this.project.selection.clear('Canvas');
       this.project.resetTools();
     }
-
     this._playheadPosition = playheadPosition;
-
     if (this._playheadPosition < 1) {
       this._playheadPosition = 1;
-    } // Automatically apply tween transforms on child frames when playhead moves
+    }
 
-
+    // Automatically apply tween transforms on child frames when playhead moves
     this.activeFrames.forEach(frame => {
       frame.applyTweenTransforms();
       frame.updateClipTimelinesForAnimationType();
     });
   }
+
   /**
    * Forces timeline to move to the next frame.
    * @param {number} frame 
    */
-
-
   forceFrame(frame) {
     this.playheadPosition = frame;
     this._frameForced = true;
     this.makeTimelineInBounds();
   }
+
   /**
    * Returns true if the frame was forced previously.
    */
-
-
   get frameForced() {
     return this._frameForced;
   }
+
   /**
    * The index of the active layer. Determines which frame to draw onto.
    * @type {number}
    */
-
-
   get activeLayerIndex() {
     return this._activeLayerIndex;
   }
-
   set activeLayerIndex(activeLayerIndex) {
     this._activeLayerIndex = activeLayerIndex;
   }
+
   /**
    * The total length of the timeline.
    * @type {number}
    */
-
-
   get length() {
     var length = 0;
     this.layers.forEach(function (layer) {
       var layerLength = layer.length;
-
       if (layerLength > length) {
         length = layerLength;
       }
     });
     return length;
   }
+
   /**
    * The active layer.
    * @type {Wick.Layer}
    */
-
-
   get activeLayer() {
     return this.layers[this.activeLayerIndex];
   }
+
   /**
    * The active frames, determined by the playhead position.
    * @type {Wick.Frame[]}
    */
-
-
   get activeFrames() {
     var frames = [];
     this.layers.forEach(layer => {
       var layerFrame = layer.activeFrame;
-
       if (layerFrame) {
         frames.push(layerFrame);
       }
     });
     return frames;
   }
+
   /*
    * exports the project as an SVG file
    * @onError {function(message)}
    * @returns {string} - the SVG for the current view in string form (maybe this should be base64 or a blob or something)
    */
-
-
   exportSVG(onError) {
     var svgOutput = paper.project.exportSVG({
       asString: true,
@@ -53385,24 +52770,21 @@ Wick.Timeline = class extends Wick.Base {
       embedImages: true
     });
     return svgOutput;
-  } //this.project.paper.
+  }
+  //this.project.paper.
   //paperGroup = new paper.Group
-
   /**
    * The active frame, determined by the playhead position.
    * @type {Wick.Frame}
    */
-
-
   get activeFrame() {
     return this.activeLayer && this.activeLayer.activeFrame;
   }
+
   /**
    * All frames inside the timeline.
    * @type {Wick.Frame[]}
    */
-
-
   get frames() {
     var frames = [];
     this.layers.forEach(layer => {
@@ -53412,12 +52794,11 @@ Wick.Timeline = class extends Wick.Base {
     });
     return frames;
   }
+
   /**
    * All clips inside the timeline.
    * @type {Wick.Clip[]}
    */
-
-
   get clips() {
     var clips = [];
     this.frames.forEach(frame => {
@@ -53425,41 +52806,36 @@ Wick.Timeline = class extends Wick.Base {
     });
     return clips;
   }
+
   /**
    * Finds the frame with a given name.
    * @type {Wick.Frame|null}
    */
-
-
   getFrameByName(name) {
     return this.frames.find(frame => {
       return frame.name === name;
     }) || null;
   }
+
   /**
    * Add a frame to one of the layers on this timeline. If there is no layer where the frame wants to go, the frame will not be added.
    * @param {Wick.Frame} frame - the frame to add
    */
-
-
   addFrame(frame) {
     if (frame.originalLayerIndex >= this.layers.length) return;
-
     if (frame.originalLayerIndex === -1) {
       this.activeLayer.addFrame(frame);
     } else {
       this.layers[frame.originalLayerIndex].addFrame(frame);
     }
   }
+
   /**
    * Adds a layer to the timeline.
    * @param {Wick.Layer} layer - The layer to add.
    */
-
-
   addLayer(layer) {
     this.addChild(layer);
-
     if (!layer.name) {
       if (this.layers.length > 1) {
         layer.name = "Layer " + this.layers.length;
@@ -53468,60 +52844,54 @@ Wick.Timeline = class extends Wick.Base {
       }
     }
   }
+
   /**
    * Adds a tween to a frame on this timeline.
    * @param {Wick.Tween} tween - the tween to add.
    */
-
-
   addTween(tween) {
     if (tween.originalLayerIndex >= this.layers.length) return;
-
     if (tween.originalLayerIndex === -1) {
       this.activeLayer.addTween(tween);
     } else {
       this.layers[tween.originalLayerIndex].addTween(tween);
     }
   }
+
   /**
    * Remmoves a layer from the timeline.
    * @param {Wick.Layer} layer - The layer to remove.
    */
-
-
   removeLayer(layer) {
     // You can't remove the last layer.
     if (this.layers.length <= 1) {
       return;
-    } // Activate the layer below the removed layer if we removed the active layer.
+    }
 
-
+    // Activate the layer below the removed layer if we removed the active layer.
     if (this.activeLayerIndex === this.layers.length - 1) {
       this.activeLayerIndex--;
     }
-
     this.removeChild(layer);
   }
+
   /**
    * Moves a layer to a different position, inserting it before/after other layers if needed.
    * @param {Wick.Layer} layer - The layer to add.
    * @param {number} index - the new position to move the layer to.
    */
-
-
   moveLayer(layer, index) {
     var layers = this.getChildren('Layer');
     layers.splice(layers.indexOf(layer), 1);
     layers.splice(index, 0, layer);
     this._children = layers;
   }
+
   /**
    * Gets the frames at the given playhead position.
    * @param {number} playheadPosition - the playhead position to search.
    * @returns {Wick.Frame[]} The frames at the playhead position.
    */
-
-
   getFramesAtPlayheadPosition(playheadPosition) {
     var frames = [];
     this.layers.forEach(layer => {
@@ -53530,17 +52900,15 @@ Wick.Timeline = class extends Wick.Base {
     });
     return frames;
   }
+
   /**
    * Get all frames in this timeline.
    * @param {boolean} recursive - If set to true, will also include the children of all child timelines.
    */
-
-
   getAllFrames(recursive) {
     var allFrames = [];
     this.layers.forEach(layer => {
       allFrames = allFrames.concat(layer.frames);
-
       if (recursive) {
         layer.frames.forEach(frame => {
           frame.clips.forEach(clip => {
@@ -53551,6 +52919,7 @@ Wick.Timeline = class extends Wick.Base {
     });
     return allFrames;
   }
+
   /**
    * Gets all frames in the layer that are between the two given playhead positions and layer indices.
    * @param {number} playheadPositionStart - The start of the horizontal range to search
@@ -53559,8 +52928,6 @@ Wick.Timeline = class extends Wick.Base {
    * @param {number} layerIndexEnd - The end of the vertical range to search
    * @return {Wick.Frame[]} The frames in the given range.
    */
-
-
   getFramesInRange(playheadPositionStart, playheadPositionEnd, layerIndexStart, layerIndexEnd) {
     var framesInRange = [];
     this.layers.filter(layer => {
@@ -53570,11 +52937,10 @@ Wick.Timeline = class extends Wick.Base {
     });
     return framesInRange;
   }
+
   /**
    * Advances the timeline one frame forwards. Loops back to beginning if the end is reached.
    */
-
-
   advance() {
     if (this._playing) {
       this.playheadPosition++;
@@ -53582,93 +52948,80 @@ Wick.Timeline = class extends Wick.Base {
       this.makeTimelineInBounds();
     }
   }
+
   /**
    * Ensures playhead position is in bounds.
    */
-
-
   makeTimelineInBounds() {
     if (this.playheadPosition > this.length) {
       this.playheadPosition = 1;
     }
   }
+
   /**
    * Makes the timeline advance automatically during ticks.
    */
-
-
   play() {
     this._playing = true;
   }
+
   /**
    * Stops the timeline from advancing during ticks.
    */
-
-
   stop() {
     this._playing = false;
   }
+
   /**
    * Stops the timeline and moves to a given frame number or name.
    * @param {string|number} frame - A playhead position or name of a frame to move to.
    */
-
-
   gotoAndStop(frame) {
     this.stop();
     this.gotoFrame(frame);
   }
+
   /**
    * Plays the timeline and moves to a given frame number or name.
    * @param {string|number} frame - A playhead position or name of a frame to move to.
    */
-
-
   gotoAndPlay(frame) {
     this.play();
     this.gotoFrame(frame);
   }
+
   /**
    * Moves the timeline forward one frame. Loops back to 1 if gotoNextFrame moves the playhead past the past frame.
    */
-
-
   gotoNextFrame() {
     // Loop back to beginning if gotoNextFrame goes past the last frame
     var nextFramePlayheadPosition = this.playheadPosition + 1;
-
     if (nextFramePlayheadPosition > this.length) {
       nextFramePlayheadPosition = 1;
     }
-
     this.gotoFrame(nextFramePlayheadPosition);
   }
+
   /**
    * Moves the timeline backwards one frame. Loops to the last frame if gotoPrevFrame moves the playhead before the first frame.
    */
-
-
   gotoPrevFrame() {
     var prevFramePlayheadPosition = this.playheadPosition - 1;
-
     if (prevFramePlayheadPosition <= 0) {
       prevFramePlayheadPosition = this.length;
     }
-
     this.gotoFrame(prevFramePlayheadPosition);
   }
+
   /**
    * Moves the playhead to a given frame number or name.
    * @param {string|number} frame - A playhead position or name of a frame to move to.
    */
-
-
   gotoFrame(frame) {
     if (typeof frame === 'string') {
       var namedFrame = this.frames.find(seekframe => {
         return seekframe.identifier === frame && !seekframe.onScreen;
       });
-
       if (namedFrame) {
         this.forceFrame(namedFrame.start);
       }
@@ -53678,16 +53031,14 @@ Wick.Timeline = class extends Wick.Base {
       throw new Error('gotoFrame: Invalid argument: ' + frame);
     }
   }
+
   /**
    * The method to use to fill gaps in-beteen frames. Options: "blank_frames" or "auto_extend" (see Wick.Layer.resolveGaps)
    * @type {string}
    */
-
-
   get fillGapsMethod() {
     return this._fillGapsMethod;
   }
-
   set fillGapsMethod(fillGapsMethod) {
     if (fillGapsMethod === 'blank_frames' || fillGapsMethod === 'auto_extend') {
       this._fillGapsMethod = fillGapsMethod;
@@ -53696,29 +53047,26 @@ Wick.Timeline = class extends Wick.Base {
       console.warn('Valid fillGapsMethod: "blank_frames", "auto_extend"');
     }
   }
+
   /**
    * Check if frame gap fixing should be deferred until later. Read only.
    * @type {boolean}
    */
-
-
   get waitToFillFrameGaps() {
     return this._waitToFillFrameGaps;
   }
+
   /**
    * Disables frame gap filling until resolveFrameGaps is called again.
    */
-
-
   deferFrameGapResolve() {
     this._waitToFillFrameGaps = true;
   }
+
   /**
    * Fill in all gaps between frames in all layers in this timeline.
    * @param {Wick.Frame[]} newOrModifiedFrames - The frames that should not be affected by the gap fill by being extended or shrunk.
    */
-
-
   resolveFrameGaps(newOrModifiedFrames) {
     if (!newOrModifiedFrames) newOrModifiedFrames = [];
     this._waitToFillFrameGaps = false;
@@ -53728,12 +53076,11 @@ Wick.Timeline = class extends Wick.Base {
       }));
     });
   }
+
   /**
    * Prevents frames from overlapping each other by removing pieces of frames that are touching.
    * @param {Wick.Frame[]} newOrModifiedFrames - the frames that should take precedence when determining which frames should get "eaten".
    */
-
-
   resolveFrameOverlap(frames) {
     this.layers.forEach(layer => {
       layer.resolveOverlap(frames.filter(frame => {
@@ -53741,9 +53088,8 @@ Wick.Timeline = class extends Wick.Base {
       }));
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -53769,7 +53115,6 @@ Wick.Tween = class extends Wick.Base {
   static get VALID_EASING_TYPES() {
     return ['none', 'in', 'out', 'in-out'];
   }
-
   static _calculateTimeValue(tweenA, tweenB, playheadPosition) {
     var tweenAPlayhead = tweenA.playheadPosition;
     var tweenBPlayhead = tweenB.playheadPosition;
@@ -53777,14 +53122,13 @@ Wick.Tween = class extends Wick.Base {
     var t = (playheadPosition - tweenAPlayhead) / dist;
     return t;
   }
+
   /**
    * Create a tween
    * @param {number} playheadPosition - the playhead position relative to the frame that the tween belongs to
    * @param {Wick.Transform} transformation - the transformation this tween will apply to child objects
    * @param {number} fullRotations - the number of rotations to add to the tween's transformation
    */
-
-
   constructor(args) {
     if (!args) args = {};
     super(args);
@@ -53795,69 +53139,63 @@ Wick.Tween = class extends Wick.Base {
     this.easingType = args.easingType || 'none';
     this._originalLayerIndex = -1;
   }
+
   /**
    * Create a tween by interpolating two existing tweens.
    * @param {Wick.Tween} tweenA - The first tween
    * @param {Wick.Tween} tweenB - The second tween
    * @param {Number} playheadPosition - The point between the two tweens to use to interpolate
    */
-
-
   static interpolate(tweenA, tweenB, playheadPosition) {
-    var interpTween = new Wick.Tween(); // Calculate value (0.0-1.0) to pass to tweening function
+    var interpTween = new Wick.Tween();
 
+    // Calculate value (0.0-1.0) to pass to tweening function
     var t = Wick.Tween._calculateTimeValue(tweenA, tweenB, playheadPosition);
-
     var tweenFn = tweenA._getTweenFunction();
+    var tt = tweenFn(t);
 
-    var tt = tweenFn(t); // Interpolate every transformation attribute using the t value
-
+    // Interpolate every transformation attribute using the t value
     ["x", "y", "scaleX", "scaleY", "rotation", "opacity"].forEach(propName => {
       var valA = tweenA.transformation[propName];
       var valB = tweenB.transformation[propName];
-
       if (propName === 'rotation') {
         // Convert full rotations to 360 degree amounts
         valB += tweenA.fullRotations * 360;
       }
-
       interpTween.transformation[propName] = lerp(valA, valB, tt);
-    }); // Shape interpolation
+    });
 
+    // Shape interpolation
     if (tweenA.shapeData && tweenB.shapeData) {
       interpTween.shapeData = Wick.Tween._interpolatePathData(tweenA.shapeData, tweenB.shapeData, tt);
     }
-
     interpTween.playheadPosition = playheadPosition;
     return interpTween;
   }
+
   /**
    * Interpolates between two Paper.js Path JSON objects.
    * @param {Array} jsonA - Start path JSON
    * @param {Array} jsonB - End path JSON
    * @param {Number} t - Interpolation value (0.0 to 1.0)
    */
-
-
   static _interpolatePathData(jsonA, jsonB, t) {
     if (!jsonA || !jsonB) return jsonA || jsonB;
     if (jsonA[0] !== jsonB[0]) return t < 0.5 ? jsonA : jsonB;
     var type = jsonA[0];
-    if (type !== 'Path' && type !== 'CompoundPath') return jsonA; // Helper to interpolate a segment array
+    if (type !== 'Path' && type !== 'CompoundPath') return jsonA;
 
+    // Helper to interpolate a segment array
     var interpolateSegments = (segmentsA, segmentsB, t) => {
       if (!segmentsA || !segmentsB || segmentsA.length !== segmentsB.length) return null;
       return segmentsA.map((segA, i) => {
         var segB = segmentsB[i];
-
         var getPoints = s => typeof s[0] === 'number' ? [s, [0, 0], [0, 0]] : s;
-
         var nA = getPoints(segA);
         var nB = getPoints(segB);
         return [[lerp(nA[0][0], nB[0][0], t), lerp(nA[0][1], nB[0][1], t)], [lerp(nA[1][0], nB[1][0], t), lerp(nA[1][1], nB[1][1], t)], [lerp(nA[2][0], nB[2][0], t), lerp(nA[2][1], nB[2][1], t)]];
       });
     };
-
     if (type === 'Path') {
       var segmentsA = jsonA[1].segments;
       var segmentsB = jsonB[1].segments;
@@ -53867,7 +53205,6 @@ Wick.Tween = class extends Wick.Base {
         segments: newSegments
       })];
     }
-
     if (type === 'CompoundPath') {
       var childrenA = jsonA[1].children;
       var childrenB = jsonB[1].children;
@@ -53887,17 +53224,13 @@ Wick.Tween = class extends Wick.Base {
         children: newChildren
       })];
     }
-
     return jsonA;
   }
-
   get classname() {
     return 'Tween';
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.playheadPosition = this.playheadPosition;
     data.transformation = this._transformation.values;
     data.fullRotations = this.fullRotations;
@@ -53906,10 +53239,8 @@ Wick.Tween = class extends Wick.Base {
     data.originalLayerIndex = this.layerIndex !== -1 ? this.layerIndex : this._originalLayerIndex;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.playheadPosition = data.playheadPosition;
     this._transformation = new Wick.Transformation(data.transformation);
     this.fullRotations = data.fullRotations;
@@ -53917,136 +53248,120 @@ Wick.Tween = class extends Wick.Base {
     this.shapeData = data.shapeData || null;
     this._originalLayerIndex = data.originalLayerIndex;
   }
+
   /**
    * The playhead position of the tween.
    * @type {number}
    */
-
-
   get playheadPosition() {
     return this._playheadPosition;
   }
-
   set playheadPosition(playheadPosition) {
     this._playheadPosition = playheadPosition;
   }
+
   /**
    * The transformation representing the position, rotation and other elements of the tween.
    * @type {object} 
    */
-
-
   get transformation() {
     return this._transformation;
   }
-
   set transformation(transformation) {
     this._transformation = transformation;
   }
+
   /**
    * The Paper.js JSON data for shape morphing.
    * @type {object}
    */
-
-
   get shapeData() {
     return this._shapeData;
   }
-
   set shapeData(shapeData) {
     this._shapeData = shapeData;
   }
+
   /**
    * The type of interpolation to use for easing.
    * @type {string}
    */
-
-
   get easingType() {
     return this._easingType;
   }
-
   set easingType(easingType) {
     if (Wick.Tween.VALID_EASING_TYPES.indexOf(easingType) === -1) {
       console.warn('Invalid easingType. Valid easingTypes: ');
       console.warn(Wick.Tween.VALID_EASING_TYPES);
       return;
     }
-
     this._easingType = easingType;
   }
+
   /**
    * Remove this tween from its parent frame.
    */
-
-
   remove() {
     this.parent.removeTween(this);
   }
+
   /**
    * Set the transformation of a clip to this tween's transformation.
    * @param {Wick.Clip} clip - the clip to apply the tween transforms to.
    */
-
-
   applyTransformsToClip(clip) {
     clip.transformation = this.transformation.copy();
   }
+
   /**
    * Set the path data of a path to this tween's shape data.
    * @param {Wick.Path} path - the path to apply the shape data to.
    */
-
-
   applyToPath(path) {
     if (this.shapeData) {
       path.json = this.shapeData;
     }
   }
+
   /**
    * The tween that comes after this tween in the parent frame.
    * @returns {Wick.Tween}
    */
-
-
   getNextTween() {
     if (!this.parentFrame) return null;
     var frontTween = this.parentFrame.seekTweenInFront(this.playheadPosition + 1);
     return frontTween;
   }
+
   /**
    * Prevents tweens from existing outside of the frame's length. Call this after changing the length of the parent frame.
    */
-
-
   restrictToFrameSize() {
-    var playheadPosition = this.playheadPosition; // Remove tween if playheadPosition is out of bounds
+    var playheadPosition = this.playheadPosition;
 
+    // Remove tween if playheadPosition is out of bounds
     if (playheadPosition < 1 || playheadPosition > this.parentFrame.length) {
       this.remove();
     }
   }
+
   /**
    * The index of the parent layer of this tween.
    * @type {number}
    */
-
-
   get layerIndex() {
     return this.parentLayer ? this.parentLayer.index : -1;
   }
+
   /**
    * The index of the layer that this tween last belonged to. Used when copying and pasting tweens.
    * @type {number}
    */
-
-
   get originalLayerIndex() {
     return this._originalLayerIndex;
   }
+
   /* retrieve Tween.js easing functions by name */
-
-
   _getTweenFunction() {
     return {
       'none': TWEEN.Easing.Linear.None,
@@ -54055,9 +53370,8 @@ Wick.Tween = class extends Wick.Base {
       'in-out': TWEEN.Easing.Quadratic.InOut
     }[this.easingType];
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -54092,7 +53406,6 @@ Wick.Path = class extends Wick.Base {
     this._fontWeight = 400;
     this._isPlaceholder = args.isPlaceholder;
     this._originalStyle = null;
-
     if (args.path) {
       this.json = args.path.exportJSON({
         asString: false
@@ -54106,20 +53419,17 @@ Wick.Path = class extends Wick.Base {
         asString: false
       });
     }
-
     this.needReimport = true;
   }
+
   /**
    * Create a path containing an image from an ImageAsset.
    * @param {Wick.ImageAsset} asset - The asset from which the image src will be loaded from
    * @param {Function} callback - A function that will be called when the image is done loading.
    */
-
-
   static createImagePath(asset, callback) {
     var img = new Image();
     img.src = asset.src;
-
     img.onload = () => {
       var raster = new paper.Raster(img);
       raster.remove();
@@ -54130,12 +53440,11 @@ Wick.Path = class extends Wick.Base {
       callback(path);
     };
   }
+
   /**
    * Create a path (synchronously) containing an image from an ImageAsset.
    * @param {Wick.ImageAsset} asset - The asset from which the image src will be loaded from
    */
-
-
   static createImagePathSync(asset) {
     var raster = new paper.Raster(asset.src);
     raster.remove();
@@ -54145,17 +53454,15 @@ Wick.Path = class extends Wick.Base {
     });
     return path;
   }
-
   get classname() {
     return 'Path';
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.json = this.json;
-    delete data.json[1].data; // optimization: replace dataurls with asset uuids
+    delete data.json[1].data;
 
+    // optimization: replace dataurls with asset uuids
     if (data.json[0] === 'Raster' && data.json[1].source.startsWith('data:')) {
       if (!this.project) {
         console.warn('Could not replace raster image source with asset UUID, path does not belong to a project.');
@@ -54167,35 +53474,30 @@ Wick.Path = class extends Wick.Base {
         });
       }
     }
-
     data.fontStyle = this._fontStyle;
     data.fontWeight = this._fontWeight;
     data.isPlaceholder = this._isPlaceholder;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.json = data.json;
     this._fontStyle = data.fontStyle || 'normal';
     this._fontWeight = data.fontWeight || 400;
     this._isPlaceholder = data.isPlaceholder;
   }
+
   /**
    * Determines if this Path is visible in the project.
    */
-
-
   get onScreen() {
     return this.parent.onScreen;
   }
+
   /**
    * The type of path that this path is. Can be 'path', 'text', or 'image'
    * @returns {string}
    */
-
-
   get pathType() {
     if (this.view.item instanceof paper.TextItem) {
       return 'text';
@@ -54205,27 +53507,24 @@ Wick.Path = class extends Wick.Base {
       return 'path';
     }
   }
+
   /**
    * Path data exported from paper.js using exportJSON({asString:false}).
    * @type {object}
    */
-
-
   get json() {
     return this._json;
   }
-
   set json(json) {
     this._json = json;
     this.needReimport = true;
     this.view.render();
   }
+
   /**
    * The bounding box of the path.
    * @type {object}
    */
-
-
   get bounds() {
     var paperBounds = this.view.item.bounds;
     return {
@@ -54237,291 +53536,252 @@ Wick.Path = class extends Wick.Base {
       height: paperBounds.height
     };
   }
+
   /**
    * The position of the path.
    * @type {number}
    */
-
-
   get x() {
     return this.view.item.position.x;
   }
-
   set x(x) {
     this.view.item.position.x = x;
     this.updateJSON();
   }
+
   /**
    * The position of the path.
    * @type {number}
    */
-
-
   get y() {
     return this.view.item.position.y;
   }
-
   set y(y) {
     this.view.item.position.y = y;
     this.updateJSON();
   }
+
   /**
    * The fill color of the path.
    * @type {paper.Color}
    */
-
-
   get fillColor() {
     return this.view.item.fillColor || new paper.Color();
   }
-
   set fillColor(fillColor) {
     this.view.item.fillColor = fillColor;
     this.updateJSON();
   }
+
   /**
    * The stroke color of the path.
    * @type {paper.Color}
    */
-
-
   get strokeColor() {
     return this.view.item.strokeColor || new paper.Color();
   }
-
   set strokeColor(strokeColor) {
     this.view.item.strokeColor = strokeColor;
     this.updateJSON();
   }
+
   /**
    * The stroke width of the path.
    * @type {number}
    */
-
-
   get strokeWidth() {
     return this.view.item.strokeWidth;
   }
-
   set strokeWidth(strokeWidth) {
     this.view.item.strokeWidth = strokeWidth;
     this.updateJSON();
   }
+
   /**
    * The opacity of the path.
    * @type {number}
    */
-
-
   get opacity() {
     if (this.view.item.opacity === undefined || this.view.item.opacity === null) {
       return 1.0;
     }
-
     return this.view.item.opacity;
   }
-
   set opacity(opacity) {
     this.view.item.opacity = opacity;
     this.updateJSON();
   }
+
   /**
    * The font family of the path.
    * @type {string}
    */
-
-
   get fontFamily() {
     return this.view.item.fontFamily;
   }
-
   set fontFamily(fontFamily) {
     this.view.item.fontFamily = fontFamily;
     this.fontWeight = 400;
     this.fontStyle = 'normal';
     this.updateJSON();
   }
+
   /**
    * The font size of the path.
    * @type {number}
    */
-
-
   get fontSize() {
     return this.view.item.fontSize;
   }
-
   set fontSize(fontSize) {
     this.view.item.fontSize = fontSize;
     this.view.item.leading = fontSize * 1.2;
     this.updateJSON();
   }
+
   /**
    * The font weight of the path.
    * @type {number}
    */
-
-
   get fontWeight() {
     return this._fontWeight;
   }
-
   set fontWeight(fontWeight) {
     if (typeof fontWeight === 'string') {
       console.error('fontWeight must be a number.');
       return;
     }
-
     this._fontWeight = fontWeight;
     this.updateJSON();
   }
+
   /**
    * The font style of the path ('italic' or 'oblique').
    * @type {string}
    */
-
-
   get fontStyle() {
     return this._fontStyle;
   }
-
   set fontStyle(fontStyle) {
     this._fontStyle = fontStyle;
     this.updateJSON();
   }
+
   /**
    * The original style of the path (used to recover the path's style if it was changed by a custom onion skin style)
    * @type {object}
    */
-
-
   get originalStyle() {
     return this._originalStyle;
   }
-
   set originalStyle(originalStyle) {
     this._originalStyle = originalStyle;
   }
+
   /**
    * The content of the text.
    * @type {string}
    */
-
-
   get textContent() {
     return this.view.item.content;
   }
-
   set textContent(textContent) {
     this.view.item.content = textContent;
   }
+
   /**
    * Update the JSON of the path based on the path on the view.
    */
-
-
   updateJSON() {
     this.json = this.view.exportJSON();
   }
+
   /**
    * API function to change the textContent of dynamic text paths.
    */
-
-
   setText(newTextContent) {
     this.textContent = newTextContent;
   }
+
   /**
    * Check if this path is a dynamic text object.
    * @type {boolean}
    */
-
-
   get isDynamicText() {
     return this.pathType === 'text' && this.identifier !== null;
   }
+
   /**
    * The image asset that this path uses, if this path is a Raster path.
    * @returns {Wick.Asset[]}
    */
   //should this also return the SVGAsset if the path is loaded from an SVGAsset
-
-
   getLinkedAssets() {
     var linkedAssets = [];
     var data = this.serialize(); // just need the asset uuid...
-
     if (data.json[0] === 'Raster') {
       var uuid = data.json[1].source.split(':')[1];
       linkedAssets.push(this.project.getAssetByUUID(uuid));
     }
-
     return linkedAssets;
   }
+
   /**
    * Removes this path from its parent frame.
    */
-
-
   remove() {
     this.parentFrame.removePath(this);
   }
+
   /**
    * Creates a new path using boolean unite on multiple paths. The resulting path will use the fillColor, strokeWidth, and strokeColor of the first path in the array.
    * @param {Wick.Path[]} paths - an array containing the paths to process.
    * @returns {Wick.Path} The path resulting from the boolean unite.
    */
-
-
   static unite(paths) {
     return Wick.Path.booleanOp(paths, 'unite');
   }
+
   /**
    * Creates a new path using boolean subtration on multiple paths. The resulting path will use the fillColor, strokeWidth, and strokeColor of the first path in the array.
    * @param {Wick.Path[]} paths - an array containing the paths to process.
    * @returns {Wick.Path} The path resulting from the boolean subtraction.
    */
-
-
   static subtract(paths) {
     return Wick.Path.booleanOp(paths, 'subtract');
   }
+
   /**
    * Creates a new path using boolean intersection on multiple paths. The resulting path will use the fillColor, strokeWidth, and strokeColor of the first path in the array.
    * @param {Wick.Path[]} paths - an array containing the paths to process.
    * @returns {Wick.Path} The path resulting from the boolean intersection.
    */
-
-
   static intersect(paths) {
     return Wick.Path.booleanOp(paths, 'intersect');
   }
+
   /**
    * Perform a paper.js boolean operation on a list of paths.
    * @param {Wick.Path[]} paths - a list of paths to perform the boolean operation on.
    * @param {string} booleanOpName - the name of the boolean operation to perform. Currently supports "unite", "subtract", and "intersect"
    */
-
-
   static booleanOp(paths, booleanOpName) {
     if (!booleanOpName) {
       console.error('Wick.Path.booleanOp: booleanOpName is required');
     }
-
     if (booleanOpName !== 'unite' && booleanOpName !== 'subtract' && booleanOpName !== 'intersect') {
       console.error('Wick.Path.booleanOp: unsupported booleanOpName: ' + booleanOpName);
     }
-
     if (!paths || paths.length === 0) {
       console.error('Wick.Path.booleanOp: a non-empty list of paths is required');
-    } // Single path? Nothing to do.
+    }
 
-
+    // Single path? Nothing to do.
     if (paths.length === 1) {
       return paths[0];
-    } // Get paper.js path objects
+    }
 
-
+    // Get paper.js path objects
     paths = paths.map(path => {
       return path.view.item;
     });
@@ -54540,21 +53800,18 @@ Wick.Path = class extends Wick.Base {
     });
     return resultWickPath;
   }
+
   /**
    * Converts a stroke into fill. Only works with paths that have a strokeWidth and strokeColor, and have no fillColor. Does nothing otherwise.
    * @returns {Wick.Path} A flattened version of this path. Can be null if the path cannot be flattened.
    */
-
-
   flatten() {
     if (this.fillColor || !this.strokeColor || !this.strokeWidth) {
       return null;
     }
-
     if (!(this instanceof paper.Path)) {
       return null;
     }
-
     var flatPath = new Wick.Path({
       json: this.view.item.flatten().exportJSON({
         asString: false
@@ -54563,22 +53820,19 @@ Wick.Path = class extends Wick.Base {
     flatPath.fillColor = this.strokeColor;
     return flatPath;
   }
+
   /**
    * Is this path used as a placeholder for preventing empty clips?
    * @type {bool}
    */
-
-
   set isPlaceholder(isPlaceholder) {
     this._isPlaceholder = isPlaceholder;
   }
-
   get isPlaceholder() {
     return this._isPlaceholder;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -54596,6 +53850,7 @@ Wick.Path = class extends Wick.Base {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Asset = class extends Wick.Base {
   /**
    * Creates a new Wick Asset.
@@ -54606,48 +53861,42 @@ Wick.Asset = class extends Wick.Base {
     super(args);
     this.name = args.name;
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.name = this.name;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.name = data.name;
   }
+
   /**
    * A list of all objects using this asset.
    */
-
-
-  getInstances() {// Implemented by subclasses
+  getInstances() {
+    // Implemented by subclasses
   }
+
   /**
    * Check if there are any objects in the project that use this asset.
    * @returns {boolean}
    */
-
-
-  hasInstances() {// Implemented by sublasses
+  hasInstances() {
+    // Implemented by sublasses
   }
+
   /**
    * Remove all instances of this asset from the project. (Implemented by ClipAsset, ImageAsset, and SoundAsset)
    */
-
-
-  removeAllInstances() {// Implemented by sublasses
+  removeAllInstances() {
+    // Implemented by sublasses
   }
-
   get classname() {
     return 'Asset';
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -54665,6 +53914,7 @@ Wick.Asset = class extends Wick.Base {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.FileAsset = class extends Wick.Asset {
   /**
    * Returns all valid MIME types for files which can be converted to Wick Assets.
@@ -54679,13 +53929,12 @@ Wick.FileAsset = class extends Wick.Asset {
     let gifTypes = Wick.GIFAsset.getValidMIMETypes();
     return imageTypes.concat(soundTypes).concat(fontTypes).concat(clipTypes).concat(svgTypes).concat(gifTypes);
   }
+
   /**
    * Returns all valid extensions types for files which can be attempted to be
    * converted to Wick Assets.
    * @return  {string[]} Array of strings representing extensions.
    */
-
-
   static getValidExtensions() {
     let imageExtensions = Wick.ImageAsset.getValidExtensions();
     let soundExtensions = Wick.SoundAsset.getValidExtensions();
@@ -54695,13 +53944,12 @@ Wick.FileAsset = class extends Wick.Asset {
     let gifExtensions = Wick.GIFAsset.getValidExtensions();
     return imageExtensions.concat(soundExtensions).concat(fontExtensions).concat(clipExtensions).concat(svgExtensions).concat(gifExtensions);
   }
+
   /**
    * Create a new FileAsset.
    * @param {string} filename - the filename of the file being used as this asset's source.
    * @param {string} src - a base64 string containing the source for this asset.
    */
-
-
   constructor(args) {
     if (!args) args = {};
     args.name = args.filename;
@@ -54711,48 +53959,38 @@ Wick.FileAsset = class extends Wick.Asset {
     this.filename = args.filename;
     this.src = args.src;
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.filename = this.filename;
     data.MIMEType = this.MIMEType;
     data.fileExtension = this.fileExtension;
-
     if (args && args.includeOriginalSource) {
       data.originalSource = this.src;
     }
-
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.filename = data.filename;
     this.MIMEType = data.MIMEType;
     this.fileExtension = data.fileExtension;
-
     if (data.originalSource) {
       this.src = data.originalSource;
     }
   }
-
   get classname() {
     return 'FileAsset';
   }
+
   /**
    * The source of the data of the asset, in base64. Returns null if the file is not found.
    * @type {string}
    */
-
-
   get src() {
     let file = Wick.FileCache.getFile(this.uuid);
     if (file) return file.src;
     return null;
   }
-
   set src(src) {
     if (src) {
       Wick.FileCache.addFile(src, this.uuid);
@@ -54760,38 +53998,32 @@ Wick.FileAsset = class extends Wick.Asset {
       this.MIMEType = this._MIMETypeOfString(src);
     }
   }
+
   /**
    * Loads data about the file into the asset.
    */
-
-
   load(callback) {
     callback();
   }
+
   /**
    * Copies the FileAsset and also copies the src in FileCache.
    * @return {Wick.FileAsset}
    */
-
-
   copy() {
     var copy = super.copy();
     copy.src = this.src;
     return copy;
   }
-
   _MIMETypeOfString(string) {
     return string.split(':')[1].split(',')[0].split(';')[0];
   }
-
   _fileExtensionOfString(string) {
     var MIMEType = this._MIMETypeOfString(string);
-
     return MIMEType && MIMEType.split('/')[1];
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -54809,6 +54041,7 @@ Wick.FileAsset = class extends Wick.Asset {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.FontAsset = class extends Wick.FileAsset {
   /**
    * Valid MIME types for font assets.
@@ -54817,63 +54050,53 @@ Wick.FontAsset = class extends Wick.FileAsset {
   static getValidMIMETypes() {
     return ['font/ttf', 'application/x-font-ttf', 'application/x-font-truetype'];
   }
+
   /**
    * Valid extensions for font assets.
    * @returns {string[]} Array of strings representing extensions.
    */
-
-
   static getValidExtensions() {
     return ['.ttf'];
   }
+
   /**
    * The default font to use if a font couldn't load, or if a FontAsset was deleted
    * @type {string}
    */
-
-
   static get MISSING_FONT_DEFAULT() {
     return 'Helvetica, Arial, sans-serif';
   }
+
   /**
    * Create a new FontAsset.
    * @param {object} args - Asset constructor args. see constructor for Wick.Asset
    */
-
-
   constructor(args) {
     super(args);
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
   }
-
   get classname() {
     return 'FontAsset';
   }
+
   /**
    * Loads the font into the window.
    * @param {function} callback - function to call when the font is done being loaded.
    */
-
-
   load(callback) {
     var fontDataArraybuffer = Base64ArrayBuffer.decode(this.src.split(',')[1]);
     var fontFamily = this.fontFamily;
-
     if (!fontFamily) {
       console.error('FontAsset: Could not get fontFamily from filename.');
     } else if (fontFamily === "") {
       console.error('FontAsset: fontfamily not found. Showing as "".');
     }
-
     var font = new FontFace(fontFamily, fontDataArraybuffer);
     font.load().then(loaded_face => {
       document.fonts.add(loaded_face);
@@ -54884,12 +54107,11 @@ Wick.FontAsset = class extends Wick.FileAsset {
       callback(); // Make the callback so that the page doesn't freeze.
     });
   }
+
   /**
    * A list of Wick Paths that use this font as their fontFamily.
    * @returns {Wick.Path[]}
    */
-
-
   getInstances() {
     var paths = [];
     this.project.getAllFrames().forEach(frame => {
@@ -54901,37 +54123,33 @@ Wick.FontAsset = class extends Wick.FileAsset {
     });
     return paths;
   }
+
   /**
    * Check if there are any objects in the project that use this asset.
    * @returns {boolean}
    */
-
-
   hasInstances() {
     return this.getInstances().length > 0;
   }
+
   /**
    * Finds all PointText paths using this font as their fontFamily and replaces that font with a default font.
    */
-
-
   removeAllInstances() {
     this.getInstances().forEach(path => {
       path.fontFamily = Wick.FontAsset.MISSING_FONT_DEFAULT;
     });
   }
+
   /**
    * The name of the font that this FontAsset represents.
    * @type {string}
    */
-
-
   get fontFamily() {
     return this.filename.split('.')[0];
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -54949,6 +54167,7 @@ Wick.FontAsset = class extends Wick.FileAsset {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.ImageAsset = class extends Wick.FileAsset {
   /**
    * Valid MIME types for image assets.
@@ -54959,48 +54178,40 @@ Wick.ImageAsset = class extends Wick.FileAsset {
     let pngTypes = ['image/png'];
     return jpgTypes.concat(pngTypes);
   }
+
   /**
    * Valid extensions for image assets.
    * @returns {string[]} Array of strings representing extensions.
    */
-
-
   static getValidExtensions() {
     return ['.jpeg', '.jpg', '.png'];
   }
+
   /**
    * Create a new ImageAsset.
    * @param {object} args - Asset constructor args. see constructor for Wick.Asset
    */
-
-
   constructor(args) {
     super(args);
     this.gifAssetUUID = null;
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.gifAssetUUID = this.gifAssetUUID;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.gifAssetUUID = data.gifAssetUUID;
   }
-
   get classname() {
     return 'ImageAsset';
   }
+
   /**
    * A list of Wick Paths that use this image as their image source.
    * @returns {Wick.Path[]}
    */
-
-
   getInstances() {
     var paths = [];
     this.project.getAllFrames().forEach(frame => {
@@ -55012,71 +54223,63 @@ Wick.ImageAsset = class extends Wick.FileAsset {
     });
     return paths;
   }
+
   /**
    * Check if there are any objects in the project that use this asset.
    * @returns {boolean}
    */
-
-
   hasInstances() {
     return this.getInstances().length > 0;
   }
+
   /**
    * Removes all paths using this asset as their image source from the project.
    * @returns {boolean}
    */
-
-
   removeAllInstances() {
     this.getInstances().forEach(path => {
       path.remove();
     });
   }
+
   /**
    * Load data in the asset
    * @param {function} callback - function to call when the data is done being loaded.
    */
-
-
   load(callback) {
     // Try to get paper.js to cache the image src.
     var img = new Image();
     img.src = this.src;
-
     img.onload = () => {
       var raster = new paper.Raster(img);
       raster.remove();
       callback();
     };
-
     img.onerror = () => {
       this.project.errorOccured("Error loading image " + this.filename + ". Check that this is loaded properly.");
       callback();
     };
   }
+
   /**
    * Creates a new Wick Path that uses this asset's image data as it's image source.
    * @param {function} callback - called when the path is done loading.
    */
-
-
   createInstance(callback) {
     Wick.Path.createImagePath(this, path => {
       callback(path);
     });
   }
+
   /**
    * Is this image asset part of a GIF? (if this is set to true, this asset won't appear in the asset library GUI)
    * @type {boolean}
    */
-
-
   get isGifImage() {
     return this.gifAssetUUID;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -55094,6 +54297,7 @@ Wick.ImageAsset = class extends Wick.FileAsset {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.ClipAsset = class extends Wick.FileAsset {
   /**
    * Returns all valid MIME types for files which can be converted to ClipAssets.
@@ -55102,29 +54306,26 @@ Wick.ClipAsset = class extends Wick.FileAsset {
   static getValidMIMETypes() {
     return ['application/json', 'application/octet-stream'];
   }
+
   /**
    * Returns all valid extensions types for files which can be attempted to be
    * converted to ClipAssets.
    * @return  {string[]} Array of strings representing extensions.
    */
-
-
   static getValidExtensions() {
     return ['.wickobj'];
   }
+
   /**
    * Creates a ClipAsset from the data of a given Clip.
    * @param {Wick.Clip} - the clip to use as a source
    * @param {function} callback -
    */
-
-
   static fromClip(clip, project, callback) {
     project.addObject(clip);
     Wick.WickObjectFile.toWickObjectFile(clip, 'blob', file => {
       // Convert blob to dataURL
       var a = new FileReader();
-
       a.onload = e => {
         // Create ClipAsset
         var clipAsset = new Wick.ClipAsset({
@@ -55134,39 +54335,32 @@ Wick.ClipAsset = class extends Wick.FileAsset {
         clip.remove();
         callback(clipAsset);
       };
-
       a.readAsDataURL(file);
     });
   }
+
   /**
    * Create a new ClipAsset.
    * @param {object} args
    */
-
-
   constructor(args) {
     super(args);
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
   }
-
   get classname() {
     return 'ClipAsset';
   }
+
   /**
    * A list of Wick Clips that use this ClipAsset as their source.
    * @returns {Wick.Clip[]}
    */
-
-
   getInstances() {
     var clips = [];
     this.project.getAllFrames().forEach(frame => {
@@ -55178,70 +54372,63 @@ Wick.ClipAsset = class extends Wick.FileAsset {
     });
     return clips;
   }
+
   /**
    * Check if there are any objects in the project that use this asset.
    * @returns {boolean}
    */
-
-
   hasInstances() {
     return this.getInstances().length > 0;
   }
+
   /**
    * Removes all Clips using this asset as their source from the project.
    * @returns {boolean}
    */
-
-
   removeAllInstances() {
     this.getInstances().forEach(instance => {
       instance.remove();
-    }); // Also remove any ImageAssets that are part of this clip, and are GIF frames
+    });
 
+    // Also remove any ImageAssets that are part of this clip, and are GIF frames
     this.project.getAllFrames().forEach(frame => {
       frame.paths.forEach(path => {
         var images = path.getLinkedAssets();
-
         if (images.length > 0 && images[0].gifAssetUUID === this.uuid) {
           images[0].remove();
         }
       });
     });
   }
+
   /**
    * Load data in the asset
    * @param {function} callback - function to call when the data is done being loaded.
    */
-
-
   load(callback) {
     // We don't need to do anything here, the data for ClipAssets is just json
     callback();
   }
+
   /**
    * Creates a new Wick Clip that uses this asset's data.
    * @param {function} callback - called when the Clip is done loading.
    */
-
-
   createInstance(callback, project) {
     if (!callback) {
       console.warn("Cannot create clip instance without callback.");
     }
-
     if (!project) {
       console.warn("Cannot create clip instance without project reference.");
     }
-
     Wick.WickObjectFile.fromWickObjectFile(this.src, data => {
       var clip = Wick.Base.import(data, project).copy();
       clip.assetSourceUUID = this.uuid;
       callback(clip);
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -55259,6 +54446,7 @@ Wick.ClipAsset = class extends Wick.FileAsset {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GIFAsset = class extends Wick.ClipAsset {
   /**
    * Returns all valid MIME types for files which can be converted to GIFAssets.
@@ -55267,28 +54455,25 @@ Wick.GIFAsset = class extends Wick.ClipAsset {
   static getValidMIMETypes() {
     return ['image/gif'];
   }
+
   /**
    * Returns all valid extensions types for files which can be attempted to be
    * converted to GIFAssets.
    * @return  {string[]} Array of strings representing extensions.
    */
-
-
   static getValidExtensions() {
     return ['.gif'];
   }
+
   /**
    * Create a new GIFAsset from a series of images.
    * @param {Wick.ImageAsset} images - The ImageAssets, in order of where they will appear in the timeline, which are used to create a ClipAsset
    * @param {function} callback - Fuction to be called when the asset is done being created
    */
-
-
   static fromImages(images, project, callback) {
     var clip = new Wick.Clip();
     clip.activeFrame.remove();
     var imagesCreatedCount = 0;
-
     var processNextImage = () => {
       images[imagesCreatedCount].createInstance(imagePath => {
         // Create a frame for every image
@@ -55296,10 +54481,10 @@ Wick.GIFAsset = class extends Wick.ClipAsset {
           start: imagesCreatedCount + 1
         });
         frame.addPath(imagePath);
-        clip.activeLayer.addFrame(frame); // Check if all images have been created
+        clip.activeLayer.addFrame(frame);
 
+        // Check if all images have been created
         imagesCreatedCount++;
-
         if (imagesCreatedCount === images.length) {
           Wick.ClipAsset.fromClip(clip, project, clipAsset => {
             // Attach a reference to the resulting clip to all images
@@ -55314,74 +54499,63 @@ Wick.GIFAsset = class extends Wick.ClipAsset {
         }
       });
     };
-
     processNextImage();
   }
+
   /**
    * Create a new GIFAsset.
    * @param {object} args - Asset args, see Wick.Asset constructor
    */
-
-
   constructor(args) {
     super(args);
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
   }
-
   get classname() {
     return 'GIFAsset';
   }
+
   /**
    * A list of objects that use this asset as their source.
    * @returns {Wick.Clip[]}
    */
-
-
   getInstances() {
     // Inherited from ClipAsset
     return super.getInstances();
   }
+
   /**
    * Check if there are any objects in the project that use this asset.
    * @returns {boolean}
    */
-
-
   hasInstances() {
     // Inherited from ClipAsset
     return super.hasInstances();
   }
+
   /**
    * Removes all objects using this asset as their source from the project.
    * @returns {boolean}
    */
-
-
   removeAllInstances() {
     // Inherited from ClipAsset
     super.removeAllInstances();
   }
+
   /**
    * Load data in the asset
    */
-
-
   load(callback) {
     // We don't need to do anything here, the data for ClipAssets/GIFAssets is just json
     callback();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -55399,6 +54573,7 @@ Wick.GIFAsset = class extends Wick.ClipAsset {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.SoundAsset = class extends Wick.FileAsset {
   /**
    * Returns valid MIME types for a Sound Asset.
@@ -55410,39 +54585,34 @@ Wick.SoundAsset = class extends Wick.FileAsset {
     let wavTypes = ['audio/wave', 'audio/wav', 'audio/x-wav', 'audio/x-pn-wav'];
     return mp3Types.concat(oggTypes).concat(wavTypes);
   }
+
   /**
    * Returns valid extensions for a sound asset.
    * @returns {string[]} Array of strings representing valid
    */
-
-
   static getValidExtensions() {
     return ['.mp3', '.ogg', '.wav'];
   }
+
   /**
    * Creates a new SoundAsset.
    * @param {object} args - Asset constructor args. see constructor for Wick.Asset
    */
-
-
   constructor(args) {
     super(args);
     this._waveform = null;
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
   }
-
   get classname() {
     return 'SoundAsset';
   }
+
   /**
    * Plays this asset's sound.
    * @param {number} seekMS - the amount of time in milliseconds into the sound the sound should start at.
@@ -55450,61 +54620,51 @@ Wick.SoundAsset = class extends Wick.FileAsset {
    * @param {boolean} loop - if set to true, the sound will loop
    * @return {number} The id of the sound instance that was played.
    */
-
-
   play(options) {
     if (!options) options = {};
     if (options.seekMS === undefined) options.seekMS = 0;
     if (options.volume === undefined) options.volume = 1.0;
-    if (options.loop === undefined) options.loop = false; // don't do anything if the project is muted...
+    if (options.loop === undefined) options.loop = false;
 
+    // don't do anything if the project is muted...
     if (this.project.muted) {
       return;
     }
-
     var id = this._howl.play();
-
     this._howl.seek(options.seekMS / 1000, id);
-
     this._howl.volume(options.volume, id);
-
     this._howl.loop(options.loop, id);
-
     return id;
   }
+
   /**
    * Stops this asset's sound.
    * @param {number} id - (optional) the ID of the instance to stop. If ID is not given, every instance of this sound will stop.
    */
-
-
   stop(id) {
     // Howl instance was never created, sound has never played yet, so do nothing
     if (!this._howl) {
       return;
     }
-
     if (id === undefined) {
       this._howl.stop();
     } else {
       this._howl.stop(id);
     }
   }
+
   /**
    * The length of the sound in seconds
    * @type {number}
    */
-
-
   get duration() {
     return this._howl.duration();
   }
+
   /**
    * A list of frames that use this sound.
    * @returns {Wick.Frame[]}
    */
-
-
   getInstances() {
     var frames = [];
     this.project.getAllFrames().forEach(frame => {
@@ -55514,31 +54674,28 @@ Wick.SoundAsset = class extends Wick.FileAsset {
     });
     return frames;
   }
+
   /**
    * Check if there are any objects in the project that use this asset.
    * @returns {boolean}
    */
-
-
   hasInstances() {
     return this.getInstances().length > 0;
   }
+
   /**
    * Remove the sound from any frames in the project that use this asset as their sound.
    */
-
-
   removeAllInstances() {
     this.getInstances().forEach(frame => {
       frame.removeSound();
     });
   }
+
   /**
    * Loads data about the sound into the asset.
    * @param {function} callback - function to call when the data is done being loaded.
    */
-
-
   load(callback) {
     this._generateWaveform(() => {
       this._waitForHowlLoad(() => {
@@ -55546,16 +54703,14 @@ Wick.SoundAsset = class extends Wick.FileAsset {
       });
     });
   }
+
   /**
    * Image of the waveform of this sound.
    * @type {Image}
    */
-
-
   get waveform() {
     return this._waveform;
   }
-
   get _howl() {
     // Lazily create howler instance
     if (!this._howlInstance) {
@@ -55566,10 +54721,8 @@ Wick.SoundAsset = class extends Wick.FileAsset {
         src: [srcFixed]
       });
     }
-
     return this._howlInstance;
   }
-
   _waitForHowlLoad(callback) {
     if (this._howl.state() === 'loaded') {
       callback();
@@ -55579,31 +54732,26 @@ Wick.SoundAsset = class extends Wick.FileAsset {
       });
     }
   }
-
   _generateWaveform(callback) {
     if (this._waveform) {
       callback();
       return;
     }
-
     var soundSrc = this.src;
     if (!soundSrc) console.log("error", this, soundSrc);
     var scwf = new SCWF();
     scwf.generate(soundSrc, {
       onComplete: (png, pixels) => {
         this._waveform = new Image();
-
         this._waveform.onload = () => {
           callback();
         };
-
         this._waveform.src = png;
       }
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -55621,6 +54769,7 @@ Wick.SoundAsset = class extends Wick.FileAsset {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.SVGAsset = class extends Wick.FileAsset {
   /**
    * Returns all valid MIME types for files which can be converted to SVGAssets.
@@ -55629,82 +54778,72 @@ Wick.SVGAsset = class extends Wick.FileAsset {
   static getValidMIMETypes() {
     return ['image/svg+xml'];
   }
+
   /**
    * Returns all valid extensions types for files which can be attempted to be
    * converted to SVGAssets.
    * @return  {string[]} Array of strings representing extensions.
    */
-
-
   static getValidExtensions() {
     return ['.svg'];
   }
+
   /**
    * Create a new SVGAsset.
    * @param {object} args
    */
-
-
   constructor(args) {
     super(args);
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
   }
-
   get classname() {
     return 'SVGAsset';
   }
+
   /**
    * A list of Wick Paths, Clips and Layers that use this SVGAsset as their image source.
    * I think this should return Assets not Paths
    * @returns {Wick.Path[]}
    */
-
-
   getInstances() {
     return []; // TODO
   }
+
   /**
    * Check if there are any objects in the project that use this asset.
    * @returns {boolean}
    */
-
-
   hasInstances() {
     return false;
   }
+
   /**
    * Removes all Items using this asset as their source from the project.
    * @returns {boolean}
    */
-
-
-  removeAllInstances() {// TODO
+  removeAllInstances() {
+    // TODO
   }
+
   /**
    * Load data in the asset
    */
-
-
   load(callback) {
     // We don't need to do anything here, the data for SVGAssets is just SVG
     callback();
   }
+
   /**
    * Walks through the items tree creating the apprptiate wick object for each node*
    * @param {paper.Item} item - called when the Path is done loading.
    * @returns {Wick.Base}
    */
-
-
   static walkItems(item) {
     // create paths for all the path items, this also needs to be done for the following item.className=:
     // 'Group', 'Layer', 'Path', 'CompoundPath', 'Shape', 'Raster', 'SymbolItem', 'PointText'
@@ -55718,16 +54857,15 @@ Wick.SVGAsset = class extends Wick.FileAsset {
       var frame = new Wick.Frame();
       wickItem.addFrame(frame);
       var groupChildren = Array.from(item.children); //prevent any side effects
-
       groupChildren.forEach(childItem => {
         var wickChildItem = Wick.SVGAsset.walkItems(childItem).copy();
-
         if (wickChildItem instanceof Wick.Clip) {
           frame.addClip(wickChildItem);
         } else if (wickChildItem instanceof Wick.Path) {
           frame.addPath(wickChildItem);
         } else if (wickChildItem instanceof Wick.Layer) {
-          frame.addLayer(wickChildItem); //console.error("SVG Import: Error importing, nested layers.ignoring."); // Insert text
+          frame.addLayer(wickChildItem);
+          //console.error("SVG Import: Error importing, nested layers.ignoring."); // Insert text
         } else {
           console.error("SVG Import: Unknown item type.".concat(wickChildItem.classname)); // Insert text
         }
@@ -55737,12 +54875,10 @@ Wick.SVGAsset = class extends Wick.FileAsset {
       var wickObjects = [];
       var layers = [];
       var groupChildren = Array.from(item.children); //prevent any side effects
-
       groupChildren.forEach(childItem => {
-        var clipActiveLayer = wickItem.activeLayer; ///This should be clips and paths not layers
-
+        var clipActiveLayer = wickItem.activeLayer;
+        ///This should be clips and paths not layers
         var walkItem = Wick.SVGAsset.walkItems(childItem).copy();
-
         if (walkItem instanceof Wick.Layer) {
           //console.error("SVG Import: Clip has a child that is a layer, this should never happen. ignoring."); // Insert text
           layers.push(walkItem);
@@ -55753,9 +54889,7 @@ Wick.SVGAsset = class extends Wick.FileAsset {
       });
       wickItem.addObjects(wickObjects); //add the items to the project
       // add layers after onjects so the objexts don't get bound to the new layer
-
       var layersCopy = Array.from(layers); //prevent any side effects
-
       layersCopy.forEach(layer => {
         wickItem.timeline.addLayer(layer);
       });
@@ -55769,7 +54903,6 @@ Wick.SVGAsset = class extends Wick.FileAsset {
         json: item.exportJSON()
       });
     }
-
     return wickItem;
   }
   /**
@@ -55781,11 +54914,8 @@ Wick.SVGAsset = class extends Wick.FileAsset {
    * Walks through the items tree converting shapes into paths. This should be possible to do in the walkitems routine
    * @param {Paper.Item} item - called when the Path is done loading.
    */
-
-
   static _breakAppartShapesRecursively(item) {
     item.applyMatrix = true;
-
     if (item instanceof paper.Group || item instanceof paper.Layer) {
       var children = Array.from(item.children);
       children.forEach(childItem => {
@@ -55793,18 +54923,18 @@ Wick.SVGAsset = class extends Wick.FileAsset {
       });
     } else if (item instanceof paper.Shape) {
       //This should have been done automatically by the import options, spo shouldn't be needed
-      var path = item.toPath(); //item.parent.addChild(path);
+      var path = item.toPath();
+      //item.parent.addChild(path);
       //path.insertAbove(item);
       //item.remove();
-
       item.replaceWith(path);
     }
   }
+
   /**
    * Creates a new Wick SVG that uses this asset's data.
    * @param {function} callback - called when the SVG is done loading.
    */
-
 
   createInstance(callback) {
     // needs to take a base64 encoded string.
@@ -55839,18 +54969,14 @@ Wick.SVGAsset = class extends Wick.FileAsset {
         expandShapes: true,
         insert: false
       });
-
       Wick.SVGAsset._breakAppartShapesRecursively(item);
-
       var wickItem = Wick.SVGAsset.walkItems(item).copy();
       callback(wickItem);
     };
-
     Wick.SVGFile.fromSVGFile(this.src, importSVG);
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -55879,20 +55005,18 @@ Wick.Tickable = class extends Wick.Base {
   static get LOG_ERRORS() {
     return false;
   }
+
   /**
    * Returns a list of all possible events for this object.
    * @return {string[]} Array of all possible scripts.
    */
-
-
   static get possibleScripts() {
     return ['default', 'mouseenter', 'mousedown', 'mousepressed', 'mousereleased', 'mouseleave', 'mousehover', 'mousedrag', 'mouseclick', 'keypressed', 'keyreleased', 'keydown', 'load', 'update', 'unload'];
   }
+
   /**
    * Create a new tickable object.
    */
-
-
   constructor(args) {
     if (!args) args = {};
     super(args);
@@ -55907,10 +55031,8 @@ Wick.Tickable = class extends Wick.Base {
     this._onEventFns = {};
     this._cachedScripts = {};
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this._onscreen = false;
     this._onscreenLastTick = false;
     this._mouseState = 'out';
@@ -55920,139 +55042,119 @@ Wick.Tickable = class extends Wick.Base {
     this._onEventFns = {};
     this._cachedScripts = {};
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.scripts = JSON.parse(JSON.stringify(this._scripts));
     data.cursor = this.cursor;
     return data;
   }
-
   get classname() {
     return 'Tickable';
   }
+
   /**
    * The scripts on this object.
    * @type {object[]}
    */
-
-
   get scripts() {
     return this._scripts;
   }
+
   /**
    * Checks if this object has a non-empty script.
    * @type {boolean}
    */
-
-
   get hasContentfulScripts() {
     var hasContentfulScripts = false;
-
     for (var script of this.scripts) {
       if (this.scriptIsContentful(script.name)) {
         hasContentfulScripts = true;
       }
     }
-
     return hasContentfulScripts;
   }
+
   /**
    * Check if this object is currently visible in the project, based on its parent.
    * @type {boolean}
    */
-
-
   get onScreen() {
     if (!this.parent) return false;
     return this.parent.onScreen;
   }
+
   /**
    * Add a function to be called when an event happens.
    * @param {string} name - The name of the event to attach the function to.
    * @param {function} fn - The function to call when the given event happens.
    */
-
-
   onEvent(name, fn) {
     if (Wick.Tickable.possibleScripts.indexOf(name) === -1) {
       console.warn("onEvent: " + name + " is not a valid event name.");
       return;
     }
-
     this.addEventFn(name, fn);
   }
+
   /**
    * Attach a function to a given event.
    * @param {string} name - the name of the event to attach a function to.
    * @param {function} fn - the function to attach
    */
-
-
   addEventFn(name, fn) {
     this.getEventFns(name).push(fn);
   }
+
   /**
    * Gets all functions attached to an event with a given name.
    * @param {string} - The name of the event
    */
-
-
   getEventFns(name) {
     if (!this._onEventFns[name]) {
       this._onEventFns[name] = [];
     }
-
     return this._onEventFns[name];
   }
+
   /**
    * Check if an object can have scripts attached to it. Helpful when iterating through a lot of different wick objects that may or may not be tickables. Always returns true.
    * @type {boolean}
    */
-
-
   get isScriptable() {
     return true;
   }
+
   /**
    * Add a new script to an object.
    * @param {string} name - The name of the event that will trigger the script. See Wick.Tickable.possibleScripts
    * @param {string} src - The source code of the new script.
    */
-
-
   addScript(name, src) {
     if (Wick.Tickable.possibleScripts.indexOf(name) === -1) console.error(name + ' is not a valid script!');
-
     if (this.hasScript(name)) {
       this.updateScript(name, src);
       return;
     }
-
     this._scripts.push({
       name: name,
       src: ''
-    }); // Sort scripts by where they appear in the possibleScripts list
+    });
 
-
+    // Sort scripts by where they appear in the possibleScripts list
     var possibleScripts = Wick.Tickable.possibleScripts;
-
     this._scripts.sort((a, b) => {
       return possibleScripts.indexOf(a.name) - possibleScripts.indexOf(b.name);
     });
-
     if (src) {
       this.updateScript(name, src);
     }
   }
+
   /**
    * Get the script of this object that is triggered when the given event name happens.
    * @param {string} name - The name of the event. See Wick.Tickable.possibleScripts
    * @returns {object} the script with the given name. Can be null if the object doesn't have that script.
    */
-
-
   getScript(name) {
     if (Wick.Tickable.possibleScripts.indexOf(name) === -1) {
       console.error(name + ' is not a valid script!');
@@ -56062,7 +55164,6 @@ Wick.Tickable = class extends Wick.Base {
       let script = this._scripts.find(script => {
         return script.name === name;
       });
-
       if (!script) {
         // Create the script if it doesn't exist.
         script = {
@@ -56070,167 +55171,144 @@ Wick.Tickable = class extends Wick.Base {
           src: ""
         };
         return script;
-      } // If the script is missing, add an empty.
+      }
 
-
+      // If the script is missing, add an empty.
       if (!script.src) {
         script.src = "";
       }
-
       return script;
     }
   }
+
   /**
    * Returns a list of script names which are not currently in use for this object.
    * @return {string[]} Available script names.
    */
-
-
   getAvailableScripts() {
     return Wick.Tickable.possibleScripts.filter(script => !this.hasScript(script));
   }
+
   /**
    * Check if the object has a script with the given event name.
    * @param {string} name - The name of the event. See Wick.Tickable.possibleScripts
    * @returns {boolean} True if the script with the given name exists
    */
-
-
   hasScript(name) {
     let script = this.scripts.find(script => script.name === name);
-
     if (script) {
       return true;
     }
-
     return false;
   }
+
   /**
    * Check if the object has a non-empty script with a given name.
    * @param {string} name - The name of the event. See Wick.Tickable.possibleScripts
    * @returns {boolean} True if the script with the given name has code
    */
-
-
   scriptIsContentful(name) {
     if (!this.hasScript(name)) {
       return false;
     }
-
     var script = this.getScript(name);
-
     if (script && script.src.trim() !== '') {
       return true;
     }
-
     return false;
   }
+
   /**
    * Changes the source of the script with the given event name.
    * @param {string} name - The name of the event that will trigger the script. See Wick.Tickable.possibleScripts
    * @param {string} src - The source code of the script.
    */
-
-
   updateScript(name, src) {
     if (!src) src = ""; // Reset script if it is not defined.
-
     this.getScript(name).src = src;
     delete this._cachedScripts[name];
   }
+
   /**
    * Remove the script that corresponds to a given event name.
    * @param {string} name - The name of the event. See Wick.Tickable.possibleScripts
    */
-
-
   removeScript(name) {
     this._scripts = this._scripts.filter(script => {
       return script.name !== name;
     });
   }
+
   /**
    * Schedule a script to run at the end of the tick.
    * @param {string} name - The name of the script to run. See Tickable.possibleScripts
    * @param {Object} parameters - An object consisting of key,value pairs which correspond to parameters to pass to the script.
    */
-
-
   scheduleScript(name, parameters) {
     if (!this.project) return;
     this.project.scheduleScript(this.uuid, name, parameters);
   }
+
   /**
    * Run the script with the corresponding event name. Will not run the script if the object is marked as removed.
    * @param {string} name - The name of the event. See Wick.Tickable.possibleScripts
    * @param {Object} parameters - An object containing key,value pairs of parameters to send to the script.
    * @returns {object} object containing error info if an error happened. Returns null if there was no error (script ran successfully)
    */
-
-
   runScript(name, parameters) {
     if (this.removed || !this.onScreen) {
       return;
     }
-
     if (!Wick.Tickable.possibleScripts.indexOf(name) === -1) {
       console.error(name + ' is not a valid script!');
-    } // Don't run scripts if this object is the focus
+    }
+    // Don't run scripts if this object is the focus
     // (this makes it so preview play will always play, even if the parent Clip of the timeline has a stop script)
-
-
     if (this.project && this.project.focus === this) {
       return null;
-    } // Run functions attached using onEvent
+    }
 
-
+    // Run functions attached using onEvent
     var eventFnError = null;
     this.getEventFns(name).forEach(eventFn => {
       if (eventFnError) return;
       eventFnError = this._runFunction(eventFn, name, parameters);
     });
-
     if (eventFnError) {
       this.project.error = eventFnError;
       return;
-    } // Run function inside tab
+    }
 
-
+    // Run function inside tab
     if (this.scriptIsContentful(name)) {
       var script = this.getScript(name);
-
       var fn = this._cachedScripts[name] || this._evalScript(name, script.src);
-
       if (!(fn instanceof Function)) {
         return fn; // error
       }
-
       this._cachedScripts[name] = fn;
-
       var error = this._runFunction(fn, name, parameters);
-
       if (error && this.project) {
         this.project.error = error;
         return;
       }
     }
   }
+
   /**
    * The tick routine to be called when the object ticks.
    * @returns {object} - An object with information about the result from ticking. Null if no errors occured, and the script ran successfully.
    */
-
-
   tick() {
     // Update named child references
-    this._attachChildClipReferences(); // Update onScreen flags.
+    this._attachChildClipReferences();
 
-
+    // Update onScreen flags.
     this._onscreenLastTick = this._onscreen;
-    this._onscreen = this.onScreen; // Update mouse states.
+    this._onscreen = this.onScreen;
 
+    // Update mouse states.
     this._lastMouseState = this._mouseState;
-
     if (this.project && this.project.objectIsMouseTarget(this)) {
       if (this.project.isMouseDown) {
         this._mouseState = 'down';
@@ -56239,9 +55317,9 @@ Wick.Tickable = class extends Wick.Base {
       }
     } else {
       this._mouseState = 'out';
-    } // Call tick event function that corresponds to state.
+    }
 
-
+    // Call tick event function that corresponds to state.
     if (!this._onscreen && !this._onscreenLastTick) {
       this._onInactive();
     } else if (this._onscreen && !this._onscreenLastTick) {
@@ -56252,77 +55330,77 @@ Wick.Tickable = class extends Wick.Base {
       this._onDeactivated();
     }
   }
-
-  _onInactive() {// Do nothing.
+  _onInactive() {
+    // Do nothing.
   }
-
   _onActivated() {
     this.runScript('default'); // Run the script immediately.
-
     this.scheduleScript('load');
   }
-
   _onActive() {
     this.scheduleScript('update');
     var current = this._mouseState;
-    var last = this._lastMouseState; // Mouse enter
+    var last = this._lastMouseState;
 
+    // Mouse enter
     if (last === 'out' && current !== 'out') {
       this.scheduleScript('mouseenter');
-    } // Mouse down
+    }
 
-
+    // Mouse down
     if (current === 'down') {
       this.scheduleScript('mousedown');
-    } // Mouse pressed
+    }
 
-
+    // Mouse pressed
     if (last === 'over' && current === 'down') {
       this._isClickTarget = true;
       this.scheduleScript('mousepressed');
-    } // Mouse click
+    }
 
-
+    // Mouse click
     if (last === 'down' && current === 'over' && this._isClickTarget) {
       this.scheduleScript('mouseclick');
-    } // Mouse released
+    }
 
-
+    // Mouse released
     if (last === 'down' && current === 'over') {
       this._isClickTarget = false;
       this.scheduleScript('mousereleased');
-    } // Mouse leave
+    }
 
-
+    // Mouse leave
     if (last !== 'out' && current === 'out') {
       this.scheduleScript('mouseleave');
-    } // Mouse hover
+    }
 
-
+    // Mouse hover
     if (current === 'over') {
       this.scheduleScript('mousehover');
-    } // Mouse drag
+    }
 
-
+    // Mouse drag
     if (last === 'down' && current === 'down') {
       this.scheduleScript('mousedrag');
-    } // Key down
+    }
 
-
+    // Key down
     this.project.keysDown.forEach(key => {
       this.project.currentKey = key;
       this.scheduleScript('keydown', {
         key: key
       });
-    }); // Key press
+    });
 
+    // Key press
     this.project.keysJustPressed.forEach(key => {
       this.project.currentKey = key;
       this.scheduleScript('keypressed', {
         key: key
       });
-    }); // Key released
+    });
 
+    // Key released
     this.project.keysJustReleased.forEach(key => {
       this.project.currentKey = key;
       this.scheduleScript('keyreleased', {
@@ -56330,23 +55408,22 @@ Wick.Tickable = class extends Wick.Base {
       });
     });
   }
-
   _onDeactivated() {
     this._isClickTarget = false;
     this.scheduleScript('unload');
   }
-
   _evalScript(name, src) {
-    var fn = null; // Check for syntax/parsing errors
+    var fn = null;
 
+    // Check for syntax/parsing errors
     try {
       esprima.parseScript(src);
     } catch (e) {
       this.project.error = this._generateEsprimaErrorInfo(e, name);
       return;
-    } // Attempt to create valid function...
+    }
 
-
+    // Attempt to create valid function...
     try {
       fn = new Function([], src);
     } catch (e) {
@@ -56355,20 +55432,19 @@ Wick.Tickable = class extends Wick.Base {
       this.project.error = this._generateErrorInfo(e, name);
       return;
     }
-
     return fn;
   }
+
   /**
    * _runFunction runs an event function while passing in necessary global and local parameters.
    * @param {string} fn - Function to run.
    * @param {string} name - Name of the event function being run (i.e. keyDown)
    * @param {Object} parameters - An object of key,value pairs to be passed as parameters to the function.
    */
-
-
   _runFunction(fn, name, parameters) {
-    var error = null; // Attach API methods
+    var error = null;
 
+    // Attach API methods
     var globalAPI = new GlobalAPI(this);
     var otherObjects = this.parentClip ? this.parentClip.activeNamedChildren : [];
     var apiMembers = globalAPI.apiMembers.concat(otherObjects.map(otherObject => {
@@ -56376,8 +55452,9 @@ Wick.Tickable = class extends Wick.Base {
         name: otherObject.identifier,
         fn: otherObject
       };
-    })); // Add in parameters, if necessary.
+    }));
 
+    // Add in parameters, if necessary.
     if (parameters) {
       Object.keys(parameters).forEach(parameter => {
         apiMembers.push({
@@ -56386,50 +55463,49 @@ Wick.Tickable = class extends Wick.Base {
         });
       });
     }
-
     apiMembers.forEach(apiMember => {
       window[apiMember.name] = apiMember.fn;
-    }); // These are currently hacked in here for performance reasons...
+    });
 
+    // These are currently hacked in here for performance reasons...
     var project = this.project;
     var root = project && project.root;
     window.project = root;
-
     if (project) {
       window.project.resolution = {
         x: project.width,
         y: project.height
       };
       window.project.framerate = project.framerate;
-      window.project.backgroundColor = project.backgroundColor; //window.project.hitTestOptions = project.hitTestOptions;
+      window.project.backgroundColor = project.backgroundColor;
+      //window.project.hitTestOptions = project.hitTestOptions;
     }
-
     window.root = root;
     window.parent = this.parentClip;
-    window.parentObject = this.parentObject; // Run the function
+    window.parentObject = this.parentObject;
 
+    // Run the function
     var thisScope = this instanceof Wick.Frame ? this.parentClip : this;
-
     try {
       fn.bind(thisScope)();
     } catch (e) {
       // Catch runtime errors
       console.error(e);
       error = this._generateErrorInfo(e, name);
-    } // These are currently hacked in here for performance reasons...
+    }
 
-
+    // These are currently hacked in here for performance reasons...
     delete window.project;
     delete window.root;
     delete window.parent;
-    delete window.parentObject; // Detatch API methods
+    delete window.parentObject;
 
+    // Detatch API methods
     apiMembers.forEach(apiMember => {
       delete window[apiMember.name];
     });
     return error;
   }
-
   _generateErrorInfo(error, name) {
     if (Wick.Tickable.LOG_ERRORS) console.log(error);
     return {
@@ -56439,7 +55515,6 @@ Wick.Tickable = class extends Wick.Base {
       uuid: this.isClone ? this.sourceClipUUID : this.uuid
     };
   }
-
   _generateEsprimaErrorInfo(error, name) {
     if (Wick.Tickable.LOG_ERRORS) console.log(error);
     return {
@@ -56449,7 +55524,6 @@ Wick.Tickable = class extends Wick.Base {
       uuid: this.uuid
     };
   }
-
   _generateLineNumberFromStackTrace(trace) {
     var lineNumber = null;
     trace.split('\n').forEach(line => {
@@ -56457,7 +55531,6 @@ Wick.Tickable = class extends Wick.Base {
       var split = line.split(':');
       var lineString = split[split.length - 2];
       var lineInt = parseInt(lineString);
-
       if (!isNaN(lineInt)) {
         lineNumber = lineInt - 2;
         lineNumber = lineInt;
@@ -56466,12 +55539,11 @@ Wick.Tickable = class extends Wick.Base {
     });
     return lineNumber;
   }
-
-  _attachChildClipReferences() {// Implemented by Wick.Clip and Wick.Frame.
+  _attachChildClipReferences() {
+    // Implemented by Wick.Clip and Wick.Frame.
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -56511,10 +55583,8 @@ Wick.Frame = class extends Wick.Tickable {
     this._soundStart = 0;
     this._originalLayerIndex = -1;
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.start = this.start;
     data.end = this.end;
     data.sound = this._soundAssetUUID;
@@ -56524,10 +55594,8 @@ Wick.Frame = class extends Wick.Tickable {
     data.originalLayerIndex = this.layerIndex !== -1 ? this.layerIndex : this._originalLayerIndex;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.start = data.start;
     this.end = data.end;
     this._soundAssetUUID = data.sound;
@@ -56536,129 +55604,112 @@ Wick.Frame = class extends Wick.Tickable {
     this._soundStart = data.soundStart === undefined ? 0 : data.soundStart;
     this._originalLayerIndex = data.originalLayerIndex;
   }
-
   get classname() {
     return 'Frame';
   }
+
   /**
    * The length of the frame.
    * @type {number}
    */
-
-
   get length() {
     return this.end - this.start + 1;
   }
-
   set length(length) {
     length = Math.max(1, length);
     var diff = length - this.length;
     this.end += diff;
   }
+
   /**
    * The midpoint of the frame.
    * @type {number}
    */
-
-
   get midpoint() {
     return this.start + (this.end - this.start) / 2;
   }
+
   /**
    * Is true if the frame is currently visible.
    * @type {boolean}
    */
-
-
   get onScreen() {
     if (!this.parent) return true;
     return this.inPosition(this.parentTimeline.playheadPosition) && this.parentClip.onScreen;
   }
+
   /**
    * The sound attached to the frame.
    * @type {Wick.SoundAsset}
    */
-
-
   get sound() {
     var uuid = this._soundAssetUUID;
     return uuid ? this.project.getAssetByUUID(uuid) : null;
   }
-
   set sound(soundAsset) {
     if (!soundAsset) {
       this.removeSound();
       return;
     }
-
     this._soundAssetUUID = soundAsset.uuid;
   }
+
   /**
    * The volume of the sound attached to the frame.
    * @type {number}
    */
-
-
   get soundVolume() {
     return this._soundVolume;
   }
-
   set soundVolume(soundVolume) {
     this._soundVolume = soundVolume;
   }
+
   /**
    * Whether or not the sound loops.
    * @type {boolean}
    */
-
-
   get soundLoop() {
     return this._soundLoop;
   }
-
   set soundLoop(soundLoop) {
     this._soundLoop = soundLoop;
   }
+
   /**
    * True if this frame should currently be onion skinned.
    */
-
-
   get onionSkinned() {
     if (!this.project || !this.project.onionSkinEnabled) {
       return false;
-    } // Don't onion skin if we're in the playhead's position.
+    }
 
-
+    // Don't onion skin if we're in the playhead's position.
     var playheadPosition = this.project.focus.timeline.playheadPosition;
-
     if (this.inPosition(playheadPosition)) {
       return false;
-    } // Determine if we're in onion skinning range.
+    }
 
-
+    // Determine if we're in onion skinning range.
     var onionSkinSeekBackwards = this.project.onionSkinSeekBackwards;
     var onionSkinSeekForwards = this.project.onionSkinSeekForwards;
     return this.inRange(playheadPosition - onionSkinSeekBackwards, playheadPosition + onionSkinSeekForwards);
   }
+
   /**
    * Removes the sound attached to this frame.
    */
-
-
   removeSound() {
     this._soundAssetUUID = null;
   }
+
   /**
    * Plays the sound attached to this frame.
    */
-
-
   playSound() {
     if (!this.sound) {
       return;
     }
-
     var options = {
       seekMS: this.playheadSoundOffsetMS + this.soundStart,
       volume: this.soundVolume,
@@ -56667,75 +55718,67 @@ Wick.Frame = class extends Wick.Tickable {
     };
     this._soundID = this.project.playSoundFromAsset(this.sound, options);
   }
+
   /**
    * Stops the sound attached to this frame.
    */
-
-
   stopSound() {
     if (this.sound) {
       this.sound.stop(this._soundID);
       this._soundID = null;
     }
   }
+
   /**
    * Check if the sound on this frame is playing.
    * @returns {boolean} true if the sound is playing
    */
-
-
   isSoundPlaying() {
     return this._soundID !== null;
   }
+
   /**
    * The amount of time, in milliseconds, that the frame's sound should play before stopping.
    * @type {number}
    */
-
-
   get playheadSoundOffsetMS() {
     var offsetFrames = this.parentTimeline.playheadPosition - this.start;
     var offsetMS = 1000 / this.project.framerate * offsetFrames;
     return offsetMS;
   }
+
   /**
    * The amount of time the sound playing should be offset, in milliseconds. If this is 0,
    * the sound plays normally. A negative value means the sound should start at a later point
    * in the track. THIS DOES NOT DETERMINE WHEN A SOUND PLAYS.
    * @type {number}
    */
-
-
   get soundStart() {
     return this._soundStart;
   }
-
   set soundStart(val) {
     this._soundStart = val;
   }
+
   /**
    * When should the sound start, in milliseconds.
    * @type {number}
    */
-
-
   get soundStartMS() {
     return 1000 / this.project.framerate * (this.start - 1);
   }
+
   /**
    * When should the sound end, in milliseconds.
    * @type {number}
    */
-
-
   get soundEndMS() {
     return 1000 / this.project.framerate * this.end;
   }
+
   /**
    * Returns the frame's start position in relation to the root timeline.
    */
-
-
   get projectFrameStart() {
     if (this.parentClip.isRoot) {
       return this.start;
@@ -56744,50 +55787,45 @@ Wick.Frame = class extends Wick.Tickable {
       return val;
     }
   }
+
   /**
    * The paths on the frame.
    * @type {Wick.Path[]}
    */
-
-
   get paths() {
     return this.getChildren('Path');
   }
+
   /**
    * The paths that are text and have identifiers, for dynamic text.
    * @type {Wick.Path[]}
    */
-
-
   get dynamicTextPaths() {
     return this.paths.filter(path => {
       return path.isDynamicText;
     });
   }
+
   /**
    * The clips on the frame.
    * @type {Wick.Clip[]}
    */
-
-
   get clips() {
     return this.getChildren(['Clip', 'Button']);
   }
+
   /**
    * The drawable objectson the frame.
    * @type {Wick.Base[]}
    */
-
-
   get drawable() {
     return this.getChildren(['Clip', 'Button', 'Path']);
   }
+
   /**
    * The tweens on this frame.
    * @type {Wick.Tween[]}
    */
-
-
   get tweens() {
     // Ensure no tweens are outside of this frame's length.
     var tweens = this.getChildren('Tween');
@@ -56796,182 +55834,161 @@ Wick.Frame = class extends Wick.Tickable {
     });
     return this.getChildren('Tween');
   }
+
   /**
    * True if there are clips or paths on the frame.
    * @type {boolean}
    */
-
-
   get contentful() {
     return this.paths.filter(path => {
       return !path.view.item.data._isPlaceholder;
     }).length > 0 || this.clips.length > 0;
   }
+
   /**
    * The index of the parent layer.
    * @type {number}
    */
-
-
   get layerIndex() {
     return this.parentLayer ? this.parentLayer.index : -1;
   }
+
   /**
    * The index of the layer that this frame last belonged to. Used when copying and pasting frames.
    * @type {number}
    */
-
-
   get originalLayerIndex() {
     return this._originalLayerIndex;
   }
+
   /**
    * Removes this frame from its parent layer.
    */
-
-
   remove() {
     this.parent.removeFrame(this);
   }
+
   /**
    * True if the playhead is on this frame.
    * @param {number} playheadPosition - the position of the playhead.
    * @return {boolean}
    */
-
-
   inPosition(playheadPosition) {
     return this.start <= playheadPosition && this.end >= playheadPosition;
   }
+
   /**
    * True if the frame exists within the given range.
    * @param {number} start - the start of the range to check.
    * @param {number} end - the end of the range to check.
    * @return {boolean}
    */
-
-
   inRange(start, end) {
     return this.inPosition(start) || this.inPosition(end) || this.start >= start && this.start <= end || this.end >= start && this.end <= end;
   }
+
   /**
    * True if the frame is contained fully within a given range.
    * @param {number} start - the start of the range to check.
    * @param {number} end - the end of the range to check.
    * @return {boolean}
    */
-
-
   containedWithin(start, end) {
     return this.start >= start && this.end <= end;
   }
+
   /**
    * The number of frames that this frame is from a given playhead position.
    * @param {number} playheadPosition
    */
-
-
   distanceFrom(playheadPosition) {
     // playhead position is inside frame, distance is zero.
     if (this.start <= playheadPosition && this.end >= playheadPosition) {
       return 0;
-    } // otherwise, find the distance from the nearest end
+    }
 
-
+    // otherwise, find the distance from the nearest end
     if (this.start >= playheadPosition) {
       return this.start - playheadPosition;
     } else if (this.end <= playheadPosition) {
       return playheadPosition - this.end;
     }
   }
+
   /**
    * Add a clip to the frame.
    * @param {Wick.Clip} clip - the clip to add.
    */
-
-
   addClip(clip) {
     if (clip.parent) {
       clip.remove();
     }
+    this.addChild(clip);
 
-    this.addChild(clip); // Pre-render the clip's frames
+    // Pre-render the clip's frames
     // (this fixes an issue where clips created from ClipAssets would be "missing" frames)
-
     clip.timeline.getAllFrames(true).forEach(frame => {
       frame.view.render();
     });
   }
+
   /**
    * Remove a clip from the frame.
    * @param {Wick.Clip} clip - the clip to remove.
    */
-
-
   removeClip(clip) {
     this.removeChild(clip);
   }
+
   /**
    * Add a path to the frame.
    * @param {Wick.Path} path - the path to add.
    */
-
-
   addPath(path) {
     if (path.parent) {
       path.remove();
     }
-
     this.addChild(path);
   }
+
   /**
    * Remove a path from the frame.
    * @param {Wick.Path} path - the path to remove.
    */
-
-
   removePath(path) {
     this.removeChild(path);
   }
+
   /**
    * Add a tween to the frame.
    * @param {Wick.Tween} tween - the tween to add.
    */
-
-
   addTween(tween) {
     // New tweens eat existing tweens.
     var otherTween = this.getTweenAtPosition(tween.playheadPosition);
-
     if (otherTween) {
       otherTween.remove();
     }
-
     this.addChild(tween);
     tween.restrictToFrameSize();
   }
+
   /**
    * Automatically creates a tween at the current playhead position. Converts all objects into one clip if needed.
    */
-
-
   createTween() {
     // Don't make a tween if one already exits
     var playheadPosition = this.getRelativePlayheadPosition();
-
     if (this.getTweenAtPosition(playheadPosition)) {
       return;
-    } // If more than one object exists on the frame, or if there is only one path, create a clip from those objects
+    }
 
-
+    // If more than one object exists on the frame, or if there is only one path, create a clip from those objects
     var clips = this.clips;
     var paths = this.paths;
-
     if (clips.length === 0 && paths.length === 1 || clips.length + paths.length > 1) {
       var allDrawables = paths.concat(clips);
-
       var center = this.project.selection.view._getObjectsBounds(allDrawables).center;
-
       var clip = new Wick.Clip({
         transformation: new Wick.Transformation({
           x: center.x,
@@ -56980,74 +55997,66 @@ Wick.Frame = class extends Wick.Tickable {
       });
       this.addClip(clip);
       clip.addObjects(allDrawables);
-    } // Create the tween (if there's not already a tween at the current playhead position)
+    }
 
-
+    // Create the tween (if there's not already a tween at the current playhead position)
     var clip = this.clips[0];
     this.addTween(new Wick.Tween({
       playheadPosition: playheadPosition,
       transformation: clip ? clip.transformation.copy() : new Wick.Transformation()
     }));
   }
+
   /**
    * Remove a tween from the frame.
    * @param {Wick.Tween} tween - the tween to remove.
    */
-
-
   removeTween(tween) {
     this.removeChild(tween);
   }
+
   /**
    * Remove all tweens from this frame.
    */
-
-
   removeAllTweens(tween) {
     this.tweens.forEach(tween => {
       tween.remove();
     });
   }
+
   /**
    * Get the tween at the given playhead position. Returns null if there is no tween.
    * @param {number} playheadPosition - the playhead position to look for tweens at.
    * @returns {Wick.Tween || null} the tween at the given playhead position.
    */
-
-
   getTweenAtPosition(playheadPosition) {
     return this.tweens.find(tween => {
       return tween.playheadPosition === playheadPosition;
     }) || null;
   }
+
   /**
    * Returns the tween at the current playhead position, if one exists on the frame. Null otherwise.
    * @returns {Wick.Tween || null}
    */
-
-
   getTweenAtCurrentPlayheadPosition() {
     let playheadPosition = this.getRelativePlayheadPosition();
     return this.getTweenAtPosition(playheadPosition);
   }
+
   /**
    * The tween being used to transform the objects on the frame.
    * @returns {Wick.Tween || null} tween - the active tween. Null if there is no active tween.
    */
-
-
   getActiveTween() {
     if (!this.parentTimeline) return null;
     var playheadPosition = this.getRelativePlayheadPosition();
     var tween = this.getTweenAtPosition(playheadPosition);
-
     if (tween) {
       return tween;
     }
-
     var seekBackwardsTween = this.seekTweenBehind(playheadPosition);
     var seekForwardsTween = this.seekTweenInFront(playheadPosition);
-
     if (seekBackwardsTween && seekForwardsTween) {
       return Wick.Tween.interpolate(seekBackwardsTween, seekForwardsTween, playheadPosition);
     } else if (seekForwardsTween) {
@@ -57058,14 +56067,12 @@ Wick.Frame = class extends Wick.Tickable {
       return null;
     }
   }
+
   /**
    * Applies the transformation of current tween to the objects on the frame.
    */
-
-
   applyTweenTransforms() {
     var tween = this.getActiveTween();
-
     if (tween) {
       this.clips.forEach(clip => {
         tween.applyTransformsToClip(clip);
@@ -57075,70 +56082,68 @@ Wick.Frame = class extends Wick.Tickable {
       });
     }
   }
+
   /**
    * Applies single frame positions to timelines if necessary.
    */
-
-
   applyClipSingleFramePositions() {
     this.clips.forEach(clip => {
       clip.applySingleFramePosition();
     });
   }
+
   /**
    * Update all clip timelines for their animation type.
    */
-
-
   updateClipTimelinesForAnimationType() {
     this.clips.forEach(clip => {
       clip.updateTimelineForAnimationType();
     });
   }
+
   /**
    * The asset of the sound attached to this frame, if one exists
    * @returns {Wick.Asset[]}
    */
-
-
   getLinkedAssets() {
     var linkedAssets = [];
-
     if (this.sound) {
       linkedAssets.push(this.sound);
     }
-
     return linkedAssets;
   }
+
   /**
    * Cut this frame in half using the parent timeline's playhead position.
    */
-
-
   cut() {
     // Can't cut a frame that doesn't beolong to a timeline + layer
-    if (!this.parentTimeline) return; // Can't cut a frame with length 1
+    if (!this.parentTimeline) return;
 
-    if (this.length === 1) return; // Can't cut a frame that isn't under the playhead
+    // Can't cut a frame with length 1
+    if (this.length === 1) return;
 
+    // Can't cut a frame that isn't under the playhead
     var playheadPosition = this.parentTimeline.playheadPosition;
-    if (!this.inPosition(playheadPosition)) return; // Create right half (leftover) frame
+    if (!this.inPosition(playheadPosition)) return;
 
+    // Create right half (leftover) frame
     var rightHalf = this.copy();
     rightHalf.identifier = null;
     rightHalf.removeSound();
     rightHalf.removeAllTweens();
-    rightHalf.start = playheadPosition = playheadPosition; // Cut this frame shorter
+    rightHalf.start = playheadPosition = playheadPosition;
 
-    this.end = playheadPosition - 1; // Add right frame
+    // Cut this frame shorter
+    this.end = playheadPosition - 1;
 
+    // Add right frame
     this.parentLayer.addFrame(rightHalf);
   }
+
   /**
    * Extend this frame by one and push all frames right of this frame to the right.
    */
-
-
   extendAndPushOtherFrames() {
     this.parentLayer.getFramesInRange(this.end + 1, Infinity).forEach(frame => {
       frame.start += 1;
@@ -57146,11 +56151,10 @@ Wick.Frame = class extends Wick.Tickable {
     });
     this.end += 1;
   }
+
   /**
    * Shrink this frame by one and pull all frames left of this frame to the left.
    */
-
-
   shrinkAndPullOtherFrames() {
     if (this.length === 1) return;
     this.parentLayer.getFramesInRange(this.end + 1, Infinity).forEach(frame => {
@@ -57159,109 +56163,86 @@ Wick.Frame = class extends Wick.Tickable {
     });
     this.end -= 1;
   }
+
   /**
    * Import SVG data into this frame. SVGs containing mulitple paths will be split into multiple Wick Paths.
    * @param {string} svg - the SVG data to parse and import.
    */
-
   /*
   importSVG (svg) {
       this.view.importSVG(svg);
   }
   */
-
   /**
    * Get the position of this frame in relation to the parent timeline's playhead position.
    * @returns {number}
    */
-
-
   getRelativePlayheadPosition() {
     return this.parentTimeline.playheadPosition - this.start + 1;
   }
+
   /**
    * Find the first tween on this frame that exists behind the given playhead position.
    * @returns {Wick.Tween}
    */
-
-
   seekTweenBehind(playheadPosition) {
     var seekBackwardsPosition = playheadPosition;
     var seekBackwardsTween = null;
-
     while (seekBackwardsPosition > 0) {
       seekBackwardsTween = this.getTweenAtPosition(seekBackwardsPosition);
       seekBackwardsPosition--;
       if (seekBackwardsTween) break;
     }
-
     return seekBackwardsTween;
   }
+
   /**
    * Find the first tween on this frame that exists past the given playhead position.
    * @returns {Wick.Tween}
    */
-
-
   seekTweenInFront(playheadPosition) {
     var seekForwardsPosition = playheadPosition;
     var seekForwardsTween = null;
-
     while (seekForwardsPosition <= this.end) {
       seekForwardsTween = this.getTweenAtPosition(seekForwardsPosition);
       seekForwardsPosition++;
       if (seekForwardsTween) break;
     }
-
     return seekForwardsTween;
   }
-
   _onInactive() {
     super._onInactive();
-
     this._tickChildren();
   }
-
   _onActivated() {
     super._onActivated();
-
     this.playSound();
-
     this._tickChildren();
   }
-
   _onActive() {
     super._onActive();
-
     this._tickChildren();
   }
-
   _onDeactivated() {
     super._onDeactivated();
-
     this.stopSound();
-
     this._tickChildren();
   }
-
   _tickChildren() {
     this.clips.forEach(clip => {
       clip.tick();
     });
   }
-
   _attachChildClipReferences() {
     this.clips.forEach(clip => {
       if (clip.identifier) {
         this[clip.identifier] = clip;
-
         clip._attachChildClipReferences();
       }
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -57295,14 +56276,13 @@ Wick.Clip = class extends Wick.Tickable {
       'playOnce': 'Play Once'
     };
   }
+
   /**
    * Create a new clip.
    * @param {string} identifier - The identifier of the new clip.
    * @param {Wick.Path|Wick.Clip[]} objects - Optional. A list of objects to add to the clip.
    * @param {Wick.Transformation} transformation - Optional. The initial transformation of the clip.
    */
-
-
   constructor(args) {
     if (!args) args = {};
     super(args);
@@ -57310,9 +56290,7 @@ Wick.Clip = class extends Wick.Tickable {
     this.timeline.addLayer(new Wick.Layer());
     this.timeline.activeLayer.addFrame(new Wick.Frame());
     this._animationType = 'loop'; // Can be one of loop, oneFrame, single
-
     this._singleFrameNumber = 1; // Default to 1, this value is only used if the animation type is single
-
     this._playedOnce = false;
     this._isSynced = false;
     this._transformation = args.transformation || new Wick.Transformation();
@@ -57320,18 +56298,15 @@ Wick.Clip = class extends Wick.Tickable {
     this._isClone = false;
     this._sourceClipUUID = null;
     this._assetSourceUUID = null;
-    /* If objects are passed in, add them to the clip and reposition them */
 
+    /* If objects are passed in, add them to the clip and reposition them */
     if (args.objects) {
       this.addObjects(args.objects);
     }
-
     this._clones = [];
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     data.transformation = this.transformation.values;
     data.timeline = this._timeline;
     data.animationType = this._animationType;
@@ -57340,10 +56315,8 @@ Wick.Clip = class extends Wick.Tickable {
     data.isSynced = this._isSynced;
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
-
     this.transformation = new Wick.Transformation(data.transformation);
     this._timeline = data.timeline;
     this._animationType = data.animationType || 'loop';
@@ -57353,16 +56326,14 @@ Wick.Clip = class extends Wick.Tickable {
     this._playedOnce = false;
     this._clones = [];
   }
-
   get classname() {
     return 'Clip';
   }
+
   /**
    * Determines whether or not the clip is visible in the project.
    * @type {boolean}
    */
-
-
   get onScreen() {
     if (this.isRoot) {
       return true;
@@ -57370,116 +56341,100 @@ Wick.Clip = class extends Wick.Tickable {
       return this.parentFrame.onScreen;
     }
   }
+
   /**
    * Determines whether or not the clip is the root clip in the project.
    * @type {boolean}
    */
-
-
   get isRoot() {
     return this.project && this === this.project.root;
   }
+
   /**
    * True if the clip should sync to the timeline's position.
    * @type {boolean} 
    */
-
-
   get isSynced() {
     let isSingle = this.animationType === 'single';
     return this._isSynced && !isSingle && !this.isRoot;
   }
-
   set isSynced(bool) {
     if (!(typeof bool === 'boolean')) {
       return;
     }
-
     this._isSynced = bool;
-
     if (bool) {
       this.applySyncPosition();
     } else {
       this.timeline.playheadPosition = 1;
     }
   }
+
   /**
    * Determines whether or not the clip is the currently focused clip in the project.
    * @type {boolean}
    */
-
-
   get isFocus() {
     return this.project && this === this.project.focus;
   }
+
   /**
    * Check if a Clip is a clone of another object.
    * @type {boolean}
    */
-
-
   get isClone() {
     return this._isClone;
   }
+
   /**
    * The uuid of the clip that this clip was cloned from.
    * @type {string}
    */
-
-
   get sourceClipUUID() {
     return this._sourceClipUUID;
   }
+
   /**
    * Returns the source clip of this clip if this clip is a clone. Null otherwise.
    * 
    */
-
-
   get sourceClip() {
     if (!this.sourceClipUUID) return null;
     return this.project.getObjectByUUID(this.sourceClipUUID);
   }
+
   /**
    * The uuid of the ClipAsset that this clip was created from.
    * @type {string}
    */
-
-
   get assetSourceUUID() {
     return this._assetSourceUUID;
   }
-
   set assetSourceUUID(assetSourceUUID) {
     this._assetSourceUUID = assetSourceUUID;
   }
+
   /**
    * The timeline of the clip.
    * @type {Wick.Timeline}
    */
-
-
   get timeline() {
     return this.getChild('Timeline');
   }
-
   set timeline(timeline) {
     if (this.timeline) {
       this.removeChild(this.timeline);
     }
-
     this.addChild(timeline);
   }
+
   /**
    * The animation type of the clip. Must be of a type represented within animationTypes;
    * @type {string}
    */
-
-
   get animationType() {
     return this._animationType;
   }
-
   set animationType(animationType) {
     // Default to loop if an invalid animation type is passed in.
     if (!Wick.Clip.animationTypes[animationType]) {
@@ -57490,12 +56445,11 @@ Wick.Clip = class extends Wick.Tickable {
       this.resetTimelinePosition();
     }
   }
+
   /**
    * The frame to display when animation type is set to singleFrame.
    * @type {number}
    */
-
-
   get singleFrameNumber() {
     if (this.animationType !== 'single') {
       return null;
@@ -57503,7 +56457,6 @@ Wick.Clip = class extends Wick.Tickable {
       return this._singleFrameNumber;
     }
   }
-
   set singleFrameNumber(frame) {
     // Constrain to be within the length of the clip.
     if (frame < 1) {
@@ -57511,101 +56464,95 @@ Wick.Clip = class extends Wick.Tickable {
     } else if (frame > this.timeline.length) {
       frame = this.timeline.length;
     }
-
     this._singleFrameNumber = frame;
     this.applySingleFramePosition();
   }
+
   /**
    * The frame to display when the clip is synced
    * @type {number}
    */
-
-
   get syncFrame() {
-    let timelineOffset = this.parentClip.timeline.playheadPosition - this.parentFrame.start; // Show the last frame if we're past it on a playOnce Clip.
+    let timelineOffset = this.parentClip.timeline.playheadPosition - this.parentFrame.start;
 
+    // Show the last frame if we're past it on a playOnce Clip.
     if (this.animationType === 'playOnce' && timelineOffset >= this.timeline.length) {
       return this.timeline.length;
-    } // Otherwise, show the correct frame.
+    }
 
-
+    // Otherwise, show the correct frame.
     return timelineOffset % this.timeline.length + 1;
   }
+
   /**
    * Returns true if the clip has been played through fully once.
    * @type {boolean}
    */
-
-
   get playedOnce() {
     return this._playedOnce;
   }
-
   set playedOnce(bool) {
     return this._playedOnce = bool;
   }
+
   /**
    * The active layer of the clip's timeline.
    * @type {Wick.Layer}
    */
-
-
   get activeLayer() {
     return this.timeline.activeLayer;
   }
+
   /**
    * The active frame of the clip's timeline.
    * @type {Wick.Frame}
    */
-
-
   get activeFrame() {
     return this.activeLayer.activeFrame;
   }
+
   /**
    * An array containing every clip and frame that is a child of this clip and has an identifier.
    * @type {Wick.Base[]}
    */
-
-
   get namedChildren() {
     var namedChildren = [];
     this.timeline.frames.forEach(frame => {
       // Objects that can be accessed by their identifiers:
+
       // Frames
       if (frame.identifier) {
         namedChildren.push(frame);
-      } // Clips
+      }
 
-
+      // Clips
       frame.clips.forEach(clip => {
         if (clip.identifier) {
           namedChildren.push(clip);
         }
-      }); // Dynamic text paths
+      });
 
+      // Dynamic text paths
       frame.dynamicTextPaths.forEach(path => {
         namedChildren.push(path);
       });
     });
     return namedChildren;
   }
+
   /**
    * An array containing every clip and frame that is a child of this clip and has an identifier, and also is visible on screen.
    * @type {Wick.Base[]}
    */
-
-
   get activeNamedChildren() {
     return this.namedChildren.filter(child => {
       return child.onScreen;
     });
   }
+
   /**
    * Resets the clip's timeline position.
    */
-
-
   resetTimelinePosition() {
     if (this.animationType === 'single') {
       this.applySingleFramePosition();
@@ -57613,74 +56560,69 @@ Wick.Clip = class extends Wick.Tickable {
       this.timeline.playheadPosition = 1; // Reset timeline position if we are not on single frame.
     }
   }
+
   /**
    * Updates the frame's single frame positions if necessary. Only works if the clip's animationType is 'single'.
    */
-
-
   applySingleFramePosition() {
     if (this.animationType === 'single') {
       // Ensure that the single frame we've chosen is reflected no matter what.
       this.timeline.playheadPosition = this.singleFrameNumber;
     }
   }
+
   /**
    * Updates the clip's playhead position if the Clip is in sync mode
    */
-
-
   applySyncPosition() {
     if (this.isSynced) {
       this.timeline.playheadPosition = this.syncFrame;
     }
   }
+
   /**
    * Updates the timeline of the clip based on the animation type of the clip.
    */
-
-
   updateTimelineForAnimationType() {
     if (this.animationType === 'single') {
       this.applySingleFramePosition();
     }
-
     if (this.isSynced) {
       this.applySyncPosition();
     }
   }
+
   /**
    * Remove a clone from the clones array by uuid.
    * @param {string} uuid 
    */
-
-
   removeClone(uuid) {
     if (this.isClone) return;
     this._clones = this.clones.filter(obj => obj.uuid !== uuid);
   }
+
   /**
    * Remove this clip from its parent frame.
    */
-
-
   remove() {
     // Don't attempt to remove if the object has already been removed.
     // (This is caused by calling remove() multiple times on one object inside a script.)
     if (!this.parent || this._willBeRemoved) return;
-    this._willBeRemoved = true; // Force unload to run now, before object is removed;
+    this._willBeRemoved = true;
 
-    this.runScript('unload'); // Remove from the clones array.
+    // Force unload to run now, before object is removed;
+    this.runScript('unload');
 
+    // Remove from the clones array.
     this.sourceClip && this.sourceClip.removeClone(this.uuid);
     this.parent.removeClip(this);
     this.removed = true;
   }
+
   /**
    * Remove this clip and add all of its paths and clips to its parent frame.
    * @returns {Wick.Base[]} the objects that were inside the clip.
    */
-
-
   breakApart() {
     var leftovers = [];
     this.timeline.activeFrames.forEach(frame => {
@@ -57700,12 +56642,11 @@ Wick.Clip = class extends Wick.Tickable {
     this.remove();
     return leftovers;
   }
+
   /**
    * Add paths and clips to this clip.
    * @param {Wick.Base[]} objects - the paths and clips to add to the clip
    */
-
-
   addObjects(objects) {
     // Reposition objects such that their origin point is equal to this Clip's position
     objects.forEach(object => {
@@ -57720,119 +56661,107 @@ Wick.Clip = class extends Wick.Tickable {
       }
     });
   }
+
   /**
    * Stops a clip's timeline on that clip's current playhead position.
    */
-
-
   stop() {
     this.timeline.stop();
   }
+
   /**
    * Plays a clip's timeline from that clip's current playhead position.
    */
-
-
   play() {
     this.timeline.play();
   }
+
   /**
    * Moves a clip's playhead to a specific position and stops that clip's timeline on that position.
    * @param {number|string} frame - number or string representing the frame to move the playhead to.
    */
-
-
   gotoAndStop(frame) {
     this.timeline.gotoAndStop(frame);
     this.applySingleFramePosition();
   }
+
   /**
    * Moves a clip's playhead to a specific position and plays that clip's timeline from that position.
    * @param {number|string} frame - number or string representing the frame to move the playhead to.
    */
-
-
   gotoAndPlay(frame) {
     this.timeline.gotoAndPlay(frame);
     this.applySingleFramePosition();
   }
+
   /**
    * Move the playhead of the clips timeline forward one frame. Does nothing if the clip is on its last frame.
    */
-
-
   gotoNextFrame() {
     this.timeline.gotoNextFrame();
     this.applySingleFramePosition();
   }
+
   /**
    * Move the playhead of the clips timeline backwards one frame. Does nothing if the clip is on its first frame.
    */
-
-
   gotoPrevFrame() {
     this.timeline.gotoPrevFrame();
     this.applySingleFramePosition();
   }
+
   /**
    * Returns the name of the frame which is currently active. If multiple frames are active, returns the name of the first active frame.
    * @returns {string} Active Frame name. If the active frame does not have an identifier, returns empty string.
    */
-
-
   get currentFrameName() {
     let frames = this.timeline.activeFrames;
     let name = '';
     frames.forEach(frame => {
       if (name) return;
-
       if (frame.identifier) {
         name = frame.identifier;
       }
     });
     return name;
   }
+
   /**
    * @deprecated
    * Returns the current playhead position. This is a legacy function, you should use clip.playheadPosition instead.
    * @returns {number} Playhead Position.
    */
-
-
   get currentFrameNumber() {
     return this.timeline.playheadPosition;
   }
+
   /**
    * The current transformation of the clip.
    * @type {Wick.Transformation}
    */
-
-
   get transformation() {
     return this._transformation;
   }
-
   set transformation(transformation) {
-    this._transformation = transformation; // When the transformation changes, update the current tween, if one exists
+    this._transformation = transformation;
 
+    // When the transformation changes, update the current tween, if one exists
     if (this.parentFrame) {
       // This tween must only ever be the tween over the current playhead position.
       // Altering the active tween will overwrite tweens when moving between frames.
       var tween = this.parentFrame.getTweenAtCurrentPlayheadPosition();
-
       if (tween) {
         tween.transformation = this._transformation.copy();
       }
     }
   }
+
   /**
    * Perform circular hit test with other clip.
    * @param {Wick.Clip} other - the clip to hit test with
    * @param {object} options - Hit test options
    * @returns {object} Hit information
    */
-
-
   circleHits(other, options) {
     let bounds1 = this.absoluteBounds;
     let bounds2 = other.absoluteBounds;
@@ -57841,28 +56770,25 @@ Wick.Clip = class extends Wick.Tickable {
     let distance = Math.sqrt((c1.x - c2.x) * (c1.x - c2.x) + (c1.y - c2.y) * (c1.y - c2.y));
     let r1 = options.radius ? options.radius : this.radius;
     let r2 = other.radius; //should add option for other radius?
-
-    let overlap = r1 + r2 - distance; // TODO: Maybe add a case for overlap === 0?
-
+    let overlap = r1 + r2 - distance;
+    // TODO: Maybe add a case for overlap === 0?
     if (overlap > 0) {
       let x = c1.x - c2.x;
       let y = c1.y - c2.y;
       let magnitude = Math.sqrt(x * x + y * y);
       x = x / magnitude;
-      y = y / magnitude; // <x,y> is now a normalized vector from c2 to c1 
+      y = y / magnitude;
+      // <x,y> is now a normalized vector from c2 to c1 
 
       let result = {};
-
       if (options.overlap) {
         result.overlapX = overlap * x;
         result.overlapY = overlap * y;
       }
-
       if (options.offset) {
         result.offsetX = overlap * x;
         result.offsetY = overlap * y;
       }
-
       if (options.intersections) {
         if (r2 - distance > r1 || r1 - distance > r2 || distance === 0) {
           result.intersections = [];
@@ -57881,27 +56807,24 @@ Wick.Clip = class extends Wick.Tickable {
           }];
         }
       }
-
       return result;
     }
-
     return null;
   }
+
   /**
    * Perform rectangular hit test with other clip.
    * @param {Wick.Clip} other - the clip to hit test with
    * @param {object} options - Hit test options
    * @returns {object} Hit information
    */
-
-
   rectangleHits(other, options) {
     let bounds1 = this.absoluteBounds;
-    let bounds2 = other.absoluteBounds; // TODO: write intersects so we don't rely on paper Rectangle objects
+    let bounds2 = other.absoluteBounds;
 
+    // TODO: write intersects so we don't rely on paper Rectangle objects
     if (bounds1.intersects(bounds2)) {
       let result = {};
-
       if (options.overlap) {
         // Find the direction along which we have to travel the least distance to no longer overlap
         let left = bounds2.left - bounds1.right;
@@ -57910,28 +56833,25 @@ Wick.Clip = class extends Wick.Tickable {
         let down = bounds2.bottom - bounds1.top;
         let overlapX = Math.abs(left) < Math.abs(right) ? left : right;
         let overlapY = Math.abs(up) < Math.abs(down) ? up : down;
-
         if (Math.abs(overlapX) < Math.abs(overlapY)) {
           overlapY = 0;
         } else {
           overlapX = 0;
         }
-
         result.overlapX = overlapX;
         result.overlapY = overlapY;
       }
-
       if (options.offset) {
         // Find how far along the center to center vector we must travel to no longer overlap
         let vectorX = bounds1.center.x - bounds2.center.x;
         let vectorY = bounds1.center.y - bounds2.center.y;
         let magnitude = Math.sqrt(vectorX * vectorX + vectorY * vectorY);
         vectorX /= magnitude;
-        vectorY /= magnitude; // Choose p1, p2, based on quadrant of center to center vector
+        vectorY /= magnitude;
 
+        // Choose p1, p2, based on quadrant of center to center vector
         let p1 = vectorX > 0 ? vectorY > 0 ? bounds1.topLeft : bounds1.bottomLeft : vectorY > 0 ? bounds1.topRight : bounds1.bottomRight;
         let p2 = vectorX > 0 ? vectorY > 0 ? bounds2.bottomRight : bounds2.topRight : vectorY > 0 ? bounds2.bottomLeft : bounds2.topLeft;
-
         if (Math.abs(p2.x - p1.x) < Math.abs((p2.y - p1.y) * vectorX / vectorY)) {
           result.offsetX = p2.x - p1.x;
           result.offsetY = result.offsetX * vectorY / vectorX;
@@ -57940,27 +56860,25 @@ Wick.Clip = class extends Wick.Tickable {
           result.offsetX = result.offsetY * vectorX / vectorY;
         }
       }
-
       if (options.intersections) {
         result.intersections = [];
         let ps1 = [bounds1.topLeft, bounds1.topRight, bounds1.bottomRight, bounds1.bottomLeft];
         let ps2 = [bounds2.topLeft, bounds2.topRight, bounds2.bottomRight, bounds2.bottomLeft];
-
         for (let i = 0; i < 4; i++) {
           for (let j = (i + 1) % 2; j < 4; j += 2) {
             // iterate over the perpendicular lines
             let a = ps1[i];
             let b = ps1[(i + 1) % 4];
             let c = ps2[j];
-            let d = ps2[(j + 1) % 4]; // Perpendicular lines will intersect, we'll use parametric line intersection
+            let d = ps2[(j + 1) % 4];
+
+            // Perpendicular lines will intersect, we'll use parametric line intersection
             //<x,y> = a + (b - a)t1
             //<x,y> = c + (d - c)t2
             //a + (b - a)t1 = c + (d - c)t2
             //t1(b - a) = (c + (d - c)t2 - a)
             //(a - c)/(d - c) = t2
-
             let t1, t2;
-
             if (a.x === b.x) {
               t2 = (a.x - c.x) / (d.x - c.x);
               t1 = (c.y + (d.y - c.y) * t2 - a.y) / (b.y - a.y);
@@ -57969,7 +56887,6 @@ Wick.Clip = class extends Wick.Tickable {
               t2 = (a.y - c.y) / (d.y - c.y);
               t1 = (c.x + (d.x - c.x) * t2 - a.x) / (b.x - a.x);
             }
-
             if (0 <= t1 && t1 <= 1 && 0 <= t2 && t2 <= 1) {
               result.intersections.push({
                 x: a.x + (b.x - a.x) * t1,
@@ -57979,39 +56896,37 @@ Wick.Clip = class extends Wick.Tickable {
           }
         }
       }
-
       return result;
     } else {
       return null;
     }
-  } // Return whether triangle p1 p2 p3 is clockwise (in screen space,
+  }
+
+  // Return whether triangle p1 p2 p3 is clockwise (in screen space,
   // means counterclockwise in a normal space with y axis pointed up)
-
-
   cw(x1, y1, x2, y2, x3, y3) {
     const cw = (y3 - y1) * (x2 - x1) - (y2 - y1) * (x3 - x1);
     return cw >= 0; // colinear ?
   }
+
   /**
    * Perform convex hull hit test with other clip.
    * @param {Wick.Clip} other - the clip to hit test with
    * @param {object} options - Hit test options
    * @returns {object} Hit information
    */
-
-
   convexHits(other, options) {
     // Efficient check first
     let bounds1 = this.absoluteBounds;
-    let bounds2 = other.absoluteBounds; // TODO: write intersects so we don't rely on paper Rectangle objects
-
+    let bounds2 = other.absoluteBounds;
+    // TODO: write intersects so we don't rely on paper Rectangle objects
     if (!bounds1.intersects(bounds2)) {
       return null;
     }
-
     let c1 = bounds1.center;
-    let c2 = bounds2.center; // clockwise arrays of points in format [[x1, y1], [x2, y2], ...]
+    let c2 = bounds2.center;
 
+    // clockwise arrays of points in format [[x1, y1], [x2, y2], ...]
     let hull1 = this.convexHull;
     let hull2 = other.convexHull;
     let finished1 = false;
@@ -58019,15 +56934,17 @@ Wick.Clip = class extends Wick.Tickable {
     let i1 = hull1.length - 1;
     let i2 = hull2.length - 1;
     let intersections = [];
-    let n = 0; // Algorithm from https://www.bowdoin.edu/~ltoma/teaching/cs3250-CompGeom/spring17/Lectures/cg-convexintersection.pdf
-
+    let n = 0;
+    // Algorithm from https://www.bowdoin.edu/~ltoma/teaching/cs3250-CompGeom/spring17/Lectures/cg-convexintersection.pdf
     while ((!finished1 || !finished2) && n <= 2 * (hull1.length + hull2.length)) {
-      n++; // line segments A is ab, B is cd
-
+      n++;
+      // line segments A is ab, B is cd
       let a = hull1[i1],
-          b = hull1[((i1 - 1) % hull1.length + hull1.length) % hull1.length],
-          c = hull2[i2],
-          d = hull2[((i2 - 1) % hull2.length + hull2.length) % hull2.length]; //Use parametric line intersection
+        b = hull1[((i1 - 1) % hull1.length + hull1.length) % hull1.length],
+        c = hull2[i2],
+        d = hull2[((i2 - 1) % hull2.length + hull2.length) % hull2.length];
+
+      //Use parametric line intersection
       //<x,y> = a + (b - a)t1
       //<x,y> = c + (d - c)t2
       //a + (b - a)t1 = c + (d - c)t2
@@ -58035,24 +56952,19 @@ Wick.Clip = class extends Wick.Tickable {
       //a.y + (b.y - a.y) * (c.x + (d.x - c.x)t2 - a.x) / (b.x - a.x) = c.y + (d.y - c.y)t2
       //t2((b.y - a.y)(d.x - c.x)/(b.x - a.x) - (d.y - c.y)) = c.y - a.y - (b.y - a.y)*(c.x - a.x)/(b.x - a.x)
       //t2 = (c.y - a.y - (b.y - a.y)*(c.x - a.x)/(b.x - a.x))  /  ((b.y - a.y)(d.x - c.x)/(b.x - a.x) - (d.y - c.y))
-
       let t2 = (c[1] - a[1] - (b[1] - a[1]) * (c[0] - a[0]) / (b[0] - a[0])) / ((b[1] - a[1]) * (d[0] - c[0]) / (b[0] - a[0]) - d[1] + c[1]);
       let t1 = (c[0] + (d[0] - c[0]) * t2 - a[0]) / (b[0] - a[0]);
-
       if (0 <= t1 && t1 <= 1 && 0 <= t2 && t2 <= 1) {
         intersections.push({
           x: a[0] + (b[0] - a[0]) * t1,
           y: a[1] + (b[1] - a[1]) * t1
         });
       }
-
       let APointingToB = t1 > 1;
       let BPointingToA = t2 > 1;
-
       if (BPointingToA && !APointingToB) {
         // Advance B
         i2 -= 1;
-
         if (i2 < 0) {
           finished2 = true;
           i2 += hull2.length;
@@ -58060,7 +56972,6 @@ Wick.Clip = class extends Wick.Tickable {
       } else if (APointingToB && !BPointingToA) {
         // Advance A
         i1 -= 1;
-
         if (i1 < 0) {
           finished1 = true;
           i1 += hull1.length;
@@ -58070,7 +56981,6 @@ Wick.Clip = class extends Wick.Tickable {
         if (this.cw(a[0], a[1], b[0], b[1], d[0], d[1])) {
           // Advance B
           i2 -= 1;
-
           if (i2 < 0) {
             finished2 = true;
             i2 += hull2.length;
@@ -58078,21 +56988,18 @@ Wick.Clip = class extends Wick.Tickable {
         } else {
           // Advance A
           i1 -= 1;
-
           if (i1 < 0) {
             finished1 = true;
             i1 += hull1.length;
           }
         }
       }
-    } // Ok, we have all the intersections now
-
-
+    }
+    // Ok, we have all the intersections now
     let avgIntersection = {
       x: 0,
       y: 0
     };
-
     if (intersections.length === 0) {
       avgIntersection.x = bounds1.width < bounds2.width ? c1.x : c2.x;
       avgIntersection.y = bounds1.width < bounds2.width ? c1.y : c2.y;
@@ -58101,25 +57008,21 @@ Wick.Clip = class extends Wick.Tickable {
         avgIntersection.x += intersections[i].x;
         avgIntersection.y += intersections[i].y;
       }
-
       avgIntersection.x /= intersections.length;
       avgIntersection.y /= intersections.length;
     }
-
     let result = {};
-
     if (options.intersections) {
       result.intersections = intersections;
     }
-
     if (options.offset) {
       // Calculate offset by taking the center of mass of the intersection, call it P,
       // get the radius from P on this convex hull in the direction
       // from this center to that center,
       // Then, the offset is a vector in the direction from that center to this center
       // with magnitude of that radius
-      let targetTheta = Math.atan2(c2.y - c1.y, c2.x - c1.x); //from c1 to c2
 
+      let targetTheta = Math.atan2(c2.y - c1.y, c2.x - c1.x); //from c1 to c2
       let r = this.radiusAtPointInDirection(hull1, avgIntersection, targetTheta);
       targetTheta = (targetTheta + Math.PI) % (2 * Math.PI);
       r += this.radiusAtPointInDirection(hull2, avgIntersection, targetTheta);
@@ -58131,27 +57034,23 @@ Wick.Clip = class extends Wick.Tickable {
       result.offsetX = directionX;
       result.offsetY = directionY;
     }
-
     if (options.overlap) {
       //same as offset except instead of center to center, 
       //we will move perpendicular to the best fit line
       //of the intersection points
-      let directionX, directionY;
 
+      let directionX, directionY;
       if (intersections.length < 2) {
         directionX = c2.x - c1.x;
         directionY = c2.y - c1.y;
       } else {
         let max_d = 0;
-
         for (let i = 1; i < intersections.length; i++) {
           let d = (intersections[i].y - intersections[0].y) * (intersections[i].y - intersections[0].y) + (intersections[i].x - intersections[0].x) * (intersections[i].x - intersections[0].x);
-
           if (d > max_d) {
             max_d = d;
             directionX = -(intersections[i].y - intersections[0].y);
             directionY = intersections[i].x - intersections[0].x;
-
             if (directionX * (c1.x - avgIntersection.x) + directionY * (c1.y - avgIntersection.y) > 0) {
               directionX = -directionX;
               directionY = -directionY;
@@ -58159,7 +57058,6 @@ Wick.Clip = class extends Wick.Tickable {
           }
         }
       }
-
       let targetTheta = Math.atan2(directionY, directionX);
       let r = this.radiusAtPointInDirection(hull1, avgIntersection, targetTheta);
       targetTheta = (targetTheta + Math.PI) % (2 * Math.PI);
@@ -58167,22 +57065,20 @@ Wick.Clip = class extends Wick.Tickable {
       let r2 = this.radiusAtPointInDirection(hull1, avgIntersection, targetTheta);
       targetTheta = (targetTheta + Math.PI) % (2 * Math.PI);
       r2 += this.radiusAtPointInDirection(hull2, avgIntersection, targetTheta);
-
       if (r2 < r) {
         r = r2;
         directionX *= -1;
         directionY *= -1;
       }
-
       let mag = Math.sqrt(directionX * directionX + directionY * directionY);
       directionX *= -r / mag;
       directionY *= -r / mag;
       result.overlapX = directionX;
       result.overlapY = directionY;
     }
-
     return result;
   }
+
   /**
    * Casts a ray from p in the direction targetTheta and intersects it with the hull ch,
    * returns the distance from p to the surface of ch.
@@ -58191,26 +57087,22 @@ Wick.Clip = class extends Wick.Tickable {
    * @param {number} targetTheta - the direction of the ray
    * @returns {number} the distance to the surface of the convex hull from the point in the direction theta
    */
-
-
   radiusAtPointInDirection(ch, p, targetTheta) {
     let minThetaDiff = Infinity;
     let index;
-
     for (let i = 0; i < ch.length; i++) {
       let theta = Math.atan2(ch[i][1] - p.y, ch[i][0] - p.x);
       let thetaDiff = ((targetTheta - theta) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI); //positive mod
-
       if (thetaDiff < minThetaDiff) {
         minThetaDiff = thetaDiff;
         index = i;
       }
     }
-
     let a = ch[index];
     let b = ch[(index + 1) % ch.length];
     let c = [p.x, p.y];
-    let d = [p.x + 100 * Math.cos(targetTheta), p.y + 100 * Math.sin(targetTheta)]; //Use parametric line intersection
+    let d = [p.x + 100 * Math.cos(targetTheta), p.y + 100 * Math.sin(targetTheta)];
+    //Use parametric line intersection
     //<x,y> = a + (b - a)t1
     //<x,y> = c + (d - c)t2
     //a + (b - a)t1 = c + (d - c)t2
@@ -58218,46 +57110,39 @@ Wick.Clip = class extends Wick.Tickable {
     //a.y + (b.y - a.y) * (c.x + (d.x - c.x)t2 - a.x) / (b.x - a.x) = c.y + (d.y - c.y)t2
     //t2((b.y - a.y)(d.x - c.x)/(b.x - a.x) - (d.y - c.y)) = c.y - a.y - (b.y - a.y)*(c.x - a.x)/(b.x - a.x)
     //t2 = (c.y - a.y - (b.y - a.y)*(c.x - a.x)/(b.x - a.x))  /  ((b.y - a.y)(d.x - c.x)/(b.x - a.x) - (d.y - c.y))
-
     let t2 = (c[1] - a[1] - (b[1] - a[1]) * (c[0] - a[0]) / (b[0] - a[0])) / ((b[1] - a[1]) * (d[0] - c[0]) / (b[0] - a[0]) - d[1] + c[1]);
     let t1 = (c[0] + (d[0] - c[0]) * t2 - a[0]) / (b[0] - a[0]);
     return Math.hypot(a[0] + (b[0] - a[0]) * t1 - p.x, a[1] + (b[1] - a[1]) * t1 - p.y);
   }
+
   /**
    * Perform hit test with other clip.
    * @param {Wick.Clip} other - the clip to hit test with
    * @param {object} options - Hit test options
    * @returns {object} Hit information
    */
-
-
   hits(other, options) {
     // Get hit options
-    let finalOptions = { ...this.project.hitTestOptions
+    let finalOptions = {
+      ...this.project.hitTestOptions
     };
-
     if (options) {
       if (options.mode === 'CIRCLE' || options.mode === 'RECTANGLE' || options.mode === 'CONVEX') {
         finalOptions.mode = options.mode;
       }
-
       if (typeof options.offset === "boolean") {
         finalOptions.offset = options.offset;
       }
-
       if (typeof options.overlap === "boolean") {
         finalOptions.overlap = options.overlap;
       }
-
       if (typeof options.intersections === "boolean") {
         finalOptions.intersections = options.intersections;
       }
-
       if (options.radius) {
         finalOptions.radius = options.radius;
       }
     }
-
     if (finalOptions.mode === 'CIRCLE') {
       return this.circleHits(other, finalOptions);
     } else if (finalOptions.mode === 'CONVEX') {
@@ -58266,43 +57151,39 @@ Wick.Clip = class extends Wick.Tickable {
       return this.rectangleHits(other, finalOptions);
     }
   }
+
   /**
    * Returns true if this clip collides with another clip.
    * @param {Wick.Clip} other - The other clip to check collision with.
    * @returns {boolean} True if this clip collides the other clip.
    */
-
-
   hitTest(other) {
     // TODO: write intersects so we don't rely on paper Rectangle objects
     return this.absoluteBounds.intersects(other.absoluteBounds);
   }
+
   /**
    * The bounding box of the clip.
    * @type {object}
    */
-
-
   get bounds() {
     // TODO: Refactor so that getting bounds does not rely on the view
     return this.view.bounds;
   }
-
   get absoluteBounds() {
     // TODO: Refactor so that getting bounds does not rely on the view
     return this.view.absoluteBounds;
   }
-
   get points() {
     // TODO: Refactor so that does not rely on the view
     return this.view.points;
   }
-
   get radius() {
     // Use length of half diagonal of bounding box
     let b = this.absoluteBounds;
-    return Math.sqrt(b.width * b.width + b.height * b.height) / 2 / Math.sqrt(2); // Alternative: use largest distance from center to a point on the object
+    return Math.sqrt(b.width * b.width + b.height * b.height) / 2 / Math.sqrt(2);
 
+    // Alternative: use largest distance from center to a point on the object
     /*
     let center = this.absoluteBounds.center;
     let points = this.points;
@@ -58313,18 +57194,18 @@ Wick.Clip = class extends Wick.Tickable {
         let y = point[1] - center.y;
         max_r = Math.max(max_r, x*x + y*y);
     }
-      return Math.sqrt(max_r);
+     return Math.sqrt(max_r);
     */
-  } // Gives clockwise in screen space, which is ccw in regular axes
+  }
 
-
+  // Gives clockwise in screen space, which is ccw in regular axes
   get convexHull() {
-    let points = this.points; // Infinity gets us the convex hull
+    let points = this.points;
 
+    // Infinity gets us the convex hull
     let ch = hull(points, Infinity);
     let removedDuplicates = [];
     let epsilon = 0.01;
-
     for (let i = 0; i < ch.length; i++) {
       if (removedDuplicates.length > 0) {
         if ((Math.abs(ch[i][0] - removedDuplicates[removedDuplicates.length - 1][0]) > epsilon || Math.abs(ch[i][1] - removedDuplicates[removedDuplicates.length - 1][1]) > epsilon) && (Math.abs(ch[i][0] - removedDuplicates[0][0]) > epsilon || Math.abs(ch[i][1] - removedDuplicates[0][1]) > epsilon)) {
@@ -58334,159 +57215,134 @@ Wick.Clip = class extends Wick.Tickable {
         removedDuplicates.push(ch[i]);
       }
     }
-
     return removedDuplicates;
   }
+
   /**
    * The X position of the clip.
    * @type {number}
    */
-
-
   get x() {
     return this.transformation.x;
   }
-
   set x(x) {
     this.transformation.x = x;
   }
+
   /**
    * The Y position of the clip.
    * @type {number}
    */
-
-
   get y() {
     return this.transformation.y;
   }
-
   set y(y) {
     this.transformation.y = y;
   }
+
   /**
    * The X scale of the clip.
    * @type {number}
    */
-
-
   get scaleX() {
     return this.transformation.scaleX;
   }
-
   set scaleX(scaleX) {
     if (scaleX === 0) scaleX = 0.001; // Protects against NaN issues
-
     this.transformation.scaleX = scaleX;
   }
+
   /**
    * The Y scale of the clip.
    * @type {number}
    */
-
-
   get scaleY() {
     return this.transformation.scaleY;
   }
-
   set scaleY(scaleY) {
     if (scaleY === 0) scaleY = 0.001; // Protects against NaN issues
-
     this.transformation.scaleY = scaleY;
   }
+
   /**
    * The width of the clip.
    * @type {number}
    */
-
-
   get width() {
     return this.isRoot ? this.project.width : this.bounds.width * this.scaleX;
   }
-
   set width(width) {
     this.scaleX = width / this.width * this.scaleX;
   }
+
   /**
    * The height of the clip.
    * @type {number}
    */
-
-
   get height() {
     return this.isRoot ? this.project.height : this.bounds.height * this.scaleY;
   }
-
   set height(height) {
     this.scaleY = height / this.height * this.scaleY;
   }
+
   /**
    * The rotation of the clip.
    * @type {number}
    */
-
-
   get rotation() {
     return this.transformation.rotation;
   }
-
   set rotation(rotation) {
     this.transformation.rotation = rotation;
   }
+
   /**
    * The opacity of the clip.
    * @type {number}
    */
-
-
   get opacity() {
     return this.transformation.opacity;
   }
-
   set opacity(opacity) {
     opacity = Math.min(1, opacity);
     opacity = Math.max(0, opacity);
     this.transformation.opacity = opacity;
   }
+
   /**
    * Copy this clip, and add the copy to the same frame as the original clip.
    * @returns {Wick.Clip} the result of the clone.
    */
-
-
   clone() {
     var clone = this.copy();
     clone.identifier = null;
     this.parentFrame.addClip(clone);
-
     this._clones.push(clone);
-
     clone._isClone = true;
     clone._sourceClipUUID = this.uuid;
     return clone;
   }
+
   /**
    * An array containing all objects that were created by calling clone() on this Clip.
    * @type {Wick.Clip[]}
    */
-
-
   get clones() {
     return this._clones;
   }
+
   /**
    * This is a stopgap to prevent users from using setText with a Clip.
    */
-
-
   setText() {
     throw new Error('setText() can only be used with text objects.');
   }
+
   /**
    * The list of parents, grandparents, grand-grandparents...etc of the clip.
    * @returns {Wick.Clip[]} Array of all parents
    */
-
-
   get lineage() {
     if (this.isRoot) {
       return [this];
@@ -58494,50 +57350,50 @@ Wick.Clip = class extends Wick.Tickable {
       return [this].concat(this.parentClip.lineage);
     }
   }
+
   /**
    * Add a placeholder path to this clip to ensure the Clip is always selectable when rendered.
    */
-
-
   ensureActiveFrameIsContentful() {
     // Ensure layer exists
     var firstLayerExists = this.timeline.activeLayer;
-
     if (!firstLayerExists) {
       this.timeline.addLayer(new Wick.Layer());
-    } // Ensure active frame exists
+    }
 
-
+    // Ensure active frame exists
     var playheadPosition = this.timeline.playheadPosition;
     var activeFrameExists = this.timeline.getFramesAtPlayheadPosition(playheadPosition).length > 0;
-
     if (!activeFrameExists) {
       this.timeline.activeLayer.addFrame(new Wick.Frame({
         start: playheadPosition
       }));
-    } // Clear placeholders
+    }
 
-
+    // Clear placeholders
     var frame = this.timeline.getFramesAtPlayheadPosition(playheadPosition)[0];
     frame.paths.forEach(path => {
       if (!path.isPlaceholder) return;
       path.remove();
-    }); // Check if active frame is contentful
+    });
 
+    // Check if active frame is contentful
     var firstFramesAreContentful = false;
     this.timeline.getFramesAtPlayheadPosition(playheadPosition).forEach(frame => {
       if (frame.contentful) {
         firstFramesAreContentful = true;
       }
-    }); // Ensure active frame is contentful
+    });
 
+    // Ensure active frame is contentful
     if (!firstFramesAreContentful) {
       // Clear placeholders
       var frame = this.timeline.getFramesAtPlayheadPosition(playheadPosition)[0];
       frame.paths.forEach(path => {
         path.remove();
-      }); // Generate crosshair
+      });
 
+      // Generate crosshair
       var size = Wick.View.Clip.PLACEHOLDER_SIZE;
       var line1 = new paper.Path.Line({
         from: [0, -size],
@@ -58561,27 +57417,20 @@ Wick.Clip = class extends Wick.Tickable {
       }));
     }
   }
-
   _onInactive() {
     super._onInactive();
-
     this._tickChildren();
   }
-
   _onActivated() {
     super._onActivated();
-
     this._tickChildren();
-
     if (this.animationType === 'playOnce') {
       this.playedOnce = false;
       this.timeline.playheadPosition = 1;
     }
   }
-
   _onActive() {
     super._onActive();
-
     if (this.animationType === 'loop') {
       this.timeline.advance();
     } else if (this.animationType === 'single') {
@@ -58595,20 +57444,15 @@ Wick.Clip = class extends Wick.Tickable {
         }
       }
     }
-
     if (this.isSynced) {
       this.timeline.playheadPosition = this.syncFrame;
     }
-
     this._tickChildren();
   }
-
   _onDeactivated() {
     super._onDeactivated();
-
     this._tickChildren();
   }
-
   _tickChildren() {
     var childError = null;
     this.timeline.frames.forEach(frame => {
@@ -58617,25 +57461,23 @@ Wick.Clip = class extends Wick.Tickable {
     });
     return childError;
   }
-
   _attachChildClipReferences() {
     this.timeline.activeFrames.forEach(frame => {
       frame.clips.forEach(clip => {
         if (clip.identifier) {
           this[clip.identifier] = clip;
-
           clip._attachChildClipReferences();
         }
-      }); // Dynamic text paths can be accessed by their identifiers.
+      });
 
+      // Dynamic text paths can be accessed by their identifiers.
       frame.dynamicTextPaths.forEach(path => {
         this[path.identifier] = path;
       });
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -58681,38 +57523,29 @@ Wick.Button = class extends Wick.Clip {
     this.removeScript('default');
     this.addScript('mouseclick', '');
   }
-
   _serialize(args) {
     var data = super._serialize(args);
-
     return data;
   }
-
   _deserialize(data) {
     super._deserialize(data);
   }
-
   get classname() {
     return 'Button';
   }
-
   _onInactive() {
     return super._onInactive();
   }
-
   _onActivated() {
     var error = super._onActivated();
-
     this.timeline.stop();
     this.timeline.playheadPosition = 1;
     return error;
   }
-
   _onActive() {
     this.timeline.gotoFrame(1);
     var frame2Exists = this.timeline.getFramesAtPlayheadPosition(2).length > 0;
     var frame3Exists = this.timeline.getFramesAtPlayheadPosition(3).length > 0;
-
     if (this._mouseState === 'over') {
       if (frame2Exists) {
         this.timeline.gotoFrame(2);
@@ -58724,19 +57557,15 @@ Wick.Button = class extends Wick.Clip {
         this.timeline.gotoFrame(2);
       }
     }
-
     var error = super._onActive();
-
     if (error) return error;
     return null;
   }
-
   _onDeactivated() {
     super._onDeactivated();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -58754,205 +57583,183 @@ Wick.Button = class extends Wick.Clip {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tool = class {
   static get DOUBLE_CLICK_TIME() {
     return 300;
   }
-
   static get DOUBLE_CLICK_MAX_DISTANCE() {
     return 20;
   }
+
   /**
    * Creates a new Wick Tool.
    */
-
-
   constructor() {
-    this.paperTool = new this.paper.Tool(); // Attach onActivate event
+    this.paperTool = new this.paper.Tool();
 
+    // Attach onActivate event
     this.paperTool.onActivate = e => {
       this.onActivate(e);
-    }; // Attach onDeactivate event
+    };
 
-
+    // Attach onDeactivate event
     this.paperTool.onDeactivate = e => {
       this.onDeactivate(e);
-    }; // Attach mouse move event
+    };
 
-
+    // Attach mouse move event
     this.paperTool.onMouseMove = e => {
       this.onMouseMove(e);
-    }; // Attach mouse down + double click event
+    };
 
-
+    // Attach mouse down + double click event
     this.paperTool.onMouseDown = e => {
       if (this.doubleClickEnabled && this._lastMousedownTimestamp !== null && e.timeStamp - this._lastMousedownTimestamp < Wick.Tool.DOUBLE_CLICK_TIME && e.point.subtract(this._lastMousedownPoint).length < Wick.Tool.DOUBLE_CLICK_MAX_DISTANCE) {
         this.onDoubleClick(e);
       } else {
         this.onMouseDown(e);
       }
-
       this._lastMousedownTimestamp = e.timeStamp;
       this._lastMousedownPoint = e.point;
-    }; // Attach key events
+    };
 
-
+    // Attach key events
     this.paperTool.onKeyDown = e => {
       this.onKeyDown(e);
     };
-
     this.paperTool.onKeyUp = e => {
       this.onKeyUp(e);
-    }; // Attach mouse move event
+    };
 
-
+    // Attach mouse move event
     this.paperTool.onMouseDrag = e => {
       this.onMouseDrag(e);
-    }; // Attach mouse up event
+    };
 
-
+    // Attach mouse up event
     this.paperTool.onMouseUp = e => {
       this.onMouseUp(e);
     };
-
     this._eventCallbacks = {};
     this._lastMousedownTimestamp = null;
   }
+
   /**
    * The paper.js scope to use.
    */
-
-
   get paper() {
     return Wick.View.paperScope;
   }
+
   /**
    * The CSS cursor to display for this tool.
    */
-
-
   get cursor() {
     console.warn("Warning: Tool is missing a cursor!");
   }
+
   /**
    * Called when the tool is activated
    */
-
-
   onActivate(e) {}
+
   /**
    * Called when the tool is deactivated (another tool is activated)
    */
-
-
   onDeactivate(e) {}
+
   /**
    * Called when the mouse moves and the tool is active.
    */
-
-
   onMouseMove(e) {
     this.setCursor(this.cursor);
   }
+
   /**
    * Called when the mouse clicks the paper.js canvas and this is the active tool.
    */
-
-
   onMouseDown(e) {}
+
   /**
    * Called when the mouse is dragged on the paper.js canvas and this is the active tool.
    */
-
-
   onMouseDrag(e) {}
+
   /**
    * Called when the mouse is clicked on the paper.js canvas and this is the active tool.
    */
-
-
   onMouseUp(e) {}
+
   /**
    * Called when the mouse double clicks on the paper.js canvas and this is the active tool.
    */
-
-
   onDoubleClick(e) {}
+
   /**
    * Called when a key is pressed and this is the active tool.
    */
-
-
   onKeyDown(e) {}
+
   /**
    * Called when a key is released and this is the active tool.
    */
-
-
   onKeyUp(e) {}
+
   /**
    * Should reset the state of the tool.
    */
-
-
   reset() {}
+
   /**
    * Activates this tool in paper.js.
    */
-
-
   activate() {
     this.paperTool.activate();
   }
+
   /**
    * Sets the cursor of the paper.js canvas that the tool belongs to.
    * @param {string} cursor - a CSS cursor style
    */
-
-
   setCursor(cursor) {
     this.paper.view._element.style.cursor = cursor;
   }
+
   /**
    * Attach a function to get called when an event happens.
    * @param {string} eventName - the name of the event
    * @param {function} fn - the function to call when the event is fired
    */
-
-
   on(eventName, fn) {
     this._eventCallbacks[eventName] = fn;
   }
+
   /**
    * Call the functions attached to a given event.
    * @param {string} eventName - the name of the event to fire
    * @param {object} e - (optional) an object to attach some data to, if needed
    * @param {string} actionName - Name of the action committed.
    */
-
-
   fireEvent({
     eventName,
     e,
     actionName
   }) {
     if (!e) e = {};
-
     if (!e.layers) {
       e.layers = [this.paper.project.activeLayer];
     }
-
     var fn = this._eventCallbacks[eventName];
     fn && fn(e, actionName);
   }
+
   /**
    *
    * @param {paper.Color} color - the color of the cursor
    * @param {number} size - the width of the cursor image to generate
    * @param {boolean} transparent - if set to true, color is ignored
    */
-
-
   createDynamicCursor(color, size, transparent) {
     var radius = size / 2;
     var canvas = document.createElement("canvas");
@@ -58965,7 +57772,6 @@ Wick.Tool = class {
     context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
     context.strokeStyle = transparent ? 'black' : invert(color);
     context.stroke();
-
     if (transparent) {
       context.beginPath();
       context.arc(centerX, centerY, radius - 1, 0, 2 * Math.PI, false);
@@ -58977,59 +57783,50 @@ Wick.Tool = class {
       context.fillStyle = color;
       context.fill();
     }
-
     return 'url(' + canvas.toDataURL() + ') ' + (radius + 1) + ' ' + (radius + 1) + ',default';
   }
+
   /**
    * Get a tool setting from the project. See Wick.ToolSettings for all options
    * @param {string} name - the name of the setting to get
    */
-
-
   getSetting(name) {
     return this.project.toolSettings.getSetting(name);
   }
+
   /**
    * Does this tool have a double click action? (override this in classes that extend Wick.Tool)
    * @type {boolean}
    */
-
-
   get doubleClickEnabled() {
     return true;
   }
+
   /**
    * Adds a paper.Path to the active frame's paper.Layer.
    * @param {paper.Path} path - the path to add
    * @param {Wick.Frame} frame - (optional) the frame to add the path to.
    */
-
-
   addPathToProject(path, frame) {
     // Avoid adding empty paths
     if (!path) {
       return;
     }
-
     if (path instanceof paper.Path && path.segments.length === 0) {
       return;
     }
-
     if (path instanceof paper.CompoundPath && path.children.length === 0) {
       return;
     }
-
     if (!this.project.activeFrame) {
       // Automatically add a frame is there isn't one
       this.project.insertBlankFrame();
       this.project.view.render();
     }
-
     if (!path) {
       console.error("Warning: addPathToProject: path is null/undefined");
       return;
     }
-
     if (frame && frame !== this.project.activeFrame) {
       /* If the path must be added to a frame other than the active frame,
        * convert the paper.js path into a Wick path and add it to the given frame. */
@@ -59046,10 +57843,9 @@ Wick.Tool = class {
       this.paper.project.activeLayer.addChild(path);
     }
   }
-
 };
 Wick.Tools = {};
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -59067,19 +57863,18 @@ Wick.Tools = {};
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Brush = class extends Wick.Tool {
   static get CROQUIS_WAIT_AMT_MS() {
     return 100;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    * Creates the brush tool.
    */
-
-
   constructor() {
     super();
     this.name = 'brush';
@@ -59094,27 +57889,27 @@ Wick.Tools.Brush = class extends Wick.Tool {
     this.lastPressure = null;
     this.errorOccured = false;
     this._isInProgress = false;
-    this._croquisStartTimeout = null; // These are used to crop the final path image.
+    this._croquisStartTimeout = null;
 
+    // These are used to crop the final path image.
     this.strokeBounds = new paper.Rectangle();
     this._lastMousePoint = new paper.Point(0, 0);
-    this._lastMousePressure = 1; // The frame that the brush started the current stroke on.
+    this._lastMousePressure = 1;
 
-    this._currentDrawingFrame = null; // The starting point of the current stroke (for straight lines)
+    // The frame that the brush started the current stroke on.
+    this._currentDrawingFrame = null;
 
+    // The starting point of the current stroke (for straight lines)
     this._strokeStartPoint = null;
   }
-
-  get cursor() {// the brush cursor is done in a custom way using _regenCursor().
+  get cursor() {
+    // the brush cursor is done in a custom way using _regenCursor().
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {
     if (this._isInProgress) this.finishStrokeEarly();
-
     if (!this.croquis) {
       this.croquis = new Croquis();
       this.croquis.setCanvasSize(500, 500);
@@ -59134,109 +57929,89 @@ Wick.Tools.Brush = class extends Wick.Tool {
       this.croquisDOMElement.style.display = 'block';
       this.croquisDOMElement.style.pointerEvents = 'none';
     }
-
     this._isInProgress = false;
     this._lastMousePoint = new paper.Point(0, 0);
     this._lastMousePressure = 1;
   }
-
   onDeactivate(e) {
     // This prevents croquis from leaving stuck brush strokes on the screen.
     this.finishStrokeEarly();
   }
-
   onMouseMove(e) {
     super.onMouseMove(e);
-
     this._updateCanvasAttributes();
-
     this._regenCursor();
   }
-
   onMouseDown(e) {
     if (this._isInProgress) this.discard();
     this._currentDrawingFrame = this.project.activeFrame;
     clearTimeout(this._croquisStartTimeout);
     this._isInProgress = true;
+    this._updateCanvasAttributes();
 
-    this._updateCanvasAttributes(); // Update croquis params
-
-
+    // Update croquis params
     this.croquisBrush.setSize(this._getRealBrushSize());
     this.croquisBrush.setColor(this.getSetting('fillColor').hex);
     this.croquisBrush.setSpacing(this.BRUSH_POINT_SPACING);
     this.croquis.setToolStabilizeLevel(this.BRUSH_STABILIZER_LEVEL);
     this.croquis.setToolStabilizeWeight(this.getSetting('brushStabilizerWeight') / 100.0 + 0.3);
-    this.croquis.setToolStabilizeInterval(1); // Forward mouse event to croquis canvas
+    this.croquis.setToolStabilizeInterval(1);
 
+    // Forward mouse event to croquis canvas
     var point = this._croquisToPaperPoint(e.point);
-
     this._strokeStartPoint = point.clone();
-
     this._updateStrokeBounds(point);
-
     try {
       this._updateLastMouseState(point, this.pressure);
-
       this.croquis.down(point.x, point.y, this.pressure);
     } catch (e) {
       this.handleBrushError(e);
       return;
     }
   }
-
   onMouseDrag(e) {
-    if (!this._isInProgress) return; // Forward mouse event to croquis canvas
+    if (!this._isInProgress) return;
 
+    // Forward mouse event to croquis canvas
     var point = this._croquisToPaperPoint(e.point);
-
     if (e.modifiers.control) {
       // Straight line mode
       this.croquis.clearLayer();
       this.croquis.down(this._strokeStartPoint.x, this._strokeStartPoint.y, this.pressure);
-      this.croquis.move(point.x, point.y, this.pressure); // Re-calculate bounds to include the entire straight line area
+      this.croquis.move(point.x, point.y, this.pressure);
 
+      // Re-calculate bounds to include the entire straight line area
       this._resetStrokeBounds(this._strokeStartPoint);
-
       this._updateStrokeBounds(point);
     } else {
       this._updateStrokeBounds(point);
-
       try {
         this._updateLastMouseState(point, this.pressure);
-
         this.croquis.move(point.x, point.y, this.pressure);
       } catch (e) {
         this.handleBrushError(e);
         return;
       }
     }
-
     this.lastPressure = this.pressure;
   }
-
   onMouseUp(e) {
     if (!this._isInProgress) return;
     this._isInProgress = false;
-
     var point = this._croquisToPaperPoint(e.point);
-
     this._calculateStrokeBounds(point);
-
     try {
       this.croquis.up(point.x, point.y, this.lastPressure);
     } catch (e) {
       this.handleBrushError(e);
       return;
     }
-
     this._potraceCroquisCanvas(point);
   }
+
   /**
    * The current amount of pressure applied to the paper js canvas this tool belongs to.
    */
-
-
   get pressure() {
     if (this.getSetting('pressureEnabled')) {
       var pressure = this.paper.view.pressure;
@@ -59245,176 +58020,161 @@ Wick.Tools.Brush = class extends Wick.Tool {
       return 1;
     }
   }
+
   /**
    * Croquis throws a lot of errrors. This is a helpful function to handle those errors gracefully.
    */
-
-
   handleBrushError(e) {
     this._isInProgress = false;
     this.croquis.clearLayer();
-
     if (!this.errorOccured) {
       console.error("Brush error");
       console.error(e);
     }
-
     this.errorOccured = true;
   }
+
   /**
    * Is the brush currently making a stroke?
    * @type {boolean}
    */
-
-
   isInProgress() {
     return this._isInProgress;
   }
+
   /**
    * Discard the current brush stroke.
    */
-
-
   discard() {
     if (!this._isInProgress) return;
-    this._isInProgress = false; // "Give up" on the current stroke by forcing a mouseup
+    this._isInProgress = false;
 
-    this.croquis.up(this._lastMousePoint.x, this._lastMousePoint.y, this._lastMousePressure); // Clear the current croquis canvas
+    // "Give up" on the current stroke by forcing a mouseup
+    this.croquis.up(this._lastMousePoint.x, this._lastMousePoint.y, this._lastMousePressure);
 
+    // Clear the current croquis canvas
     setTimeout(() => {
       this.croquis.clearLayer();
     }, 10);
   }
+
   /**
    * Force the current stroke to be finished, and add the stroke to the project.
    */
-
-
   finishStrokeEarly() {
     if (!this._isInProgress) return;
-    this._isInProgress = false; // Hide the croquis canvas so that the current stroke is never seen on the new frame.
+    this._isInProgress = false;
 
-    this.croquisDOMElement.style.opacity = 0; // "Give up" on the current stroke by forcing a mouseup
+    // Hide the croquis canvas so that the current stroke is never seen on the new frame.
+    this.croquisDOMElement.style.opacity = 0;
 
-    this.croquis.up(this._lastMousePoint.x, this._lastMousePoint.y, this._lastMousePressure); // Add path to project
+    // "Give up" on the current stroke by forcing a mouseup
+    this.croquis.up(this._lastMousePoint.x, this._lastMousePoint.y, this._lastMousePressure);
 
+    // Add path to project
     this._calculateStrokeBounds(this._lastMousePoint);
-
     this._potraceCroquisCanvas(this._lastMousePoint);
   }
+
   /* Generate a new circle cursor based on the brush size. */
-
-
   _regenCursor() {
     var size = this._getRealBrushSize();
-
     var color = this.getSetting('fillColor').hex;
     this.cachedCursor = this.createDynamicCursor(color, size, this.getSetting('pressureEnabled'));
     this.setCursor(this.cachedCursor);
   }
+
   /* Get the actual pixel size of the brush to send to Croquis. */
-
-
   _getRealBrushSize() {
     var size = this.getSetting('brushSize') + 1;
-
     if (!this.getSetting('relativeBrushSize')) {
       size *= this.paper.view.zoom;
     }
-
     return size;
   }
+
   /* Update Croquis and the div containing croquis to reflect all current options. */
-
-
   _updateCanvasAttributes() {
     if (!this.paper.view._element.parentElement) {
       return;
-    } // Update croquis element and pressure options
+    }
 
-
+    // Update croquis element and pressure options
     if (!this.paper.view._element.parentElement.contains(this.croquisDOMElement)) {
       this.paper.view.enablePressure();
-
       this.paper.view._element.parentElement.appendChild(this.croquisDOMElement);
-    } // Update croquis element canvas size
+    }
 
-
+    // Update croquis element canvas size
     if (this.croquis.getCanvasWidth() !== this.paper.view._element.width || this.croquis.getCanvasHeight() !== this.paper.view._element.height) {
       this.croquis.setCanvasSize(this.paper.view._element.width, this.paper.view._element.height);
-    } // Fake brush opacity in croquis by changing the opacity of the croquis canvas
+    }
 
-
+    // Fake brush opacity in croquis by changing the opacity of the croquis canvas
     this.croquisDOMElement.style.opacity = this.getSetting('fillColor').a;
   }
+
   /* Convert a point in Croquis' canvas space to paper.js's canvas space. */
-
-
   _croquisToPaperPoint(croquisPoint) {
     var paperPoint = this.paper.view.projectToView(croquisPoint.x, croquisPoint.y);
     return paperPoint;
   }
+
   /* Used for calculating the crop amount for potrace. */
-
-
   _resetStrokeBounds(point) {
     this.strokeBounds = new paper.Rectangle(point.x, point.y, 1, 1);
   }
+
   /* Used for calculating the crop amount for potrace. */
-
-
   _updateStrokeBounds(point) {
     this.strokeBounds = this.strokeBounds.include(point);
   }
+
   /* Used for saving information on the mouse (croquis does not save this.) */
-
-
   _updateLastMouseState(point, pressure) {
     this._lastMousePoint = new paper.Point(point.x, point.y);
     this._lastMousePressure = this.pressure;
   }
-
   _calculateStrokeBounds(point) {
     // Forward mouse event to croquis canvas
-    this._updateStrokeBounds(point); // This prevents cropping out edges of the brush stroke
-
-
+    this._updateStrokeBounds(point);
+    // This prevents cropping out edges of the brush stroke
     this.strokeBounds = this.strokeBounds.expand(this._getRealBrushSize());
   }
+
   /* Create a paper.js path by potracing the croquis canvas, and add the resulting path to the project. */
-
-
   _potraceCroquisCanvas(point) {
     this.errorOccured = false;
-    var strokeBounds = this.strokeBounds.clone(); // Attempting to draw with a transparent fill color. Throw an error.
+    var strokeBounds = this.strokeBounds.clone();
 
+    // Attempting to draw with a transparent fill color. Throw an error.
     if (this.getSetting('fillColor').a === 0) {
       this.handleBrushError('transparentColor');
       this.project.errorOccured("Fill Color is Transparent!");
       return;
-    } // Give croquis just a little bit to get the canvas ready...
+    }
 
-
+    // Give croquis just a little bit to get the canvas ready...
     this._croquisStartTimeout = setTimeout(() => {
       // Retrieve Croquis canvas
       var canvas = this.paper.view._element.parentElement.getElementsByClassName('croquis-layer-canvas')[1];
-
       if (!canvas) {
         console.warn("Croquis canvas was not found in the canvas container. Something very bad has happened.");
         this.handleBrushError('misingCroquisCanvas');
         return;
-      } // Rip image data out of Croquis.js canvas
+      }
+
+      // Rip image data out of Croquis.js canvas
       // (and crop out empty space using strokeBounds - this massively speeds up potrace)
-
-
       var croppedCanvas = document.createElement("canvas");
       var croppedCanvasCtx = croppedCanvas.getContext("2d");
       croppedCanvas.width = strokeBounds.width;
       croppedCanvas.height = strokeBounds.height;
       if (strokeBounds.x < 0) strokeBounds.x = 0;
       if (strokeBounds.y < 0) strokeBounds.y = 0;
-      croppedCanvasCtx.drawImage(canvas, strokeBounds.x, strokeBounds.y, strokeBounds.width, strokeBounds.height, 0, 0, croppedCanvas.width, croppedCanvas.height); // Run potrace and add the resulting path to the project
+      croppedCanvasCtx.drawImage(canvas, strokeBounds.x, strokeBounds.y, strokeBounds.width, strokeBounds.height, 0, 0, croppedCanvas.width, croppedCanvas.height);
 
+      // Run potrace and add the resulting path to the project
       var svg = potrace.fromImage(croppedCanvas).toSVG(1 / this.POTRACE_RESOLUTION / this.paper.view.zoom);
       var potracePath = this.paper.project.importSVG(svg);
       potracePath.fillColor = this.getSetting('fillColor').rgba;
@@ -59426,22 +58186,23 @@ Wick.Tools.Brush = class extends Wick.Tool {
       potracePath.closed = true;
       potracePath.children[0].closed = true;
       potracePath.children[0].applyMatrix = true;
-      var result = potracePath.children[0]; // Do special brush mode action
+      var result = potracePath.children[0];
 
+      // Do special brush mode action
       var brushMode = this.getSetting('brushMode');
-
       if (this._currentDrawingFrame && this._currentDrawingFrame.view) {
         // Don't apply brush mode if there is no frame to draw on
         // (the frame is added during addPathToProject)
         result = this._applyBrushMode(brushMode, result, this._currentDrawingFrame.view.objectsLayer);
-      } // Done! Add the path to the project
+      }
 
+      // Done! Add the path to the project
+      this.addPathToProject(result, this._currentDrawingFrame);
 
-      this.addPathToProject(result, this._currentDrawingFrame); // We're done potracing using the current croquis canvas, reset the stroke bounds
+      // We're done potracing using the current croquis canvas, reset the stroke bounds
+      this._resetStrokeBounds(point);
 
-      this._resetStrokeBounds(point); // Clear croquis canvas
-
-
+      // Clear croquis canvas
       this.croquis.clearLayer();
       this.fireEvent({
         eventName: 'canvasModified',
@@ -59449,18 +58210,15 @@ Wick.Tools.Brush = class extends Wick.Tool {
       });
     }, Wick.Tools.Brush.CROQUIS_WAIT_AMT_MS);
   }
-
   _applyBrushMode(mode, path, layer) {
     if (!mode) {
       console.warn('_applyBrushMode: Invalid brush mode: ' + mode);
       console.warn('Valid brush modes are "inside" and "outside".');
       return;
     }
-
     if (mode === 'none') {
       return path;
     }
-
     var booleanOpName = {
       'inside': 'intersect',
       'outside': 'subtract'
@@ -59468,26 +58226,22 @@ Wick.Tools.Brush = class extends Wick.Tool {
     var mask = null;
     layer.children.forEach(otherPath => {
       if (otherPath === mask) return;
-
       if (mask) {
         var newMask = mask.unite(otherPath);
-
-        if (newMask.children && newMask.children.length === 0 || newMask.segments && newMask.segments.length === 0) {// Ignore boolean ops that result in empty paths
+        if (newMask.children && newMask.children.length === 0 || newMask.segments && newMask.segments.length === 0) {
+          // Ignore boolean ops that result in empty paths
         } else {
           mask = newMask;
         }
-
         newMask.remove();
       } else {
         mask = otherPath;
       }
     });
-
     if (!mask) {
       // Nothing to mask with
       return path;
     }
-
     var result = path.clone({
       insert: false
     });
@@ -59495,9 +58249,8 @@ Wick.Tools.Brush = class extends Wick.Tool {
     result.remove();
     return result;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -59515,6 +58268,7 @@ Wick.Tools.Brush = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Cursor = class extends Wick.Tool {
   /**
    * Creates a cursor tool.
@@ -59542,42 +58296,38 @@ Wick.Tools.Cursor = class extends Wick.Tool {
     this.selectedItems = [];
     this.currentCursorIcon = '';
   }
+
   /**
    * Generate the current cursor.
    * @type {string}
    */
-
-
   get cursor() {
     return 'url("' + this.currentCursorIcon + '") 32 32, auto';
   }
-
   onActivate(e) {
     this.selectedItems = [];
   }
-
   onDeactivate(e) {}
-
   onMouseMove(e) {
-    super.onMouseMove(e); // Find the thing that is currently under the cursor.
+    super.onMouseMove(e);
 
-    this.hitResult = this._updateHitResult(e); // Update the image being used for the cursor
+    // Find the thing that is currently under the cursor.
+    this.hitResult = this._updateHitResult(e);
 
+    // Update the image being used for the cursor
     this._setCursor(this._getCursor());
   }
-
   onMouseDown(e) {
     super.onMouseDown(e);
     if (!e.modifiers) e.modifiers = {};
     this.hitResult = this._updateHitResult(e);
-
-    if (this.hitResult.item && this.hitResult.item.data.isSelectionBoxGUI) {// Clicked the selection box GUI, do nothing
+    if (this.hitResult.item && this.hitResult.item.data.isSelectionBoxGUI) {
+      // Clicked the selection box GUI, do nothing
     } else if (this.hitResult.item && this._isItemSelected(this.hitResult.item)) {
       // We clicked something that was already selected.
       // Shift click: Deselect that item
       if (e.modifiers.shift) {
         this._deselectItem(this.hitResult.item);
-
         this.fireEvent({
           eventName: 'canvasModified',
           actionName: 'cursorDeselect'
@@ -59587,11 +58337,9 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       if (!e.modifiers.shift) {
         // Shift click? Keep everything else selected.
         this._clearSelection();
-      } // Clicked an item: select that item
-
-
+      }
+      // Clicked an item: select that item
       this._selectItem(this.hitResult.item);
-
       this.fireEvent({
         eventName: 'canvasModified',
         actionName: 'cursorSelect'
@@ -59601,20 +58349,16 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       // (don't clear the selection if shift is held, though)
       if (this._selection.numObjects > 0 && !e.modifiers.shift) {
         this._clearSelection();
-
         this.fireEvent({
           eventName: 'canvasModified',
           actionName: 'cursorClearSelect'
         });
       }
-
       this.selectionBox.start(e.point);
     }
   }
-
   onDoubleClick(e) {
     var selectedObject = this._selection.getSelectedObject();
-
     if (selectedObject && selectedObject instanceof Wick.Clip) {
       // Double clicked a Clip, set the focus to that Clip.
       if (this.project.focusTimelineOfSelectedClip()) {
@@ -59624,12 +58368,25 @@ Wick.Tools.Cursor = class extends Wick.Tool {
         });
       }
     } else if (selectedObject && selectedObject instanceof Wick.Path) {
-      // Double clicked a Path, switch to path cursor tool for vertex editing.
-      this.project.activeTool = 'pathcursor';
-      this.fireEvent({
-        eventName: 'canvasModified',
-        actionName: 'cursorSwitchToPathCursor'
-      });
+      if (selectedObject.view && selectedObject.view.item && selectedObject.view.item.className === 'PointText') {
+        var textItem = selectedObject.view.item;
+        this.project.activeTool = 'text';
+        if (this.project.tools && this.project.tools.text) {
+          this.project.tools.text.editingText = textItem;
+        }
+        textItem.edit(this.project.view.paper);
+        this.fireEvent({
+          eventName: 'canvasModified',
+          actionName: 'cursorEditText'
+        });
+      } else {
+        // Double clicked a Path, switch to path cursor tool for vertex editing.
+        this.project.activeTool = 'pathcursor';
+        this.fireEvent({
+          eventName: 'canvasModified',
+          actionName: 'cursorSwitchToPathCursor'
+        });
+      }
     } else if (!selectedObject) {
       // Double clicked the canvas, leave the current focus.
       if (this.project.focusTimelineOfParentClip()) {
@@ -59640,17 +58397,14 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       }
     }
   }
-
   onMouseDrag(e) {
     if (!e.modifiers) e.modifiers = {};
     this.__isDragging = true;
-
     if (this.hitResult.item && this.hitResult.item.data.isSelectionBoxGUI) {
       // Update selection drag
       if (!this._widget.currentTransformation) {
         this._widget.startTransformation(this.hitResult.item);
       }
-
       this._widget.updateTransformation(this.hitResult.item, e);
     } else if (this.selectionBox.active) {
       // Selection box is being used, update it with a new point
@@ -59660,32 +58414,26 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       if (!this._widget.currentTransformation) {
         this._widget.startTransformation(this.hitResult.item);
       }
-
       this._widget.updateTransformation(this.hitResult.item, e);
     } else {
       this.__isDragging = false;
     }
   }
-
   onMouseUp(e) {
     if (!e.modifiers) e.modifiers = {};
-
     if (this.selectionBox.active) {
       // Finish selection box and select objects touching box (or inside box, if alt is held)
       this.selectionBox.mode = e.modifiers.alt ? 'contains' : 'intersects';
       this.selectionBox.end(e.point);
-
       if (!e.modifiers.shift) {
         this._selection.clear();
       }
-
       let selectables = this.selectionBox.items.filter(item => {
         return item.data.wickUUID;
       });
+      this._selectItems(selectables);
 
-      this._selectItems(selectables); // Only modify the canvas if you actually selected something.
-
-
+      // Only modify the canvas if you actually selected something.
       if (this.selectionBox.items.length > 0) {
         this.fireEvent({
           eventName: 'canvasModified',
@@ -59696,9 +58444,7 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       if (this.__isDragging) {
         this.__isDragging = false;
         this.project.tryToAutoCreateTween();
-
         this._widget.finishTransformation();
-
         this.fireEvent({
           eventName: 'canvasModified',
           actionName: 'cursorDrag'
@@ -59706,7 +58452,6 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       }
     }
   }
-
   _updateHitResult(e) {
     var newHitResult = this.paper.project.hitTest(e.point, {
       fill: true,
@@ -59719,44 +58464,39 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       }
     });
     if (!newHitResult) newHitResult = new this.paper.HitResult();
-
     if (newHitResult.item && !newHitResult.item.data.isSelectionBoxGUI) {
       // You can't select children of compound paths, you can only select the whole thing.
       if (newHitResult.item.parent.className === 'CompoundPath') {
         newHitResult.item = newHitResult.item.parent;
-      } // You can't select individual children in a group, you can only select the whole thing.
+      }
 
-
+      // You can't select individual children in a group, you can only select the whole thing.
       if (newHitResult.item.parent.parent) {
         newHitResult.type = 'fill';
-
         while (newHitResult.item.parent.parent) {
           newHitResult.item = newHitResult.item.parent;
         }
-      } // this.paper.js has two names for strokes+curves, we don't need that extra info
+      }
 
-
+      // this.paper.js has two names for strokes+curves, we don't need that extra info
       if (newHitResult.type === 'stroke') {
         newHitResult.type = 'curve';
-      } // Mousing over rasters acts the same as mousing over fills.
+      }
 
-
+      // Mousing over rasters acts the same as mousing over fills.
       if (newHitResult.type === 'pixel') {
         newHitResult.type = 'fill';
       }
+      ;
 
-      ; // Disable curve and segment selection. (this was moved to the PathCursor)
-
+      // Disable curve and segment selection. (this was moved to the PathCursor)
       if (newHitResult.type === 'segment' || newHitResult.type === 'curve') {
         newHitResult.type = 'fill';
       }
-
       ;
     }
-
     return newHitResult;
   }
-
   _getCursor() {
     if (!this.hitResult.item) {
       return this.CURSOR_DEFAULT;
@@ -59764,9 +58504,13 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       // Don't show any custom cursor if the mouse is over the border, the border does nothing
       if (this.hitResult.item.name === 'border') {
         return this.CURSOR_DEFAULT;
-      } // Calculate the angle in which the scale handle scales the selection.
+      }
+
+      // Calculate the angle in which the scale handle scales the selection.
       // Use that angle to determine the cursor graphic to use.
+
       // Here is a handy diagram showing the cursors that correspond to the angles:
+
       // 315       0       45
       //     o-----o-----o
       //     |           |
@@ -59776,7 +58520,6 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       //     |           |
       //     o-----o-----o
       // 225      180      135
-
 
       var baseAngle = {
         topCenter: 0,
@@ -59788,17 +58531,17 @@ Wick.Tools.Cursor = class extends Wick.Tool {
         leftCenter: 270,
         topLeft: 315
       }[this.hitResult.item.data.handleEdge];
-      var angle = baseAngle + this._widget.rotation; // It makes angle math easier if we dont allow angles >360 or <0 degrees:
-
+      var angle = baseAngle + this._widget.rotation;
+      // It makes angle math easier if we dont allow angles >360 or <0 degrees:
       if (angle < 0) angle += 360;
-      if (angle > 360) angle -= 360; // Round the angle to the nearest 45 degree interval.
+      if (angle > 360) angle -= 360;
 
+      // Round the angle to the nearest 45 degree interval.
       var angleRoundedToNearest45 = Math.round(angle / 45) * 45;
       angleRoundedToNearest45 = Math.round(angleRoundedToNearest45); // just incase of float weirdness
-
       angleRoundedToNearest45 = '' + angleRoundedToNearest45; // convert to string
-      // Now we know which of eight directions the handle is pointing, so we choose the correct cursor
 
+      // Now we know which of eight directions the handle is pointing, so we choose the correct cursor
       if (this.hitResult.item.data.handleType === 'scale') {
         var cursorGraphicFromAngle = {
           '0': this.CURSOR_SCALE_VERTICAL,
@@ -59832,68 +58575,52 @@ Wick.Tools.Cursor = class extends Wick.Tool {
       }
     }
   }
-
   _setCursor(cursor) {
     this.currentCursorIcon = cursor;
   }
-
   get _selection() {
     return this.project.selection;
   }
-
   get _widget() {
     return this._selection.view.widget;
   }
-
   _clearSelection() {
     this._selection.clear();
   }
-
   _selectItem(item) {
     var object = this._wickObjectFromPaperItem(item);
-
     this._selection.select(object);
   }
+
   /**
    * Select multiple items simultaneously.
    * @param {object[]} items paper items 
    */
-
-
   _selectItems(items) {
     let objects = [];
     items.forEach(item => {
       objects.push(this._wickObjectFromPaperItem(item));
     });
-
     this._selection.selectMultipleObjects(objects);
   }
-
   _deselectItem(item) {
     var object = this._wickObjectFromPaperItem(item);
-
     this._selection.deselect(object);
   }
-
   _isItemSelected(item) {
     var object = this._wickObjectFromPaperItem(item);
-
     return object.isSelected;
   }
-
   _wickObjectFromPaperItem(item) {
     var uuid = item.data.wickUUID;
-
     if (!uuid) {
       console.error('WARNING: _wickObjectFromPaperItem: item had no wick UUID. did you try to select something that wasnt created by a wick view? is the view up-to-date?');
       console.log(item);
     }
-
     return Wick.ObjectCache.getObjectByUUID(uuid);
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -59911,6 +58638,7 @@ Wick.Tools.Cursor = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Ellipse = class extends Wick.Tool {
   /**
    * Creates an instance of the ellipse tool.
@@ -59922,49 +58650,42 @@ Wick.Tools.Ellipse = class extends Wick.Tool {
     this.topLeft = null;
     this.bottomRight = null;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    * A crosshair cursor.
    * @type {string}
    */
-
-
   get cursor() {
     return 'crosshair';
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {
     if (this.path) {
       this.path.remove();
       this.path = null;
     }
   }
-
   onMouseDown(e) {
     this.topLeft = e.point;
     this.bottomRight = e.point;
   }
-
   onMouseDrag(e) {
     if (this.path) this.path.remove();
-    this.bottomRight = e.point; // Lock width and height if shift is held down
+    this.bottomRight = e.point;
 
+    // Lock width and height if shift is held down
     if (e.modifiers.shift) {
       var d = this.bottomRight.subtract(this.topLeft);
       var max = Math.max(Math.abs(d.x), Math.abs(d.y));
       this.bottomRight.x = this.topLeft.x + max * (d.x < 0 ? -1 : 1);
       this.bottomRight.y = this.topLeft.y + max * (d.y < 0 ? -1 : 1);
     }
-
     var bounds = new this.paper.Rectangle(new this.paper.Point(this.topLeft.x, this.topLeft.y), new this.paper.Point(this.bottomRight.x, this.bottomRight.y));
     this.path = new this.paper.Path.Ellipse(bounds);
     this.paper.project.activeLayer.addChild(this.path);
@@ -59973,7 +58694,6 @@ Wick.Tools.Ellipse = class extends Wick.Tool {
     this.path.strokeWidth = this.getSetting('strokeWidth');
     this.path.strokeCap = 'round';
   }
-
   onMouseUp(e) {
     if (!this.path) return;
     this.path.remove();
@@ -59984,9 +58704,8 @@ Wick.Tools.Ellipse = class extends Wick.Tool {
       actionName: 'ellipse'
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -60004,6 +58723,7 @@ Wick.Tools.Ellipse = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Eraser = class extends Wick.Tool {
   /**
    *
@@ -60015,46 +58735,38 @@ Wick.Tools.Eraser = class extends Wick.Tool {
     this.cursorSize = null;
     this.cachedCursor = null;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    *
    * @type {string}
    */
-
-
   get cursor() {
     return this.cachedCursor || 'crosshair';
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {
     this.cursorSize = null;
   }
-
   onDeactivate(e) {
     if (this.path) {
       this.path.remove();
       this.path = null;
     }
   }
-
   onMouseMove(e) {
     // Don't render cursor after every mouse move, cache and only render when size changes
     var cursorNeedsRegen = this.getSetting('eraserSize') !== this.cursorSize;
-
     if (cursorNeedsRegen) {
       this.cachedCursor = this.createDynamicCursor('#ffffff', this.getSetting('eraserSize') + 1);
       this.cursorSize = this.getSetting('eraserSize');
       this.setCursor(this.cachedCursor);
     }
   }
-
   onMouseDown(e) {
     if (!this.path) {
       this.path = new this.paper.Path({
@@ -60062,13 +58774,12 @@ Wick.Tools.Eraser = class extends Wick.Tool {
         strokeCap: 'round',
         strokeWidth: (this.getSetting('eraserSize') + 1) / this.paper.view.zoom
       });
-    } // Add two points so we always at least have a dot.
+    }
 
-
+    // Add two points so we always at least have a dot.
     this.path.add(e.point);
     this.path.add(e.point);
   }
-
   onMouseDrag(e) {
     if (e.point) {
       if (e.modifiers.control) {
@@ -60076,16 +58787,13 @@ Wick.Tools.Eraser = class extends Wick.Tool {
         if (this.path.segments.length > 1) {
           this.path.removeSegments(1);
         }
-
         this.path.add(e.point);
         return;
       }
-
       this.path.add(e.point);
       this.path.smooth();
     }
   }
-
   onMouseUp(e) {
     if (!this.path) return;
     var potraceResolution = 0.7;
@@ -60102,9 +58810,8 @@ Wick.Tools.Eraser = class extends Wick.Tool {
       resolution: potraceResolution * this.paper.view.zoom
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -60122,6 +58829,7 @@ Wick.Tools.Eraser = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Eyedropper = class extends Wick.Tool {
   /**
    *
@@ -60133,26 +58841,21 @@ Wick.Tools.Eyedropper = class extends Wick.Tool {
     this.hoverColor = '#ffffff';
     this.colorPreview = null;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    *
    * @type {string}
    */
-
-
   get cursor() {
     return 'url(cursors/eyedropper.png) 32 32, auto';
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {
     this._destroyColorPreview();
   }
-
   onMouseMove(e) {
     super.onMouseMove(e);
     var canvas = this.paper.view._element;
@@ -60163,13 +58866,10 @@ Wick.Tools.Eyedropper = class extends Wick.Tool {
     var colorData = ctx.getImageData(pointPx.x, pointPx.y, 1, 1).data;
     var colorCSS = 'rgb(' + colorData[0] + ',' + colorData[1] + ',' + colorData[2] + ')';
     this.hoverColor = colorCSS;
-
     this._createColorPreview(e.point);
   }
-
   onMouseDown(e) {
     this._destroyColorPreview();
-
     this.fireEvent({
       eventName: 'eyedropperPickedColor',
       e: {
@@ -60177,16 +58877,12 @@ Wick.Tools.Eyedropper = class extends Wick.Tool {
       }
     });
   }
-
   onMouseDrag(e) {}
-
   onMouseUp(e) {
     this._createColorPreview(e.point);
   }
-
   _createColorPreview(point) {
     this._destroyColorPreview();
-
     var offset = 10 / this.paper.view.zoom;
     var center = point.add(new paper.Point(offset + 0.5, offset + 0.5));
     var radius = 10 / paper.view.zoom;
@@ -60200,16 +58896,14 @@ Wick.Tools.Eyedropper = class extends Wick.Tool {
       strokeWidth: 1.0 / this.paper.view.zoom
     }));
   }
-
   _destroyColorPreview() {
     if (this.colorPreview) {
       this.colorPreview.remove();
       this.colorPreview = null;
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -60227,6 +58921,7 @@ Wick.Tools.Eyedropper = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.FillBucket = class extends Wick.Tool {
   /**
    *
@@ -60235,28 +58930,22 @@ Wick.Tools.FillBucket = class extends Wick.Tool {
     super();
     this.name = 'fillbucket';
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    *
    * @type {string}
    */
-
-
   get cursor() {
     return 'url(cursors/fillbucket.png) 32 32, auto';
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {}
-
   onMouseDown(e) {
     setTimeout(() => {
       this.setCursor('wait');
@@ -60273,19 +58962,16 @@ Wick.Tools.FillBucket = class extends Wick.Tool {
         }),
         onFinish: path => {
           this.setCursor('default');
-
           if (path) {
             path.fillColor = this.getSetting('fillColor').rgba;
             path.name = null;
             this.addPathToProject();
-
             if (e.item) {
               path.insertAbove(e.item);
             } else {
               this.paper.project.activeLayer.addChild(path);
               this.paper.OrderingUtils.sendToBack([path]);
             }
-
             this.fireEvent({
               eventName: 'canvasModified',
               actionName: 'fillbucket'
@@ -60299,13 +58985,10 @@ Wick.Tools.FillBucket = class extends Wick.Tool {
       });
     }, 50);
   }
-
   onMouseDrag(e) {}
-
   onMouseUp(e) {}
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -60323,6 +59006,7 @@ Wick.Tools.FillBucket = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Interact = class extends Wick.Tool {
   /**
    * Creates an Interact tool.
@@ -60336,71 +59020,55 @@ Wick.Tools.Interact = class extends Wick.Tool {
     this._mousePosition = new paper.Point(0, 0);
     this._mouseTargets = [];
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {}
-
   onMouseMove(e) {
     this._mousePosition = e.point;
   }
-
   onMouseDrag(e) {
     this._mousePosition = e.point;
   }
-
   onMouseDown(e) {
     this._mousePosition = e.point;
     this._mouseIsDown = true;
   }
-
   onMouseUp(e) {
     this._mousePosition = e.point;
     this._mouseIsDown = false;
   }
-
   onKeyDown(e) {
     this._lastKeyDown = e.key;
-
     if (this._keysDown.indexOf(e.key) === -1) {
       this._keysDown.push(e.key);
     }
   }
-
   onKeyUp(e) {
     this._keysDown = this._keysDown.filter(key => {
       return key !== e.key;
     });
   }
-
   get mousePosition() {
     return this._mousePosition;
   }
-
   get mouseIsDown() {
     return this._mouseIsDown;
   }
-
   get keysDown() {
     return this._keysDown;
   }
-
   get lastKeyDown() {
     return this._lastKeyDown;
   }
-
   get mouseTargets() {
     return this._mouseTargets;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    * Use the current position of the mouse to determine which object(s) are under the mouse
    */
-
-
   determineMouseTargets() {
     var targets = [];
     var hitResult = this.paper.project.hitTest(this.mousePosition, {
@@ -60408,14 +59076,13 @@ Wick.Tools.Interact = class extends Wick.Tool {
       stroke: true,
       curves: true,
       segments: true
-    }); // Check for clips under the mouse.
+    });
 
+    // Check for clips under the mouse.
     if (hitResult) {
       var uuid = hitResult.item.data.wickUUID;
-
       if (uuid) {
         var path = Wick.ObjectCache.getObjectByUUID(uuid);
-
         if (path && !path.parentClip.isRoot) {
           var clip = path.parentClip;
           var lineageWithoutRoot = clip.lineage;
@@ -60428,9 +59095,9 @@ Wick.Tools.Interact = class extends Wick.Tool {
       targets = [this.project.activeFrame];
     } else {
       targets = [];
-    } // Update cursor
+    }
 
-
+    // Update cursor
     if (this.project.hideCursor) {
       this.setCursor('none');
     } else {
@@ -60439,12 +59106,10 @@ Wick.Tools.Interact = class extends Wick.Tool {
         clip && this.setCursor(clip.cursor);
       }
     }
-
     this._mouseTargets = targets;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -60462,6 +59127,7 @@ Wick.Tools.Interact = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Line = class extends Wick.Tool {
   /**
    *
@@ -60475,52 +59141,42 @@ Wick.Tools.Line = class extends Wick.Tool {
     this.startPoint;
     this.endPoint;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    *
    * @type {string}
    */
-
-
   get cursor() {
     return 'crosshair';
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {
     this.path.remove();
   }
-
   onDeactivate(e) {
     this.path.remove();
   }
-
   onMouseDown(e) {
     this.startPoint = e.point;
   }
-
   onMouseDrag(e) {
     this.path.remove();
     this.endPoint = e.point;
-
     if (e.modifiers.control) {
       var vector = this.endPoint.subtract(this.startPoint);
       vector.angle = Math.round(vector.angle / 45) * 45;
       this.endPoint = this.startPoint.add(vector);
     }
-
     this.path = new paper.Path.Line(this.startPoint, this.endPoint);
     this.path.strokeCap = 'round';
     this.path.strokeColor = this.getSetting('strokeColor').rgba;
     this.path.strokeWidth = this.getSetting('strokeWidth');
   }
-
   onMouseUp(e) {
     this.path.remove();
     this.addPathToProject(this.path);
@@ -60529,9 +59185,8 @@ Wick.Tools.Line = class extends Wick.Tool {
       actionName: 'line'
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -60549,6 +59204,7 @@ Wick.Tools.Line = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.None = class extends Wick.Tool {
   /**
    * Creates a none tool.
@@ -60557,23 +59213,18 @@ Wick.Tools.None = class extends Wick.Tool {
     super();
     this.name = 'none';
   }
+
   /**
    * The "no-sign" cursor.
    * @type {string}
    */
-
-
   get cursor() {
     return 'not-allowed';
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {}
-
   onMouseDown(e) {
     var message = '';
-
     if (!this.project.activeFrame) {
       message = 'CLICK_NOT_ALLOWED_NO_FRAME';
     } else if (this.project.activeLayer.locked) {
@@ -60583,16 +59234,12 @@ Wick.Tools.None = class extends Wick.Tool {
     } else {
       return;
     }
-
     this.project.errorOccured(message);
   }
-
   onMouseDrag(e) {}
-
   onMouseUp(e) {}
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -60610,6 +59257,7 @@ Wick.Tools.None = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Pan = class extends Wick.Tool {
   /**
    *
@@ -60618,39 +59266,31 @@ Wick.Tools.Pan = class extends Wick.Tool {
     super();
     this.name = 'pan';
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    *
    * @type {string}
    */
-
-
   get cursor() {
     return 'move';
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {}
-
   onMouseDown(e) {}
-
   onMouseDrag(e) {
     var d = e.downPoint.subtract(e.point);
     this.paper.view.center = this.paper.view.center.add(d);
   }
-
   onMouseUp(e) {
     this.fireEvent({
       eventName: 'canvasViewTransformed'
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -60668,6 +59308,7 @@ Wick.Tools.Pan = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.PathCursor = class extends Wick.Tool {
   constructor() {
     super();
@@ -60696,32 +59337,32 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
     this.selectionOverlay = new this.paper.Group({
       insert: false
     });
+    this.activeVertexIndex = null;
+    this.onDeleteVertex = null;
   }
-
   get doubleClickEnabled() {
     return true;
   }
-
   get cursor() {
     return 'url("' + this.currentCursorIcon + '") 32 32, auto';
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {
     this._leaveDetailedEditing();
   }
-
   onMouseMove(e) {
-    super.onMouseMove(e); // Remove the hover preview, a new one will be generated if needed
+    super.onMouseMove(e);
 
-    this.hoverPreview.remove(); // Find the thing that is currently under the cursor.
+    // Remove the hover preview, a new one will be generated if needed
+    this.hoverPreview.remove();
 
-    this.hitResult = this._updateHitResult(e); // Update the image being used for the cursor
+    // Find the thing that is currently under the cursor.
+    this.hitResult = this._updateHitResult(e);
 
-    this._setCursor(this._getCursor()); // Regen hover preview
+    // Update the image being used for the cursor
+    this._setCursor(this._getCursor());
 
-
+    // Regen hover preview
     if (this.hitResult.type === 'segment' && !this.hitResult.item.data.isSelectionBoxGUI) {
       // Hovering over a segment, draw a circle where the segment is
       this.hoverPreview = new this.paper.Path.Circle(this.hitResult.segment.point, this.HOVER_PREVIEW_SEGMENT_RADIUS / this.paper.view.zoom);
@@ -60738,54 +59379,49 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       this.hoverPreview.segments[0].handleOut = this.hitResult.location.curve.handle1;
       this.hoverPreview.segments[1].handleIn = this.hitResult.location.curve.handle2;
     }
-
     this.hoverPreview.data.wickType = 'gui';
   }
-
   onMouseDown(e) {
     super.onMouseDown(e);
     if (!e.modifiers) e.modifiers = {};
-    this.hitResult = this._updateHitResult(e); // We no longer call _leaveDetailedEditing() here on mouse down!
+    this.hitResult = this._updateHitResult(e);
+
+    // We no longer call _leaveDetailedEditing() here on mouse down!
     // If the user clicks empty space, they might be starting a box selection.
     // We will decide whether to leave detailed editing in onMouseUp if it was just a click.
 
     if (this.hitResult.item && (this.hitResult.type === 'curve' || this.hitResult.type === 'segment' || this.hitResult.type && this.hitResult.type.startsWith('handle'))) {
       // Save the original path JSON for auto-keyframing
       var wickUUID = this._getWickUUID(this.hitResult.item);
-
       var wickPath = Wick.ObjectCache.getObjectByUUID(wickUUID);
-
       if (wickPath && wickPath.classname === 'Path') {
         this._onMouseDownJSON = JSON.parse(JSON.stringify(wickPath.json));
         this._onMouseDownUUID = wickUUID;
-      } // Always update detailedEditing to the fresh hitResult.item 
+      }
+
+      // Always update detailedEditing to the fresh hitResult.item 
       // to prevent stale reference bugs if the editor re-rendered the shape!
+      var wasNull = this.detailedEditing === null;
 
-
-      var wasNull = this.detailedEditing === null; // If the object was re-rendered between clicks, we must preserve the 'selected'
+      // If the object was re-rendered between clicks, we must preserve the 'selected'
       // state of the old segments onto the new segments.
-
       if (this.detailedEditing && this.hitResult.item && this.detailedEditing !== this.hitResult.item) {
         var oldSegments = this._getSegments(this.detailedEditing);
-
         var newSegments = this._getSegments(this.hitResult.item);
-
         for (var i = 0; i < oldSegments.length; i++) {
           if (newSegments[i]) {
             newSegments[i].selected = oldSegments[i].selected;
           }
         }
       }
-
       this.detailedEditing = this.hitResult.item;
-
       if (wasNull && this.hitResult.type === 'curve') {
         if (this.detailedEditing && this.detailedEditing.setFullySelected) {
           this.detailedEditing.setFullySelected(true);
         }
-      } // Original logic:
+      }
 
-
+      // Original logic:
       if (this.hitResult.type === 'curve') {
         this.draggingCurve = this.hitResult.location.curve;
       } else if (this.hitResult.type === 'segment') {
@@ -60796,13 +59432,16 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
           // Multi-select logic for segments:
           if (e.modifiers.shift) {
             this.hitResult.segment.selected = !this.hitResult.segment.selected;
+            this.activeVertexIndex = this.hitResult.segment.selected ? this.hitResult.segment.index : null;
           } else {
             var segments = this._getSegments(this.hitResult.item);
-
-            if (segments.length > 0 && !this.hitResult.segment.selected) {
-              segments.forEach(seg => seg.selected = false);
-              this.hitResult.segment.selected = true;
-            }
+            segments.forEach(seg => {
+              if (seg !== this.hitResult.segment) {
+                seg.selected = false;
+              }
+            });
+            this.hitResult.segment.selected = true;
+            this.activeVertexIndex = this.hitResult.segment.index;
           }
         }
       }
@@ -60810,22 +59449,18 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       // Nothing was clicked, clear selection or start box select
       if (!e.modifiers.shift && this.detailedEditing) {
         this._getSegments(this.detailedEditing).forEach(seg => seg.selected = false);
-      } // Always start selection box if we're clicking empty space in path mode
-
-
+        this.activeVertexIndex = null;
+      }
+      // Always start selection box if we're clicking empty space in path mode
       this.selectionBox.start(e.point);
     }
-
     this._updateSelectionOverlay();
   }
-
   onDoubleClick(e) {
     this.hitResult = this._updateHitResult(e);
-
     if (!this.detailedEditing) {
       // If detailed editing is off, turn it on for this path.
       this.detailedEditing = this.hitResult.item;
-
       if (this.detailedEditing && this.detailedEditing.setFullySelected) {
         this.detailedEditing.setFullySelected(true);
       }
@@ -60836,37 +59471,44 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
     } else if (this.hitResult.item && this.hitResult.type === 'curve') {
       var location = this.hitResult.location;
       var path = this.hitResult.item;
-      var addedPoint = path.insert(location.index + 1, e.point);
 
-      if (!e.modifiers.shift) {
-        addedPoint.smooth();
-        var handleInMag = Math.sqrt(addedPoint.handleIn.x * addedPoint.handleIn.x + addedPoint.handleIn.y + addedPoint.handleIn.y);
-        var handleOutMag = Math.sqrt(addedPoint.handleOut.x * addedPoint.handleOut.x + addedPoint.handleOut.y + addedPoint.handleOut.y);
-
-        if (handleInMag > handleOutMag) {
-          var avgMag = handleOutMag;
-          addedPoint.handleIn.x = -addedPoint.handleOut.x * 1.5;
-          addedPoint.handleIn.y = -addedPoint.handleOut.y * 1.5;
-          addedPoint.handleOut.x *= 1.5;
-          addedPoint.handleOut.y *= 1.5;
-        } else {
-          var avgMag = handleInMag;
-          addedPoint.handleOut.x = -addedPoint.handleIn.x * 1.5;
-          addedPoint.handleOut.y = -addedPoint.handleIn.y * 1.5;
-          addedPoint.handleIn.x *= 1.5;
-          addedPoint.handleIn.y *= 1.5;
-        }
+      // Use Paper.js divideAt to split the curve exactly at the double-clicked location
+      // without altering the existing curve shape or bezier handles!
+      var newSegment = path.divideAt(location);
+      if (!newSegment) {
+        // Fallback to inserting point at location if divideAt returned null
+        newSegment = path.insert(location.index + 1, e.point);
       }
 
+      // Deselect other segments and select the newly added segment
+      var segments = this._getSegments(path);
+      segments.forEach(function (seg) {
+        seg.selected = seg === newSegment;
+      });
+      if (newSegment) {
+        this.activeVertexIndex = newSegment.index;
+      }
       if (this.detailedEditing && path && path.setFullySelected) {
         path.setFullySelected(true);
       }
+
+      // Synchronize Wick Model so changes persist
+      var wickUUID = this._getWickUUID(path);
+      var wickPath = Wick.ObjectCache.getObjectByUUID(wickUUID);
+      if (wickPath && wickPath.classname === 'Path') {
+        wickPath.json = Wick.View.Path.exportJSON(path);
+        wickPath.needReimport = false;
+      }
+      this._updateSelectionOverlay();
+      this.fireEvent({
+        eventName: 'canvasModified',
+        actionName: 'addVertex'
+      });
     } else if (this.hitResult.item && this.hitResult.type === 'segment') {
       var hix = this.hitResult.segment.handleIn.x;
       var hiy = this.hitResult.segment.handleIn.y;
       var hox = this.hitResult.segment.handleOut.x;
       var hoy = this.hitResult.segment.handleOut.y;
-
       if (hix === 0 && hiy === 0 && hix === 0 && hiy === 0) {
         this.hitResult.segment.smooth();
       } else {
@@ -60877,42 +59519,18 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       }
     }
   }
-
   onMouseDrag(e) {
     if (!e.modifiers) e.modifiers = {};
-
     if (this.selectionBox.active) {
       this.selectionBox.drag(e.point);
     } else if (this.hitResult.item && this.hitResult.type === 'segment') {
       // We're dragging vertex selection, so move all selected points.
       var path = this.hitResult.item;
-      var delta = e.delta;
-      var project = this.project;
-
-      if (project.toolSettings.getSetting('snapEnabled')) {
-        // Find potential snap target for the CURRENTLY dragged segment
-        var currentSeg = this.hitResult.segment;
-        var potentialPos = currentSeg.point.add(delta);
-        var snapHit = this.paper.project.hitTest(potentialPos, {
-          segments: true,
-          tolerance: 10 / this.paper.view.zoom,
-          match: result => {
-            // Don't snap to segments of the SAME path that are currently selected (dragging together)
-            return result.type === 'segment' && result.item.data.wickType !== 'gui' && (!result.segment.selected || result.item !== path);
-          }
-        });
-
-        if (snapHit && snapHit.segment) {
-          delta = snapHit.segment.point.subtract(currentSeg.point);
-        }
-      }
-
       this._getSegments(path).forEach(seg => {
         if (seg.selected) {
-          seg.point = seg.point.add(delta);
+          seg.point = seg.point.add(e.delta);
         }
       });
-
       if (this.hitResult.segment && this.hitResult.segment.point) {
         this.hoverPreview.position = this.hitResult.segment.point;
       }
@@ -60922,32 +59540,27 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       var segment2 = this.draggingCurve.segment2;
       var handleIn = segment1.handleOut;
       var handleOut = segment2.handleIn;
-
       if (handleIn.x === 0 && handleIn.y === 0) {
         handleIn.x = (segment2.point.x - segment1.point.x) / 4;
         handleIn.y = (segment2.point.y - segment1.point.y) / 4;
       }
-
       if (handleOut.x === 0 && handleOut.y === 0) {
         handleOut.x = (segment1.point.x - segment2.point.x) / 4;
         handleOut.y = (segment1.point.y - segment2.point.y) / 4;
       }
-
       handleIn.x += e.delta.x;
       handleIn.y += e.delta.y;
       handleOut.x += e.delta.x;
-      handleOut.y += e.delta.y; // Update the hover preview to match the curve we just changed
+      handleOut.y += e.delta.y;
 
+      // Update the hover preview to match the curve we just changed
       this.hoverPreview.segments[0].handleOut = this.draggingCurve.handle1;
       this.hoverPreview.segments[1].handleIn = this.draggingCurve.handle2;
     }
-
     this._updateSelectionOverlay();
-
     if (this.hitResult.type && this.hitResult.type.startsWith('handle')) {
       var otherHandle;
       var handle;
-
       if (this.hitResult.type === 'handle-in') {
         handle = this.hitResult.segment.handleIn;
         otherHandle = this.hitResult.segment.handleOut;
@@ -60955,35 +59568,31 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
         handle = this.hitResult.segment.handleOut;
         otherHandle = this.hitResult.segment.handleIn;
       }
-
       handle.x += e.delta.x;
       handle.y += e.delta.y;
-
       if (!e.modifiers.shift) {
         otherHandle.x -= e.delta.x;
         otherHandle.y -= e.delta.y;
       }
     }
   }
-
   onMouseUp(e) {
     if (this.selectionBox.active) {
       // Capture the area of the box before ending the selection tool
       var selectionRect = new this.paper.Rectangle(this.selectionBox._start, e.point);
       this.selectionBox.end(e.point);
-      var hasArea = selectionRect.area >= 10; // If the user just clicked empty space (tiny rectangle without dragging)
+      var hasArea = selectionRect.area >= 10;
 
+      // If the user just clicked empty space (tiny rectangle without dragging)
       if (!hasArea && !e.modifiers.shift) {
         this._leaveDetailedEditing();
       } else if (hasArea) {
         if (!this.detailedEditing && this.selectionBox.items && this.selectionBox.items.length > 0) {
           var foundPath = this.selectionBox.items.find(item => item instanceof this.paper.PathItem && !item.data.isBorder && item.data.wickType !== 'gui');
-
           if (foundPath) {
             this.detailedEditing = foundPath;
           }
         }
-
         if (this.detailedEditing) {
           this._getSegments(this.detailedEditing).forEach(function (seg) {
             if (selectionRect.contains(seg.point)) {
@@ -60991,18 +59600,18 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
             }
           });
         }
-      } // Removed: this.fireEvent({eventName: 'canvasModified', actionName: 'pathcursorSelectMultiple'});
+      }
+      // Removed: this.fireEvent({eventName: 'canvasModified', actionName: 'pathcursorSelectMultiple'});
       // We do not modify the canvas when simply selecting vertices.
-
     } else if (this.hitResult.type === 'segment' || this.hitResult.type === 'curve' || this.hitResult.type && this.hitResult.type.startsWith('handle')) {
       // Auto-Shape-Key framing logic
       if (this._onMouseDownJSON && this._onMouseDownUUID) {
         var wickPath = Wick.ObjectCache.getObjectByUUID(this._onMouseDownUUID);
-
         if (wickPath && wickPath.parentFrame) {
           var frame = wickPath.parentFrame;
-          var relPos = frame.getRelativePlayheadPosition(); // If we are at relPos > 1 in an extended frame with no tweens, create the auto-keys
+          var relPos = frame.getRelativePlayheadPosition();
 
+          // If we are at relPos > 1 in an extended frame with no tweens, create the auto-keys
           if (relPos > 1 && frame.length > 1 && frame.tweens.length === 0) {
             // Create start key with original data
             frame.addTween(new Wick.Tween({
@@ -61011,8 +59620,9 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
               transformation: new Wick.Transformation({
                 opacity: wickPath.opacity
               })
-            })); // Create current key with new data
+            }));
 
+            // Create current key with new data
             frame.addTween(new Wick.Tween({
               playheadPosition: relPos,
               shapeData: JSON.parse(JSON.stringify(wickPath.json)),
@@ -61023,23 +59633,25 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
           }
         }
       }
-
       this.fireEvent({
         eventName: 'canvasModified',
         actionName: 'pathcursor'
       });
     }
-
     this._updateSelectionOverlay();
-
     this._onMouseDownJSON = null;
     this._onMouseDownUUID = null;
   }
-
   onKeyDown(e) {
+    var key = (e.key || '').toLowerCase();
+    if (key === 'delete' || key === 'del' || key === 'backspace' || e.keyCode === 8 || e.keyCode === 46) {
+      if (typeof this.onDeleteVertex === 'function') {
+        this.onDeleteVertex(this.activeVertexIndex);
+        return;
+      }
+    }
     if (this.detailedEditing && e.key == "<") {
       var wick = Wick.ObjectCache.getObjectByUUID(this._getWickUUID(this.detailedEditing));
-
       if (wick && wick._view && wick._view._item) {
         var path = wick._view._item;
         path.closed = !path.closed;
@@ -61047,62 +59659,73 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       }
     }
   }
-
   _updateHitResult(e) {
+    var zoom = this.paper.view && this.paper.view.zoom ? this.paper.view.zoom : 1;
+    var segTolerance = Math.max(10, 10 / zoom);
+
+    // 1. Prioritize hitting a segment (vertex) first!
+    var segHitResult = this.paper.project.hitTest(e.point, {
+      segments: true,
+      tolerance: segTolerance,
+      match: result => {
+        return result.item !== this.hoverPreview && !result.item.data.isBorder && result.item.data.wickType !== 'gui';
+      }
+    });
+    if (segHitResult && segHitResult.type === 'segment') {
+      if (!this.detailedEditing || this._getWickUUID(segHitResult.item) === this._getWickUUID(this.detailedEditing)) {
+        return segHitResult;
+      }
+    }
+
+    // 2. Otherwise run full hitTest for curves, fills, handles, etc.
     var newHitResult = this.paper.project.hitTest(e.point, {
       fill: true,
       stroke: true,
       curves: true,
       segments: true,
       handles: this.detailedEditing !== null,
-      tolerance: this.SELECTION_TOLERANCE,
+      tolerance: Math.max(this.SELECTION_TOLERANCE, 8 / zoom),
       match: result => {
         return result.item !== this.hoverPreview && !result.item.data.isBorder && result.item.data.wickType !== 'gui';
       }
     });
     if (!newHitResult) newHitResult = new this.paper.HitResult();
-
     if (this.detailedEditing) {
       if (this._getWickUUID(newHitResult.item) !== this._getWickUUID(this.detailedEditing)) {
         // Hits an item, but not the one currently in detail edit - handle as a click with no hit.
         return new this.paper.HitResult();
       }
-
       if (newHitResult.item && newHitResult.type.startsWith('handle')) {
         // If this a click on a handle, do not apply hit type prediction below.
         return newHitResult;
       }
     }
-
     if (newHitResult.item && !newHitResult.item.data.isSelectionBoxGUI) {
       // You can't select children of compound paths, you can only select the whole thing.
       if (newHitResult.item.parent.className === 'CompoundPath') {
         newHitResult.item = newHitResult.item.parent;
-      } // You can't select individual children in a group, you can only select the whole thing.
+      }
 
-
+      // You can't select individual children in a group, you can only select the whole thing.
       if (newHitResult.item.parent.parent) {
         newHitResult.type = 'fill';
-
         while (newHitResult.item.parent.parent) {
           newHitResult.item = newHitResult.item.parent;
         }
-      } // this.paper.js has two names for strokes+curves, we don't need that extra info
+      }
 
-
+      // this.paper.js has two names for strokes+curves, we don't need that extra info
       if (newHitResult.type === 'stroke') {
         newHitResult.type = 'curve';
-      } // Mousing over rasters acts the same as mousing over fills.
+      }
 
-
+      // Mousing over rasters acts the same as mousing over fills.
       if (newHitResult.type === 'pixel') {
         newHitResult.type = 'fill';
       }
     }
-
     return newHitResult;
   }
-
   _getCursor() {
     if (!this.hitResult.item) {
       return this.CURSOR_DEFAULT;
@@ -61112,11 +59735,9 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       return this.CURSOR_SEGMENT;
     }
   }
-
   _setCursor(cursor) {
     this.currentCursorIcon = cursor;
   }
-
   _leaveDetailedEditing() {
     if (this.detailedEditing) {
       this.paper.project.deselectAll();
@@ -61129,24 +59750,21 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       this.fireEvent('canvasModified');
     }
   }
-
   _getWickUUID(item) {
     if (!item) return undefined;
     if (item.data.wickUUID) return item.data.wickUUID;
     if (item.parent && item.parent.data.wickUUID) return item.parent.data.wickUUID;
     return undefined;
   }
-
   _updateSelectionOverlay() {
-    if (this.selectionOverlay) this.selectionOverlay.remove(); // Ensure we draw on the project's current active layer (usually the top-most frame layer)
+    if (this.selectionOverlay) this.selectionOverlay.remove();
 
+    // Ensure we draw on the project's current active layer (usually the top-most frame layer)
     this.selectionOverlay = new this.paper.Group();
     this.selectionOverlay.data.wickType = 'gui';
     this.selectionOverlay.bringToFront();
-
     if (this.detailedEditing) {
       var self = this;
-
       this._getSegments(this.detailedEditing).forEach(function (seg) {
         if (seg.selected) {
           // Convert local segment point to global project coordinates
@@ -61165,22 +59783,19 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
         }
       });
     }
-
     if (this.paper.view) {
       this.paper.view.draw();
     }
   }
+
   /**
    * Helper to get segments from either a Path or a CompoundPath.
    * @param {paper.Item} item 
    * @returns {paper.Segment[]}
    */
-
-
   _getSegments(item) {
     if (!item) return [];
     if (item.segments) return item.segments;
-
     if (item.children) {
       var allSegments = [];
       item.children.forEach(child => {
@@ -61190,12 +59805,10 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
       });
       return allSegments;
     }
-
     return [];
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -61213,46 +59826,39 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Pencil = class extends Wick.Tool {
   static get MIN_ADD_POINT_MOVEMENT() {
     return 2;
   }
+
   /**
    * Creates a pencil tool.
    */
-
-
   constructor() {
     super();
     this.name = 'pencil';
     this.path = null;
     this._movement = new paper.Point();
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    * The pencil cursor.
    * @type {string}
    */
-
-
   get cursor() {
     return 'url(cursors/pencil.png) 32 32, auto';
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {}
-
   onMouseDown(e) {
     this._movement = new paper.Point();
-
     if (!this.path) {
       this.path = new this.paper.Path({
         strokeColor: this.getSetting('strokeColor').rgba,
@@ -61260,32 +59866,25 @@ Wick.Tools.Pencil = class extends Wick.Tool {
         strokeCap: 'round'
       });
     }
-
     this.path.add(e.point);
   }
-
   onMouseDrag(e) {
     if (!this.path) return;
-
     if (e.modifiers.control) {
       // Straight line mode: only keep the start and the current point.
       if (this.path.segments.length > 1) {
         this.path.removeSegments(1);
       }
-
       this.path.add(e.point);
       return;
     }
-
     this._movement = this._movement.add(e.delta);
-
     if (this._movement.length > Wick.Tools.Pencil.MIN_ADD_POINT_MOVEMENT / this.paper.view.zoom) {
       this._movement = new paper.Point();
       this.path.add(e.point);
       this.path.smooth();
     }
   }
-
   onMouseUp(e) {
     if (!this.path) return;
     this.path.add(e.point);
@@ -61298,9 +59897,8 @@ Wick.Tools.Pencil = class extends Wick.Tool {
       actionName: 'pencil'
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Editor.
@@ -61318,57 +59916,73 @@ Wick.Tools.Pencil = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Pen = class extends Wick.Tool {
   /**
-   * Creates a pen tool for drawing connected segments.
+   * Creates a pen tool for drawing connected segments and bezier curves.
    */
   constructor() {
     super();
     this.name = 'pen';
     this.path = null;
     this.previewPath = null;
-  }
+    this.overlayGroup = null;
+    this.CLOSE_DISTANCE = 14; // pixels tolerance to close path
+    this.START_POINT_RADIUS = 7; // normal radius for start vertex
+    this.START_POINT_HOVER_RADIUS = 10; // hover radius for start vertex
+    this.VERTEX_RADIUS = 4.5; // standard vertex radius
 
+    this.isDragging = false;
+    this.activeSegment = null;
+    this.selectedSegment = null;
+    this.isNearStart = false;
+    this.justClosed = false;
+  }
   get doubleClickEnabled() {
     return true;
   }
+
   /**
    * The pen cursor.
    * @type {string}
    */
-
-
   get cursor() {
     return 'url(cursors/segment.png) 32 32, crosshair';
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {
     this.reset();
   }
-
   onDeactivate(e) {
     this.finishPath();
   }
-
   reset() {
     if (this.path) this.path.remove();
     if (this.previewPath) this.previewPath.remove();
+    if (this.overlayGroup) this.overlayGroup.remove();
     this.path = null;
     this.previewPath = null;
+    this.overlayGroup = null;
+    this.isDragging = false;
+    this.activeSegment = null;
+    this.selectedSegment = null;
+    this.isNearStart = false;
+    this.justClosed = false;
   }
-
   finishPath() {
     if (this.path && this.path.segments.length > 1) {
       this.path.remove();
-      if (this.previewPath) this.previewPath.remove(); // Clean up segments if path is closed
-
-      if (this.path.closed) {// Ensure the last point isn't exactly the same as the first (handled by closePath)
+      if (this.previewPath) this.previewPath.remove();
+      if (this.overlayGroup) this.overlayGroup.remove();
+      if (this.path.closed) {
+        // Apply fill color and stroke color to closed path
+        var fillColor = this.getSetting('fillColor');
+        this.path.fillColor = fillColor ? fillColor.rgba : this.getSetting('strokeColor').rgba;
+      } else {
+        this.path.fillColor = null;
       }
-
       this.addPathToProject(this.path);
       this.fireEvent({
         eventName: 'canvasModified',
@@ -61377,88 +59991,246 @@ Wick.Tools.Pen = class extends Wick.Tool {
     } else if (this.path) {
       this.path.remove();
     }
-
     this.path = null;
     if (this.previewPath) this.previewPath.remove();
     this.previewPath = null;
+    if (this.overlayGroup) this.overlayGroup.remove();
+    this.overlayGroup = null;
+    this.isDragging = false;
+    this.activeSegment = null;
+    this.selectedSegment = null;
+    this.isNearStart = false;
+    this.justClosed = false;
   }
-
   onMouseDown(e) {
+    this.justClosed = false;
+    var zoom = this.paper && this.paper.view && this.paper.view.zoom ? this.paper.view.zoom : 1;
     if (!this.path) {
+      // First vertex
       this.path = new this.paper.Path({
         strokeColor: this.getSetting('strokeColor').rgba,
         strokeWidth: this.getSetting('strokeWidth'),
         strokeCap: 'round',
-        strokeJoin: 'round'
+        strokeJoin: 'round',
+        fillColor: null
       });
-      this.path.add(e.point);
+      this.activeSegment = this.path.add(e.point);
+      this.selectedSegment = this.activeSegment;
+      this.isDragging = true;
     } else {
-      // Check if clicking near the starting point to close the path
+      // Check if clicking near starting vertex to close path
       var distanceToStart = e.point.getDistance(this.path.firstSegment.point);
-
-      if (distanceToStart < 10 / this.paper.view.zoom && this.path.segments.length > 2) {
+      if (distanceToStart < this.CLOSE_DISTANCE / zoom && this.path.segments.length >= 2) {
         this.path.closed = true;
+        this.justClosed = true;
         this.finishPath();
         return;
       }
 
-      var point = e.point;
+      // Check if clicking on an existing vertex to select it
+      var hitSegment = null;
+      for (var i = 0; i < this.path.segments.length; i++) {
+        var seg = this.path.segments[i];
+        if (e.point.getDistance(seg.point) < (this.CLOSE_DISTANCE + 2) / zoom) {
+          hitSegment = seg;
+          break;
+        }
+      }
+      if (hitSegment) {
+        this.selectedSegment = hitSegment;
+        this.updatePreview(e.point, e);
+        this.updateOverlay(e.point);
+        return;
+      }
 
-      if (e.modifiers.control) {
+      // New vertex
+      var point = e.point;
+      if (e.modifiers && e.modifiers.control) {
         var lastPoint = this.path.lastSegment.point;
         var vector = point.subtract(lastPoint);
         vector.angle = Math.round(vector.angle / 45) * 45;
         point = lastPoint.add(vector);
       }
-
-      this.path.add(point);
+      this.activeSegment = this.path.add(point);
+      this.selectedSegment = this.activeSegment;
+      this.isDragging = true;
     }
-
-    this.updatePreview(point || e.point, e);
+    this.updatePreview(e.point, e);
+    this.updateOverlay(e.point);
   }
+  deleteSelectedSegment() {
+    if (!this.path || !this.selectedSegment) return;
+    var segIndex = this.selectedSegment.index;
+    if (segIndex !== undefined && segIndex >= 0 && segIndex < this.path.segments.length) {
+      this.path.removeSegment(segIndex);
+      this.selectedSegment = null;
+      this.activeSegment = null;
+      if (this.path.segments.length === 0) {
+        this.reset();
+        return;
+      }
+      var lastPoint = this.path.lastSegment.point;
+      this.updatePreview(lastPoint);
+      this.updateOverlay(lastPoint);
+      if (this.paper && this.paper.view) {
+        this.paper.view.draw();
+      }
+    }
+  }
+  onMouseDrag(e) {
+    if (!this.path || !this.activeSegment) return;
 
+    // When dragging, set bezier handles on activeSegment
+    var delta = e.point.subtract(this.activeSegment.point);
+    this.activeSegment.handleOut = delta;
+    this.activeSegment.handleIn = delta.multiply(-1);
+    this.updatePreview(e.point, e);
+    this.updateOverlay(e.point);
+  }
+  onMouseUp(e) {
+    if (this.justClosed) {
+      this.justClosed = false;
+      return;
+    }
+    this.isDragging = false;
+    this.activeSegment = null;
+    this.updatePreview(e.point, e);
+    this.updateOverlay(e.point);
+  }
   onMouseMove(e) {
     super.onMouseMove(e);
-
     if (this.path) {
       this.updatePreview(e.point, e);
+      this.updateOverlay(e.point);
     }
   }
-
   updatePreview(mousePoint, e) {
-    if (!this.path) return;
+    if (!this.path || this.path.segments.length === 0) return;
     if (this.previewPath) this.previewPath.remove();
-    var lastPoint = this.path.lastSegment.point;
+    var zoom = this.paper && this.paper.view && this.paper.view.zoom ? this.paper.view.zoom : 1;
+    var lastSegment = this.path.lastSegment;
+    var lastPoint = lastSegment.point;
     var endPoint = mousePoint;
 
-    if (e && e.modifiers.control) {
-      var vector = endPoint.subtract(lastPoint);
-      vector.angle = Math.round(vector.angle / 45) * 45;
-      endPoint = lastPoint.add(vector);
+    // Check if mouse is near start point
+    var distanceToStart = mousePoint.getDistance(this.path.firstSegment.point);
+    if (distanceToStart < this.CLOSE_DISTANCE / zoom && this.path.segments.length >= 2) {
+      endPoint = this.path.firstSegment.point;
+      this.isNearStart = true;
+    } else {
+      this.isNearStart = false;
+      if (e && e.modifiers && e.modifiers.control) {
+        var vector = endPoint.subtract(lastPoint);
+        vector.angle = Math.round(vector.angle / 45) * 45;
+        endPoint = lastPoint.add(vector);
+      }
     }
-
-    this.previewPath = new this.paper.Path.Line(lastPoint, endPoint);
+    this.previewPath = new this.paper.Path();
     this.previewPath.strokeColor = this.getSetting('strokeColor').rgba;
     this.previewPath.strokeWidth = this.getSetting('strokeWidth');
-    this.previewPath.opacity = 0.5;
+    this.previewPath.opacity = 0.6;
     this.previewPath.dashArray = [4, 4];
     this.previewPath.data.wickType = 'gui'; // Don't add to project
-  }
 
+    var seg1 = this.previewPath.add(lastPoint);
+    seg1.handleOut = lastSegment.handleOut;
+    var seg2 = this.previewPath.add(endPoint);
+    if (this.isNearStart && this.path.firstSegment.handleIn) {
+      seg2.handleIn = this.path.firstSegment.handleIn;
+    }
+  }
+  updateOverlay(mousePoint) {
+    if (this.overlayGroup) this.overlayGroup.remove();
+    if (!this.path || this.path.segments.length === 0) return;
+    var zoom = this.paper && this.paper.view && this.paper.view.zoom ? this.paper.view.zoom : 1;
+    this.overlayGroup = new this.paper.Group();
+    this.overlayGroup.data.wickType = 'gui';
+    var segments = this.path.segments;
+    var firstSeg = segments[0];
+
+    // Draw handles for all segments
+    for (var i = 0; i < segments.length; i++) {
+      var seg = segments[i];
+
+      // Render handle lines and handle points if they exist
+      if (seg.handleIn && !seg.handleIn.isZero()) {
+        var inPos = seg.point.add(seg.handleIn);
+        var inLine = new this.paper.Path.Line(seg.point, inPos);
+        inLine.strokeColor = '#09c399';
+        inLine.strokeWidth = 1 / zoom;
+        inLine.data.wickType = 'gui';
+        this.overlayGroup.addChild(inLine);
+        var inCircle = new this.paper.Path.Circle(inPos, 3 / zoom);
+        inCircle.fillColor = '#09c399';
+        inCircle.data.wickType = 'gui';
+        this.overlayGroup.addChild(inCircle);
+      }
+      if (seg.handleOut && !seg.handleOut.isZero()) {
+        var outPos = seg.point.add(seg.handleOut);
+        var outLine = new this.paper.Path.Line(seg.point, outPos);
+        outLine.strokeColor = '#09c399';
+        outLine.strokeWidth = 1 / zoom;
+        outLine.data.wickType = 'gui';
+        this.overlayGroup.addChild(outLine);
+        var outCircle = new this.paper.Path.Circle(outPos, 3 / zoom);
+        outCircle.fillColor = '#09c399';
+        outCircle.data.wickType = 'gui';
+        this.overlayGroup.addChild(outCircle);
+      }
+
+      // Draw normal intermediate vertices
+      if (i > 0) {
+        var isSelected = this.selectedSegment === seg;
+        var radius = (isSelected ? 7 : this.VERTEX_RADIUS) / zoom;
+        var vertexCircle = new this.paper.Path.Circle(seg.point, radius);
+        vertexCircle.fillColor = isSelected ? '#ff4757' : '#ffffff';
+        vertexCircle.strokeColor = isSelected ? '#000000' : '#09c399';
+        vertexCircle.strokeWidth = (isSelected ? 2 : 1.5) / zoom;
+        vertexCircle.data.wickType = 'gui';
+        this.overlayGroup.addChild(vertexCircle);
+        if (isSelected) {
+          var selectedInnerDot = new this.paper.Path.Circle(seg.point, 2.5 / zoom);
+          selectedInnerDot.fillColor = '#ffffff';
+          selectedInnerDot.data.wickType = 'gui';
+          this.overlayGroup.addChild(selectedInnerDot);
+        }
+      }
+    }
+
+    // Draw the first vertex noticeably bigger so the user recognizes it
+    var distToFirst = mousePoint ? mousePoint.getDistance(firstSeg.point) : 999;
+    var isHoveringFirst = distToFirst < this.CLOSE_DISTANCE / zoom && segments.length >= 2;
+    var isFirstSelected = this.selectedSegment === firstSeg;
+    var firstRadius = (isHoveringFirst ? this.START_POINT_HOVER_RADIUS : isFirstSelected ? 9 : this.START_POINT_RADIUS) / zoom;
+    var firstCircle = new this.paper.Path.Circle(firstSeg.point, firstRadius);
+    firstCircle.fillColor = isFirstSelected ? '#ff4757' : isHoveringFirst ? '#ffde59' : '#09c399';
+    firstCircle.strokeColor = '#000000';
+    firstCircle.strokeWidth = 2 / zoom;
+    firstCircle.data.wickType = 'gui';
+    this.overlayGroup.addChild(firstCircle);
+
+    // Center dot on first vertex
+    var innerDot = new this.paper.Path.Circle(firstSeg.point, (isHoveringFirst ? 4 : 2.5) / zoom);
+    innerDot.fillColor = '#ffffff';
+    innerDot.data.wickType = 'gui';
+    this.overlayGroup.addChild(innerDot);
+    this.overlayGroup.bringToFront();
+  }
   onDoubleClick(e) {
     this.finishPath();
   }
-
   onKeyDown(e) {
     var key = e.key ? e.key.toLowerCase() : '';
-
+    if (key === 'backspace' || key === 'delete' || key === 'del' || e.keyCode === 8 || e.keyCode === 46) {
+      this.deleteSelectedSegment();
+      return;
+    }
     if (key === 'enter' || key === 'escape') {
       this.finishPath();
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -61476,6 +60248,7 @@ Wick.Tools.Pen = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Rectangle = class extends Wick.Tool {
   /**
    *
@@ -61487,63 +60260,53 @@ Wick.Tools.Rectangle = class extends Wick.Tool {
     this.topLeft = null;
     this.bottomRight = null;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    *
    * @type {string}
    */
-
-
   get cursor() {
     return 'crosshair';
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {
     if (this.path) {
       this.path.remove();
       this.path = null;
     }
   }
-
   onMouseDown(e) {
     this.topLeft = e.point;
     this.bottomRight = e.point;
   }
-
   onMouseDrag(e) {
     if (this.path) this.path.remove();
-    this.bottomRight = e.point; // Lock width and height if shift is held down
+    this.bottomRight = e.point;
 
+    // Lock width and height if shift is held down
     if (e.modifiers.shift) {
       var d = this.bottomRight.subtract(this.topLeft);
       var max = Math.max(Math.abs(d.x), Math.abs(d.y));
       this.bottomRight.x = this.topLeft.x + max * (d.x < 0 ? -1 : 1);
       this.bottomRight.y = this.topLeft.y + max * (d.y < 0 ? -1 : 1);
     }
-
     var bounds = new this.paper.Rectangle(new paper.Point(this.topLeft.x, this.topLeft.y), new paper.Point(this.bottomRight.x, this.bottomRight.y));
-
     if (this.getSetting('cornerRadius') !== 0) {
       this.path = new this.paper.Path.Rectangle(bounds, this.getSetting('cornerRadius'));
     } else {
       this.path = new this.paper.Path.Rectangle(bounds);
     }
-
     this.path.fillColor = this.getSetting('fillColor').rgba;
     this.path.strokeColor = this.getSetting('strokeColor').rgba;
     this.path.strokeWidth = this.getSetting('strokeWidth');
     this.path.strokeCap = 'round';
   }
-
   onMouseUp(e) {
     if (!this.path) return;
     this.path.remove();
@@ -61554,9 +60317,8 @@ Wick.Tools.Rectangle = class extends Wick.Tool {
       actionName: 'rectangle'
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -61574,6 +60336,7 @@ Wick.Tools.Rectangle = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Text = class extends Wick.Tool {
   /**
    *
@@ -61583,38 +60346,39 @@ Wick.Tools.Text = class extends Wick.Tool {
     this.name = 'text';
     this.hoveredOverText = null;
     this.editingText = null;
+    this.dragStartPoint = null;
+    this.previewRect = null;
+    this.isDragging = false;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    *
    * @type {string}
    */
-
-
   get cursor() {
     return 'text';
   }
-
   get isDrawingTool() {
     return true;
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {
     if (this.editingText) {
       this.finishEditingText();
     }
-
+    if (this.previewRect) {
+      this.previewRect.remove();
+      this.previewRect = null;
+    }
     this.hoveredOverText = null;
+    this.dragStartPoint = null;
+    this.isDragging = false;
   }
-
   onMouseMove(e) {
     super.onMouseMove(e);
-
     if (e.item && e.item.className === 'PointText' && !e.item.parent.parent) {
       this.hoveredOverText = e.item;
       this.setCursor('text');
@@ -61623,60 +60387,118 @@ Wick.Tools.Text = class extends Wick.Tool {
       this.setCursor('url(cursors/text.png) 32 32, auto');
     }
   }
-
   onMouseDown(e) {
     if (this.editingText) {
       this.finishEditingText();
-    } else if (this.hoveredOverText) {
+      this.dragStartPoint = null;
+      this.isDragging = false;
+      return;
+    }
+    if (this.hoveredOverText) {
       this.editingText = this.hoveredOverText;
       e.item.edit(this.project.view.paper);
-    } else {
-      var text = new this.paper.PointText(e.point);
-      text.justification = 'left';
-      text.fillColor = this.getSetting('fillColor').rgba;
-      text.content = 'Text';
-      text.fontSize = 24;
-      var wickText = new Wick.Path({
-        json: text.exportJSON({
-          asString: false
-        })
-      });
-      this.project.activeFrame.addPath(wickText);
-      this.project.view.render();
-      this.editingText = wickText.view.item;
-      this.editingText.edit(this.project.view.paper); //this.fireEvent('canvasModified');
+      this.dragStartPoint = null;
+      this.isDragging = false;
+      return;
+    }
+    this.dragStartPoint = e.point;
+    this.isDragging = false;
+  }
+  onMouseDrag(e) {
+    if (!this.dragStartPoint || this.editingText) return;
+    var currentPoint = e.point;
+    var diff = currentPoint.subtract(this.dragStartPoint);
+    if (Math.abs(diff.x) > 3 || Math.abs(diff.y) > 3) {
+      this.isDragging = true;
+    }
+    if (this.isDragging) {
+      if (this.previewRect) {
+        this.previewRect.remove();
+      }
+      var minX = Math.min(this.dragStartPoint.x, currentPoint.x);
+      var minY = Math.min(this.dragStartPoint.y, currentPoint.y);
+      var width = Math.max(Math.abs(diff.x), 10);
+      var height = Math.max(Math.abs(diff.y), 10);
+      var rectBounds = new this.paper.Rectangle(minX, minY, width, height);
+      this.previewRect = new this.paper.Path.Rectangle(rectBounds);
+      this.previewRect.strokeColor = '#00a1e0';
+      this.previewRect.dashArray = [4, 4];
+      this.previewRect.strokeWidth = 1 / this.project.view.paper.view.zoom;
+      this.previewRect.fillColor = 'rgba(0, 161, 224, 0.05)';
     }
   }
-
-  onMouseDrag(e) {}
-
-  onMouseUp(e) {}
-
+  onMouseUp(e) {
+    if (this.previewRect) {
+      this.previewRect.remove();
+      this.previewRect = null;
+    }
+    if (!this.dragStartPoint) return;
+    var startP = this.dragStartPoint;
+    var endP = e.point;
+    var isDrag = this.isDragging;
+    this.dragStartPoint = null;
+    this.isDragging = false;
+    var textPoint = startP;
+    var targetWidth = 0;
+    var targetHeight = 0;
+    if (isDrag) {
+      var minX = Math.min(startP.x, endP.x);
+      var minY = Math.min(startP.y, endP.y);
+      targetWidth = Math.abs(endP.x - startP.x);
+      targetHeight = Math.abs(endP.y - startP.y);
+      textPoint = new this.paper.Point(minX, minY + 24); // baseline offset
+    }
+    var text = new this.paper.PointText(textPoint);
+    text.justification = 'left';
+    text.fillColor = this.getSetting('fillColor').rgba;
+    text.content = 'Text';
+    text.fontSize = 24;
+    if (targetWidth > 0 && targetHeight > 0) {
+      text.boxWidth = targetWidth;
+      text.boxHeight = targetHeight;
+    }
+    var wickText = new Wick.Path({
+      json: text.exportJSON({
+        asString: false
+      })
+    });
+    this.project.activeFrame.addPath(wickText);
+    this.project.view.render();
+    this.editingText = wickText.view.item;
+    if (targetWidth > 0 && targetHeight > 0) {
+      this.editingText.boxWidth = targetWidth;
+      this.editingText.boxHeight = targetHeight;
+    }
+    this.editingText.edit(this.project.view.paper);
+  }
   reset() {
+    if (this.previewRect) {
+      this.previewRect.remove();
+      this.previewRect = null;
+    }
+    this.dragStartPoint = null;
+    this.isDragging = false;
     this.finishEditingText();
   }
+
   /**
    * Stop editing the current text and apply changes.
    */
-
-
   finishEditingText() {
     if (!this.editingText) return;
-    this.editingText.finishEditing();
-
-    if (this.editingText.content === '') {
-      this.editingText.remove();
-    }
-
+    var itemToFinish = this.editingText;
     this.editingText = null;
+    itemToFinish.finishEditing();
+    if (itemToFinish.content === '') {
+      itemToFinish.remove();
+    }
     this.fireEvent({
       eventName: 'canvasModified',
       actionName: 'text'
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -61694,6 +60516,7 @@ Wick.Tools.Text = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.Tools.Zoom = class extends Wick.Tool {
   /**
    *
@@ -61706,33 +60529,26 @@ Wick.Tools.Zoom = class extends Wick.Tool {
     this.MIN_ZOOMBOX_SIZE = 20;
     this.zoomBox = null;
   }
-
   get doubleClickEnabled() {
     return false;
   }
+
   /**
    *
    * @type {string}
    */
-
-
   get cursor() {
     return 'zoom-in';
   }
-
   onActivate(e) {}
-
   onDeactivate(e) {
     this.deleteZoomBox();
   }
-
   onMouseDown(e) {}
-
   onMouseDrag(e) {
     this.deleteZoomBox();
     this.createZoomBox(e);
   }
-
   onMouseUp(e) {
     if (this.zoomBox && this.zoomBoxIsValidSize()) {
       var bounds = this.zoomBox.bounds;
@@ -61743,13 +60559,11 @@ Wick.Tools.Zoom = class extends Wick.Tool {
       var zoomAmount = e.modifiers.alt ? this.ZOOM_OUT_AMOUNT : this.ZOOM_IN_AMOUNT;
       this.paper.view.scale(zoomAmount, e.point);
     }
-
     this.deleteZoomBox();
     this.fireEvent({
       eventName: 'canvasViewTransformed'
     });
   }
-
   createZoomBox(e) {
     var bounds = new this.paper.Rectangle(e.downPoint, e.point);
     bounds.x += 0.5;
@@ -61758,20 +60572,17 @@ Wick.Tools.Zoom = class extends Wick.Tool {
     this.zoomBox.strokeColor = 'black';
     this.zoomBox.strokeWidth = 1.0 / this.paper.view.zoom;
   }
-
   deleteZoomBox() {
     if (this.zoomBox) {
       this.zoomBox.remove();
       this.zoomBox = null;
     }
   }
-
   zoomBoxIsValidSize() {
     return this.zoomBox.bounds.width > this.MIN_ZOOMBOX_SIZE && this.zoomBox.bounds.height > this.MIN_ZOOMBOX_SIZE;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Paper.js-drawing-tools.
@@ -61797,6 +60608,7 @@ Wick.Tools.Zoom = class extends Wick.Tool {
 
     by zrispo (github.com/zrispo) (zach@wickeditor.com)
  */
+
 (function () {
   // Splits a CompoundPath with multiple CW children into individual pieces
   function splitCompoundPath(compoundPath) {
@@ -61814,8 +60626,9 @@ Wick.Tools.Zoom = class extends Wick.Tool {
         part.insertAbove(compoundPath);
         parts.push(part);
       }
-    }); // Find hole ownership for each 'part'
+    });
 
+    // Find hole ownership for each 'part'
     var resolvedHoles = [];
     parts.forEach(function (part) {
       var cmp;
@@ -61830,19 +60643,18 @@ Wick.Tools.Zoom = class extends Wick.Tool {
               insert: false
             }));
           }
-
           cmp.addChild(hole);
           resolvedHoles.push(hole);
         }
-
         if (cmp) {
           cmp.fillColor = compoundPath.fillColor;
           cmp.insertAbove(part);
           part.remove();
         }
       });
-    }); // If any holes could not find a path to be a part of, turn them into their own paths
+    });
 
+    // If any holes could not find a path to be a part of, turn them into their own paths
     holes.filter(hole => {
       return resolvedHoles.indexOf(hole) === -1;
     }).forEach(hole => {
@@ -61851,7 +60663,6 @@ Wick.Tools.Zoom = class extends Wick.Tool {
     });
     compoundPath.remove();
   }
-
   function eraseFill(path, eraserPath) {
     if (path.closePath) path.closePath();
     var res = path.subtract(eraserPath, {
@@ -61859,7 +60670,6 @@ Wick.Tools.Zoom = class extends Wick.Tool {
       trace: true
     });
     res.fillColor = path.fillColor;
-
     if (res.children) {
       res.insertAbove(path);
       res.data = {};
@@ -61870,19 +60680,15 @@ Wick.Tools.Zoom = class extends Wick.Tool {
         res.data = {};
         res.insertAbove(path);
       }
-
       path.remove();
     }
-
     path.remove();
   }
-
   function eraseStroke(path, eraserPath) {
     var res = path.subtract(eraserPath, {
       insert: false,
       trace: false
     });
-
     if (res.children) {
       // Since the path is only strokes, it's trivial to split it into individual paths
       var children = [];
@@ -61899,10 +60705,8 @@ Wick.Tools.Zoom = class extends Wick.Tool {
       res.remove();
       if (res.segments.length > 0) res.insertAbove(path);
     }
-
     path.remove();
   }
-
   function splitPath(path) {
     var fill = path.clone({
       insert: false
@@ -61923,7 +60727,6 @@ Wick.Tools.Zoom = class extends Wick.Tool {
       stroke: stroke
     };
   }
-
   function eraseWithPath(eraserPath) {
     var erasables = this.children.filter(path => {
       return path instanceof paper.Path || path instanceof paper.CompoundPath;
@@ -61943,12 +60746,11 @@ Wick.Tools.Zoom = class extends Wick.Tool {
       }
     });
   }
-
   paper.Layer.inject({
     erase: eraseWithPath
   });
 })();
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Paper.js-drawing-tools.
@@ -61975,6 +60777,7 @@ Wick.Tools.Zoom = class extends Wick.Tool {
     Adapted from the FillBucket tool from old Wick
     by zrispo (github.com/zrispo) (zach@wickeditor.com)
  */
+
 (function () {
   var VERBOSE = false;
   var PREVIEW_IMAGE = false;
@@ -61989,12 +60792,10 @@ Wick.Tools.Zoom = class extends Wick.Tool {
   var floodFillY;
   var bgColor;
   var gapFillAmount;
-
   function previewImage(image) {
     var win = window.open('', 'Title', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=' + image.width + ', height=' + image.height + ', top=100, left=100');
     win.document.body.innerHTML = '<div><img src= ' + image.src + '></div>';
   }
-
   function rasterizePaths(callback) {
     var layerGroup = new paper.Group({
       insert: false
@@ -62002,29 +60803,26 @@ Wick.Tools.Zoom = class extends Wick.Tool {
     layers.reverse().forEach(layer => {
       layer.children.forEach(function (child) {
         if (child._class !== 'Path' && child._class !== 'CompoundPath') return;
-
         for (var i = 0; i < N_RASTER_CLONE; i++) {
           var clone = child.clone({
             insert: false
-          }); //experiment: bump out all strokes a bit by expanding their stroke widths
+          });
 
+          //experiment: bump out all strokes a bit by expanding their stroke widths
           if (!clone.strokeColor && clone.fillColor) {
             clone.strokeColor = clone.fillColor;
             clone.strokeWidth = gapFillAmount / RASTER_BASE_RESOLUTION;
           } else if (clone.strokeWidth) {
             clone.strokeWidth += gapFillAmount / RASTER_BASE_RESOLUTION;
           }
-
           layerGroup.addChild(clone);
         }
       });
     });
-
     if (layerGroup.children.length === 0) {
       onError('NO_PATHS');
       return;
     }
-
     var rasterResolution = paper.view.resolution * RASTER_BASE_RESOLUTION / window.devicePixelRatio;
     var layerPathsRaster = layerGroup.rasterize(rasterResolution, {
       insert: false
@@ -62033,7 +60831,6 @@ Wick.Tools.Zoom = class extends Wick.Tool {
     var rasterCtx = rasterCanvas.getContext('2d');
     var layerPathsImageData = rasterCtx.getImageData(0, 0, layerPathsRaster.width, layerPathsRaster.height);
     var layerPathsImageDataRaw = layerPathsImageData.data;
-
     for (var i = 0; i < layerPathsImageDataRaw.length; i += 4) {
       if (layerPathsImageDataRaw[i + 3] === 0) {
         layerPathsImageDataRaw[i] = bgColor.red;
@@ -62042,7 +60839,6 @@ Wick.Tools.Zoom = class extends Wick.Tool {
         layerPathsImageDataRaw[i + 3] = 255;
       }
     }
-
     rasterCtx.putImageData(layerPathsImageData, 0, 0);
     layerPathsImageData = rasterCtx.getImageData(0, 0, layerPathsRaster.width, layerPathsRaster.height);
     var rasterPosition = layerPathsRaster.bounds.topLeft;
@@ -62053,19 +60849,16 @@ Wick.Tools.Zoom = class extends Wick.Tool {
     var floodFillCanvas = document.createElement('canvas');
     floodFillCanvas.width = layerPathsRaster.canvas.width;
     floodFillCanvas.height = layerPathsRaster.canvas.height;
-
     if (x < 0 || y < 0 || x >= floodFillCanvas.width || y >= floodFillCanvas.height) {
       onError('OUT_OF_BOUNDS');
       return;
     }
-
     var floodFillCtx = floodFillCanvas.getContext('2d');
     floodFillCtx.putImageData(layerPathsImageData, 0, 0);
     floodFillCtx.fillStyle = "rgba(123,124,125,255)";
     floodFillCtx.fillFlood(x, y, FILL_TOLERANCE);
     var floodFillImageData = floodFillCtx.getImageData(0, 0, floodFillCanvas.width, floodFillCanvas.height);
     var imageDataRaw = floodFillImageData.data;
-
     for (var i = 0; i < imageDataRaw.length; i += 4) {
       if (imageDataRaw[i] === 123 && imageDataRaw[i + 1] === 124 && imageDataRaw[i + 2] === 125) {
         imageDataRaw[i] = 0;
@@ -62079,16 +60872,14 @@ Wick.Tools.Zoom = class extends Wick.Tool {
         imageDataRaw[i + 3] = 0;
       }
     }
-
     floodFillCtx.putImageData(floodFillImageData, 0, 0);
     var floodFillProcessedImage = new Image();
-
     floodFillProcessedImage.onload = function () {
       if (PREVIEW_IMAGE) previewImage(floodFillProcessedImage);
       var svgString = potrace.fromImage(floodFillProcessedImage).toSVG(1);
       var xmlString = svgString,
-          parser = new DOMParser(),
-          doc = parser.parseFromString(xmlString, "text/xml");
+        parser = new DOMParser(),
+        doc = parser.parseFromString(xmlString, "text/xml");
       var resultHolePath = paper.project.importSVG(doc, {
         insert: true
       });
@@ -62102,7 +60893,6 @@ Wick.Tools.Zoom = class extends Wick.Tool {
       var holeIsLeaky = false;
       var w = floodFillProcessedImage.width;
       var h = floodFillProcessedImage.height;
-
       for (var x = 0; x < floodFillProcessedImage.width; x++) {
         if (getPixelAt(x, 0, w, h, floodFillImageData.data).r === 0 && getPixelAt(x, 0, w, h, floodFillImageData.data).a === 255) {
           holeIsLeaky = true;
@@ -62110,27 +60900,21 @@ Wick.Tools.Zoom = class extends Wick.Tool {
           return;
         }
       }
-
       expandHole(resultHolePath);
       callback(resultHolePath);
     };
-
     floodFillProcessedImage.src = floodFillCanvas.toDataURL();
   }
-
   function expandHole(path) {
     if (path instanceof paper.Group) {
       path = path.children[0];
     }
-
     var children;
-
     if (path instanceof paper.Path) {
       children = [path];
     } else if (path instanceof paper.CompoundPath) {
       children = path.children;
     }
-
     children.forEach(function (hole) {
       var normals = [];
       hole.closePath();
@@ -62159,7 +60943,6 @@ Wick.Tools.Zoom = class extends Wick.Tool {
           y: d.y
         });
       });
-
       for (var i = 0; i < hole.segments.length; i++) {
         var segment = hole.segments[i];
         var normal = normals[i];
@@ -62167,9 +60950,9 @@ Wick.Tools.Zoom = class extends Wick.Tool {
         segment.point.y += normal.y * EXPAND_AMT;
       }
     });
-  } // http://www.felixeve.co.uk/how-to-rotate-a-point-around-an-origin-with-javascript/
+  }
 
-
+  // http://www.felixeve.co.uk/how-to-rotate-a-point-around-an-origin-with-javascript/
   function rotate_point(pointX, pointY, originX, originY, angle) {
     angle = angle * Math.PI / 180.0;
     return {
@@ -62177,7 +60960,6 @@ Wick.Tools.Zoom = class extends Wick.Tool {
       y: Math.sin(angle) * (pointX - originX) + Math.cos(angle) * (pointY - originY) + originY
     };
   }
-
   function getPixelAt(x, y, width, height, imageData) {
     if (x < 0 || y < 0 || x >= width || y >= height) return null;
     var offset = (y * width + x) * 4;
@@ -62188,9 +60970,8 @@ Wick.Tools.Zoom = class extends Wick.Tool {
       a: imageData[offset + 3]
     };
   }
+
   /* Add hole() method to paper */
-
-
   paper.PaperScope.inject({
     hole: function (args) {
       if (!args) console.error('paper.hole: args is required');
@@ -62210,7 +60991,7 @@ Wick.Tools.Zoom = class extends Wick.Tool {
     }
   });
 })();
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -62228,6 +61009,7 @@ Wick.Tools.Zoom = class extends Wick.Tool {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 class PaperJSOrderingUtils {
   /**
    * Moves the selected items forwards.
@@ -62241,11 +61023,10 @@ class PaperJSOrderingUtils {
       });
     });
   }
+
   /**
    * Moves the selected items backwards.
    */
-
-
   static moveBackwards(items) {
     PaperJSOrderingUtils._sortItemsByLayer(items).forEach(layerItems => {
       PaperJSOrderingUtils._sortItemsByZIndex(layerItems).forEach(item => {
@@ -62255,11 +61036,10 @@ class PaperJSOrderingUtils {
       });
     });
   }
+
   /**
    * Brings the selected objects to the front.
    */
-
-
   static bringToFront(items) {
     PaperJSOrderingUtils._sortItemsByLayer(items).forEach(layerItems => {
       PaperJSOrderingUtils._sortItemsByZIndex(layerItems).forEach(item => {
@@ -62267,11 +61047,10 @@ class PaperJSOrderingUtils {
       });
     });
   }
+
   /**
    * Sends the selected objects to the back.
    */
-
-
   static sendToBack(items) {
     PaperJSOrderingUtils._sortItemsByLayer(items).forEach(layerItems => {
       PaperJSOrderingUtils._sortItemsByZIndex(layerItems).reverse().forEach(item => {
@@ -62279,43 +61058,37 @@ class PaperJSOrderingUtils {
       });
     });
   }
-
   static _sortItemsByLayer(items) {
     var layerLists = {};
     items.forEach(item => {
       // Create new list for the item's layer if it doesn't exist
       var layerID = item.layer.id;
-
       if (!layerLists[layerID]) {
         layerLists[layerID] = [];
-      } // Add this item to its corresponding layer list
+      }
 
-
+      // Add this item to its corresponding layer list
       layerLists[layerID].push(item);
-    }); // Convert id->array object to array of arrays
+    });
 
+    // Convert id->array object to array of arrays
     var layerItemsArrays = [];
-
     for (var layerID in layerLists) {
       layerItemsArrays.push(layerLists[layerID]);
     }
-
     return layerItemsArrays;
   }
-
   static _sortItemsByZIndex(items) {
     return items.sort(function (a, b) {
       return a.index - b.index;
     });
   }
-
 }
-
 ;
 paper.PaperScope.inject({
   OrderingUtils: PaperJSOrderingUtils
 });
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -62333,6 +61106,7 @@ paper.PaperScope.inject({
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 class SelectionWidget {
   /**
    * Creates a SelectionWidget
@@ -62344,146 +61118,132 @@ class SelectionWidget {
     this._item = new paper.Group({
       insert: false
     });
+    this._project = args.project || null;
   }
+  get project() {
+    return this._project || window.Wick && window.Wick.currentProject || paper.project && paper.project.wickProject;
+  }
+  set project(project) {
+    this._project = project;
+  }
+
   /**
    * The item containing the widget GUI
    */
-
-
   get item() {
     return this._item;
   }
+
   /**
    * The layer to add the widget GUI item to.
    */
-
-
   get layer() {
     return this._layer;
   }
-
   set layer(layer) {
     this._layer = layer;
   }
+
   /**
    * The rotation of the selection box GUI.
    */
-
-
   get boxRotation() {
     return this._boxRotation;
   }
-
   set boxRotation(boxRotation) {
     this._boxRotation = boxRotation;
   }
+
   /**
    * The items currently inside the selection widget
    */
-
-
   get itemsInSelection() {
     return this._itemsInSelection;
   }
+
   /**
    * The point to rotate/scale the widget around.
    */
-
-
   get pivot() {
     return this._pivot;
   }
-
   set pivot(pivot) {
     this._pivot = pivot;
   }
+
   /**
    * The position of the top left corner of the selection box.
    */
-
-
   get position() {
     return this._boundingBox.topLeft.rotate(this.rotation, this.pivot);
   }
-
   set position(position) {
     var d = position.subtract(this.position);
     this.translateSelection(d);
   }
+
   /**
    * The width of the selection.
    */
-
-
   get width() {
     return this._boundingBox.width;
   }
-
   set width(width) {
     var d = width / this.width;
     if (d === 0) d = 0.001;
     this.scaleSelection(new paper.Point(d, 1.0));
   }
+
   /**
    * The height of the selection.
    */
-
-
   get height() {
     return this._boundingBox.height;
   }
-
   set height(height) {
     var d = height / this.height;
     this.scaleSelection(new paper.Point(1.0, d));
   }
+
   /**
    * The rotation of the selection.
    */
-
-
   get rotation() {
     return this._boxRotation;
   }
-
   set rotation(rotation) {
     var d = rotation - this.rotation;
     this.rotateSelection(d);
   }
+
   /**
    * Flip the selected items horizontally.
    */
-
-
   flipHorizontally() {
     this.scaleSelection(new paper.Point(-1.0, 1.0));
   }
+
   /**
    * Flip the selected items vertically.
    */
-
-
   flipVertically() {
     this.scaleSelection(new paper.Point(1.0, -1.0));
   }
+
   /**
    * The bounding box of the widget.
    */
-
-
   get boundingBox() {
     return this._boundingBox;
   }
+
   /**
    * The current transformation being done to the selection widget.
    * @type {string}
    */
-
-
   get currentTransformation() {
     return this._currentTransformation;
   }
-
   set currentTransformation(currentTransformation) {
     if (['translate', 'scale', 'rotate'].indexOf(currentTransformation) === -1) {
       console.error('Paper.SelectionWidget: Invalid transformation type: ' + currentTransformation);
@@ -62492,14 +61252,13 @@ class SelectionWidget {
       this._currentTransformation = currentTransformation;
     }
   }
+
   /**
    * Build a new SelectionWidget GUI around some items.
    * @param {number} boxRotation - the rotation of the selection GUI. Optional, defaults to 0
    * @param {paper.Item[]} items - the items to build the GUI around
    * @param {paper.Point} pivot - the pivot point that the selection rotates around. Defaults to (0,0)
    */
-
-
   build(args) {
     if (!args) args = {};
     if (!args.boxRotation) args.boxRotation = 0;
@@ -62511,33 +61270,25 @@ class SelectionWidget {
     this._boundingBox = this._calculateBoundingBox();
     this.item.remove();
     this.item.removeChildren();
-
     if (this._ghost) {
       this._ghost.remove();
     }
-
     if (this._pivotPointHandle) {
       this._pivotPointHandle.remove();
     }
-
     if (this._itemsInSelection.length > 0) {
       this._center = this._calculateBoundingBoxOfItems(this._itemsInSelection).center;
-
       this._buildGUI();
-
       this.layer.addChild(this.item);
     }
   }
+
   /**
    *
    */
-
-
   startTransformation(item) {
     this._ghost = this._buildGhost();
-
     this._layer.addChild(this._ghost);
-
     if (item.data.handleType === 'rotation') {
       this.currentTransformation = 'rotate';
     } else if (item.data.handleType === 'scale') {
@@ -62545,24 +61296,44 @@ class SelectionWidget {
     } else {
       this.currentTransformation = 'translate';
     }
-
     this._ghost.data.initialPosition = this._ghost.position;
     this._ghost.data.scale = new paper.Point(1, 1);
+    if (this.currentTransformation === 'translate') {
+      this._unconstrainedGhostPosition = this._ghost.position.clone();
+      this._setupSnapGuides();
+    }
   }
+  _setupSnapGuides() {
+    if (this._snapGuideGroup) {
+      this._snapGuideGroup.remove();
+    }
+    this._snapGuideGroup = new paper.Group({
+      insert: false
+    });
+    this.layer.addChild(this._snapGuideGroup);
+  }
+
   /**
    *
    */
-
-
   updateTransformation(item, e) {
     if (this.currentTransformation === 'translate') {
-      this._ghost.position = this._ghost.position.add(e.delta);
-      var p = this._layer.project.wickProject;
-
-      if (p && p.toolSettings.getSetting('snapEnabled')) {
-        var snapDelta = this._getSnapDelta();
-
-        this._ghost.position = this._ghost.position.add(snapDelta);
+      if (!this._unconstrainedGhostPosition) {
+        this._unconstrainedGhostPosition = this._ghost.position.clone();
+      }
+      this._unconstrainedGhostPosition = this._unconstrainedGhostPosition.add(e.delta);
+      this._ghost.position = this._unconstrainedGhostPosition.clone();
+      var settings = this.project && this.project.toolSettings;
+      var snapCanvas = settings ? settings.getSetting('snapCanvas') : false;
+      var snapObject = settings ? settings.getSetting('snapObject') : false;
+      var snapGrid = settings ? settings.getSetting('snapGrid') : false;
+      var gridSize = settings && settings.getSetting('gridSize') || 20;
+      var snapTolerance = settings && settings.getSetting('snapTolerance') || 8;
+      var disableSnap = e.modifiers && e.modifiers.alt;
+      if (!disableSnap && (snapCanvas || snapObject || snapGrid)) {
+        this._applySnapping(snapCanvas, snapObject, snapGrid, gridSize, snapTolerance);
+      } else if (this._snapGuideGroup) {
+        this._snapGuideGroup.removeChildren();
       }
     } else if (this.currentTransformation === 'scale') {
       var lastPoint = e.point.subtract(e.delta);
@@ -62571,28 +61342,25 @@ class SelectionWidget {
       currentPoint = currentPoint.rotate(-this.boxRotation, this.pivot);
       var pivotToLastPointVector = lastPoint.subtract(this.pivot);
       var pivotToCurrentPointVector = currentPoint.subtract(this.pivot);
-      var scaleAmt = pivotToCurrentPointVector.divide(pivotToLastPointVector); // Lock scaling in a direction if the side handles are being dragged.
+      var scaleAmt = pivotToCurrentPointVector.divide(pivotToLastPointVector);
 
+      // Lock scaling in a direction if the side handles are being dragged.
       if (item.data.handleEdge === 'topCenter' || item.data.handleEdge === 'bottomCenter') {
         scaleAmt.x = 1.0;
-      }
-
-      if (item.data.handleEdge === 'leftCenter' || item.data.handleEdge === 'rightCenter') {
+      } else if (item.data.handleEdge === 'leftCenter' || item.data.handleEdge === 'rightCenter') {
         scaleAmt.y = 1.0;
-      } // Holding shift locks aspect ratio
-
-
-      if (e.modifiers.shift) {
-        scaleAmt.y = scaleAmt.x;
+      } else {
+        // For corner handles, scale proportionally by default unless Shift is held down
+        if (!e.modifiers.shift) {
+          var maxScale = Math.abs(scaleAmt.x - 1.0) > Math.abs(scaleAmt.y - 1.0) ? scaleAmt.x : scaleAmt.y;
+          scaleAmt.x = maxScale;
+          scaleAmt.y = maxScale;
+        }
       }
-
       this._ghost.data.scale = this._ghost.data.scale.multiply(scaleAmt);
       this._ghost.matrix = new paper.Matrix();
-
       this._ghost.rotate(-this.boxRotation);
-
       this._ghost.scale(this._ghost.data.scale.x, this._ghost.data.scale.y, this.pivot);
-
       this._ghost.rotate(this.boxRotation);
     } else if (this.currentTransformation === 'rotate') {
       var lastPoint = e.point.subtract(e.delta);
@@ -62602,51 +61370,253 @@ class SelectionWidget {
       var pivotToLastPointAngle = pivotToLastPointVector.angle;
       var pivotToCurrentPointAngle = pivotToCurrentPointVector.angle;
       var rotation = pivotToCurrentPointAngle - pivotToLastPointAngle;
-
       this._ghost.rotate(rotation, this.pivot);
-
       this.boxRotation += rotation;
     }
   }
+  _applySnapping(snapCanvas, snapObject, snapGrid, gridSize, tolerance) {
+    if (!this._snapGuideGroup) return;
+    this._snapGuideGroup.removeChildren();
+    var bounds = this._ghost.bounds;
+    var myXPoints = [{
+      type: 'left',
+      val: bounds.left
+    }, {
+      type: 'center',
+      val: bounds.center.x
+    }, {
+      type: 'right',
+      val: bounds.right
+    }];
+    var myYPoints = [{
+      type: 'top',
+      val: bounds.top
+    }, {
+      type: 'center',
+      val: bounds.center.y
+    }, {
+      type: 'bottom',
+      val: bounds.bottom
+    }];
+    var targetXList = [];
+    var targetYList = [];
+
+    // 1. Canva Snap
+    if (snapCanvas && this.project) {
+      var W = this.project.width;
+      var H = this.project.height;
+      targetXList.push({
+        val: 0,
+        label: 'canvas',
+        color: '#ff3366'
+      });
+      targetXList.push({
+        val: W / 2,
+        label: 'canvas-center',
+        color: '#ff3366'
+      });
+      targetXList.push({
+        val: W,
+        label: 'canvas',
+        color: '#ff3366'
+      });
+      targetYList.push({
+        val: 0,
+        label: 'canvas',
+        color: '#ff3366'
+      });
+      targetYList.push({
+        val: H / 2,
+        label: 'canvas-center',
+        color: '#ff3366'
+      });
+      targetYList.push({
+        val: H,
+        label: 'canvas',
+        color: '#ff3366'
+      });
+    }
+
+    // 2. Oggetto Snap
+    if (snapObject && this.project && this.project.activeFrame) {
+      var selectedUuids = new Set(this._itemsInSelection.map(function (it) {
+        return it.data && it.data.wickUUID;
+      }).filter(Boolean));
+      var frameObjects = this.project.activeFrame.objects || [];
+      frameObjects.forEach(function (obj) {
+        if (selectedUuids.has(obj.uuid)) return;
+        var viewItem = obj.view && (obj.view.item || obj.view.group);
+        if (viewItem && viewItem.bounds && viewItem.bounds.width > 0 && viewItem.bounds.height > 0) {
+          var ob = viewItem.bounds;
+          targetXList.push({
+            val: ob.left,
+            label: 'object',
+            color: '#00d2ff'
+          });
+          targetXList.push({
+            val: ob.center.x,
+            label: 'object-center',
+            color: '#00d2ff'
+          });
+          targetXList.push({
+            val: ob.right,
+            label: 'object',
+            color: '#00d2ff'
+          });
+          targetYList.push({
+            val: ob.top,
+            label: 'object',
+            color: '#00d2ff'
+          });
+          targetYList.push({
+            val: ob.center.y,
+            label: 'object-center',
+            color: '#00d2ff'
+          });
+          targetYList.push({
+            val: ob.bottom,
+            label: 'object',
+            color: '#00d2ff'
+          });
+        }
+      });
+    }
+
+    // Best X Snap
+    var bestXDelta = null;
+    var minXDist = tolerance + 1;
+    var bestXGuide = null;
+    myXPoints.forEach(function (myPt) {
+      targetXList.forEach(function (tgt) {
+        var dist = Math.abs(tgt.val - myPt.val);
+        if (dist <= tolerance && dist < minXDist) {
+          minXDist = dist;
+          bestXDelta = tgt.val - myPt.val;
+          bestXGuide = {
+            x: tgt.val,
+            color: tgt.color
+          };
+        }
+      });
+    });
+    if (snapGrid && bestXDelta === null) {
+      myXPoints.forEach(function (myPt) {
+        var nearestGridX = Math.round(myPt.val / gridSize) * gridSize;
+        var dist = Math.abs(nearestGridX - myPt.val);
+        if (dist <= tolerance && dist < minXDist) {
+          minXDist = dist;
+          bestXDelta = nearestGridX - myPt.val;
+          bestXGuide = {
+            x: nearestGridX,
+            color: '#33cc66'
+          };
+        }
+      });
+    }
+
+    // Best Y Snap
+    var bestYDelta = null;
+    var minYDist = tolerance + 1;
+    var bestYGuide = null;
+    myYPoints.forEach(function (myPt) {
+      targetYList.forEach(function (tgt) {
+        var dist = Math.abs(tgt.val - myPt.val);
+        if (dist <= tolerance && dist < minYDist) {
+          minYDist = dist;
+          bestYDelta = tgt.val - myPt.val;
+          bestYGuide = {
+            y: tgt.val,
+            color: tgt.color
+          };
+        }
+      });
+    });
+    if (snapGrid && bestYDelta === null) {
+      myYPoints.forEach(function (myPt) {
+        var nearestGridY = Math.round(myPt.val / gridSize) * gridSize;
+        var dist = Math.abs(nearestGridY - myPt.val);
+        if (dist <= tolerance && dist < minYDist) {
+          minYDist = dist;
+          bestYDelta = nearestGridY - myPt.val;
+          bestYGuide = {
+            y: nearestGridY,
+            color: '#33cc66'
+          };
+        }
+      });
+    }
+    if (bestXDelta !== null) {
+      this._ghost.position.x += bestXDelta;
+    }
+    if (bestYDelta !== null) {
+      this._ghost.position.y += bestYDelta;
+    }
+
+    // Draw smart alignment guides
+    var zoom = paper.view && paper.view.zoom || 1;
+    var strokeW = 1.2 / zoom;
+    var span = 10000;
+    if (bestXGuide) {
+      var vLine = new paper.Path.Line({
+        from: new paper.Point(bestXGuide.x, -span),
+        to: new paper.Point(bestXGuide.x, span),
+        strokeColor: bestXGuide.color,
+        strokeWidth: strokeW,
+        dashArray: [5 / zoom, 3 / zoom],
+        strokeScaling: false,
+        insert: false
+      });
+      this._snapGuideGroup.addChild(vLine);
+    }
+    if (bestYGuide) {
+      var hLine = new paper.Path.Line({
+        from: new paper.Point(-span, bestYGuide.y),
+        to: new paper.Point(span, bestYGuide.y),
+        strokeColor: bestYGuide.color,
+        strokeWidth: strokeW,
+        dashArray: [5 / zoom, 3 / zoom],
+        strokeScaling: false,
+        insert: false
+      });
+      this._snapGuideGroup.addChild(hLine);
+    }
+  }
+
   /**
    *
    */
-
-
   finishTransformation(item) {
     if (!this._currentTransformation) return;
-
     this._ghost.remove();
-
+    if (this._snapGuideGroup) {
+      this._snapGuideGroup.remove();
+      this._snapGuideGroup = null;
+    }
+    this._unconstrainedGhostPosition = null;
     if (this.currentTransformation === 'translate') {
       var d = this._ghost.position.subtract(this._ghost.data.initialPosition);
-
       this.translateSelection(d);
     } else if (this.currentTransformation === 'scale') {
       this.scaleSelection(this._ghost.data.scale);
     } else if (this.currentTransformation === 'rotate') {
       this.rotateSelection(this._ghost.rotation);
     }
-
     this._currentTransformation = null;
   }
+
   /**
    *
    */
-
-
   translateSelection(delta) {
     this._itemsInSelection.forEach(item => {
       item.position = item.position.add(delta);
     });
-
     this.pivot = this.pivot.add(delta);
   }
+
   /**
    *
    */
-
-
   scaleSelection(scale) {
     this._itemsInSelection.forEach(item => {
       item.rotate(-this.boxRotation, this.pivot);
@@ -62654,24 +61624,20 @@ class SelectionWidget {
       item.rotate(this.boxRotation, this.pivot);
     });
   }
+
   /**
    *
    */
-
-
   rotateSelection(angle) {
     this._itemsInSelection.forEach(item => {
       item.rotate(angle, this.pivot);
     });
   }
-
   _buildGUI() {
     this.item.addChild(this._buildBorder());
-
     if (this._itemsInSelection.length > 1) {
       this.item.addChildren(this._buildItemOutlines());
     }
-
     let guiElements = [];
     guiElements.push(this._buildRotationHotspot('topLeft'));
     guiElements.push(this._buildRotationHotspot('topRight'));
@@ -62693,7 +61659,6 @@ class SelectionWidget {
       child.data.isSelectionBoxGUI = true;
     });
   }
-
   _buildBorder() {
     var border = new paper.Path.Rectangle({
       name: 'border',
@@ -62706,7 +61671,6 @@ class SelectionWidget {
     border.data.isBorder = true;
     return border;
   }
-
   _buildItemOutlines() {
     return this._itemsInSelection.map(item => {
       var clone = item.clone({
@@ -62719,13 +61683,12 @@ class SelectionWidget {
         to: bounds.bottomRight,
         strokeWidth: SelectionWidget.BOX_STROKE_WIDTH,
         strokeColor: SelectionWidget.BOX_STROKE_COLOR
-      }); //border.rotate(-this.boxRotation, this._center);
-
+      });
+      //border.rotate(-this.boxRotation, this._center);
       border.remove();
       return border;
     });
   }
-
   _buildScalingHandle(edge) {
     var handle = this._buildHandle({
       name: edge,
@@ -62734,10 +61697,8 @@ class SelectionWidget {
       fillColor: SelectionWidget.HANDLE_FILL_COLOR,
       strokeColor: SelectionWidget.HANDLE_STROKE_COLOR
     });
-
     return handle;
   }
-
   _buildPivotPointHandle() {
     var handle = this._buildHandle({
       name: 'pivot',
@@ -62746,11 +61707,9 @@ class SelectionWidget {
       fillColor: SelectionWidget.PIVOT_FILL_COLOR,
       strokeColor: SelectionWidget.PIVOT_STROKE_COLOR
     });
-
     handle.locked = true;
     return handle;
   }
-
   _buildHandle(args) {
     if (!args) console.error('_createHandle: args is required');
     if (!args.name) console.error('_createHandle: args.name is required');
@@ -62772,9 +61731,9 @@ class SelectionWidget {
     circle.data.handleEdge = args.name;
     return circle;
   }
-
   _buildRotationHotspot(cornerName) {
     // Build the not-yet-rotated hotspot, which starts out like this:
+
     //       |
     //       +---+
     //       |   |
@@ -62782,30 +61741,31 @@ class SelectionWidget {
     //    |      |
     //    +------+
     //       |
+
     var r = SelectionWidget.ROTATION_HOTSPOT_RADIUS / paper.view.zoom;
     var hotspot = new paper.Path([new paper.Point(0, 0), new paper.Point(0, r), new paper.Point(r, r), new paper.Point(r, -r), new paper.Point(-r, -r), new paper.Point(-r, 0)]);
     hotspot.fillColor = SelectionWidget.ROTATION_HOTSPOT_FILLCOLOR;
     hotspot.position.x = this.boundingBox[cornerName].x;
-    hotspot.position.y = this.boundingBox[cornerName].y; // Orient the rotation handles in the correct direction, even if the selection is flipped
+    hotspot.position.y = this.boundingBox[cornerName].y;
 
+    // Orient the rotation handles in the correct direction, even if the selection is flipped
     hotspot.rotate({
       'topRight': 0,
       'bottomRight': 90,
       'bottomLeft': 180,
       'topLeft': 270
-    }[cornerName]); // Some metadata.
+    }[cornerName]);
 
+    // Some metadata.
     hotspot.data.handleType = 'rotation';
     hotspot.data.handleEdge = cornerName;
     return hotspot;
   }
-
   _buildGhost() {
     var ghost = new paper.Group({
       insert: false,
       applyMatrix: false
     });
-
     this._itemsInSelection.forEach(item => {
       var outline = item.clone();
       outline.remove();
@@ -62820,7 +61780,6 @@ class SelectionWidget {
       outline2.strokeWidth = SelectionWidget.GHOST_STROKE_WIDTH;
       ghost.addChild(outline2);
     });
-
     var boundsOutline = new paper.Path.Rectangle({
       from: this.boundingBox.topLeft,
       to: this.boundingBox.bottomRight,
@@ -62834,24 +61793,19 @@ class SelectionWidget {
     ghost.opacity = 0.5;
     return ghost;
   }
-
   _calculateBoundingBox() {
     if (this._itemsInSelection.length === 0) {
       return new paper.Rectangle();
     }
-
     var center = this._calculateBoundingBoxOfItems(this._itemsInSelection).center;
-
     var itemsForBoundsCalc = this._itemsInSelection.map(item => {
       var clone = item.clone();
       clone.rotate(-this.boxRotation, center);
       clone.remove();
       return clone;
     });
-
     return this._calculateBoundingBoxOfItems(itemsForBoundsCalc);
   }
-
   _calculateBoundingBoxOfItems(items) {
     var bounds = null;
     items.forEach(item => {
@@ -62859,48 +61813,7 @@ class SelectionWidget {
     });
     return bounds || new paper.Rectangle();
   }
-
-  _getSnapDelta() {
-    var threshold = 10 / paper.view.zoom;
-    var candidates = []; // 1. Collect all potential snap points from other items in the active layer
-    // We look in all layers that are meant for interactive items (paths, clips)
-
-    paper.project.layers.forEach(layer => {
-      if (layer.data.wickType === 'paths' || layer.data.wickType === 'clipsandpaths') {
-        layer.children.forEach(item => {
-          if (item.data.wickUUID && !item.selected && item.data.wickType !== 'gui') {
-            var b = item.bounds;
-            candidates.push(b.topLeft, b.topRight, b.bottomLeft, b.bottomRight, b.center, b.leftCenter, b.rightCenter, b.topCenter, b.bottomCenter);
-          }
-        });
-      }
-    }); // Current dragged item points to snap
-
-    var snapPoints = [this._ghost.bounds.topLeft, this._ghost.bounds.topRight, this._ghost.bounds.bottomLeft, this._ghost.bounds.bottomRight, this._ghost.bounds.center, this._ghost.bounds.leftCenter, this._ghost.bounds.rightCenter, this._ghost.bounds.topCenter, this._ghost.bounds.bottomCenter];
-    var bestDelta = new paper.Point(0, 0);
-    var minX = threshold;
-    var minY = threshold;
-    snapPoints.forEach(p => {
-      candidates.forEach(cand => {
-        var dx = cand.x - p.x;
-        var dy = cand.y - p.y;
-
-        if (Math.abs(dx) < minX) {
-          minX = Math.abs(dx);
-          bestDelta.x = dx;
-        }
-
-        if (Math.abs(dy) < minY) {
-          minY = Math.abs(dy);
-          bestDelta.y = dy;
-        }
-      });
-    });
-    return bestDelta;
-  }
-
 }
-
 ;
 SelectionWidget.BOX_STROKE_WIDTH = 1;
 SelectionWidget.BOX_STROKE_COLOR = 'rgba(100,150,255,1.0)';
@@ -62919,7 +61832,7 @@ SelectionWidget.GHOST_STROKE_WIDTH = 1;
 paper.PaperScope.inject({
   SelectionWidget: SelectionWidget
 });
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Paper.js-drawing-tools.
@@ -62937,6 +61850,7 @@ paper.PaperScope.inject({
  * You should have received a copy of the GNU General Public License
  * along with Paper.js-drawing-tools.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 paper.SelectionBox = class {
   /*
    *
@@ -62952,79 +61866,64 @@ paper.SelectionBox = class {
     });
     this._mode = 'intersects';
   }
+
   /*
    *
    */
-
-
   start(point) {
     this._active = true;
     this._start = point;
     this._end = point;
-
     this._rebuildBox();
   }
+
   /*
    *
    */
-
-
   drag(point) {
     this._end = point;
-
     this._rebuildBox();
   }
+
   /*
    *
    */
-
-
   end(point) {
     this._end = point;
     this._active = false;
-
     this._rebuildBox();
-
     this._box.remove();
-
     this._items = this._itemsInBox(this._box);
   }
+
   /*
    *
    */
-
-
   get items() {
     return this._items;
   }
+
   /*
    *
    */
-
-
   get active() {
     return this._active;
   }
+
   /*
    *
    */
-
-
   get mode() {
     return this._mode;
   }
-
   set mode(mode) {
     if (mode !== 'contains' && mode !== 'intersects') {
       throw new Error("SelectionBox.mode: invalid mode");
     }
-
     this._mode = mode;
   }
-
   _rebuildBox() {
     this._box.remove();
-
     this._box = new this.paper.Path.Rectangle({
       from: this._start,
       to: this._end,
@@ -63032,16 +61931,13 @@ paper.SelectionBox = class {
       strokeColor: 'black'
     });
   }
-
   _itemsInBox(box) {
     var checkItems = [];
-
     this._getSelectableLayers().forEach(layer => {
       layer.children.forEach(child => {
         checkItems.push(child);
       });
     });
-
     var items = [];
     checkItems.forEach(item => {
       if (this.mode === 'contains') {
@@ -63056,7 +61952,6 @@ paper.SelectionBox = class {
     });
     return items;
   }
-
   _shapesIntersect(itemA, itemB) {
     if (itemA instanceof this.paper.Group) {
       var intersects = false;
@@ -63071,25 +61966,22 @@ paper.SelectionBox = class {
     } else {
       var shapesDoIntersect = itemB.intersects(itemA);
       var boundsContain = itemB.bounds.contains(itemA.bounds);
-
       if (shapesDoIntersect || boundsContain) {
         return true;
       }
     }
   }
-
   _getSelectableLayers() {
     var self = this;
     return this.paper.project.layers.filter(layer => {
       return !layer.locked;
     });
   }
-
 };
 paper.PaperScope.inject({
   SelectionBox: paper.SelectionBox
 });
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Paper.js-drawing-tools.
@@ -63115,36 +62007,34 @@ paper.PaperScope.inject({
 
     by zrispo (github.com/zrispo) (zach@wickeditor.com)
  */
+
 paper.Item.inject({
   potrace: function (args) {
     var self = this;
     if (!args) throw new Error('Path.potrace: args is required.');
     if (!args.resolution) throw new Error('Path.potrace: args.resolution is required.');
     var res = paper.view.resolution || 72; // Default to 72 if resolution is missing
-
     var finalRasterResolution = res * args.resolution;
     var raster = this.rasterize(finalRasterResolution);
-    raster.remove(); // Use the raster's canvas directly for synchronous tracing
+    raster.remove();
 
+    // Use the raster's canvas directly for synchronous tracing
     var canvas = raster.canvas;
-
     if (!canvas) {
       return null;
-    } // Use alpha-based bitmap creation for better results with text/icons
+    }
 
-
+    // Use alpha-based bitmap creation for better results with text/icons
     try {
       var bitmap = potrace.Bitmap.createFromImageAlpha(canvas);
       var pathList = potrace.PathList.fromBitmap(bitmap, 4, 2, 1, true, 0.2);
       var svg = pathList.toSVG(1 / args.resolution);
       var potracePath = paper.project.importSVG(svg);
       potracePath.scale(1 / args.resolution); // Adjust scale based on resolution
-
       potracePath.position.x = self.position.x;
       potracePath.position.y = self.position.y;
       potracePath.remove();
       var result = null;
-
       if (potracePath.className === 'Group' && potracePath.children.length > 0) {
         // Convert Group to CompoundPath for Wick compatibility
         result = new paper.CompoundPath();
@@ -63153,21 +62043,18 @@ paper.Item.inject({
       } else if (potracePath.className === 'Path' || potracePath.className === 'CompoundPath') {
         result = potracePath;
       }
-
       if (result) {
         result.closed = true;
         result.position = new paper.Point(0, 0); // Center at origin to let Wick handle positioning
-
         if (args.done) args.done(result);
       }
-
       return result;
     } catch (err) {
       return null;
     }
   }
 });
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Paper.js-drawing-tools.
@@ -63185,8 +62072,57 @@ paper.Item.inject({
  * You should have received a copy of the GNU General Public License
  * along with Paper.js-drawing-tools.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 (function () {
-  var editElem = $('<textarea style="resize: none;">');
+  /**
+   * When text is edited in a fixed-width box (boxWidth is set), the textarea
+   * uses CSS word-wrap to visually break lines. paper.js PointText has no native
+   * word-wrap, so we must insert explicit \n characters at the same break points.
+   */
+  function wrapTextToBoxWidth(content, fontSize, fontFamily, boxWidth) {
+    if (!boxWidth || boxWidth <= 0) return content;
+    var measureCanvas = document.createElement('canvas');
+    var ctx = measureCanvas.getContext('2d');
+    ctx.font = fontSize + 'px ' + (fontFamily || 'sans-serif');
+    var resultLines = [];
+    var paragraphs = content.split('\n');
+    for (var p = 0; p < paragraphs.length; p++) {
+      var para = paragraphs[p];
+      if (!para) {
+        resultLines.push('');
+        continue;
+      }
+      var currentLine = '';
+      var tokens = para.split(/(\s+)/);
+      for (var t = 0; t < tokens.length; t++) {
+        var token = tokens[t];
+        var test = currentLine + token;
+        if (ctx.measureText(test).width <= boxWidth) {
+          currentLine = test;
+        } else {
+          if (currentLine.trim()) {
+            resultLines.push(currentLine.replace(/\s+$/, ''));
+            currentLine = /^\s+$/.test(token) ? '' : token;
+          } else {
+            // Single token longer than boxWidth: break char by char
+            for (var c = 0; c < token.length; c++) {
+              var charTest = currentLine + token[c];
+              if (ctx.measureText(charTest).width <= boxWidth) {
+                currentLine = charTest;
+              } else {
+                if (currentLine) resultLines.push(currentLine);
+                currentLine = token[c];
+              }
+            }
+          }
+        }
+      }
+      resultLines.push(currentLine.replace(/\s+$/, ''));
+    }
+    return resultLines.join('\n');
+  }
+  var editElem = $('<textarea class="wick-canvas-text-edit" style="resize: none;">');
+  var selectionOverlay = $('<div class="wick-canvas-text-selection-overlay" style="display: none;"></div>');
   editElem.css('position', 'absolute');
   editElem.css('overflow', 'hidden');
   editElem.css('width', '100px');
@@ -63195,64 +62131,797 @@ paper.Item.inject({
   editElem.css('top', '0px');
   editElem.css('resize', 'none');
   editElem.css('line-height', '1.2');
-  editElem.css('background-color', '#ffffff');
+  editElem.css('background', 'transparent');
+  editElem.css('background-color', 'transparent');
   editElem.css('box-sizing', 'content-box');
   editElem.css('-moz-box-sizing', 'content-box');
   editElem.css('-webkit-box-sizing', 'content-box');
   editElem.css('border', 'none');
+  editElem.css('outline', 'none');
+  editElem.css('box-shadow', 'none');
+  editElem.css('padding', '0');
+  editElem.css('margin', '0');
+  editElem.css('cursor', 'text');
+  editElem.css('user-select', 'text');
+  editElem.css('-webkit-user-select', 'text');
+  editElem.css('pointer-events', 'auto');
+  editElem.css('z-index', '10');
+
+  // Prevent paper tool from intercepting mouse clicks and drags inside the textarea so selection works
+  editElem.on('mousedown mouseup mousemove click dblclick contextmenu', function (e) {
+    e.stopPropagation();
+  });
+
+  // Synchronize scrolling between textarea and selectionOverlay
+  editElem.on('scroll', function () {
+    if (selectionOverlay && selectionOverlay.length) {
+      selectionOverlay[0].scrollTop = editElem[0].scrollTop;
+      selectionOverlay[0].scrollLeft = editElem[0].scrollLeft;
+    }
+  });
+
+  // Floating text selection format toolbar
+  var formatToolbar = $('<div class="wick-text-format-toolbar"></div>');
+  formatToolbar.css({
+    position: 'absolute',
+    display: 'none',
+    zIndex: 999,
+    background: '#222228',
+    border: '1px solid #444',
+    borderRadius: '6px',
+    padding: '5px 8px',
+    boxShadow: '0 6px 18px rgba(0,0,0,0.5)',
+    gap: '6px',
+    alignItems: 'center',
+    flexWrap: 'nowrap',
+    userSelect: 'none',
+    pointerEvents: 'auto'
+  });
+  var fontOptions = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Georgia', 'Verdana', 'Trebuchet MS', 'Impact', 'Comic Sans MS', 'Inter', 'Roboto'];
+  var fontSelectHtml = '<select class="wick-fmt-font" style="background:#141416;color:#eee;border:1px solid #444;border-radius:4px;padding:2px 4px;font-size:11px;outline:none;">' + fontOptions.map(function (f) {
+    return '<option value="' + f + '">' + f + '</option>';
+  }).join('') + '</select>';
+  formatToolbar.html(fontSelectHtml + '<input type="number" class="wick-fmt-size" title="Dimensione Font" value="24" min="6" max="200" style="width:45px;background:#141416;color:#eee;border:1px solid #444;border-radius:4px;padding:2px 4px;font-size:11px;outline:none;"/>' + '<button type="button" class="wick-fmt-btn wick-fmt-bold" title="Grassetto (Bold)" style="background:#333;color:#eee;border:none;border-radius:4px;padding:2px 7px;font-weight:bold;cursor:pointer;font-size:11px;">B</button>' + '<button type="button" class="wick-fmt-btn wick-fmt-italic" title="Corsivo (Italic)" style="background:#333;color:#eee;border:none;border-radius:4px;padding:2px 7px;font-style:italic;cursor:pointer;font-size:11px;">I</button>' + '<input type="number" class="wick-fmt-lineheight" title="Interlinea (Line Height)" value="1.2" step="0.1" min="0.5" max="3" style="width:42px;background:#141416;color:#eee;border:1px solid #444;border-radius:4px;padding:2px 4px;font-size:11px;outline:none;"/>' + '<input type="number" class="wick-fmt-spacing" title="Spaziatura Lettere (Letter Spacing px)" value="0" step="1" min="-5" max="30" style="width:40px;background:#141416;color:#eee;border:1px solid #444;border-radius:4px;padding:2px 4px;font-size:11px;outline:none;"/>' + '<button type="button" class="wick-fmt-btn wick-fmt-align" data-align="left" title="Allinea a Sinistra" style="background:#333;color:#eee;border:none;border-radius:4px;padding:2px 6px;cursor:pointer;font-size:11px;">Left</button>' + '<button type="button" class="wick-fmt-btn wick-fmt-align" data-align="center" title="Allinea al Centro" style="background:#333;color:#eee;border:none;border-radius:4px;padding:2px 6px;cursor:pointer;font-size:11px;">Center</button>' + '<button type="button" class="wick-fmt-btn wick-fmt-align" data-align="right" title="Allinea a Destra" style="background:#333;color:#eee;border:none;border-radius:4px;padding:2px 6px;cursor:pointer;font-size:11px;">Right</button>' + '<button type="button" class="wick-fmt-btn wick-fmt-align" data-align="justify" title="Giustifica" style="background:#333;color:#eee;border:none;border-radius:4px;padding:2px 6px;cursor:pointer;font-size:11px;">Justify</button>' + '<input type="color" class="wick-fmt-color" title="Colore Testo" value="#000000" style="width:24px;height:22px;padding:0;border:none;background:none;cursor:pointer;"/>');
+  formatToolbar.on('mousedown mouseup mousemove click dblclick', function (e) {
+    e.stopPropagation();
+  });
+  var activeTextItem = null;
+  function getBaseStyle(item) {
+    if (!item) return {
+      fillColor: '#000000',
+      fontFamily: 'Arial',
+      fontSize: 24,
+      fontWeight: 'normal',
+      fontStyle: 'normal',
+      lineHeight: 1.2,
+      letterSpacing: 0,
+      justification: 'left',
+      textAlign: 'left'
+    };
+    var col = item.fillColor ? item.fillColor.toCSS ? item.fillColor.toCSS(true) : String(item.fillColor) : '#000000';
+    var fw = item.fontWeight;
+    if (typeof fw === 'number') {
+      fw = fw >= 700 ? 'bold' : 'normal';
+    } else if (!fw) {
+      fw = 'normal';
+    }
+    var fs = item.fontStyle || 'normal';
+    return {
+      fillColor: col,
+      fontFamily: item.fontFamily || 'Arial',
+      fontSize: item.fontSize || 24,
+      fontWeight: fw,
+      fontStyle: fs,
+      lineHeight: item.lineHeight || 1.2,
+      letterSpacing: item.letterSpacing || 0,
+      justification: item.justification || 'left',
+      textAlign: item.textAlign || item.justification || 'left'
+    };
+  }
+  function syncFormatToolbarUI(style) {
+    if (!style) return;
+    formatToolbar.find('.wick-fmt-font').val(style.fontFamily || 'Arial');
+    formatToolbar.find('.wick-fmt-size').val(style.fontSize || 24);
+    var col = style.fillColor || '#000000';
+    formatToolbar.find('.wick-fmt-color').val(col.startsWith('#') ? col : '#000000');
+    var isBold = style.fontWeight === 'bold' || parseInt(style.fontWeight, 10) >= 700;
+    formatToolbar.find('.wick-fmt-bold').css('background', isBold ? '#00a1e0' : '#333');
+    var isItalic = style.fontStyle === 'italic';
+    formatToolbar.find('.wick-fmt-italic').css('background', isItalic ? '#00a1e0' : '#333');
+    formatToolbar.find('.wick-fmt-lineheight').val(style.lineHeight || 1.2);
+    formatToolbar.find('.wick-fmt-spacing').val(style.letterSpacing || 0);
+    formatToolbar.find('.wick-fmt-align').css('background', '#333');
+    formatToolbar.find('.wick-fmt-align[data-align="' + (style.textAlign || 'left') + '"]').css('background', '#00a1e0');
+  }
+  function renderFormattedBackdrop() {
+    if (!activeTextItem || !editElem || !editElem.is(':visible') || !selectionOverlay) {
+      if (selectionOverlay) selectionOverlay.empty().hide();
+      return;
+    }
+    var fullText = editElem.val() || '';
+    if (fullText.length === 0) {
+      selectionOverlay.empty().show();
+      return;
+    }
+    var lastSub = activeTextItem._lastSubSelection;
+    var sStart = lastSub && typeof lastSub.start === 'number' ? lastSub.start : -1;
+    var sEnd = lastSub && typeof lastSub.end === 'number' ? lastSub.end : -1;
+    var hasSub = sStart >= 0 && sEnd > sStart;
+    var baseStyle = getBaseStyle(activeTextItem);
+    var spans = activeTextItem._spans || [];
+    if (!spans || spans.length === 0) {
+      var normalCol = baseStyle.fillColor || '#000000';
+      editElem.css('color', normalCol);
+      editElem.css('-webkit-text-fill-color', normalCol);
+      editElem.css('caret-color', normalCol);
+      selectionOverlay.empty().hide();
+      return;
+    }
+    editElem.css('color', 'transparent');
+    editElem.css('-webkit-text-fill-color', 'transparent');
+    editElem.css('caret-color', baseStyle.fillColor || '#000000');
+
+    // Build per-character style array
+    var charStyles = [];
+    for (var c = 0; c < fullText.length; c++) {
+      charStyles.push(Object.assign({}, baseStyle));
+    }
+    for (var s = 0; s < spans.length; s++) {
+      var sp = spans[s];
+      var stIdx = Math.max(0, Math.min(sp.start, fullText.length));
+      var enIdx = Math.max(0, Math.min(sp.end, fullText.length));
+      for (var i = stIdx; i < enIdx; i++) {
+        Object.assign(charStyles[i], sp.style);
+      }
+    }
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    }
+
+    // Group into segments with matching styling and selection status
+    var html = '';
+    var curText = '';
+    var curStyle = null;
+    var curSelected = false;
+    for (var idx = 0; idx < fullText.length; idx++) {
+      var char = fullText[idx];
+      var st = charStyles[idx];
+      var isSel = hasSub && idx >= sStart && idx < sEnd;
+      if (!curStyle) {
+        curStyle = st;
+        curSelected = isSel;
+        curText = char;
+      } else {
+        var same = curSelected === isSel && st.fontFamily === curStyle.fontFamily && st.fontSize === curStyle.fontSize && st.fillColor === curStyle.fillColor && st.fontWeight === curStyle.fontWeight && st.fontStyle === curStyle.fontStyle;
+        if (same) {
+          curText += char;
+        } else {
+          html += buildSegmentHtml(curText, curStyle, curSelected);
+          curStyle = st;
+          curSelected = isSel;
+          curText = char;
+        }
+      }
+    }
+    if (curText.length > 0) {
+      html += buildSegmentHtml(curText, curStyle, curSelected);
+    }
+    function buildSegmentHtml(txt, styleObj, isSelected) {
+      var safe = escapeHtml(txt);
+      var col = styleObj.fillColor || '#000000';
+      var ff = styleObj.fontFamily || 'Arial';
+      var fz = (styleObj.fontSize || 24) * (activeTextItem.paper ? activeTextItem.paper.view.zoom : 1);
+      var fw = styleObj.fontWeight || 'normal';
+      var fs = styleObj.fontStyle || 'normal';
+      var spanCss = 'font-family:' + ff + ';' + 'font-size:' + fz + 'px;' + 'font-weight:' + fw + ';' + 'font-style:' + fs + ';' + 'color:' + col + ';';
+      if (isSelected) {
+        var markCss = 'background:rgba(0, 161, 224, 0.35);' + 'border-bottom:2px solid #00a1e0;' + 'border-radius:2px;' + 'padding:0;' + 'margin:0;';
+        return '<mark style="' + markCss + '"><span style="' + spanCss + '">' + safe + '</span></mark>';
+      } else {
+        return '<span style="' + spanCss + '">' + safe + '</span>';
+      }
+    }
+    selectionOverlay.html(html);
+    selectionOverlay.show();
+  }
+  function updateSelectionOverlay() {
+    renderFormattedBackdrop();
+  }
+  function updateSelectionState() {
+    if (!editElem || !editElem.is(':visible') || !activeTextItem) {
+      window.WickTextSelectionState = null;
+      if (selectionOverlay) selectionOverlay.empty().hide();
+      formatToolbar.hide();
+      return;
+    }
+    var textarea = editElem[0];
+    var sStart = textarea.selectionStart;
+    var sEnd = textarea.selectionEnd;
+    var isSub = typeof sStart === 'number' && typeof sEnd === 'number' && sStart !== sEnd;
+    if (isSub) {
+      var currentStyle = Object.assign({}, getBaseStyle(activeTextItem));
+      if (activeTextItem._spans && activeTextItem._spans.length > 0) {
+        for (var i = 0; i < activeTextItem._spans.length; i++) {
+          var sp = activeTextItem._spans[i];
+          if (sp.start <= sStart && sp.end >= sEnd) {
+            currentStyle = Object.assign({}, currentStyle, sp.style);
+            break;
+          }
+        }
+      }
+      activeTextItem._lastSubSelection = {
+        start: sStart,
+        end: sEnd,
+        style: currentStyle
+      };
+    }
+
+    // Keep the sub-selection active until the user clicks outside the block (finishEditing)
+    var effectiveSub = !!(activeTextItem._lastSubSelection && activeTextItem._lastSubSelection.start !== activeTextItem._lastSubSelection.end);
+    var effectiveStyle = effectiveSub ? activeTextItem._lastSubSelection.style : getBaseStyle(activeTextItem);
+    var effectiveStart = effectiveSub ? activeTextItem._lastSubSelection.start : sStart;
+    var effectiveEnd = effectiveSub ? activeTextItem._lastSubSelection.end : sEnd;
+    window.WickTextSelectionState = {
+      activeTextItem: activeTextItem,
+      editElem: textarea,
+      selectionStart: effectiveStart,
+      selectionEnd: effectiveEnd,
+      isSubSelection: effectiveSub,
+      style: Object.assign({}, effectiveStyle)
+    };
+    syncFormatToolbarUI(window.WickTextSelectionState.style);
+    updateSelectionOverlay();
+    if (effectiveSub) {
+      var offset = editElem.position();
+      if (offset) {
+        formatToolbar.css({
+          left: Math.max(10, offset.left) + 'px',
+          top: Math.max(10, offset.top - 42) + 'px',
+          display: 'flex'
+        });
+      }
+    } else {
+      formatToolbar.hide();
+    }
+
+    // Notify editor/React so the lateral Inspector refreshes
+    if (window.WickEditorInstance && window.WickEditorInstance.projectDidChange) {
+      window.WickEditorInstance.projectDidChange({
+        skipHistory: true
+      });
+    }
+  }
+  editElem.on('mousedown', function (e) {
+    e.stopPropagation();
+  });
+  editElem.on('mouseup', function (e) {
+    e.stopPropagation();
+    updateSelectionState();
+  });
+  editElem.on('select', function (e) {
+    updateSelectionState();
+  });
+  editElem.on('keyup', function (e) {
+    updateSelectionState();
+  });
+  editElem.on('blur', function (e) {
+    // When losing focus (e.g. clicking into lateral Inspector panel or dropdowns), PRESERVE the sub-selection!
+    updateSelectionState();
+  });
+  editElem.on('focus', function (e) {
+    updateSelectionState();
+  });
+
+  // Function to apply formatting (from floating toolbar or lateral Inspector)
+  window.applyWickTextSelectionStyle = function (attribute, value) {
+    if (!activeTextItem || !editElem || !editElem.is(':visible')) return;
+    var textarea = editElem[0];
+    var sStart = textarea.selectionStart;
+    var sEnd = textarea.selectionEnd;
+    var isSub = typeof sStart === 'number' && typeof sEnd === 'number' && sStart !== sEnd;
+    if (!isSub && activeTextItem._lastSubSelection && activeTextItem._lastSubSelection.start !== activeTextItem._lastSubSelection.end) {
+      sStart = activeTextItem._lastSubSelection.start;
+      sEnd = activeTextItem._lastSubSelection.end;
+      isSub = true;
+    }
+    if (!activeTextItem._spans) {
+      activeTextItem._spans = [];
+    }
+
+    // Normalize attribute names and values
+    var key = attribute;
+    var val = value;
+    if (attribute === 'fillColor' || attribute === 'color') {
+      key = 'fillColor';
+      if (val && val.toCSS) {
+        val = val.toCSS(true);
+      } else if (val && typeof val === 'object' && val.hex) {
+        val = val.hex;
+      } else if (val && typeof val === 'object' && val.rgba) {
+        val = val.rgba;
+      }
+    } else if (attribute === 'fontSize') {
+      val = parseFloat(val) || 24;
+    } else if (attribute === 'fontWeight') {
+      val = val === 'bold' || parseInt(val, 10) >= 700 ? 'bold' : 'normal';
+    } else if (attribute === 'fontStyle') {
+      val = val || 'normal';
+    } else if (attribute === 'lineHeight') {
+      val = parseFloat(val) || 1.2;
+    } else if (attribute === 'letterSpacing') {
+      val = parseFloat(val) || 0;
+    }
+    if (isSub) {
+      // Apply to selection span
+      var updatedStyle = {};
+      updatedStyle[key] = val;
+
+      // Find existing span overlapping exactly or create/update
+      var replaced = false;
+      for (var i = 0; i < activeTextItem._spans.length; i++) {
+        var s = activeTextItem._spans[i];
+        if (s.start === sStart && s.end === sEnd) {
+          s.style[key] = val;
+          replaced = true;
+          break;
+        }
+      }
+      if (!replaced) {
+        activeTextItem._spans.push({
+          start: sStart,
+          end: sEnd,
+          style: updatedStyle
+        });
+      }
+      if (!activeTextItem._lastSubSelection) {
+        activeTextItem._lastSubSelection = {
+          start: sStart,
+          end: sEnd,
+          style: Object.assign({}, getBaseStyle(activeTextItem))
+        };
+      }
+      activeTextItem._lastSubSelection.style[key] = val;
+
+      // If span covers entire text, update base appearance on textarea
+      var fullLen = (editElem.val() || '').length;
+      if (sStart === 0 && sEnd >= fullLen) {
+        if (key === 'fillColor') {
+          editElem.css('color', val);
+          editElem.css('caret-color', val);
+        } else if (key === 'fontFamily') {
+          editElem.css('font-family', val);
+        } else if (key === 'fontWeight') {
+          editElem.css('font-weight', val);
+        } else if (key === 'fontStyle') {
+          editElem.css('font-style', val);
+        }
+      }
+    } else {
+      // Apply to the whole item
+      if (key === 'fillColor') {
+        activeTextItem.fillColor = val;
+        editElem.css('color', val);
+        editElem.css('caret-color', val);
+      } else if (key === 'fontSize') {
+        activeTextItem.fontSize = val;
+        if (activeTextItem.paper) {
+          activeTextItem.attachTextArea(activeTextItem.paper);
+        }
+      } else if (key === 'fontFamily') {
+        activeTextItem.fontFamily = val;
+        editElem.css('font-family', val);
+        if (selectionOverlay) selectionOverlay.css('font-family', val);
+      } else if (key === 'fontWeight') {
+        activeTextItem.fontWeight = val === 'bold' || parseInt(val, 10) >= 700 ? 700 : 400;
+        editElem.css('font-weight', val);
+        if (selectionOverlay) selectionOverlay.css('font-weight', val);
+      } else if (key === 'fontStyle') {
+        activeTextItem.fontStyle = val;
+        editElem.css('font-style', val);
+        if (selectionOverlay) selectionOverlay.css('font-style', val);
+      } else if (key === 'lineHeight') {
+        activeTextItem.lineHeight = val;
+        editElem.css('line-height', val);
+        if (selectionOverlay) selectionOverlay.css('line-height', val);
+      } else if (key === 'letterSpacing') {
+        activeTextItem.letterSpacing = val;
+        editElem.css('letter-spacing', val + 'px');
+        if (selectionOverlay) selectionOverlay.css('letter-spacing', val + 'px');
+      } else if (key === 'justification' || key === 'textAlign') {
+        activeTextItem.justification = val === 'justify' ? 'left' : val;
+        activeTextItem.textAlign = val;
+        editElem.css('text-align', val);
+        if (selectionOverlay) selectionOverlay.css('text-align', val);
+      }
+    }
+
+    // Update WickTextSelectionState cache
+    if (!window.WickTextSelectionState) {
+      window.WickTextSelectionState = {
+        activeTextItem: activeTextItem,
+        editElem: textarea,
+        selectionStart: sStart,
+        selectionEnd: sEnd,
+        isSubSelection: isSub,
+        style: Object.assign({}, getBaseStyle(activeTextItem))
+      };
+    }
+    window.WickTextSelectionState.style[key] = val;
+    window.WickTextSelectionState.isSubSelection = isSub;
+    window.WickTextSelectionState.selectionStart = sStart;
+    window.WickTextSelectionState.selectionEnd = sEnd;
+    syncFormatToolbarUI(window.WickTextSelectionState.style);
+    updateSelectionOverlay();
+    if (window.WickEditorInstance && window.WickEditorInstance.projectDidChange) {
+      window.WickEditorInstance.projectDidChange({
+        skipHistory: true
+      });
+    }
+  };
+
+  // Formatting Toolbar Event Listeners delegating to window.applyWickTextSelectionStyle
+  formatToolbar.find('.wick-fmt-font').on('change', function () {
+    window.applyWickTextSelectionStyle('fontFamily', $(this).val());
+  });
+  formatToolbar.find('.wick-fmt-size').on('change input', function () {
+    window.applyWickTextSelectionStyle('fontSize', $(this).val());
+  });
+  formatToolbar.find('.wick-fmt-bold').on('click', function () {
+    var currentWeight = window.WickTextSelectionState && window.WickTextSelectionState.style ? window.WickTextSelectionState.style.fontWeight : editElem.css('font-weight');
+    var isBold = currentWeight === 'bold' || parseInt(currentWeight, 10) >= 700;
+    var nextWeight = isBold ? 'normal' : 'bold';
+    window.applyWickTextSelectionStyle('fontWeight', nextWeight);
+  });
+  formatToolbar.find('.wick-fmt-italic').on('click', function () {
+    var currentStyle = window.WickTextSelectionState && window.WickTextSelectionState.style ? window.WickTextSelectionState.style.fontStyle : editElem.css('font-style');
+    var isItalic = currentStyle === 'italic';
+    var nextStyle = isItalic ? 'normal' : 'italic';
+    window.applyWickTextSelectionStyle('fontStyle', nextStyle);
+  });
+  formatToolbar.find('.wick-fmt-lineheight').on('change input', function () {
+    window.applyWickTextSelectionStyle('lineHeight', $(this).val());
+  });
+  formatToolbar.find('.wick-fmt-spacing').on('change input', function () {
+    window.applyWickTextSelectionStyle('letterSpacing', $(this).val());
+  });
+  formatToolbar.find('.wick-fmt-align').on('click', function () {
+    var align = $(this).data('align');
+    window.applyWickTextSelectionStyle('textAlign', align);
+  });
+  formatToolbar.find('.wick-fmt-color').on('change input', function () {
+    window.applyWickTextSelectionStyle('fillColor', $(this).val());
+  });
   paper.TextItem.inject({
     attachTextArea: function (paper) {
+      this.paper = paper;
+      activeTextItem = this;
+      this._lastSubSelection = null;
+
       // Just in case the textbox is still on screen somehow...
       if (editElem) {
         editElem.remove();
       }
-
+      if (selectionOverlay) {
+        selectionOverlay.remove();
+      }
+      if (formatToolbar) {
+        formatToolbar.remove();
+      }
+      selectionOverlay = $('<div class="wick-canvas-text-selection-overlay" style="display: none;"></div>');
+      $(paper.view.element.offsetParent).append(selectionOverlay);
       $(paper.view.element.offsetParent).append(editElem);
+      $(paper.view.element.offsetParent).append(formatToolbar);
       editElem.focus();
       var clone = this.clone();
+      clone.visible = true;
       clone.rotation = 0;
       clone.scaling = new paper.Point(1, 1);
+      var bounds = clone.bounds;
       clone.remove();
-      var extraPadding = 3; // Extra padding so edit item doesn't get cut off.
+      var extraPadding = 4; // Extra padding so edit item doesn't get cut off.
 
-      var width = clone.bounds.width * paper.view.zoom + extraPadding;
-      var height = clone.bounds.height * paper.view.zoom + extraPadding;
+      var width = this.boxWidth ? this.boxWidth * paper.view.zoom : bounds.width * paper.view.zoom + extraPadding;
+      var height = this.boxHeight ? this.boxHeight * paper.view.zoom : bounds.height * paper.view.zoom + extraPadding;
+      editElem.css('left', '0px');
+      editElem.css('top', '0px');
       editElem.css('width', width + 'px');
       editElem.css('height', height + 'px');
-      var outlineWidth = 1;
-      editElem.css('outline', outlineWidth * paper.view.zoom + 'px dashed black');
-      var position = paper.view.projectToView(clone.bounds.topLeft.x, clone.bounds.topLeft.y);
-      position.x -= extraPadding / 2 + outlineWidth;
-      position.y -= extraPadding / 2 + outlineWidth;
+      if (this.boxWidth) {
+        editElem.css('white-space', 'pre-wrap');
+        editElem.css('word-break', 'break-word');
+      } else {
+        editElem.css('white-space', 'pre');
+        editElem.css('word-break', 'normal');
+      }
+      editElem.css('outline', 'none');
+      editElem.css('border', 'none');
+      editElem.css('background', 'transparent');
+      editElem.css('box-shadow', 'none');
+      editElem.css('user-select', 'text');
+      editElem.css('-webkit-user-select', 'text');
+      editElem.css('pointer-events', 'auto');
+      editElem.css('z-index', '10');
+      var position = paper.view.projectToView(bounds.topLeft.x, bounds.topLeft.y);
+      position.x -= extraPadding / 2;
+      position.y -= extraPadding / 2;
       var scale = this.scaling;
       var rotation = this.rotation;
       var fontSize = this.fontSize * paper.view.zoom;
       var fontFamily = this.fontFamily;
       var content = this.content;
+      var color = this.fillColor ? this.fillColor.toCSS ? this.fillColor.toCSS(true) : String(this.fillColor) : '#000000';
+      var textAlign = this.textAlign || this.justification || 'left';
+      if (textAlign === 'justify') textAlign = 'left';
       editElem.css('font-family', fontFamily);
-      editElem.css('font-size', fontSize);
-      editElem.val(content);
+      editElem.css('font-size', fontSize + 'px');
+      editElem.css('text-align', textAlign);
+      editElem.css('color', color);
+      editElem.css('-webkit-text-fill-color', color);
+      editElem.css('caret-color', color);
+      if (this.lineHeight) editElem.css('line-height', this.lineHeight);
+      if (this.letterSpacing) editElem.css('letter-spacing', this.letterSpacing + 'px');
+      if (this.fontWeight) editElem.css('font-weight', this.fontWeight);
+      if (this.fontStyle) editElem.css('font-style', this.fontStyle);
       var transformString = '';
       transformString += 'translate(' + position.x + 'px,' + position.y + 'px) ';
       transformString += 'rotate(' + rotation + 'deg) ';
       transformString += 'scale(' + scale.x + ',' + scale.y + ') ';
       editElem.css('transform', transformString);
+
+      // Sync selectionOverlay position, dimensions, transform and typography
+      selectionOverlay.css({
+        position: 'absolute',
+        left: '0px',
+        top: '0px',
+        pointerEvents: 'none',
+        overflow: 'hidden',
+        boxSizing: 'content-box',
+        border: 'none',
+        outline: 'none',
+        padding: '0',
+        margin: '0',
+        zIndex: '9',
+        width: width + 'px',
+        height: height + 'px',
+        whiteSpace: this.boxWidth ? 'pre-wrap' : 'pre',
+        wordBreak: this.boxWidth ? 'break-word' : 'normal',
+        fontFamily: fontFamily,
+        fontSize: fontSize + 'px',
+        lineHeight: this.lineHeight ? this.lineHeight : 1.2,
+        letterSpacing: (this.letterSpacing || 0) + 'px',
+        textAlign: textAlign,
+        fontWeight: this.fontWeight || 'normal',
+        fontStyle: this.fontStyle || 'normal',
+        transform: transformString,
+        display: 'none'
+      });
+      formatToolbar.find('.wick-fmt-font').val(fontFamily);
+      formatToolbar.find('.wick-fmt-size').val(this.fontSize);
+      formatToolbar.find('.wick-fmt-color').val(color.startsWith('#') ? color : '#000000');
+      editElem.val(content);
+      updateSelectionState(false);
     },
     edit: function (paper) {
       this.attachTextArea(paper);
+      this.visible = false;
       var self = this;
-
       editElem[0].oninput = function () {
         self.content = editElem[0].value;
-        self.attachTextArea(paper);
+        // Auto-resize textarea height so the user can see all typed lines
+        editElem[0].style.height = 'auto';
+        var newScrollH = editElem[0].scrollHeight;
+        editElem[0].style.height = newScrollH + 'px';
+        if (selectionOverlay) {
+          selectionOverlay.css('height', newScrollH + 'px');
+        }
+        if (self.boxWidth) {
+          var newBoxH = newScrollH / paper.view.zoom;
+          self.boxHeight = newBoxH;
+          self.data.boxWidth = self.boxWidth;
+          self.data.boxHeight = newBoxH;
+        }
+        self._lastSubSelection = null;
+        updateSelectionOverlay();
+        updateSelectionState(true);
       };
     },
     finishEditing: function () {
-      editElem.remove();
+      if (this._isFinishingEditing) return;
+      this._isFinishingEditing = true;
+      try {
+        if (editElem && editElem.length && editElem[0]) {
+          this.content = editElem[0].value;
+        }
+        if (this.paper) {
+          // When text was edited in a fixed-width box (boxWidth is set), the textarea
+          // CSS-wraps text visually (white-space: pre-wrap). paper.js PointText has
+          // no native word-wrap, so we insert explicit \n at the CSS break points.
+          if (this.boxWidth) {
+            var wrapped = wrapTextToBoxWidth(this.content, this.fontSize || 24, this.fontFamily || 'sans-serif', this.boxWidth);
+            if (wrapped !== this.content) {
+              this.content = wrapped;
+            }
+            // Persist boxHeight so the re-import restores box dimensions
+            if (editElem && editElem.length) {
+              try {
+                var finalH = editElem[0].offsetHeight || editElem[0].scrollHeight;
+                if (finalH > 0) {
+                  this.boxHeight = finalH / this.paper.view.zoom;
+                  this.data.boxWidth = this.boxWidth;
+                  this.data.boxHeight = this.boxHeight;
+                }
+              } catch (e) {/* ignore */}
+            }
+          }
+          // Explicitly set leading so multiline text renders with correct line spacing.
+          // this.lineHeight is the unitless multiplier stored by the format toolbar (e.g. 1.2).
+          var lhMultiplier = typeof this.lineHeight === 'number' ? this.lineHeight : 1.2;
+          var computedLeading = (this.fontSize || 24) * lhMultiplier;
+          this.leading = computedLeading;
+          this.data.leading = computedLeading;
+
+          // MULTI-SPAN SEGMENTATION ("Split in segmenti")
+          var spans = this._spans;
+          if (spans && spans.length > 0 && this.content && this.content.length > 0) {
+            try {
+              var fullText = this.content;
+              var baseStyle = getBaseStyle(this);
+
+              // Build per-character style array
+              var charStyles = [];
+              for (var c = 0; c < fullText.length; c++) {
+                charStyles.push(Object.assign({}, baseStyle));
+              }
+
+              // Apply spans in order
+              for (var s = 0; s < spans.length; s++) {
+                var sp = spans[s];
+                var startIdx = Math.max(0, Math.min(sp.start, fullText.length));
+                var endIdx = Math.max(0, Math.min(sp.end, fullText.length));
+                for (var idx = startIdx; idx < endIdx; idx++) {
+                  Object.assign(charStyles[idx], sp.style);
+                }
+              }
+
+              // Measure canvas helper
+              var mCanvas = document.createElement('canvas');
+              var mCtx = mCanvas.getContext('2d');
+              function measureSegment(txt, st) {
+                var fontStr = (st.fontStyle || 'normal') + ' ' + (st.fontWeight || 'normal') + ' ' + (st.fontSize || 24) + 'px ' + (st.fontFamily || 'Arial');
+                mCtx.font = fontStr;
+                return mCtx.measureText(txt).width;
+              }
+
+              // Split into lines by \n
+              var charOffset = 0;
+              var rawLines = fullText.split('\n');
+              var lineSegments = []; // array of segments with { text, style, lineIdx }
+
+              for (var l = 0; l < rawLines.length; l++) {
+                var lineStr = rawLines[l];
+                if (lineStr.length === 0) {
+                  charOffset += 1; // +1 for the '\n'
+                  continue;
+                }
+                var currentSegText = '';
+                var currentSegStyle = null;
+                for (var i = 0; i < lineStr.length; i++) {
+                  var ch = lineStr[i];
+                  var chStyle = charStyles[charOffset + i];
+                  if (!currentSegStyle) {
+                    currentSegStyle = chStyle;
+                    currentSegText = ch;
+                  } else {
+                    var same = chStyle.fillColor === currentSegStyle.fillColor && chStyle.fontFamily === currentSegStyle.fontFamily && chStyle.fontSize === currentSegStyle.fontSize && chStyle.fontWeight === currentSegStyle.fontWeight && chStyle.fontStyle === currentSegStyle.fontStyle;
+                    if (same) {
+                      currentSegText += ch;
+                    } else {
+                      lineSegments.push({
+                        text: currentSegText,
+                        style: currentSegStyle,
+                        lineIdx: l
+                      });
+                      currentSegStyle = chStyle;
+                      currentSegText = ch;
+                    }
+                  }
+                }
+                if (currentSegText.length > 0) {
+                  lineSegments.push({
+                    text: currentSegText,
+                    style: currentSegStyle,
+                    lineIdx: l
+                  });
+                }
+                charOffset += lineStr.length + 1; // +1 for the '\n'
+              }
+
+              // Only perform split if there are multiple segments or style differed
+              if (lineSegments.length > 1) {
+                var originPt = this.point.clone();
+                var paperInst = this.paper;
+                var project = window.WickEditorInstance ? window.WickEditorInstance.project : null;
+                var activeFrame = project ? project.activeFrame : null;
+                var currentLineIdx = -1;
+                var currentX = originPt.x;
+                var currentY = originPt.y;
+                var createdWickPaths = [];
+                for (var segIdx = 0; segIdx < lineSegments.length; segIdx++) {
+                  var seg = lineSegments[segIdx];
+                  if (seg.lineIdx !== currentLineIdx) {
+                    currentLineIdx = seg.lineIdx;
+                    currentX = originPt.x;
+                    currentY = originPt.y + currentLineIdx * computedLeading;
+                  }
+                  var segPt = new paperInst.Point(currentX, currentY);
+                  var newPText = new paperInst.PointText(segPt);
+                  newPText.content = seg.text;
+                  newPText.fillColor = seg.style.fillColor || '#000000';
+                  newPText.fontFamily = seg.style.fontFamily || 'Arial';
+                  newPText.fontSize = seg.style.fontSize || 24;
+                  newPText.fontWeight = seg.style.fontWeight || 'normal';
+                  newPText.fontStyle = seg.style.fontStyle || 'normal';
+                  newPText.justification = 'left';
+                  var segWidth = measureSegment(seg.text, seg.style);
+                  currentX += segWidth;
+                  if (activeFrame && window.Wick && window.Wick.Path) {
+                    var wPath = new window.Wick.Path({
+                      json: newPText.exportJSON({
+                        asString: false
+                      })
+                    });
+                    activeFrame.addPath(wPath);
+                    createdWickPaths.push(wPath);
+                  }
+                  newPText.remove();
+                }
+
+                // Remove original item
+                this.remove();
+                this.content = ''; // Prevent Text.js from keeping empty item
+
+                if (project && project.selection && createdWickPaths.length > 0) {
+                  project.selection.clear();
+                  project.selection.selectMultipleObjects(createdWickPaths);
+                }
+              }
+            } catch (segErr) {
+              console.error('Error during text segmentation:', segErr);
+            }
+          }
+        }
+        if (activeTextItem) {
+          activeTextItem._lastSubSelection = null;
+        }
+        if (selectionOverlay) {
+          selectionOverlay.empty();
+          selectionOverlay.remove();
+          selectionOverlay = null;
+        }
+        this._spans = [];
+        this.visible = true;
+        editElem.remove();
+        formatToolbar.hide();
+        formatToolbar.remove();
+        activeTextItem = null;
+        window.WickTextSelectionState = null;
+        var project = window.WickEditorInstance ? window.WickEditorInstance.project : null;
+        if (!project && window.Wick && window.Wick.currentProject) {
+          project = window.Wick.currentProject;
+        }
+        if (this.data && this.data.wickUUID && project) {
+          var wickObj = project.getObjectByUUID(this.data.wickUUID);
+          if (wickObj && wickObj.updateJSON) {
+            wickObj.updateJSON();
+          }
+        }
+      } finally {
+        this._isFinishingEditing = false;
+      }
     }
   });
 })();
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Paper.js-drawing-tools.
@@ -63270,6 +62939,7 @@ paper.Item.inject({
  * You should have received a copy of the GNU General Public License
  * along with Paper.js-drawing-tools.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 paper.View.inject({
   pressure: 1,
   enablePressure: function (args) {
@@ -63286,7 +62956,7 @@ paper.View.inject({
     });
   }
 });
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Paper.js-drawing-tools.
@@ -63304,11 +62974,13 @@ paper.View.inject({
  * You should have received a copy of the GNU General Public License
  * along with Paper.js-drawing-tools.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 paper.View.inject({
-  enableGestures: function (args) {// TODO
+  enableGestures: function (args) {
+    // TODO
   }
 });
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Paper.js-drawing-tools.
@@ -63326,11 +62998,13 @@ paper.View.inject({
  * You should have received a copy of the GNU General Public License
  * along with Paper.js-drawing-tools.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 paper.View.inject({
-  enableScrollToZoom: function (args) {// TODO
+  enableScrollToZoom: function (args) {
+    // TODO
   }
 });
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -63348,78 +63022,71 @@ paper.View.inject({
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View = class {
   /**
    * The paper.js scope that all Wick.View subclasses will use to render to.
    */
   static get paperScope() {
     if (!this._paperScope) {
-      this._paperScope = new paper.PaperScope(); // Create dummy paper.js instance so we can access paper classes
+      this._paperScope = new paper.PaperScope();
 
+      // Create dummy paper.js instance so we can access paper classes
       var canvas = window.document.createElement('canvas');
-
       this._paperScope.setup(canvas);
-    } // Use active paper scope for window.paper alias
+    }
 
+    // Use active paper scope for window.paper alias
+    window.paper = this._paperScope;
 
-    window.paper = this._paperScope; // Activate the paper scope
-
+    // Activate the paper scope
     this._paperScope.activate();
-
     return this._paperScope;
   }
+
   /**
    *
    */
-
-
   constructor(model) {
     this.model = model;
     this._eventHandlers = {};
   }
+
   /**
    *
    */
-
-
   set model(model) {
     this._model = model;
   }
-
   get model() {
     return this._model;
   }
+
   /**
    *
    */
-
-
   get paper() {
     return Wick.View.paperScope;
   }
+
   /**
    *
    */
-
-
   render() {}
+
   /**
    *
    */
-
-
   on(eventName, fn) {
     if (!this._eventHandlers[eventName]) {
       this._eventHandlers[eventName] = [];
     }
-
     this._eventHandlers[eventName].push(fn);
   }
+
   /**
    *
    */
-
-
   fireEvent(eventName, e, actionName) {
     var eventFns = this._eventHandlers[eventName];
     if (!eventFns) return;
@@ -63427,9 +63094,8 @@ Wick.View = class {
       fn(e, actionName);
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -63447,47 +63113,39 @@ Wick.View = class {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View.Project = class extends Wick.View {
   static get DEFAULT_CANVAS_BG_COLOR() {
     return 'rgb(187, 187, 187)';
   }
-
   static get VALID_FIT_MODES() {
     return ['center', 'fill'];
   }
-
   static get VALID_RENDER_MODES() {
     return ['svg', 'webgl'];
   }
-
   static get ORIGIN_CROSSHAIR_COLOR() {
     return '#CCCCCC';
   }
-
   static get ORIGIN_CROSSHAIR_SIZE() {
     return 100;
   }
-
   static get ORIGIN_CROSSHAIR_THICKNESS() {
     return 1;
   }
-
   static get ZOOM_MIN() {
     return 0.1;
   }
-
   static get ZOOM_MAX() {
     return 10.0;
   }
-
   static get PAN_LIMIT() {
     return 10000;
   }
+
   /*
    * Create a new Project View.
    */
-
-
   constructor(model) {
     super(model);
     this._fitMode = null;
@@ -63504,6 +63162,7 @@ Wick.View.Project = class extends Wick.View {
     };
     this._zoom = 1;
   }
+
   /*
    * Determines the way the project will scale itself based on its container.
    * 'center' will keep the project at its original resolution, and center it inside its container.
@@ -63511,8 +63170,6 @@ Wick.View.Project = class extends Wick.View {
    *
    * Note: For these changes to be reflected after setting fitMode, you must call Project.View.resize().
    */
-
-
   set fitMode(fitMode) {
     if (Wick.View.Project.VALID_FIT_MODES.indexOf(fitMode) === -1) {
       console.error("Invalid fitMode: " + fitMode);
@@ -63521,131 +63178,109 @@ Wick.View.Project = class extends Wick.View {
       this._fitMode = fitMode;
     }
   }
-
   get fitMode() {
     return this._fitMode;
   }
+
   /**
    * The current canvas being rendered to.
    */
-
-
   get canvas() {
     return this._svgCanvas;
   }
+
   /**
    * Get the current width/height of the canvas.
    */
-
-
   get canvasDimensions() {
     return {
       width: this._svgCanvas.offsetWidth,
       height: this._svgCanvas.offsetHeight
     };
   }
+
   /**
    * The zoom amount. 1 = 100% zoom
    */
-
-
   get zoom() {
     return this._zoom;
   }
-
   set zoom(zoom) {
     this._zoom = zoom;
   }
+
   /**
    * The amount to pan the view. (0,0) is the center.
    */
-
-
   get pan() {
     var pan = {
       x: -this.paper.view.center.x,
       y: -this.paper.view.center.y
     };
-
     if (this.model.focus.isRoot) {
       pan.x += this.model.width / 2;
       pan.y += this.model.height / 2;
     }
-
     return pan;
   }
-
   set pan(pan) {
     this._pan = {
       x: pan.x,
       y: pan.y
     };
-
     if (this.model.focus.isRoot) {
       this._pan.x -= this.model.width / 2;
       this._pan.y -= this.model.height / 2;
     }
   }
+
   /*
    * The element to insert the project's canvas into.
    */
-
-
   set canvasContainer(canvasContainer) {
     this._canvasContainer = canvasContainer;
   }
-
   get canvasContainer() {
     return this._canvasContainer;
   }
+
   /**
    * The background color of the canvas.
    */
-
-
   set canvasBGColor(canvasBGColor) {
     this._canvasBGColor = canvasBGColor;
   }
-
   get canvasBGColor() {
     return this._canvasBGColor;
   }
+
   /**
    * Render the view.
    */
-
-
   render() {
     this.zoom = this.model.zoom;
     this.pan = this.model.pan;
-
     this._buildSVGCanvas();
-
     this._displayCanvasInContainer(this._svgCanvas);
-
     this.resize();
-
     this._renderSVGCanvas();
-
     this._updateCanvasContainerBGColor();
   }
+
   /**
    * Render all frames in the project to make sure everything is loaded correctly.
    */
-
-
   prerender() {
     this.render();
     this.model.getAllFrames().forEach(frame => {
       frame.view.render();
     });
   }
+
   /*
    * Resize the canvas to fit it's container div.
    * Resize is called automatically before each render, but you must call it if you manually change the size of the container div.
    */
-
-
   resize() {
     if (!this.canvasContainer) return;
     var containerWidth = this.canvasContainer.offsetWidth;
@@ -63653,23 +63288,21 @@ Wick.View.Project = class extends Wick.View {
     this.paper.view.viewSize.width = containerWidth;
     this.paper.view.viewSize.height = containerHeight;
   }
+
   /**
    * Write the SVG data in the view to the project.
    */
-
-
   applyChanges() {
     this.model.selection.view.applyChanges();
     this.model.focus.timeline.activeFrames.forEach(frame => {
       frame.view.applyChanges();
     });
   }
+
   /**
    * Returns how much the zoom level must be to optimally fit the canvas inside a div.
    * @type {Number}
    */
-
-
   calculateFitZoom() {
     var w = 0;
     var h = 0;
@@ -63679,29 +63312,27 @@ Wick.View.Project = class extends Wick.View {
     var hr = h / this.model.height;
     return Math.min(wr, hr);
   }
+
   /**
    *  This is a hacky way to create scroll-to-zoom functionality
    *  (Using https://github.com/jquery/jquery-mousewheel for cross-browser mousewheel event)
    * @param {*} event - jquery mousewheel event.
    */
-
-
   scrollToZoom(event) {
     if (!this.model.isPublished) {
       var d = event.deltaY * event.deltaFactor * 0.001;
       this.paper.view.zoom = Math.max(0.1, this.paper.view.zoom + d);
-
       this._applyZoomAndPanChangesFromPaper();
     }
   }
-
   _setupTools() {
     // Attach scroll to zoom event.
     $(this._svgCanvas).on('mousewheel', e => {
       e.preventDefault();
       this.scrollToZoom(e);
-    }); // Connect all Wick Tools into the paper.js project
+    });
 
+    // Connect all Wick Tools into the paper.js project
     for (var toolName in this.model.tools) {
       var tool = this.model.tools[toolName];
       tool.project = this.model;
@@ -63711,20 +63342,16 @@ Wick.View.Project = class extends Wick.View {
       });
       tool.on('canvasViewTransformed', e => {
         this._applyZoomAndPanChangesFromPaper();
-
         this.fireEvent('canvasModified', e, `viewTransform-${toolName}`);
       });
       tool.on('eyedropperPickedColor', e => {
         this.fireEvent('eyedropperPickedColor', e);
       });
     }
-
     this.model.tools.none.activate();
   }
-
   _displayCanvasInContainer(canvas) {
     if (!this.canvasContainer) return;
-
     if (canvas !== this.canvasContainer.children[0]) {
       if (this.canvasContainer.children.length === 0) {
         this.canvasContainer.appendChild(canvas);
@@ -63732,11 +63359,9 @@ Wick.View.Project = class extends Wick.View {
         this.canvasContainer.innerHTML = '';
         this.canvasContainer.appendChild(canvas);
       }
-
       this.resize();
     }
   }
-
   _updateCanvasContainerBGColor() {
     if (this.model.focus === this.model.root) {
       // We're in the root timeline, use the color given to us from the user (or use a default)
@@ -63746,48 +63371,40 @@ Wick.View.Project = class extends Wick.View {
       this.canvas.style.backgroundColor = this.model.backgroundColor.hex;
     }
   }
-
   _buildSVGCanvas() {
     if (this._svgCanvas) return;
     this._svgCanvas = document.createElement('canvas');
     this._svgCanvas.style.width = '100%';
     this._svgCanvas.style.height = '100%';
     this._svgCanvas.tabIndex = 0;
-
     this._svgCanvas.onclick = () => {
       this._svgCanvas.focus();
     };
-
     this.paper.setup(this._svgCanvas);
-    this.paper.project.wickProject = this.model;
     this._svgBackgroundLayer = new paper.Layer();
     this._svgBackgroundLayer.name = 'wick_project_bg';
-
     this._svgBackgroundLayer.remove();
-
+    this._svgGridLayer = new paper.Layer();
+    this._svgGridLayer.name = 'wick_project_grid';
+    this._svgGridLayer.locked = true;
+    this._svgGridLayer.remove();
     this._svgBordersLayer = new paper.Layer();
     this._svgBordersLayer.name = 'wick_project_borders';
-
     this._svgBordersLayer.remove();
-
     this._svgGUILayer = new paper.Layer();
     this._svgGUILayer.locked = true;
     this._svgGUILayer.name = 'wick_project_gui';
-
     this._svgGUILayer.remove();
-
     this.paper.project.clear();
   }
-
   _renderSVGCanvas() {
-    this.paper.project.clear(); // Lazily setup tools
+    this.paper.project.clear();
 
+    // Lazily setup tools
     if (!this._toolsSetup) {
       this._toolsSetup = true;
-
       this._setupTools();
     }
-
     if (this.model.project.playing) {
       // Enable interact tool if the project is running
       this.model.tools.interact.activate();
@@ -63796,9 +63413,9 @@ Wick.View.Project = class extends Wick.View {
       this.model.tools.none.activate();
     } else {
       this.model.activeTool.activate();
-    } // Update zoom and pan
+    }
 
-
+    // Update zoom and pan
     if (this._fitMode === 'center') {
       this.paper.view.zoom = this.model.zoom;
     } else if (this._fitMode === 'fill') {
@@ -63806,68 +63423,118 @@ Wick.View.Project = class extends Wick.View {
       // scaling it as much as possible without changing the project's original aspect ratio
       this.paper.view.zoom = this.model.zoom * this.calculateFitZoom();
     }
-
     var pan = this._pan;
     this.paper.view.center = new paper.Point(-pan.x, -pan.y);
-    this.paper.view.rotation = this.model.rotation; // Generate background layer
+    this.paper.view.rotation = this.model.rotation;
 
+    // Generate background layer
     this._svgBackgroundLayer.removeChildren();
-
     this._svgBackgroundLayer.locked = true;
     this.paper.project.addLayer(this._svgBackgroundLayer);
-
     if (this.model.focus.isRoot) {
       // We're in the root timeline, render the canvas normally
       var stage = this._generateSVGCanvasStage();
-
       this._svgBackgroundLayer.addChild(stage);
     } else {
       // We're inside a clip, don't render the canvas BG, instead render a crosshair at (0,0)
       var originCrosshair = this._generateSVGOriginCrosshair();
-
       this._svgBackgroundLayer.addChild(originCrosshair);
-    } // Generate frame layers
+    }
 
-
+    // Generate frame layers
     this.model.focus.timeline.view.render();
     this.model.focus.timeline.view.frameLayers.forEach(layer => {
       this.paper.project.addLayer(layer);
-
       if (this.model.project && this.model.project.activeFrame && !layer.locked && (layer.data.wickType === 'paths' || layer.data.wickType === 'clipsandpaths') && layer.data.wickUUID === this.model.project.activeFrame.uuid) {
         layer.activate();
       }
-    }); // Render selection
+    });
 
+    // Render grid layer
+    this._svgGridLayer.removeChildren();
+    this._svgGridLayer.locked = true;
+    if (this.model.project && this.model.project.toolSettings && this.model.project.toolSettings.getSetting('gridEnabled') && !this.model.playing && !this.model.isPublished) {
+      this._svgGridLayer.addChild(this._generateSVGGrid());
+      this.paper.project.addLayer(this._svgGridLayer);
+    }
+
+    // Render selection
     this.model.selection.view.render();
-    this.paper.project.addLayer(this.model.selection.view.layer); // Render GUI Layer
+    this.paper.project.addLayer(this.model.selection.view.layer);
 
+    // Render GUI Layer
     this._svgGUILayer.removeChildren();
-
     this._svgGUILayer.locked = true;
-
     if (this.model.showClipBorders && !this.model.playing && !this.model.isPublished) {
       this._svgGUILayer.addChildren(this._generateClipBorders());
-
       this.paper.project.addLayer(this._svgGUILayer);
-    } // Render black bars (for published projects)
+    }
 
-
+    // Render black bars (for published projects)
     if (this.model.isPublished && this.model.renderBlackBars) {
       this._svgBordersLayer.removeChildren();
-
       this._svgBordersLayer.addChildren(this._generateSVGBorders());
-
       this.paper.project.addLayer(this._svgBordersLayer);
     }
   }
+  _generateSVGGrid() {
+    var gridGroup = new this.paper.Group({
+      insert: false
+    });
+    var width = this.model.width;
+    var height = this.model.height;
+    var settings = this.model.project && this.model.project.toolSettings;
+    var gridSize = settings && settings.getSetting('gridSize') || 20;
+    var gridOpacity = settings && settings.getSetting('gridOpacity') || 0.25;
+    var startX = 0;
+    var startY = 0;
+    var endX = width;
+    var endY = height;
+    if (!this.model.focus.isRoot) {
+      startX = -width / 2;
+      startY = -height / 2;
+      endX = width / 2;
+      endY = height / 2;
+    }
+    var gridPath = new this.paper.CompoundPath({
+      insert: false
+    });
+    gridPath.strokeColor = new this.paper.Color(0.2, 0.6, 1.0, gridOpacity);
+    gridPath.strokeWidth = 1 / (this.paper.view.zoom || 1);
+    gridPath.strokeScaling = false;
 
+    // Vertical lines
+    for (var x = startX; x <= endX; x += gridSize) {
+      gridPath.moveTo(new this.paper.Point(x, startY));
+      gridPath.lineTo(new this.paper.Point(x, endY));
+    }
+
+    // Horizontal lines
+    for (var y = startY; y <= endY; y += gridSize) {
+      gridPath.moveTo(new this.paper.Point(startX, y));
+      gridPath.lineTo(new this.paper.Point(endX, y));
+    }
+    gridGroup.addChild(gridPath);
+
+    // Stage border line
+    var border = new this.paper.Path.Rectangle({
+      from: new this.paper.Point(startX, startY),
+      to: new this.paper.Point(endX, endY),
+      strokeColor: new this.paper.Color(0.2, 0.6, 1.0, Math.min(1, gridOpacity * 1.8)),
+      strokeWidth: 1.5 / (this.paper.view.zoom || 1),
+      strokeScaling: false,
+      fillColor: null,
+      insert: false
+    });
+    gridGroup.addChild(border);
+    return gridGroup;
+  }
   _generateSVGCanvasStage() {
     var stage = new paper.Path.Rectangle(new this.paper.Point(0, 0), new this.paper.Point(this.model.width, this.model.height));
     stage.remove();
     stage.fillColor = this.model.backgroundColor.rgba;
     return stage;
   }
-
   _generateSVGOriginCrosshair() {
     var originCrosshair = new this.paper.Group({
       insert: false
@@ -63884,9 +63551,8 @@ Wick.View.Project = class extends Wick.View {
     originCrosshair.position.y = 0;
     return originCrosshair;
   }
+
   /* Renders the off-screen borders that hide content out of the project bounds. */
-
-
   _generateSVGBorders() {
     /**
      * +----------------------------+
@@ -63899,40 +63565,43 @@ Wick.View.Project = class extends Wick.View {
      * |           bottom           +
      * +----------------------------+
      */
+
     var borderMin = -10000,
-        borderMax = 10000;
+      borderMax = 10000;
     var strokeOffset = 0.5; // prevents gaps between border rects
 
     var bottom = this.model.height;
     var right = this.model.width;
-
     if (this.model.publishedMode === "imageSequence") {
       bottom *= window.devicePixelRatio;
       right *= window.devicePixelRatio;
     }
-
-    var borderPieces = [// top
+    var borderPieces = [
+    // top
     new paper.Path.Rectangle({
       from: new paper.Point(borderMin, borderMin),
       to: new paper.Point(borderMax, strokeOffset),
       fillColor: 'black',
       strokeWidth: 0,
       strokeColor: 'black'
-    }), // bottom
+    }),
+    // bottom
     new paper.Path.Rectangle({
       from: new paper.Point(borderMin, bottom - strokeOffset),
       to: new paper.Point(borderMax, borderMax),
       fillColor: 'black',
       strokeWidth: 0,
       strokeColor: 'black'
-    }), // left
+    }),
+    // left
     new paper.Path.Rectangle({
       from: new paper.Point(borderMin, -strokeOffset),
       to: new paper.Point(-strokeOffset, bottom + strokeOffset),
       fillColor: 'black',
       strokeWidth: 1,
       strokeColor: 'black'
-    }), // right
+    }),
+    // right
     new paper.Path.Rectangle({
       from: new paper.Point(right + strokeOffset, -strokeOffset),
       to: new paper.Point(borderMax, borderMax),
@@ -63942,13 +63611,13 @@ Wick.View.Project = class extends Wick.View {
     })];
     var border = new paper.Group();
     border.applyMatrix = false;
-    border.addChildren(borderPieces); // Adjust borders based on zoom/pan (this fixes borders hiding things while using a vcam)
+    border.addChildren(borderPieces);
 
+    // Adjust borders based on zoom/pan (this fixes borders hiding things while using a vcam)
     border.scaling = new paper.Point(this.model.zoom, this.model.zoom);
     border.position = new paper.Point(-this.model.pan.x, -this.model.pan.y);
     return border;
   }
-
   _generateClipBorders() {
     var clipBorders = [];
     this.model.activeFrames.filter(frame => {
@@ -63964,12 +63633,12 @@ Wick.View.Project = class extends Wick.View {
     });
     return clipBorders;
   }
-
   _applyZoomAndPanChangesFromPaper() {
     // limit zoom to min and max
     this.paper.view.zoom = Math.min(Wick.View.Project.ZOOM_MAX, this.paper.view.zoom);
-    this.paper.view.zoom = Math.max(Wick.View.Project.ZOOM_MIN, this.paper.view.zoom); // limit pan
+    this.paper.view.zoom = Math.max(Wick.View.Project.ZOOM_MIN, this.paper.view.zoom);
 
+    // limit pan
     this.pan.x = Math.min(Wick.View.Project.PAN_LIMIT, this.pan.x);
     this.pan.x = Math.max(-Wick.View.Project.PAN_LIMIT, this.pan.x);
     this.pan.y = Math.min(Wick.View.Project.PAN_LIMIT, this.pan.y);
@@ -63982,9 +63651,8 @@ Wick.View.Project = class extends Wick.View {
     this.model.zoom = this.zoom;
     this.render();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -64002,6 +63670,7 @@ Wick.View.Project = class extends Wick.View {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View.Selection = class extends Wick.View {
   /**
    * Create a new Selection view.
@@ -64014,24 +63683,21 @@ Wick.View.Selection = class extends Wick.View {
     });
     this.paper.project.selectionWidget = this._widget;
   }
+
   /**
    * The selection widget
    */
-
-
   get widget() {
     if (this.dirty) {
       this.dirty = false;
       this.render();
     }
-
     return this._widget;
   }
+
   /**
    *
    */
-
-
   applyChanges() {
     this.model.widgetRotation = this.widget.rotation;
     this.model.pivotPoint = {
@@ -64039,159 +63705,137 @@ Wick.View.Selection = class extends Wick.View {
       y: this.widget.pivot.y
     };
   }
+
   /**
    *
    */
-
-
   get x() {
     return this.widget.position.x;
   }
-
   set x(x) {
     this.widget.position = new paper.Point(x, this.widget.position.y);
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   get y() {
     return this.widget.position.y;
   }
-
   set y(y) {
     this.widget.position = new paper.Point(this.widget.position.x, y);
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   get width() {
     return this.widget.width;
   }
-
   set width(width) {
     this.widget.width = width;
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   get height() {
     return this.widget.height;
   }
-
   set height(height) {
     this.widget.height = height;
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   get rotation() {
     return this.widget.rotation;
   }
-
   set rotation(rotation) {
     this.widget.rotation = rotation;
     this.model.project.view.applyChanges();
     this.model.widgetRotation = rotation;
   }
+
   /**
    *
    */
-
-
   flipHorizontally() {
     this.widget.flipHorizontally();
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   flipVertically() {
     this.widget.flipVertically();
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   sendToBack() {
     paper.OrderingUtils.sendToBack(this._getSelectedObjectViews());
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   bringToFront() {
     paper.OrderingUtils.bringToFront(this._getSelectedObjectViews());
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   moveForwards() {
     paper.OrderingUtils.moveForwards(this._getSelectedObjectViews());
     this.model.project.view.applyChanges();
   }
+
   /**
    *
    */
-
-
   moveBackwards() {
     paper.OrderingUtils.moveBackwards(this._getSelectedObjectViews());
     this.model.project.view.applyChanges();
   }
-
   render() {
+    this._widget.project = this.model ? this.model.project : null;
     this._widget.build({
       boxRotation: this.model.widgetRotation,
       items: this._getSelectedObjectViews(),
       pivot: new paper.Point(this.model.pivotPoint.x, this.model.pivotPoint.y)
     });
   }
-
   _getSelectedObjects() {
     return this.model.getSelectedObjects('Canvas');
   }
-
   _getObjectViews(objects) {
     return objects.map(object => {
       return object.view.item || object.view.group;
     });
   }
-
   _getObjectsBounds(objects) {
     return this.widget._calculateBoundingBoxOfItems(this._getObjectViews(objects));
   }
-
   _getSelectedObjectViews() {
     return this._getObjectViews(this._getSelectedObjects());
   }
-
   _getSelectedObjectsBounds() {
     return this._getObjectsBounds(this._getSelectedObjects());
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -64209,64 +63853,68 @@ Wick.View.Selection = class extends Wick.View {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View.Clip = class extends Wick.View {
   static get BORDER_STROKE_WIDTH() {
     return 2;
   }
-
   static get BORDER_STROKE_COLOR_NORMAL() {
     return '#2636E1';
   }
-
   static get BORDER_STROKE_COLOR_HAS_CODE() {
     return '#01C094';
   }
-
   static get BORDER_STROKE_COLOR_HAS_CODE_ERROR() {
     return '#E61E07';
   }
-
   static get PLACEHOLDER_SIZE() {
     return 10;
   }
+
   /**
    * Creates a new Button view.
    */
-
-
   constructor() {
     super();
     this.group = new this.paper.Group();
     this.group.remove();
     this.group.applyMatrix = false;
-    this._bounds = new paper.Rectangle(); //this._radius = null;
+    this._bounds = new paper.Rectangle();
+    //this._radius = null;
   }
-
   get bounds() {
     return this._bounds;
   }
-
   get absoluteBounds() {
     return this.group.bounds;
-  } // get radius () {
+  }
+
+  // get radius () {
   //     if (this._radius) {
   //         return this._radius;
   //     }
+
   //     let center = this.absoluteBounds.center;
   //     let convert = (point) => point.getDistance(center, true);
   //     let compare = (a, b) => Math.max(a,b);
   //     let initial = 0;
+
   //     this._radius = Math.sqrt(this.reducePointsFromGroup(this.group, initial, convert, compare));
+
   //     return this._radius;
   // }
+
   // get convexHull () {
   //     let group = this.group;
   //     let initial = [];
   //     let convert = (point) => [[point.x, point.y]];
   //     let compare = (list1, list2) => list1.concat(list2);
+
   //     let points = this.reducePointsFromGroup(group, initial, convert, compare);
+
   //     // Infinity gets us the convex hull
   //     let ch = hull(points, Infinity);
+
   //     let removedDuplicates = [];
   //     let epsilon = 0.01;
   //     for (let i = 0; i < ch.length; i++) {
@@ -64282,40 +63930,32 @@ Wick.View.Clip = class extends Wick.View {
   //             removedDuplicates.push(ch[i]);
   //         }
   //     }
+
   //     return removedDuplicates;
   // }
-
 
   get points() {
     let group = this.group;
     let initial = [];
-
     let convert = point => [[point.x, point.y]];
-
     let compare = (list1, list2) => list1.concat(list2);
-
     return this.reducePointsFromGroup(group, initial, convert, compare);
-  } // group: the paper group of objects
+  }
+
+  // group: the paper group of objects
   // initial: the initial value, should be of return type
   // convert: point -> return type
   // compare: (return type, return type) -> return type
-
-
   reducePointsFromGroup(group, initial, convert, compare) {
     let val = initial;
-
     for (let i = 0; i < group.children.length; i++) {
       let child = group.children[i];
-
       if (child.className === 'Layer') {
         let ch = child.children;
-
         for (let j = 0; j < ch.length; j++) {
           let item = ch[j];
-
           if (item.className === 'Path') {
             let matrix = item.globalMatrix;
-
             for (let s = 0; s < item.segments.length; s++) {
               val = compare(val, convert(matrix.transform(item.segments[s].point)));
             }
@@ -64323,7 +63963,6 @@ Wick.View.Clip = class extends Wick.View {
             for (let p = 0; p < item.children.length; p++) {
               let path = item.children[p];
               let matrix = item.globalMatrix;
-
               for (let s = 0; s < path.segments.length; s++) {
                 val = compare(val, convert(matrix.transform(path.segments[s].point)));
               }
@@ -64334,25 +63973,29 @@ Wick.View.Clip = class extends Wick.View {
         }
       }
     }
-
     return val;
   }
-
   render() {
     // Prevent an unselectable object from being rendered
     // due to a clip having no content on the first frame.
-    this.model.ensureActiveFrameIsContentful(); // Render timeline view
+    this.model.ensureActiveFrameIsContentful();
 
-    this.model.timeline.view.render(); // Add some debug info to the paper group
+    // Render timeline view
+    this.model.timeline.view.render();
 
+    // Add some debug info to the paper group
     this.group.data.wickType = 'clip';
-    this.group.data.wickUUID = this.model.uuid; // Add frame views from timeline
+    this.group.data.wickUUID = this.model.uuid;
 
+    // Add frame views from timeline
     this.group.removeChildren();
-    this.group.addChildren(this.model.timeline.view.frameLayers); // Update transformations
+    this.group.addChildren(this.model.timeline.view.frameLayers);
 
+    // Update transformations
     this.group.matrix.set(new paper.Matrix());
-    this._bounds = this.group.bounds.clone(); //this._radius = null;
+    this._bounds = this.group.bounds.clone();
+
+    //this._radius = null;
 
     this.group.pivot = new this.paper.Point(0, 0);
     this.group.position.x = this.model.transformation.x;
@@ -64362,23 +64005,21 @@ Wick.View.Clip = class extends Wick.View {
     this.group.rotation = this.model.transformation.rotation;
     this.group.opacity = this.model.transformation.opacity;
   }
-
   generateBorder() {
     var group = new this.paper.Group({
       insert: false
     });
     group.locked = true;
     group.data.wickType = 'clip_border_' + this.model.uuid;
-    var bounds = this.bounds; // Change border colors based on if the Clip caused an error
+    var bounds = this.bounds;
 
+    // Change border colors based on if the Clip caused an error
     var strokeColor = Wick.View.Clip.BORDER_STROKE_COLOR_NORMAL;
-
     if (this.model.project.error && this.model.project.error.uuid === this.model.uuid) {
       strokeColor = Wick.View.Clip.BORDER_STROKE_COLOR_HAS_CODE_ERROR;
     } else if (this.model.hasContentfulScripts) {
       strokeColor = Wick.View.Clip.BORDER_STROKE_COLOR_HAS_CODE;
     }
-
     var border = new paper.Path.Rectangle({
       name: 'border',
       from: bounds.topLeft,
@@ -64396,9 +64037,8 @@ Wick.View.Clip = class extends Wick.View {
     group.rotation = this.model.transformation.rotation;
     return group;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -64416,8 +64056,9 @@ Wick.View.Clip = class extends Wick.View {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View.Button = class extends Wick.View.Clip {};
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -64435,13 +64076,13 @@ Wick.View.Button = class extends Wick.View.Clip {};
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View.Timeline = class extends Wick.View {
   constructor(wickTimeline) {
     super();
     this.frameLayers = [];
     this.activeFrameContainers = [];
   }
-
   render() {
     this.frameLayers = [];
     var layersInRenderOrder = this.model.layers.filter(layer => {
@@ -64453,9 +64094,8 @@ Wick.View.Timeline = class extends Wick.View {
       this.frameLayers = this.frameLayers.concat(layer.view.activeFrameLayers);
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -64473,48 +64113,45 @@ Wick.View.Timeline = class extends Wick.View {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View.Layer = class extends Wick.View {
   static get BASE_ONION_OPACITY() {
     return 0.35;
   }
-
   constructor(wickLayer) {
     super();
     this.activeFrameLayers = [];
     this.onionSkinnedFramesLayers = [];
     this.activeFrameContainers = [];
   }
-
   render() {
     // Add active frame layers
     this.activeFrameLayers = [];
     var frame = this.model.activeFrame;
-
     if (frame) {
       frame.view.render();
       this.activeFrameLayers.push(frame.view.objectsLayer);
       frame.view.objectsLayer.locked = false;
       frame.view.objectsLayer.opacity = 1.0;
-    } // Disable mouse events on layers if they are locked.
+    }
+
+    // Disable mouse events on layers if they are locked.
     // (However, this is ignored while the project is playing so the interact tool always works.)
     // (This is also ignored for layers which are inside clips and not the current focus.)
-
-
     this.activeFrameLayers.forEach(layer => {
       if (this.model.project.playing || !this.model.parentClip.isFocus) {
         layer.locked = false;
       } else {
         layer.locked = this.model.locked;
       }
-    }); // Add onion skinning, if necessary.
+    });
 
+    // Add onion skinning, if necessary.
     this.onionSkinnedFramesLayers = [];
-
     if (this.model.project && this.model.project.onionSkinEnabled && !this.model.project.playing && this.model.parentClip.isFocus) {
       this.addOnionSkin();
     }
   }
-
   addOnionSkin() {
     this.model.frames.filter(frame => {
       return frame.onionSkinned;
@@ -64522,7 +64159,6 @@ Wick.View.Layer = class extends Wick.View {
       this.onionSkinFrame(frame);
     });
   }
-
   onionSkinFrame(frame) {
     var onionSkinSeekBackwards = this.model.project.onionSkinSeekBackwards;
     var onionSkinSeekForwards = this.model.project.onionSkinSeekForwards;
@@ -64530,13 +64166,11 @@ Wick.View.Layer = class extends Wick.View {
     frame.view.render();
     this.onionSkinnedFramesLayers.push(frame.view.objectsLayer);
     var seek = 1;
-
     if (frame.midpoint < playheadPosition) {
       seek = onionSkinSeekBackwards;
     } else if (frame.midpoint > playheadPosition) {
       seek = onionSkinSeekForwards;
     }
-
     var dist = frame.distanceFrom(playheadPosition);
     var onionMult = (seek - dist + 1) / seek;
     onionMult = Math.min(1, Math.max(0, onionMult));
@@ -64544,9 +64178,8 @@ Wick.View.Layer = class extends Wick.View {
     frame.view.objectsLayer.locked = true;
     frame.view.objectsLayer.opacity = opacity;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -64564,6 +64197,7 @@ Wick.View.Layer = class extends Wick.View {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View.Frame = class extends Wick.View {
   /**
    * A multiplier for the resolution for the rasterization process.
@@ -64572,44 +64206,40 @@ Wick.View.Frame = class extends Wick.View {
   static get RASTERIZE_RESOLUTION_MODIFIER() {
     return 1;
   }
-
   static get RASTERIZE_RESOLUTION_MODIFIER_FOR_DEVICE() {
     return Wick.View.Frame.RASTERIZE_RESOLUTION_MODIFIER / window.devicePixelRatio;
   }
+
   /**
    * Create a frame view.
    */
-
-
   constructor() {
     super();
     this.objectsLayer = new this.paper.Layer();
     this.objectsLayer.remove();
   }
+
   /**
    * Write the changes made to the view to the frame.
    */
-
-
   applyChanges() {
     this._applyDrawableChanges();
   }
+
   /**
    * Update the view based on the model
    */
-
-
   render() {
     this._renderObjects();
   }
-
   _renderObjects() {
     this.objectsLayer.data.wickUUID = this.model.uuid;
     this.objectsLayer.data.wickType = 'clipsandpaths';
-    this.objectsLayer.removeChildren(); // Remove placeholder paths if
+    this.objectsLayer.removeChildren();
+
+    // Remove placeholder paths if
     // 1) this frame is focused, or
     // 2) the project is playing
-
     if (this.model.parentClip.isFocus || this.model.project && this.model.project.playing) {
       this.model.paths.forEach(path => {
         if (path.isPlaceholder) {
@@ -64617,10 +64247,8 @@ Wick.View.Frame = class extends Wick.View {
         }
       });
     }
-
     let children = this.model.drawable.map(object => {
       object.view.render();
-
       if (object.view.model instanceof Wick.Path) {
         return object.view.item;
       } else {
@@ -64629,15 +64257,14 @@ Wick.View.Frame = class extends Wick.View {
     });
     this.objectsLayer.addChildren(children);
   }
-
   _applyDrawableChanges() {
     this.model.drawable.filter(path => {
       return path instanceof Wick.Path && path.isDynamicText;
     }).forEach(path => {
       path.view.item.bringToFront();
     }); // Clear all WickPaths from the frame
-    // Reorder clips
 
+    // Reorder clips
     var drawables = this.model.drawable.concat([]);
     drawables.forEach(drawable => {
       // should realkly be remove child
@@ -64680,11 +64307,12 @@ Wick.View.Frame = class extends Wick.View {
         });
       }
     });
+
     /*
     var originalWickPath = child.data.wickUUID ? Wick.ObjectCache.getObjectByUUID(child.data.wickUUID) : null;
     var pathJSON = Wick.View.Path.exportJSON(child);
     var wickPath = new Wick.Path({json:pathJSON});
-      this.model.addPath(wickPath);
+     this.model.addPath(wickPath);
     wickPath.fontWeight = originalWickPath ? originalWickPath.fontWeight : 400;
     wickPath.fontStyle = originalWickPath ? originalWickPath.fontStyle : 'normal';
     wickPath.identifier = originalWickPath ? originalWickPath.identifier : null;
@@ -64692,9 +64320,8 @@ Wick.View.Frame = class extends Wick.View {
     child.name = wickPath.uuid;
     */
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -64712,6 +64339,7 @@ Wick.View.Frame = class extends Wick.View {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.View.Path = class extends Wick.View {
   /**
    * Create a path view.
@@ -64720,33 +64348,30 @@ Wick.View.Path = class extends Wick.View {
     super();
     this._item = null;
   }
+
   /**
    * The paper.js representation of the Wick Path.
    */
-
-
   get item() {
     if (!this._item) {
       this.render();
     }
-
     return this._item;
   }
+
   /**
    *
    */
-
-
   render() {
     if (!this.model.json) {
       console.warn('Path ' + this.model.uuid + ' is missing path JSON.');
       return;
     }
+    this.importJSON(this.model.json);
 
-    this.importJSON(this.model.json); // Apply onion skin style if Needed
+    // Apply onion skin style if Needed
     // (This is done here in the Path code because we actually change the style of the path
     // if the current onion skin mode is set to "outlines" or "tint")
-
     if (this.model.parentFrame && this.model.parentFrame.onionSkinned) {
       this.applyOnionSkinStyles();
     } else {
@@ -64757,54 +64382,65 @@ Wick.View.Path = class extends Wick.View {
       }
     }
   }
+
   /**
    * Import paper.js path data into this Wick Path, replacing the current path data if necessary.
    * Uses cached data otherwise.
    * @param {object} json - Data for the path created with paper.js exportJSON({asString:false})
    */
-
-
   importJSON(json) {
     // if(this.model.project && this.model.project.playing) return;
+
     // Don't import the information if we don't need to...
     if (this._item && !this.model.needReimport) {
       return;
-    } // Imports rasters if this json is a raster item.
+    }
 
-
+    // Imports rasters if this json is a raster item.
     if (json[0] === 'Raster') {
       if (!this.importRaster(json)) return false;
-    } // Import JSON data into paper.js
+    }
 
-
+    // Import JSON data into paper.js
     this._item = this.paper.importJSON(json);
+    this._item.remove();
 
-    this._item.remove(); // Check if we need to recover the UUID from the paper path
+    // Restore custom properties persisted in the data field.
+    // paper.js includes `data` in exportJSON, so these survive serialization
+    // round-trips (unlike custom properties set directly on the item).
+    if (this._item.data) {
+      if (typeof this._item.data.leading === 'number') {
+        this._item.leading = this._item.data.leading;
+      }
+      if (typeof this._item.data.boxWidth === 'number') {
+        this._item.boxWidth = this._item.data.boxWidth;
+      }
+      if (typeof this._item.data.boxHeight === 'number') {
+        this._item.boxHeight = this._item.data.boxHeight;
+      }
+    }
 
-
+    // Check if we need to recover the UUID from the paper path
     if (this._item.data.wickUUID) {
       this.model.uuid = this._item.data.wickUUID;
     } else {
       this._item.data.wickUUID = this.model.uuid;
       this._item.data.wickType = 'path';
     }
-
     this._item.fontWeight = `${this.model.fontWeight} ${this.model.fontStyle}`;
     this.model.needReimport = false;
   }
+
   /**
    * Export this path as paper.js Path json data.
    */
-
-
   exportJSON() {
     return Wick.View.Path.exportJSON(this.item);
   }
+
   /**
    * Export a path as paper.js Path json data.
    */
-
-
   static exportJSON(item) {
     // Recover original style (if needed - only neccesary if style was overritten by custom onion skin style)
     if (item.data.originalStyle) {
@@ -64812,28 +64448,25 @@ Wick.View.Path = class extends Wick.View {
       item.fillColor = item.data.originalStyle.fillColor;
       item.strokeWidth = item.data.originalStyle.strokeWidth;
     }
-
     return item.exportJSON({
       asString: false
     });
   }
+
   /**
    * Imports raster image from Wick Object cache.
    * @param {*} json 
    * @returns {boolean} True if successful import, false otherwise.
    */
-
-
   importRaster(json) {
     // Don't import if there is no project attached.
     if (!this.model.project) {
       // console.warn("Project not attached to raster path. Image will not be rendered")
       return false;
-    } // Backwards compatibility check for old raster formats:
+    }
 
-
+    // Backwards compatibility check for old raster formats:
     let JSONsrc = json[1].source;
-
     if (JSONsrc.startsWith('data')) {
       // Bug: Raw dataURL was saved, need find asset with that data
       this.model.project.getAssets('Image').forEach(imageAsset => {
@@ -64841,25 +64474,24 @@ Wick.View.Path = class extends Wick.View {
           JSONsrc = 'asset:' + imageAsset.uuid;
         }
       });
-    } else if (JSONsrc.startsWith('asset:')) {// Current format, no fix needed
+    } else if (JSONsrc.startsWith('asset:')) {
+      // Current format, no fix needed
     } else if (JSONsrc === 'asset') {
       // Old format: Asset UUID is stored in 'data'
       JSONsrc = 'asset:' + (json[1].asset || json[1].data.asset);
     } else {
       console.error('WARNING: raster source format not recognized:');
       return;
-    } // Get image source from assets
+    }
 
-
+    // Get image source from assets
     if (JSONsrc.startsWith('asset:')) {
       var assetUUID = JSONsrc.split(':')[1];
       var imageAsset = this.model.project.getAssetByUUID(assetUUID);
       json[1].source = imageAsset.src;
     }
-
     return true;
   }
-
   applyOnionSkinStyles() {
     var onionSkinStyle = this.model.project && this.model.project.toolSettings.getSetting('onionSkinStyle');
     this.item.data.originalStyle = this.item.data.originalStyle || {
@@ -64870,17 +64502,15 @@ Wick.View.Path = class extends Wick.View {
     var frame = this.model.parentFrame;
     var playheadPosition = this.model.project.focus.timeline.playheadPosition;
     var onionTintColor = new Wick.Color("#ffffff");
-
     if (frame.midpoint < playheadPosition) {
       onionTintColor = this.model.project.toolSettings.getSetting('backwardOnionSkinTint').rgba;
     } else if (frame.midpoint > playheadPosition) {
       onionTintColor = this.model.project.toolSettings.getSetting('forwardOnionSkinTint').rgba;
     }
-
-    if (onionSkinStyle === 'standard') {// We don't have to do anything!
+    if (onionSkinStyle === 'standard') {
+      // We don't have to do anything!
     } else if (onionSkinStyle === 'outlines') {
       this.item.fillColor = 'rgba(0,0,0,0)'; // Make the fills transparent.
-
       this.item.strokeWidth = this.model.project.toolSettings.getSetting('onionSkinOutlineWidth');
       this.item.strokeColor = onionTintColor;
     } else if (onionSkinStyle === 'tint') {
@@ -64888,9 +64518,8 @@ Wick.View.Path = class extends Wick.View {
       if (this.item.strokeColor) this.item.strokeColor = Wick.Color.average(new Wick.Color(this.item.strokeColor.toCSS()), new Wick.Color(onionTintColor)).rgba;
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -64908,6 +64537,7 @@ Wick.View.Path = class extends Wick.View {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement = class {
   /**
    * Create a new GUIElement
@@ -64919,55 +64549,48 @@ Wick.GUIElement = class {
     this.canAutoScrollY = false;
     this.cursor = 'default';
   }
+
   /**
    * The object to use the data from to create this GUIElement
    * @type {Wick.Base}
    */
-
-
   set model(model) {
     this._model = model;
   }
-
   get model() {
     return this._model;
   }
+
   /**
    * The root GUIElement.
    * @type {Wick.GUIElement}
    */
-
-
   get project() {
     if (!this._root) {
       this._root = this.model.project.guiElement;
     }
-
     return this._root;
   }
+
   /**
    * The canvas that this GUIElement belongs to.
    */
-
-
   get canvas() {
     return this.project._canvas;
   }
+
   /**
    * The context of the canvas that this GUIElement belongs to.
    */
-
-
   get ctx() {
     return this.model.project.guiElement._ctx;
   }
+
   /**
    * The current translation of the canvas. NOTE: This won't work without the following polyfill:
    * https://github.com/goessner/canvas-currentTransform
    * @type {object}
    */
-
-
   get currentTranslation() {
     var transform = this.ctx.currentTransform;
     return {
@@ -64975,49 +64598,44 @@ Wick.GUIElement = class {
       y: transform.f
     };
   }
+
   /**
    * A copy of the transformation of the canvas when this object was drawn.
    * @type {object}
    */
-
-
   get localTranslation() {
     return this._localTranslation;
   }
+
   /**
    * The current grid cell width that all GUIElements are based off of.
    * @type {number}
    */
-
-
   get gridCellWidth() {
     return Wick.GUIElement.GRID_DEFAULT_CELL_WIDTH;
   }
+
   /**
    * The current grid cell height that all GUIElements are based off of.
    * @type {number}
    */
-
-
   get gridCellHeight() {
     return Wick.GUIElement.GRID_DEFAULT_CELL_HEIGHT;
   }
+
   /**
    * The bounding box of the hit area for mouse interactions.
    * @type {object}
    */
-
-
   get bounds() {
     // Implemeneted by subclasses
     return null;
   }
+
   /**
    * The position of the mouse relative to this elements translation.
    * @type {object}
    */
-
-
   get localMouse() {
     var translation = this.localTranslation;
     var localMouse = {
@@ -65026,24 +64644,22 @@ Wick.GUIElement = class {
     };
     return localMouse;
   }
+
   /**
    * Checks if this object is touching the mouse.
    * @returns {boolean}
    */
-
-
   mouseInBounds(mouse) {
     if (!this.bounds) return false;
     var localMouse = this.localMouse;
     var bounds = this.bounds;
     return localMouse.x > bounds.x && localMouse.y > bounds.y && localMouse.x < bounds.x + bounds.width && localMouse.y < bounds.y + bounds.height;
   }
+
   /**
    * Check if the mouse is hovering or clicking this element.
    * @type {string}
    */
-
-
   get mouseState() {
     if (this === this.project._getTopMouseTarget()) {
       if (this.project._isDragging) {
@@ -65055,53 +64671,49 @@ Wick.GUIElement = class {
       return 'out';
     }
   }
+
   /**
    * Draw this GUIElement
    */
-
-
   draw() {
     this._localTranslation = this.currentTranslation;
     this.project.markElementAsDrawn(this);
   }
+
   /**
    * The function to call when the mouse clicks this element.
    */
-
-
-  onMouseDown(e) {// Implemeneted by subclasses.
+  onMouseDown(e) {
+    // Implemeneted by subclasses.
   }
+
   /**
    * The function to call when the mouse drags this element.
    */
-
-
-  onMouseDrag(e) {// Implemeneted by subclasses.
+  onMouseDrag(e) {
+    // Implemeneted by subclasses.
   }
+
   /**
    * The function to call when the mouse finishes a click on this element.
    */
-
-
-  onMouseUp(e) {// Implemeneted by subclasses.
+  onMouseUp(e) {
+    // Implemeneted by subclasses.
   }
+
   /**
    * Causes the project to call it's onProjectModified function. Call this after modifying the project.
    */
-
-
   projectWasModified() {
     this.project._onProjectModified();
   }
+
   /**
    * Causes the project to call it's onProjectSoftModified function. Call this after modifying the project.
    */
-
-
   projectWasSoftModified() {
     this.project._onProjectSoftModified();
   }
-
 };
 Wick.GUIElement.IS_MOBILE = window.innerWidth < 600;
 Wick.GUIElement.GRID_SMALL_CELL_WIDTH = 22;
@@ -65110,11 +64722,10 @@ Wick.GUIElement.GRID_NORMAL_CELL_WIDTH = 38;
 Wick.GUIElement.GRID_NORMAL_CELL_HEIGHT = 42;
 Wick.GUIElement.GRID_LARGE_CELL_WIDTH = 62;
 Wick.GUIElement.GRID_LARGE_CELL_HEIGHT = 52;
-/* Automatically choose larger frames if we're on a tablet */
 
+/* Automatically choose larger frames if we're on a tablet */
 const userAgent = navigator.userAgent.toLowerCase();
 const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
-
 if (isTablet) {
   Wick.GUIElement.GRID_DEFAULT_CELL_WIDTH = Wick.GUIElement.GRID_LARGE_CELL_WIDTH;
   Wick.GUIElement.GRID_DEFAULT_CELL_HEIGHT = Wick.GUIElement.GRID_LARGE_CELL_HEIGHT;
@@ -65122,7 +64733,6 @@ if (isTablet) {
   Wick.GUIElement.GRID_DEFAULT_CELL_WIDTH = Wick.GUIElement.GRID_NORMAL_CELL_WIDTH;
   Wick.GUIElement.GRID_DEFAULT_CELL_HEIGHT = Wick.GUIElement.GRID_NORMAL_CELL_HEIGHT;
 }
-
 Wick.GUIElement.GRID_MARGIN = 1;
 Wick.GUIElement.TIMELINE_BACKGROUND_COLOR = '#2A2E30';
 Wick.GUIElement.SELECTED_ITEM_BORDER_COLOR = '#00ADEF';
@@ -65137,8 +64747,9 @@ Wick.GUIElement.BREADCRUMBS_ACTIVE_BORDER_COLOR = '#1EE29A';
 Wick.GUIElement.BREADCRUMBS_HIGHLIGHT_HEIGHT = 3;
 Wick.GUIElement.BREADCRUMBS_PADDING = 5;
 Wick.GUIElement.LAYERS_CONTAINER_LARGE = 160;
-Wick.GUIElement.LAYERS_CONTAINER_SMALL = 100; // Shrink the Layer Container if the screen is small.
+Wick.GUIElement.LAYERS_CONTAINER_SMALL = 100;
 
+// Shrink the Layer Container if the screen is small.
 Wick.GUIElement.LAYERS_CONTAINER_WIDTH = Wick.GUIElement.IS_MOBILE ? Wick.GUIElement.LAYERS_CONTAINER_SMALL : Wick.GUIElement.LAYERS_CONTAINER_LARGE;
 Wick.GUIElement.NUMBER_LINE_HEIGHT = 35;
 Wick.GUIElement.NUMBER_LINE_NUMBERS_HIGHLIGHT_COLOR = '#ffffff';
@@ -65158,7 +64769,6 @@ Wick.GUIElement.FRAME_CONTENT_DOT_STROKE_WIDTH = 3;
 Wick.GUIElement.FRAME_CONTENT_DOT_COLOR = '#1EE29A';
 Wick.GUIElement.FRAME_MARGIN = 0.5;
 Wick.GUIElement.FRAME_DROP_SHADOW_DEPTH = 2; // Number of pixels to shift drop shadow below frame.
-
 Wick.GUIElement.FRAME_DROP_SHADOW_FILL = 'rgba(0,0,0,1)';
 Wick.GUIElement.FRAME_SCRIPT_DOT_COLOR = '#F5A623';
 Wick.GUIElement.FRAME_HANDLE_HOVER_FILL_COLOR = Wick.GUIElement.SELECTED_ITEM_BORDER_COLOR;
@@ -65204,8 +64814,8 @@ Wick.GUIElement.LAYER_LABEL_FONT_WEIGHT = '600';
 Wick.GUIElement.LAYER_LABEL_FONT_FAMILY = 'Nunito Sans';
 Wick.GUIElement.LAYER_LABEL_GHOST_COLOR = Wick.GUIElement.SELECTED_ITEM_BORDER_COLOR;
 Wick.GUIElement.LAYER_LABEL_HOVER_COLOR = '#F5A623';
-/* These icons must be loaded externally. */
 
+/* These icons must be loaded externally. */
 Wick.GUIElement.LAYER_BUTTON_ICON_COLOR = '#000000';
 Wick.GUIElement.LAYER_BUTTON_ICON_RADIUS = 10;
 Wick.GUIElement.LAYER_BUTTON_ICON_OPACITY = 0.3;
@@ -65225,7 +64835,7 @@ Wick.GUIElement.SCROLLBAR_SIZE = 18;
 Wick.GUIElement.SCROLLBAR_MARGIN = 3;
 Wick.GUIElement.SCROLLBAR_BORDER_RADIUS = 6;
 Wick.GUIElement.AUTO_SCROLL_SPEED = 0.17;
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -65243,6 +64853,7 @@ Wick.GUIElement.AUTO_SCROLL_SPEED = 0.17;
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Button = class extends Wick.GUIElement {
   /**
    * Create a new button.
@@ -65259,25 +64870,22 @@ Wick.GUIElement.Button = class extends Wick.GUIElement {
     this.cursor = 'pointer';
     this.lastPressed = 0;
   }
-
   draw() {
     super.draw();
   }
-
   onMouseDown(e) {
     let now = Date.now();
-    let timeSince = now - this.lastPressed; // Require 100 ms between clicks.
-    // This helps ensure that double events are not counted immediately.
+    let timeSince = now - this.lastPressed;
 
+    // Require 100 ms between clicks.
+    // This helps ensure that double events are not counted immediately.
     if (timeSince > 150) {
       this._clickFn(e);
-
       this.lastPressed = now;
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -65295,11 +64903,11 @@ Wick.GUIElement.Button = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Ghost = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
   }
-
   draw() {
     super.draw();
     this._mouseStart = this._mouseStart || {
@@ -65313,36 +64921,30 @@ Wick.GUIElement.Ghost = class extends Wick.GUIElement {
     this._mouseDiff = {
       x: this._mouseEnd.x - this._mouseStart.x,
       y: this._mouseEnd.y - this._mouseStart.y
-    }; // Save how many rows/columns we've moved for later
+    };
 
+    // Save how many rows/columns we've moved for later
     var moveRowCols = this._roundToGrid(this._mouseDiff.x, this._mouseDiff.y);
-
     this.moveCols = moveRowCols.col;
     this.moveRows = moveRowCols.row;
-
     var startRowCols = this._roundToGrid(this._mouseStart.x, this._mouseStart.y);
-
     this.startCol = startRowCols.col;
     this.startRow = startRowCols.row;
-
     var endRowCols = this._roundToGrid(this._mouseEnd.x, this._mouseEnd.y);
-
     this.endCol = endRowCols.col;
     this.endRow = endRowCols.row;
   }
-
-  finish() {// Implemeneted by subclasses.
+  finish() {
+    // Implemeneted by subclasses.
   }
-
   _roundToGrid(x, y) {
     return {
       col: Math.round(x / this.gridCellWidth),
       row: Math.round(y / this.gridCellHeight)
     };
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -65360,48 +64962,39 @@ Wick.GUIElement.Ghost = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Icons = class {
   static get dummyIcon() {
     if (!this._dummyIcon) {
       this._dummyIcon = new Image();
       this._dummyIcon.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAEGWlDQ1BrQ0dDb2xvclNwYWNlR2VuZXJpY1JHQgAAOI2NVV1oHFUUPrtzZyMkzlNsNIV0qD8NJQ2TVjShtLp/3d02bpZJNtoi6GT27s6Yyc44M7v9oU9FUHwx6psUxL+3gCAo9Q/bPrQvlQol2tQgKD60+INQ6Ium65k7M5lpurHeZe58853vnnvuuWfvBei5qliWkRQBFpquLRcy4nOHj4g9K5CEh6AXBqFXUR0rXalMAjZPC3e1W99Dwntf2dXd/p+tt0YdFSBxH2Kz5qgLiI8B8KdVy3YBevqRHz/qWh72Yui3MUDEL3q44WPXw3M+fo1pZuQs4tOIBVVTaoiXEI/MxfhGDPsxsNZfoE1q66ro5aJim3XdoLFw72H+n23BaIXzbcOnz5mfPoTvYVz7KzUl5+FRxEuqkp9G/Ajia219thzg25abkRE/BpDc3pqvphHvRFys2weqvp+krbWKIX7nhDbzLOItiM8358pTwdirqpPFnMF2xLc1WvLyOwTAibpbmvHHcvttU57y5+XqNZrLe3lE/Pq8eUj2fXKfOe3pfOjzhJYtB/yll5SDFcSDiH+hRkH25+L+sdxKEAMZahrlSX8ukqMOWy/jXW2m6M9LDBc31B9LFuv6gVKg/0Szi3KAr1kGq1GMjU/aLbnq6/lRxc4XfJ98hTargX++DbMJBSiYMIe9Ck1YAxFkKEAG3xbYaKmDDgYyFK0UGYpfoWYXG+fAPPI6tJnNwb7ClP7IyF+D+bjOtCpkhz6CFrIa/I6sFtNl8auFXGMTP34sNwI/JhkgEtmDz14ySfaRcTIBInmKPE32kxyyE2Tv+thKbEVePDfW/byMM1Kmm0XdObS7oGD/MypMXFPXrCwOtoYjyyn7BV29/MZfsVzpLDdRtuIZnbpXzvlf+ev8MvYr/Gqk4H/kV/G3csdazLuyTMPsbFhzd1UabQbjFvDRmcWJxR3zcfHkVw9GfpbJmeev9F08WW8uDkaslwX6avlWGU6NRKz0g/SHtCy9J30o/ca9zX3Kfc19zn3BXQKRO8ud477hLnAfc1/G9mrzGlrfexZ5GLdn6ZZrrEohI2wVHhZywjbhUWEy8icMCGNCUdiBlq3r+xafL549HQ5jH+an+1y+LlYBifuxAvRN/lVVVOlwlCkdVm9NOL5BE4wkQ2SMlDZU97hX86EilU/lUmkQUztTE6mx1EEPh7OmdqBtAvv8HdWpbrJS6tJj3n0CWdM6busNzRV3S9KTYhqvNiqWmuroiKgYhshMjmhTh9ptWhsF7970j/SbMrsPE1suR5z7DMC+P/Hs+y7ijrQAlhyAgccjbhjPygfeBTjzhNqy28EdkUh8C+DU9+z2v/oyeH791OncxHOs5y2AtTc7nb/f73TWPkD/qwBnjX8BoJ98VQNcC+8AAAALSURBVAgdY/gPBAAJ+wP9DLtb5wAAAABJRU5ErkJggg==';
     }
-
     return this._dummyIcon;
   }
-
   static get icons() {
     if (!this._icons) {
       this._icons = {};
     }
-
     return this._icons;
   }
-
   static loadIcon(name, src) {
     var forceLoadDummyIcon = Wick.GUIElement.Icons.dummyIcon;
-
     if (this.icons && this.icons[name]) {
       // Icon is already loaded.
       return;
     }
-
     this.icons[name] = new Image();
     this.icons[name].src = src;
   }
-
   static getIcon(name) {
     var icon = this.icons[name];
-
     if (!icon) {
       return Wick.GUIElement.Icons.dummyIcon;
     }
-
     return icon;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -65419,6 +65012,7 @@ Wick.GUIElement.Icons = class {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.ActionButton = class extends Wick.GUIElement.Button {
   constructor(model, args) {
     super(model, args);
@@ -65427,31 +65021,30 @@ Wick.GUIElement.ActionButton = class extends Wick.GUIElement.Button {
     this.height = args.height || Wick.GUIElement.ACTION_BUTTON_RADIUS;
     this.toggled = args.toggled || false;
   }
-
   draw(isActive) {
     super.draw();
-    var ctx = this.ctx; // Disable pointer cursor if the button isn't active
+    var ctx = this.ctx;
 
+    // Disable pointer cursor if the button isn't active
     if (isActive) {
       this.cursor = 'pointer';
     } else {
       this.cursor = 'default';
-    } // Button Circle
+    }
 
-
+    // Button Circle
     if (isActive && this.mouseState == 'over' || this.toggled) {
       ctx.fillStyle = Wick.GUIElement.FRAME_HOVERED_OVER;
       ctx.beginPath();
       ctx.roundRect(-this.width, -this.height, this.width * 2, this.height * 2, 3);
       ctx.fill();
-    } // Button Icon
+    }
 
-
+    // Button Icon
     var w = this.width * 0.8;
     var h = this.height * 0.8;
     ctx.drawImage(Wick.GUIElement.Icons.getIcon(this.icon), -w, -h, w * 2, h * 2);
   }
-
   get bounds() {
     return {
       x: -this.width,
@@ -65460,9 +65053,8 @@ Wick.GUIElement.ActionButton = class extends Wick.GUIElement.Button {
       height: this.height * 2
     };
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -65480,6 +65072,7 @@ Wick.GUIElement.ActionButton = class extends Wick.GUIElement.Button {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.ActionButtonsContainer = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
@@ -65506,8 +65099,8 @@ Wick.GUIElement.ActionButtonsContainer = class extends Wick.GUIElement {
         this.model.project.createTween();
         this.projectWasModified();
       }
-    }); // Only draw action buttons on bottom if we're not on mobile.
-
+    });
+    // Only draw action buttons on bottom if we're not on mobile.
     if (!Wick.GUIElement.IS_MOBILE) {
       this.fillGapsModeButton = new Wick.GUIElement.ActionButton(this.model, {
         tooltip: 'Gap Fill Mode',
@@ -65537,41 +65130,41 @@ Wick.GUIElement.ActionButtonsContainer = class extends Wick.GUIElement {
       });
     }
   }
-
   draw() {
-    var ctx = this.ctx; // Top background
+    var ctx = this.ctx;
 
+    // Top background
     ctx.fillStyle = Wick.GUIElement.TIMELINE_BACKGROUND_COLOR;
     ctx.beginPath();
     ctx.rect(0, 0, Wick.GUIElement.LAYERS_CONTAINER_WIDTH, Wick.GUIElement.NUMBER_LINE_HEIGHT);
-    ctx.fill(); // Bottom background
+    ctx.fill();
 
+    // Bottom background
     ctx.fillStyle = '#111';
     ctx.beginPath();
     ctx.rect(0, this.canvas.height - Wick.GUIElement.BREADCRUMBS_HEIGHT - Wick.GUIElement.SCROLLBAR_SIZE, Wick.GUIElement.LAYERS_CONTAINER_WIDTH, Wick.GUIElement.SCROLLBAR_SIZE);
-    ctx.fill(); // Only draw action buttons on bottom if we're not on mobile.
+    ctx.fill();
 
+    // Only draw action buttons on bottom if we're not on mobile.
     if (!Wick.GUIElement.IS_MOBILE) {
       // Gap Fill Mode button
       ctx.save();
       var method = this.project.model.activeTimeline.fillGapsMethod;
-
       if (method === 'auto_extend') {
         this.fillGapsModeButton.icon = 'gap_fill_menu_extend_frames';
       } else if (method === 'blank_frames') {
         this.fillGapsModeButton.icon = 'gap_fill_menu_blank_frames';
       }
-
       ctx.translate(18, this.canvas.height - Wick.GUIElement.NUMBER_LINE_HEIGHT - 4);
       this.fillGapsModeButton.draw(true);
-      ctx.restore(); // Frame Size button
+      ctx.restore();
 
+      // Frame Size button
       ctx.save();
       ctx.translate(54, this.canvas.height - Wick.GUIElement.NUMBER_LINE_HEIGHT - 4);
       this.gridSizeButton.draw(true);
       ctx.restore();
     }
-
     var tweenButtonIsActive = this.model.project.canCreateTween;
     var deleteButtonIsActive = this.model.project.selection.getSelectedObjects('Timeline').length > 0;
     ctx.save();
@@ -65579,21 +65172,22 @@ Wick.GUIElement.ActionButtonsContainer = class extends Wick.GUIElement {
     var widthOfActionButtonContainer = 90;
     var bump = 10;
     var leftOfContainer = Wick.GUIElement.LAYERS_CONTAINER_WIDTH + bump - widthOfActionButtonContainer;
-    ctx.translate(leftOfContainer, 0); // Delete Frame button
-
+    ctx.translate(leftOfContainer, 0);
+    // Delete Frame button
     ctx.save();
     ctx.globalAlpha = deleteButtonIsActive ? 1.0 : 0.3;
     ctx.translate(0, 20);
     this.deleteFrameButton.draw(deleteButtonIsActive);
-    ctx.restore(); // Insert Blank Frame Button
+    ctx.restore();
 
+    // Insert Blank Frame Button
     ctx.save();
     ctx.globalAlpha = 1.0;
     ctx.translate(30, 20);
     this.insertBlankFrameButton.draw(true); // Insert frame is always active...
+    ctx.restore();
 
-    ctx.restore(); // Add Tween button
-
+    // Add Tween button
     ctx.save();
     ctx.globalAlpha = tweenButtonIsActive ? 1.0 : 0.3;
     ctx.translate(60, 20);
@@ -65602,9 +65196,8 @@ Wick.GUIElement.ActionButtonsContainer = class extends Wick.GUIElement {
     ctx.restore();
     ctx.restore();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -65622,6 +65215,7 @@ Wick.GUIElement.ActionButtonsContainer = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Breadcrumbs = class extends Wick.GUIElement {
   /**
    * Create a new GUIElement
@@ -65630,29 +65224,29 @@ Wick.GUIElement.Breadcrumbs = class extends Wick.GUIElement {
     super(model);
     this._buttons = {};
   }
-
   /**
    * Draw this GUIElement
    */
   draw() {
-    var ctx = this.ctx; // Background rectangle to cover rest of the GUI
+    var ctx = this.ctx;
 
+    // Background rectangle to cover rest of the GUI
     ctx.fillStyle = Wick.GUIElement.BREADCRUMBS_BG_COLOR;
     ctx.beginPath();
     ctx.rect(0, 0, this.canvas.width, Wick.GUIElement.BREADCRUMBS_HEIGHT);
-    ctx.fill(); // Generate buttons for each Clip in the lineage
+    ctx.fill();
 
+    // Generate buttons for each Clip in the lineage
     var totalWidth = 0;
     this.model.project.focus.lineage.reverse().forEach(clip => {
       // Lazy generate buttons
       var button = this._buttons[clip.uuid];
-
       if (!button) {
         button = new Wick.GUIElement.BreadcrumbsButton(clip);
         this._buttons[clip.uuid] = button;
-      } // Draw the button
+      }
 
-
+      // Draw the button
       ctx.save();
       ctx.translate(totalWidth, 0);
       button.draw();
@@ -65660,9 +65254,8 @@ Wick.GUIElement.Breadcrumbs = class extends Wick.GUIElement {
       totalWidth += button.buttonWidth;
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -65680,6 +65273,7 @@ Wick.GUIElement.Breadcrumbs = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.BreadcrumbsButton = class extends Wick.GUIElement.Button {
   constructor(model) {
     super(model, {
@@ -65689,19 +65283,19 @@ Wick.GUIElement.BreadcrumbsButton = class extends Wick.GUIElement.Button {
       }
     });
   }
-
   draw() {
     super.draw();
-    var ctx = this.ctx; // Button label settings
+    var ctx = this.ctx;
 
+    // Button label settings
     ctx.font = "14px Nunito Sans";
     var textContent = this.model.identifier || 'Clip';
     var textWidth = ctx.measureText(textContent).width;
     var textX = Wick.GUIElement.BREADCRUMBS_PADDING;
-    var textY = Wick.GUIElement.BREADCRUMBS_HEIGHT / 2 + Wick.GUIElement.BREADCRUMBS_PADDING; // Fill color based on mouse interactions
+    var textY = Wick.GUIElement.BREADCRUMBS_HEIGHT / 2 + Wick.GUIElement.BREADCRUMBS_PADDING;
 
+    // Fill color based on mouse interactions
     var buttonBodyColor = 'red';
-
     if (this.model === this.model.project.focus) {
       buttonBodyColor = Wick.GUIElement.BREADCRUMBS_ACTIVE_BUTTON_FILL_COLOR;
     } else if (this.mouseState === 'down') {
@@ -65711,31 +65305,30 @@ Wick.GUIElement.BreadcrumbsButton = class extends Wick.GUIElement.Button {
     } else {
       buttonBodyColor = Wick.GUIElement.BREADCRUMBS_INACTIVE_BUTTON_FILL_COLOR;
     }
-
     var buttonWidth = textWidth + Wick.GUIElement.BREADCRUMBS_PADDING * 2;
     this.buttonWidth = buttonWidth; // Save how large the button is to use in other places...
-    // Button body
 
+    // Button body
     ctx.fillStyle = buttonBodyColor;
     ctx.beginPath();
     ctx.roundRect(0, 0, buttonWidth, Wick.GUIElement.BREADCRUMBS_HEIGHT, Wick.GUIElement.FRAME_BORDER_RADIUS);
     ctx.fill();
     ctx.beginPath();
     ctx.rect(0, Wick.GUIElement.BREADCRUMBS_HEIGHT / 2, buttonWidth, Wick.GUIElement.BREADCRUMBS_HEIGHT / 2);
-    ctx.fill(); // Add the active highlight to the tab if necessary.
+    ctx.fill();
 
+    // Add the active highlight to the tab if necessary.
     if (this.model === this.model.project.focus) {
       ctx.fillStyle = Wick.GUIElement.BREADCRUMBS_ACTIVE_BORDER_COLOR;
       ctx.beginPath();
       ctx.rect(0, Wick.GUIElement.BREADCRUMBS_HEIGHT - Wick.GUIElement.BREADCRUMBS_HIGHLIGHT_HEIGHT, buttonWidth, Wick.GUIElement.BREADCRUMBS_HIGHLIGHT_HEIGHT);
       ctx.fill();
-    } // Button label text
+    }
 
-
+    // Button label text
     ctx.fillStyle = '#BBBBBB';
     ctx.fillText(textContent, textX, textY);
   }
-
   get bounds() {
     return {
       x: 0,
@@ -65744,9 +65337,8 @@ Wick.GUIElement.BreadcrumbsButton = class extends Wick.GUIElement.Button {
       height: Wick.GUIElement.BREADCRUMBS_HEIGHT
     };
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -65764,6 +65356,7 @@ Wick.GUIElement.BreadcrumbsButton = class extends Wick.GUIElement.Button {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Frame = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
@@ -65771,42 +65364,39 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
     this.canAutoScrollY = true;
     this._ghost = null;
   }
-
   draw() {
     super.draw();
-    var ctx = this.ctx; // Fade out frames is layer is hidden
+    var ctx = this.ctx;
 
-    if (this.model.parentLayer.hidden) ctx.globalAlpha = 0.3; // Frame body
+    // Fade out frames is layer is hidden
+    if (this.model.parentLayer.hidden) ctx.globalAlpha = 0.3;
 
+    // Frame body
     var widthPx = this.model.length * this.gridCellWidth - 1;
     var heightPx = this.gridCellHeight - 1;
-
     var edge = this._mouseOverFrameEdge();
-
     if (this.model.contentful || this.model.tweens.length > 0 || this.model.sound) {
       ctx.fillStyle = Wick.GUIElement.FRAME_CONTENTFUL_FILL_COLOR;
     } else {
       ctx.fillStyle = Wick.GUIElement.FRAME_UNCONTENTFUL_FILL_COLOR;
     }
-
     ctx.beginPath();
     ctx.roundRect(0, 0, widthPx, heightPx, Wick.GUIElement.FRAME_BORDER_RADIUS);
     ctx.fill();
-
     if (!edge && this.mouseState === 'over' || this.mouseState === 'down') {
       ctx.lineWidth = 3;
       ctx.strokeStyle = Wick.GUIElement.FRAME_HOVERED_OVER;
       ctx.stroke();
-    } // Add selection highlight if necessary
+    }
 
-
+    // Add selection highlight if necessary
     if (this.model.isSelected) {
       ctx.strokeStyle = Wick.GUIElement.SELECTED_ITEM_BORDER_COLOR;
       ctx.lineWidth = Wick.GUIElement.FRAME_HIGHLIGHT_STROKEWIDTH;
       ctx.stroke();
-    } // Frame body edge
+    }
 
-
+    // Frame body edge
     if (edge) {
       this.cursor = 'ew-resize';
       var edgeGradient = ctx.createLinearGradient(widthPx - Wick.GUIElement.FRAME_HANDLE_WIDTH, 0, widthPx, 0);
@@ -65816,12 +65406,10 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       ctx.strokeStyle = edgeGradient;
       ctx.lineWidth = 5;
       ctx.save();
-
       if (edge === 'left') {
         ctx.translate(widthPx, 0);
         ctx.scale(-1, 1);
       }
-
       ctx.beginPath();
       ctx.roundRect(0, 0, widthPx, heightPx, Wick.GUIElement.FRAME_BORDER_RADIUS);
       ctx.fill();
@@ -65829,17 +65417,17 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       ctx.restore();
     } else {
       this.cursor = 'grab';
-    } // Frame scripts dot
+    }
 
-
+    // Frame scripts dot
     if (this.model.hasContentfulScripts) {
       ctx.fillStyle = Wick.GUIElement.FRAME_SCRIPT_DOT_COLOR;
       ctx.beginPath();
       ctx.arc(this.gridCellWidth / 2, 0, Wick.GUIElement.FRAME_CONTENT_DOT_RADIUS * 1.3, 0, Math.PI);
       ctx.fill();
-    } // Frame identifier
+    }
 
-
+    // Frame identifier
     if (this.model.identifier) {
       ctx.save();
       ctx.beginPath();
@@ -65850,36 +65438,31 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       ctx.fillText(this.model.identifier, 0, 12);
       ctx.restore();
     }
-
     if (this.model.tweens.length === 0 && !this.model.sound) {
       // Frame contentful dot
-      ctx.fillStyle = Wick.GUIElement.FRAME_CONTENT_DOT_COLOR;
 
+      ctx.fillStyle = Wick.GUIElement.FRAME_CONTENT_DOT_COLOR;
       if (this.model.contentful) {
         ctx.strokeStyle = Wick.GUIElement.FRAME_CONTENT_DOT_COLOR;
       } else {
         ctx.strokeStyle = '#aaa';
       }
-
       ctx.lineWidth = Wick.GUIElement.FRAME_CONTENT_DOT_STROKE_WIDTH;
       var r = Wick.GUIElement.FRAME_CONTENT_DOT_RADIUS;
-
       if (this.project.frameSizeMode === 'small') {
         r *= 0.75;
       } else if (this.project.frameSizeMode === 'large') {
         r *= 1.25;
       }
-
       ctx.beginPath();
       ctx.arc(this.gridCellWidth / 2, this.gridCellHeight / 2, r, 0, 2 * Math.PI);
-
       if (this.model.contentful) {
         ctx.fill();
       }
-
       ctx.stroke();
     } else if (this.model.sound) {
       // Sound waveform
+
       var framerate = this.model.project.framerate;
       var sound = this.model.sound;
       var waveform = sound.waveform;
@@ -65887,8 +65470,8 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       var frameLengthMS = 1 / framerate * this.model.length * 1000;
       var frameLengthPx = this.model.length * this.gridCellWidth;
       var cropPx = frameLengthMS / soundLengthMS * 1200; // base waveform image size: 1200px
-      // Determining Pxls/milliseconds to shift waveform.
 
+      // Determining Pxls/milliseconds to shift waveform.
       var msPerFrame = 1000 / framerate;
       var pxPerMS = msPerFrame / this.gridCellWidth;
       var shiftSoundStart = -(this.model.soundStart * (1 / pxPerMS));
@@ -65896,6 +65479,7 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       ctx.drawImage(waveform, 0, volumeCropAmt, cropPx, waveform.height - volumeCropAmt * 2, shiftSoundStart, 0, frameLengthPx, this.gridCellHeight);
     } else if (this.model.tweens.length > 0) {
       // Tweens
+
       this.model.tweens.forEach(tween => {
         ctx.save();
         ctx.translate((tween.playheadPosition - 1) * this.gridCellWidth + this.gridCellWidth / 2, this.gridCellHeight / 2);
@@ -65903,19 +65487,17 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
         ctx.restore();
       });
     }
+    ctx.globalAlpha = 1.0;
 
-    ctx.globalAlpha = 1.0; // Draw drag ghost
-
+    // Draw drag ghost
     if (this._ghost) {
       this._ghost.draw();
     }
   }
-
   onMouseDown(e) {
     this._clickedEdge = this._mouseOverFrameEdge();
     var playheadPosition = this.model.start + Math.floor(this.localMouse.x / this.gridCellWidth);
     this.model.project.activeTimeline.playheadPosition = playheadPosition;
-
     if (this.model.isSelected) {
       if (e.shiftKey) {
         this.model.project.selection.deselect(this.model);
@@ -65924,18 +65506,14 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       if (!e.shiftKey) {
         this.model.project.selection.clear();
       }
-
       this.model.project.selection.select(this.model);
       this.model.parentLayer.activate();
     }
-
     this.projectWasModified();
   }
-
   onMouseDrag(e) {
     if (!this._ghost) {
       var edge = this._clickedEdge;
-
       if (edge) {
         this._ghost = new Wick.GUIElement.FrameEdgeGhost(this.model, edge);
       } else {
@@ -65943,16 +65521,13 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       }
     }
   }
-
   onMouseUp(e) {
     if (this._ghost) {
       this._ghost.finish();
-
       this._ghost = null;
       this.projectWasModified();
     }
   }
-
   get bounds() {
     // Notice the slight addition of 1px on the left and right sides
     // This prevents issues where you can create frames in between other frames.
@@ -65963,14 +65538,12 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       height: this.gridCellHeight + 1
     };
   }
+
   /* helper function for frame edge dragging */
-
-
   _mouseOverFrameEdge() {
     var widthPx = this.model.length * this.gridCellWidth;
     var handlePx = Wick.GUIElement.FRAME_HANDLE_WIDTH;
     if (this.project.frameSizeMode === 'small') handlePx *= 0.5;
-
     if (this.project._isDragging || !this.mouseInBounds()) {
       return null;
     } else if (this.localMouse.x < handlePx) {
@@ -65982,9 +65555,8 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
       return null;
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66002,87 +65574,82 @@ Wick.GUIElement.Frame = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.FrameEdgeGhost = class extends Wick.GUIElement.Ghost {
   constructor(model, edge) {
     super(model);
     this._mainFrame = model;
     this._frames = [];
-
     if (edge === 'left') {
       this._frames = model.project.selection.getLeftmostFrames();
     } else if (edge === 'right') {
       this._frames = model.project.selection.getRightmostFrames();
     }
-
     this._edge = edge;
   }
-
   draw() {
     super.draw();
     var ctx = this.ctx;
-    var mainFrame = this._mainFrame; // Calculate position values...
+    var mainFrame = this._mainFrame;
 
+    // Calculate position values...
     var start = mainFrame.start - this._mainFrame.start;
     var row = mainFrame.parentLayer.index - this._mainFrame.parentLayer.index;
-    this.moveCols = Math.round(this._mouseDiff.x / this.gridCellWidth); // Prevent 'inside out' frames
+    this.moveCols = Math.round(this._mouseDiff.x / this.gridCellWidth);
 
+    // Prevent 'inside out' frames
     var movePx = this._mouseDiff.x;
-
     this._frames.forEach(frame => {
       var length = frame.length;
-
       if (this._edge === 'right') {
         this.moveCols = Math.max(-length + 1, this.moveCols);
       } else if (this._edge === 'left') {
         this.moveCols = Math.min(length - 1, this.moveCols);
       }
-
       if (this._edge === 'right') {
         movePx = Math.max(movePx, this.moveCols * this.gridCellWidth);
       } else if (this._edge === 'left') {
         movePx = Math.min(movePx, this.moveCols * this.gridCellWidth);
       }
     });
-
     this._frames.forEach(frame => {
       var x = start * this.gridCellWidth;
       var y = row * this.gridCellHeight;
       var width = frame.length * this.gridCellWidth;
-      var height = this.gridCellHeight; // Offset frame by it's position
+      var height = this.gridCellHeight;
 
+      // Offset frame by it's position
       var gridDiffX = frame.start - mainFrame.start;
       var gridDiffY = frame.parentLayer.index - mainFrame.parentLayer.index;
       ctx.save();
-      ctx.translate(gridDiffX * this.gridCellWidth, gridDiffY * this.gridCellHeight); // New length of frames based on mouse x,y
-      // (this makes things feel more responsive)
+      ctx.translate(gridDiffX * this.gridCellWidth, gridDiffY * this.gridCellHeight);
 
+      // New length of frames based on mouse x,y
+      // (this makes things feel more responsive)
       ctx.save();
       ctx.globalAlpha = 0.4;
       ctx.fillStyle = Wick.GUIElement.FRAME_GHOST_COLOR;
       ctx.beginPath();
-
       if (this._edge === 'right') {
         ctx.roundRect(x, y, width + movePx, height, Wick.GUIElement.FRAME_BORDER_RADIUS);
       } else if (this._edge === 'left') {
         ctx.roundRect(x + movePx, y, width - movePx, height, Wick.GUIElement.FRAME_BORDER_RADIUS);
       }
-
       ctx.fill();
-      ctx.restore(); // New length of frames based on grid cells moved
-      // (this makes it easy to tell where frames will land)
+      ctx.restore();
 
+      // New length of frames based on grid cells moved
+      // (this makes it easy to tell where frames will land)
       ctx.strokeStyle = '#00ff00';
       ctx.setLineDash([5, 5]);
       ctx.lineWidth = 3;
       ctx.beginPath();
-
       if (this._edge === 'right') {
         ctx.roundRect(x, y, width + this.moveCols * this.gridCellWidth, height, Wick.GUIElement.FRAME_BORDER_RADIUS);
       } else if (this._edge === 'left') {
         var gridMovePx = this.moveCols * this.gridCellWidth;
         ctx.roundRect(x + gridMovePx, y, width - gridMovePx, height, Wick.GUIElement.FRAME_BORDER_RADIUS);
       }
-
       ctx.save();
       ctx.globalAlpha = 0.8;
       ctx.stroke();
@@ -66090,30 +65657,26 @@ Wick.GUIElement.FrameEdgeGhost = class extends Wick.GUIElement.Ghost {
       ctx.restore();
     });
   }
-
   finish() {
     // Move frames
     this._frames.forEach(frame => {
       frame._originalLayer = frame.parentLayer;
       frame.remove();
-
       if (this._edge === 'right') {
         frame.end += this.moveCols;
       } else if (this._edge === 'left') {
         frame.start += this.moveCols;
       }
-    }); // Re-add frames to trigger overlap/gap cleanup
+    });
 
-
+    // Re-add frames to trigger overlap/gap cleanup
     this._frames.forEach(frame => {
       frame._originalLayer.addFrame(frame);
-
       delete frame._originalLayer;
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66131,17 +65694,16 @@ Wick.GUIElement.FrameEdgeGhost = class extends Wick.GUIElement.Ghost {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.FrameGhost = class extends Wick.GUIElement.Ghost {
   constructor(model) {
     super(model);
     this._mainFrame = model;
     this._frames = model.project.selection.getSelectedObjects('Frame');
   }
-
   draw() {
     super.draw();
     var ctx = this.ctx;
-
     this._frames.forEach(frame => {
       // Calculate position values...
       var start = frame.start - this._mainFrame.start;
@@ -66150,9 +65712,10 @@ Wick.GUIElement.FrameGhost = class extends Wick.GUIElement.Ghost {
       var x = start * this.gridCellWidth;
       var y = row * this.gridCellHeight;
       var width = length * this.gridCellWidth;
-      var height = this.gridCellHeight; // New position of frames based on mouse x,y
-      // (this makes things feel more responsive)
+      var height = this.gridCellHeight;
 
+      // New position of frames based on mouse x,y
+      // (this makes things feel more responsive)
       ctx.save();
       ctx.translate(this._mouseDiff.x, this._mouseDiff.y);
       ctx.globalAlpha = 0.4;
@@ -66160,12 +65723,12 @@ Wick.GUIElement.FrameGhost = class extends Wick.GUIElement.Ghost {
       ctx.beginPath();
       ctx.roundRect(x, y, width, height, Wick.GUIElement.FRAME_BORDER_RADIUS);
       ctx.fill();
-      ctx.restore(); // New position of frames based on grid cells moved
-      // (this makes it easy to tell where frames will land)
+      ctx.restore();
 
+      // New position of frames based on grid cells moved
+      // (this makes it easy to tell where frames will land)
       ctx.save();
       ctx.translate(this.moveCols * this.gridCellWidth, this.moveRows * this.gridCellHeight);
-
       if (frame.parentLayer.index + this.moveRows > frame.parentTimeline.layers.length - 1) {
         ctx.fillStyle = Wick.GUIElement.FRAME_GHOST_NOT_ALLOWED_COLOR;
         ctx.strokeStyle = '#ff0000';
@@ -66173,7 +65736,6 @@ Wick.GUIElement.FrameGhost = class extends Wick.GUIElement.Ghost {
         ctx.fillStyle = 'rgba(0,0,0,0)';
         ctx.strokeStyle = '#00ff00';
       }
-
       ctx.setLineDash([5, 5]);
       ctx.lineWidth = 3;
       ctx.beginPath();
@@ -66184,36 +65746,31 @@ Wick.GUIElement.FrameGhost = class extends Wick.GUIElement.Ghost {
       ctx.restore();
     });
   }
-
   finish() {
     var timeline = this.model.parentTimeline;
     timeline.playheadPosition += this.moveCols;
-    timeline.deferFrameGapResolve(); // Remove all frames, then re-add them in their new places
+    timeline.deferFrameGapResolve();
 
+    // Remove all frames, then re-add them in their new places
     this._frames.forEach(frame => {
       frame._originalLayerIndex = frame.parentLayer.index;
       frame.remove();
     });
-
     this._frames.forEach(frame => {
       frame.start += this.moveCols;
       frame.end += this.moveCols;
     });
-
     this._frames.forEach(frame => {
       var layer = timeline.layers[frame._originalLayerIndex + this.moveRows];
       delete frame._originalLayerIndex;
-
       if (layer) {
         layer.addFrame(frame);
       }
     });
-
     timeline.resolveFrameGaps(this._frames);
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66231,6 +65788,7 @@ Wick.GUIElement.FrameGhost = class extends Wick.GUIElement.Ghost {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.FramesContainer = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
@@ -66240,76 +65798,75 @@ Wick.GUIElement.FramesContainer = class extends Wick.GUIElement {
     this._frameGhost = null;
     this._selectionBox = null;
   }
-
   draw() {
     super.draw();
     this.addFrameCol = Math.floor(this.localMouse.x / this.gridCellWidth);
     this.addFrameRow = Math.floor(this.localMouse.y / this.gridCellHeight);
-    var ctx = this.ctx; // Background
+    var ctx = this.ctx;
 
+    // Background
     ctx.fillStyle = Wick.GUIElement.TIMELINE_BACKGROUND_COLOR;
     ctx.beginPath();
     ctx.rect(this.project.scrollX, this.project.scrollY, this.canvas.width, this.canvas.height);
-    ctx.fill(); // Add a small buffer to prevent some graphics from being cut off
+    ctx.fill();
 
+    // Add a small buffer to prevent some graphics from being cut off
     ctx.save();
-    ctx.translate(2, 2); // Draw frame strips
+    ctx.translate(2, 2);
 
+    // Draw frame strips
     var layers = this.model.layers;
     layers.forEach(layer => {
       var i = layer.index;
       ctx.save();
       ctx.translate(0, i * this.gridCellHeight);
-
       if (layer.isActive) {
         ctx.fillStyle = Wick.GUIElement.FRAMES_STRIP_ACTIVE_FILL_COLOR;
       } else {
         ctx.fillStyle = Wick.GUIElement.FRAMES_STRIP_INACTIVE_FILL_COLOR;
       }
-
       var width = this.canvas.width;
       var height = Wick.GUIElement.GRID_DEFAULT_CELL_HEIGHT - 2;
       ctx.beginPath();
       ctx.rect(this.project.scrollX, 0, width, height);
       ctx.fill();
       ctx.restore();
-    }); // Draw grid
+    });
 
+    // Draw grid
     ctx.lineWidth = 1;
     ctx.strokeStyle = Wick.GUIElement.FRAMES_CONTAINER_VERTICAL_GRID_STROKE_COLOR;
     var skip = Math.round(this.project.scrollX / this.gridCellWidth);
-
     for (var i = -1; i < this.canvas.width / this.gridCellWidth + 1; i++) {
       ctx.beginPath();
       var x = (i + skip) * this.gridCellWidth;
       ctx.moveTo(x, this.project.scrollY);
       ctx.lineTo(x, this.project.scrollY + this.canvas.height);
       ctx.stroke();
-    } // Draw frames
+    }
 
-
+    // Draw frames
     var frames = this.model.getAllFrames();
     var draggingFrames = frames.filter(frame => {
       if (frame.guiElement._ghost) return true;
-
       if (frame.tweens.find(tween => {
         return tween.guiElement._ghost;
       })) {
         return true;
       }
-
       return false;
     });
     frames.forEach(frame => {
       if (draggingFrames.indexOf(frame) !== -1) return;
-
       this._drawFrame(frame, true);
-    }); // Make sure to render the frames being dragged last.
+    });
 
+    // Make sure to render the frames being dragged last.
     draggingFrames.forEach(frame => {
       this._drawFrame(frame, false);
-    }); // Add frame overlay
+    });
 
+    // Add frame overlay
     if (this.mouseState === 'over' && !this._selectionBox && this._addFrameOverlayIsActive()) {
       this.cursor = 'pointer';
       var x = this.addFrameCol * this.gridCellWidth;
@@ -66317,8 +65874,9 @@ Wick.GUIElement.FramesContainer = class extends Wick.GUIElement {
       ctx.fillStyle = Wick.GUIElement.ADD_FRAME_OVERLAY_FILL_COLOR;
       ctx.beginPath();
       ctx.roundRect(x, y, this.gridCellWidth, this.gridCellHeight, Wick.GUIElement.FRAME_BORDER_RADIUS);
-      ctx.fill(); // Plus sign
+      ctx.fill();
 
+      // Plus sign
       ctx.font = '30px bold Courier New';
       ctx.fillStyle = Wick.GUIElement.ADD_FRAME_OVERLAY_PLUS_COLOR;
       ctx.globalAlpha = 0.5;
@@ -66326,14 +65884,14 @@ Wick.GUIElement.FramesContainer = class extends Wick.GUIElement {
       ctx.globalAlpha = 1.0;
     } else {
       this.cursor = 'default';
-    } // Selection box
+    }
 
-
+    // Selection box
     if (this._selectionBox) {
       this._selectionBox.draw();
-    } // Top drop shadow
+    }
 
-
+    // Top drop shadow
     var dropShadow;
     ctx.fillStyle = 'rgba(0,0,0,0.2)';
     ctx.beginPath();
@@ -66344,73 +65902,70 @@ Wick.GUIElement.FramesContainer = class extends Wick.GUIElement {
     ctx.fill();
     ctx.restore();
   }
-
   _drawFrame(frame, enableCull) {
-    var ctx = this.ctx; // Optimization: don't render frames that are outside the scroll area
-    // This really speeds things up!!
+    var ctx = this.ctx;
 
+    // Optimization: don't render frames that are outside the scroll area
+    // This really speeds things up!!
     var frameStartX = (frame.start - 1) * this.gridCellWidth;
     var frameStartY = frame.parentLayer.index * this.gridCellHeight;
     var frameEndX = frameStartX + frame.length * this.gridCellWidth;
     var frameEndY = frameStartY + this.gridCellHeight;
     var framesContainerWidth = this.canvas.width - Wick.GUIElement.LAYERS_CONTAINER_WIDTH;
     var framesContainerHeight = this.canvas.height - Wick.GUIElement.BREADCRUMBS_HEIGHT - Wick.GUIElement.NUMBER_LINE_HEIGHT;
-
     if (enableCull) {
       var scrollX = this.project.scrollX;
       var scrollY = this.project.scrollY;
-
       if (frameEndX < scrollX || frameEndY < scrollY) {
         return;
       }
-
       if (frameStartX > scrollX + framesContainerWidth || frameStartY > scrollY + framesContainerHeight) {
         return;
       }
-    } // Draw the frame
+    }
 
-
+    // Draw the frame
     ctx.save();
     ctx.translate(frameStartX, frameStartY);
     frame.guiElement.draw();
     ctx.restore();
   }
-
   onMouseDrag() {
     if (!this._selectionBox) {
       this._selectionBox = new Wick.GUIElement.SelectionBox(this.model);
-    } // Move the playhead when the selection box is dragged.
+    }
 
-
+    // Move the playhead when the selection box is dragged.
     var newPlayhead = this.addFrameCol + 1;
-
     if (this.model.playheadPosition !== newPlayhead) {
       this.model.playheadPosition = newPlayhead;
       this.projectWasSoftModified();
     }
   }
-
   onMouseUp(e) {
     if (this._selectionBox) {
       if (!e.shiftKey) {
         this.model.project.selection.clear();
-      } // The selection box was just finished, select frames with the box bounds
+      }
 
-
+      // The selection box was just finished, select frames with the box bounds
       this._selectionBox.finish();
     } else if (this._addFrameOverlayIsActive()) {
       var playheadPosition = this.addFrameCol + 1;
-      var layerIndex = this.addFrameRow; // Create a new frame and add that frame to the project
+      var layerIndex = this.addFrameRow;
 
+      // Create a new frame and add that frame to the project
       var newFrame = new Wick.Frame({
         start: playheadPosition
       });
-      this.model.layers[layerIndex].addFrame(newFrame); // Select that frame and activate the layer it belongs to
+      this.model.layers[layerIndex].addFrame(newFrame);
 
+      // Select that frame and activate the layer it belongs to
       this.model.project.selection.clear();
       this.model.project.selection.select(newFrame);
-      newFrame.parentLayer.activate(); // Move the playhead onto the new frame
+      newFrame.parentLayer.activate();
 
+      // Move the playhead onto the new frame
       this.model.project.activeTimeline.playheadPosition = playheadPosition;
       this.projectWasModified();
     } else {
@@ -66418,10 +65973,8 @@ Wick.GUIElement.FramesContainer = class extends Wick.GUIElement {
       this.model.project.selection.clear();
       this.projectWasModified();
     }
-
     this._selectionBox = null;
   }
-
   get bounds() {
     return {
       x: this.project.scrollX,
@@ -66430,13 +65983,11 @@ Wick.GUIElement.FramesContainer = class extends Wick.GUIElement {
       height: this.canvas.height
     };
   }
-
   _addFrameOverlayIsActive() {
     return this.addFrameCol >= 0 && this.addFrameRow >= 0 && this.addFrameRow < this.model.layers.length && !this.model.layers[this.addFrameRow].getFrameAtPlayheadPosition(this.addFrameCol + 1);
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66454,6 +66005,7 @@ Wick.GUIElement.FramesContainer = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Layer = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
@@ -66488,20 +66040,22 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
       }
     });
   }
-
   draw() {
     super.draw();
-    var ctx = this.ctx; // Save where the mouse is if the user wants to drag the playhead around
+    var ctx = this.ctx;
 
+    // Save where the mouse is if the user wants to drag the playhead around
     var mouseY = this.localMouse.y + this.model.index * this.gridCellHeight;
     this.mouseLayerIndex = Math.round(mouseY / this.gridCellHeight) + 1;
     this.mouseLayerIndex = Math.max(1, this.mouseLayerIndex);
     this.mouseLayerIndex = Math.min(this.model.parentTimeline.layers.length + 1, this.mouseLayerIndex);
-    this.mouseLayerIndex -= this.model.index; // Calculate absolute width of layer label
+    this.mouseLayerIndex -= this.model.index;
 
+    // Calculate absolute width of layer label
     var width = Wick.GUIElement.LAYERS_CONTAINER_WIDTH - Wick.GUIElement.LAYER_LABEL_MARGIN_SIDES * 2;
-    var height = this.gridCellHeight - Wick.GUIElement.LAYER_LABEL_MARGIN_TOP_BOTTOM * 2; // Body
+    var height = this.gridCellHeight - Wick.GUIElement.LAYER_LABEL_MARGIN_TOP_BOTTOM * 2;
 
+    // Body
     if (this.model.hidden) {
       ctx.fillStyle = Wick.GUIElement.LAYER_LABEL_HIDDEN_FILL_COLOR;
     } else if (this.model.isActive) {
@@ -66509,7 +66063,6 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
     } else {
       ctx.fillStyle = Wick.GUIElement.LAYER_LABEL_INACTIVE_FILL_COLOR;
     }
-
     if (this.model.isSelected) {
       ctx.strokeStyle = Wick.GUIElement.SELECTED_ITEM_BORDER_COLOR;
       ctx.lineWidth = 3;
@@ -66520,15 +66073,15 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
       ctx.strokeStyle = 'rgba(0,0,0,0)';
       ctx.lineWidth = 0;
     }
-
     ctx.save();
     ctx.translate(Wick.GUIElement.LAYER_LABEL_MARGIN_SIDES, Wick.GUIElement.LAYER_LABEL_MARGIN_TOP_BOTTOM);
     ctx.beginPath();
     ctx.roundRect(0, 0, width, height, Wick.GUIElement.LAYER_LABEL_BORDER_RADIUS);
     ctx.fill();
     ctx.stroke();
-    ctx.restore(); // Label text
+    ctx.restore();
 
+    // Label text
     var maxWidth = Wick.GUIElement.LAYERS_CONTAINER_WIDTH - 10;
     ctx.save();
     ctx.beginPath();
@@ -66537,8 +66090,9 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
     ctx.font = "16px " + Wick.GUIElement.LAYER_LABEL_FONT_FAMILY;
     ctx.fillStyle = this.model.isActive ? Wick.GUIElement.LAYER_LABEL_ACTIVE_FONT_COLOR : Wick.GUIElement.LAYER_LABEL_INACTIVE_FONT_COLOR;
     ctx.fillText(this.model.name, 57, this.gridCellHeight / 2 + 6);
-    ctx.restore(); // Buttons
+    ctx.restore();
 
+    // Buttons
     ctx.save();
     ctx.translate(20, this.gridCellHeight / 2);
     this.hideButton.draw(this.model.hidden ? 'eye_closed' : 'eye_open', this.model.hidden);
@@ -66546,8 +66100,9 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
     ctx.save();
     ctx.translate(40, this.gridCellHeight / 2);
     this.lockButton.draw(this.model.locked ? 'lock_closed' : 'lock_open', this.model.locked);
-    ctx.restore(); // Reordering ghost
+    ctx.restore();
 
+    // Reordering ghost
     if (this.mouseState === 'down') {
       ctx.fillStyle = 'red';
       ctx.save();
@@ -66559,7 +66114,6 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
       ctx.restore();
     }
   }
-
   get bounds() {
     return {
       x: 0,
@@ -66568,16 +66122,13 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
       height: this.gridCellHeight
     };
   }
-
   onMouseDown(e) {
     this.model.activate();
     this.model.project.selection.clear();
     this.model.project.selection.select(this.model);
     this.projectWasModified();
   }
-
   onMouseDrag(e) {}
-
   onMouseUp(e) {
     var moveIndex = this.mouseLayerIndex - 1 + this.model.index;
     if (moveIndex === this.model.index) return;
@@ -66586,9 +66137,8 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
     this.model.activate();
     this.projectWasModified();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66606,6 +66156,7 @@ Wick.GUIElement.Layer = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.LayerButton = class extends Wick.GUIElement.Button {
   constructor(model, args) {
     super(model, args);
@@ -66615,32 +66166,31 @@ Wick.GUIElement.LayerButton = class extends Wick.GUIElement.Button {
     this.untoggledTooltip = args.untoggledTooltip;
     this.isToggledFn = args.isToggledFn;
   }
+
   /**
    * Draw this layer button.
    * @param {string} icon - The name of the icon to draw.
    * @param {boolean} isToggled - Should the button be toggled?
    */
-
-
   draw(isToggled) {
-    super.draw(); // Check if the button is toggled
+    super.draw();
 
+    // Check if the button is toggled
     var isToggled = this.isToggledFn && this.isToggledFn();
-    var ctx = this.ctx; // Render different options depending on isToggledFn
+    var ctx = this.ctx;
 
+    // Render different options depending on isToggledFn
     var icon = null;
-
     if (isToggled) {
       this.tooltip.label = this.toggledTooltip;
       icon = this.toggledIcon;
     } else {
       this.tooltip.label = this.untoggledTooltip;
       icon = this.untoggledIcon;
-    } // Change fill color depending on mouse interactions
+    }
 
-
+    // Change fill color depending on mouse interactions
     var fillColor;
-
     if (this.mouseState == 'down') {
       fillColor = Wick.GUIElement.LAYER_BUTTON_MOUSEDOWN_COLOR;
     } else if (this.mouseState == 'over') {
@@ -66650,19 +66200,19 @@ Wick.GUIElement.LayerButton = class extends Wick.GUIElement.Button {
     } else {
       fillColor = Wick.GUIElement.LAYER_BUTTON_TOGGLE_INACTIVE_COLOR;
     }
+    ctx.fillStyle = fillColor;
 
-    ctx.fillStyle = fillColor; // Button circle
-
+    // Button circle
     ctx.beginPath();
     ctx.arc(0, 0, Wick.GUIElement.LAYER_BUTTON_ICON_RADIUS, 0, 2 * Math.PI);
-    ctx.fill(); // Button icon
+    ctx.fill();
 
+    // Button icon
     var r = Wick.GUIElement.LAYER_BUTTON_ICON_RADIUS * 0.8;
     ctx.globalAlpha = 0.5;
     ctx.drawImage(Wick.GUIElement.Icons.getIcon(icon), -r, -r, r * 2, r * 2);
     ctx.globalAlpha = 1.0;
   }
-
   get bounds() {
     var r = Wick.GUIElement.LAYER_BUTTON_ICON_RADIUS;
     return {
@@ -66672,9 +66222,8 @@ Wick.GUIElement.LayerButton = class extends Wick.GUIElement.Button {
       height: r * 2
     };
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66692,31 +66241,32 @@ Wick.GUIElement.LayerButton = class extends Wick.GUIElement.Button {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.LayerCreateLabel = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
     this.cursor = 'pointer';
   }
-
   draw() {
     super.draw();
     var ctx = this.ctx;
     ctx.fillStyle = this.mouseState === 'over' ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)';
     var width = Wick.GUIElement.LAYERS_CONTAINER_WIDTH - Wick.GUIElement.LAYER_LABEL_MARGIN_SIDES * 2;
-    var height = this.gridCellHeight - Wick.GUIElement.LAYER_LABEL_MARGIN_TOP_BOTTOM * 2; // Body
+    var height = this.gridCellHeight - Wick.GUIElement.LAYER_LABEL_MARGIN_TOP_BOTTOM * 2;
 
+    // Body
     ctx.save();
     ctx.translate(Wick.GUIElement.LAYER_LABEL_MARGIN_SIDES, Wick.GUIElement.LAYER_LABEL_MARGIN_TOP_BOTTOM);
     ctx.beginPath();
     ctx.roundRect(0, 0, width, height, Wick.GUIElement.LAYER_LABEL_BORDER_RADIUS);
     ctx.fill();
-    ctx.restore(); // Plus sign
+    ctx.restore();
 
+    // Plus sign
     ctx.font = "20px " + Wick.GUIElement.LAYER_LABEL_FONT_FAMILY;
     ctx.fillStyle = Wick.GUIElement.ADD_FRAME_OVERLAY_PLUS_COLOR;
     ctx.fillText('+', Wick.GUIElement.LAYERS_CONTAINER_WIDTH / 2 - 5, this.gridCellHeight / 2 + 5);
   }
-
   get bounds() {
     return {
       x: 0,
@@ -66725,7 +66275,6 @@ Wick.GUIElement.LayerCreateLabel = class extends Wick.GUIElement {
       height: this.gridCellHeight
     };
   }
-
   onMouseDown(e) {
     var newLayer = new Wick.Layer();
     this.model.project.activeTimeline.addLayer(newLayer);
@@ -66734,9 +66283,8 @@ Wick.GUIElement.LayerCreateLabel = class extends Wick.GUIElement {
     this.model.project.selection.select(newLayer);
     this.projectWasModified();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66754,35 +66302,37 @@ Wick.GUIElement.LayerCreateLabel = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.LayersContainer = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
     this.layerCreateLabel = new Wick.GUIElement.LayerCreateLabel(model);
   }
-
   draw() {
-    var ctx = this.ctx; // Background
+    var ctx = this.ctx;
 
+    // Background
     ctx.fillStyle = Wick.GUIElement.TIMELINE_BACKGROUND_COLOR;
     ctx.beginPath();
     ctx.rect(0, this.project.scrollY, Wick.GUIElement.LAYERS_CONTAINER_WIDTH, this.canvas.height);
-    ctx.fill(); // Draw layers
+    ctx.fill();
 
+    // Draw layers
     this.model.layers.forEach(layer => {
       ctx.save();
       ctx.translate(0, layer.index * this.gridCellHeight);
       layer.guiElement.draw();
       ctx.restore();
-    }); // New layer creation label
+    });
 
+    // New layer creation label
     ctx.save();
     ctx.translate(0, this.model.layers.length * this.gridCellHeight);
     this.layerCreateLabel.draw();
     ctx.restore();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66800,6 +66350,7 @@ Wick.GUIElement.LayersContainer = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.NumberLine = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
@@ -66809,92 +66360,87 @@ Wick.GUIElement.NumberLine = class extends Wick.GUIElement {
     this.onionSkinRangeLeft = new Wick.GUIElement.OnionSkinRange(model, 'left');
     this.onionSkinRangeRight = new Wick.GUIElement.OnionSkinRange(model, 'right');
   }
-
   draw() {
     super.draw();
-    var ctx = this.ctx; // Shift over 2px for some breathing room
+    var ctx = this.ctx;
 
+    // Shift over 2px for some breathing room
     ctx.save();
-    ctx.translate(2, 0); // Save where the mouse is if the user wants to drag the playhead around
+    ctx.translate(2, 0);
 
+    // Save where the mouse is if the user wants to drag the playhead around
     this.mousePlayheadPosition = Math.floor(this.localMouse.x / this.gridCellWidth) + 1;
     var width = this.canvas.width - Wick.GUIElement.LAYERS_CONTAINER_WIDTH;
-    var height = Wick.GUIElement.NUMBER_LINE_HEIGHT; // Draw background cover
+    var height = Wick.GUIElement.NUMBER_LINE_HEIGHT;
 
+    // Draw background cover
     ctx.fillStyle = Wick.GUIElement.TIMELINE_BACKGROUND_COLOR;
     ctx.beginPath();
     ctx.rect(this.project.scrollX - 2, 0, width, height);
-    ctx.fill(); // Draw number line cells
+    ctx.fill();
 
+    // Draw number line cells
     for (var i = -1; i < width / this.gridCellWidth + 1; i++) {
       var skip = Math.round(this.project.scrollX / this.gridCellWidth);
-
       this._drawCell(i + skip);
-    } // Draw onion skin range
+    }
 
-
+    // Draw onion skin range
     if (this.model.project.onionSkinEnabled) {
       ctx.save();
       ctx.translate((this.model.playheadPosition - 1) * this.gridCellWidth + this.gridCellWidth / 2, 0);
       this.onionSkinRangeLeft.draw();
       this.onionSkinRangeRight.draw();
       ctx.restore();
-    } // Draw playhead
+    }
 
-
+    // Draw playhead
     this.playhead.draw();
     ctx.restore();
-  } // Helper function for drawing each cell of the numberline (draws the border and the number)
+  }
 
-
+  // Helper function for drawing each cell of the numberline (draws the border and the number)
   _drawCell(i) {
     var ctx = this.ctx;
-    var highlight = i === 0 || i % 5 === 4; // Draw cell number
+    var highlight = i === 0 || i % 5 === 4;
 
+    // Draw cell number
     if (this.project.frameSizeMode !== 'small' || highlight) {
       var fontSize = i >= 99 ? 13 : 16;
       var fontFamily = Wick.GUIElement.NUMBER_LINE_NUMBERS_FONT_FAMILY;
       ctx.font = fontSize + "px " + fontFamily;
-
       if (highlight) {
         ctx.fillStyle = Wick.GUIElement.NUMBER_LINE_NUMBERS_HIGHLIGHT_COLOR;
       } else {
         ctx.fillStyle = Wick.GUIElement.NUMBER_LINE_NUMBERS_COMMON_COLOR;
       }
-
       var textContent = "" + (i + 1);
       var textWidth = ctx.measureText(textContent).width;
       ctx.fillText(textContent, i * this.gridCellWidth + this.gridCellWidth / 2 - textWidth / 2, Wick.GUIElement.NUMBER_LINE_HEIGHT - 5);
-    } // Draw cell wall
+    }
 
-
+    // Draw cell wall
     ctx.lineWidth = Wick.GUIElement.FRAMES_CONTAINER_VERTICAL_GRID_STROKE_WIDTH;
-
     if (highlight) {
       ctx.strokeStyle = Wick.GUIElement.FRAMES_CONTAINER_VERTICAL_GRID_HIGHLIGHT_STROKE_COLOR;
     } else {
       ctx.strokeStyle = Wick.GUIElement.FRAMES_CONTAINER_VERTICAL_GRID_STROKE_COLOR;
     }
-
     ctx.beginPath();
     var wallX = i * this.gridCellWidth;
     ctx.moveTo(wallX, 0);
     ctx.lineTo(wallX, Wick.GUIElement.NUMBER_LINE_HEIGHT);
     ctx.stroke();
   }
-
   onMouseDown(e) {
     this._movePlayhead();
   }
-
   onMouseDrag(e) {
     this._movePlayhead();
   }
-
   onMouseUp(e) {
     this.projectWasModified();
   }
-
   get bounds() {
     return {
       x: this.project.scrollX,
@@ -66903,20 +66449,17 @@ Wick.GUIElement.NumberLine = class extends Wick.GUIElement {
       height: Wick.GUIElement.NUMBER_LINE_HEIGHT
     };
   }
+
   /* Helper function for dragging the playhead around */
-
-
   _movePlayhead() {
     var timeline = this.project.model.activeTimeline;
-
     if (timeline.playheadPosition !== this.mousePlayheadPosition) {
       timeline.playheadPosition = this.mousePlayheadPosition;
       this.projectWasSoftModified();
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -66934,7 +66477,9 @@ Wick.GUIElement.NumberLine = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 // Thanks to FlyOrBoom (https://github.com/FlyOrBoom) for the styling of these sliders!
+
 Wick.GUIElement.OnionSkinRange = class extends Wick.GUIElement {
   constructor(model, direction) {
     super(model);
@@ -66942,18 +66487,20 @@ Wick.GUIElement.OnionSkinRange = class extends Wick.GUIElement {
     this.canAutoScrollX = true;
     this.direction = direction;
   }
-
   draw() {
     super.draw();
-    var ctx = this.ctx; // Save where the mouse is if the user wants to drag the sliders around
+    var ctx = this.ctx;
 
-    this.mousePlayheadPosition = Math.round(this.localMouse.x / this.gridCellWidth); // Calculate positions of the handle
+    // Save where the mouse is if the user wants to drag the sliders around
+    this.mousePlayheadPosition = Math.round(this.localMouse.x / this.gridCellWidth);
 
+    // Calculate positions of the handle
     var seek = this.direction === 'right' ? this.model.project.onionSkinSeekForwards : this.model.project.onionSkinSeekBackwards;
     var width = Math.max(seek * this.gridCellWidth, this.gridCellWidth / 2);
     var edgeWidth = this.gridCellWidth - Wick.GUIElement.PLAYHEAD_MARGIN * 2;
-    var height = Wick.GUIElement.NUMBER_LINE_HEIGHT * 0.9; // Draw handle
+    var height = Wick.GUIElement.NUMBER_LINE_HEIGHT * 0.9;
 
+    // Draw handle
     var grd = ctx.createLinearGradient(0, 0, width + edgeWidth, 0);
     grd.addColorStop(0, 'rgba(255,92,92,0.2)');
     grd.addColorStop(1, 'rgba(255,92,92,1)');
@@ -66972,17 +66519,14 @@ Wick.GUIElement.OnionSkinRange = class extends Wick.GUIElement {
     ctx.fill();
     ctx.restore();
   }
-
   onMouseDrag(e) {
     if (this.direction === 'right') {
       this.model.project.onionSkinSeekForwards = Math.max(0, this.mousePlayheadPosition);
     } else if (this.direction === 'left') {
       this.model.project.onionSkinSeekBackwards = Math.max(0, -this.mousePlayheadPosition);
     }
-
     this.projectWasSoftModified();
   }
-
   get bounds() {
     if (this.direction === 'right') {
       return {
@@ -67000,9 +66544,8 @@ Wick.GUIElement.OnionSkinRange = class extends Wick.GUIElement {
       };
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -67020,16 +66563,15 @@ Wick.GUIElement.OnionSkinRange = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Playhead = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
   }
-
   draw() {
     super.draw();
     var ctx = this.ctx;
     var margin = 0;
-
     if (this.project.frameSizeMode === 'small') {
       margin = 2;
     } else if (this.project.frameSizeMode === 'normal') {
@@ -67037,14 +66579,13 @@ Wick.GUIElement.Playhead = class extends Wick.GUIElement {
     } else if (this.project.frameSizeMode === 'large') {
       margin = 20;
     }
-
     var height = Wick.GUIElement.NUMBER_LINE_HEIGHT - 2;
     var width = this.gridCellWidth - margin * 2;
     ctx.fillStyle = Wick.GUIElement.PLAYHEAD_FILL_COLOR;
     ctx.strokeStyle = Wick.GUIElement.PLAYHEAD_FILL_COLOR;
     ctx.lineWidth = 5, ctx.save();
-    ctx.translate((this.model.playheadPosition - 1) * this.gridCellWidth, 0); // Playhead body (the vertical line)
-
+    ctx.translate((this.model.playheadPosition - 1) * this.gridCellWidth, 0);
+    // Playhead body (the vertical line)
     var playheadX = this.gridCellWidth / 2 - Wick.GUIElement.PLAYHEAD_STROKE_WIDTH / 2 + 1.5;
     ctx.strokeStyle = 'Wick.GUIElement.PLAYHEAD_FILL_COLOR';
     ctx.lineWidth = Wick.GUIElement.PLAYHEAD_STROKE_WIDTH;
@@ -67053,8 +66594,8 @@ Wick.GUIElement.Playhead = class extends Wick.GUIElement {
     ctx.lineTo(playheadX, this.canvas.height);
     ctx.stroke();
     ctx.save();
-    ctx.translate(margin, 0); // Playhead top (the triangle/rectangle thing on the number line)
-
+    ctx.translate(margin, 0);
+    // Playhead top (the triangle/rectangle thing on the number line)
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(width, 0);
@@ -67063,28 +66604,26 @@ Wick.GUIElement.Playhead = class extends Wick.GUIElement {
     ctx.lineTo(0, height * 2 / 3);
     ctx.lineTo(0, 0);
     ctx.fill();
-    ctx.stroke(); // Gnurl handles
+    ctx.stroke();
 
+    // Gnurl handles
     var handleMargin = 3;
     var handleSpacing = 4;
     var handleLeft = handleMargin;
     var handleRight = handleLeft + width - handleMargin * 2;
     ctx.strokeStyle = Wick.GUIElement.PLAYHEAD_STROKE_COLOR;
     ctx.lineWidth = 2;
-
     for (var i = 0; i < 3; i++) {
       ctx.beginPath();
       ctx.moveTo(handleLeft, handleSpacing * (i + 1));
       ctx.lineTo(handleRight, handleSpacing * (i + 1));
       ctx.stroke();
     }
-
     ctx.restore();
     ctx.restore();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -67102,6 +66641,7 @@ Wick.GUIElement.Playhead = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.PopupMenu = class extends Wick.GUIElement {
   constructor(model, args) {
     super(model, args);
@@ -67150,28 +66690,26 @@ Wick.GUIElement.PopupMenu = class extends Wick.GUIElement {
       }
     });
   }
-
   draw(isActive) {
     super.draw();
-
     if (this.mode === 'gapfill') {
       this._drawFrameGapsButtons();
     } else if (this.mode === 'framesize') {
       this._drawFrameSizeButtons();
     }
   }
-
   _drawFrameGapsButtons() {
     var ctx = this.ctx;
     var method = this.project.model.activeTimeline.fillGapsMethod;
     ctx.save();
-    ctx.translate(this.x, this.y - this.height); // Background
-
+    ctx.translate(this.x, this.y - this.height);
+    // Background
     ctx.fillStyle = '#111';
     ctx.beginPath();
     ctx.roundRect(0, 0, 80, 40, 3);
-    ctx.fill(); // Buttons
+    ctx.fill();
 
+    // Buttons
     ctx.save();
     ctx.translate(20, 20);
     this.extendFramesButton.toggled = method === 'auto_extend';
@@ -67184,7 +66722,6 @@ Wick.GUIElement.PopupMenu = class extends Wick.GUIElement {
     ctx.restore();
     ctx.restore();
   }
-
   _drawFrameSizeButtons() {
     var ctx = this.ctx;
     var currentSize = Wick.GUIElement.GRID_DEFAULT_CELL_WIDTH;
@@ -67192,13 +66729,14 @@ Wick.GUIElement.PopupMenu = class extends Wick.GUIElement {
     var normalSize = Wick.GUIElement.GRID_NORMAL_CELL_WIDTH;
     var largeSize = Wick.GUIElement.GRID_LARGE_CELL_WIDTH;
     ctx.save();
-    ctx.translate(this.x, this.y - this.height); // Background
-
+    ctx.translate(this.x, this.y - this.height);
+    // Background
     ctx.fillStyle = '#111';
     ctx.beginPath();
     ctx.roundRect(0, 0, 120, 40, 3);
-    ctx.fill(); // Buttons
+    ctx.fill();
 
+    // Buttons
     ctx.save();
     ctx.translate(20, 20);
     this.smallFramesButton.toggled = currentSize === smallSize;
@@ -67216,9 +66754,8 @@ Wick.GUIElement.PopupMenu = class extends Wick.GUIElement {
     ctx.restore();
     ctx.restore();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -67251,9 +66788,7 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
     this._canvasContainer = document.createElement('div');
     this._canvasContainer.style.width = "100%";
     this._canvasContainer.style.height = "100%";
-
     this._canvasContainer.appendChild(this._canvas);
-
     this._drawnElements = [];
     this._mouse = {
       x: 0,
@@ -67263,102 +66798,87 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
     this._scrollX = 0;
     this._scrollY = 0;
     this._popupMenu = null;
-
     this._onProjectModified = () => {};
-
     this._onProjectSoftModified = () => {};
-
     this._attachedDocumentEvents = [];
     this._attachedCanvasEvents = [];
   }
+
   /**
    * Create an event on the document. Saves a reference to the event internally.
    */
-
-
   createDocumentEvent(event, callback, c) {
     document.addEventListener(event, callback, c);
-
     this._attachedDocumentEvents.push({
       event,
       fn: callback
     });
   }
+
   /**
    * Create an event on the canvas. Saves a reference to the event internally.
    */
-
-
   createCanvasEvent(event, callback, c) {
     this._canvas.addEventListener(event, callback, c);
-
     this._attachedCanvasEvents.push({
       event,
       fn: callback
     });
   }
+
   /**
    * Removes all events from the document and canvas.
    */
-
-
   removeAllEventListeners() {
     this._attachedDocumentEvents.forEach(evt => {
       document.removeEventListener(evt.event, evt.fn);
     });
-
     this._attachedCanvasEvents.forEach(evt => {
       this._canvas.removeEventListener(evt.event, evt.fn);
     });
   }
+
   /**
    * The div containing the GUI canvas
    */
-
-
   get canvasContainer() {
     return this._canvasContainer;
   }
-
   set canvasContainer(canvasContainer) {
     this._canvasContainer = canvasContainer;
-
     if (this._canvas !== this._canvasContainer.children[0]) {
       this._canvasContainer.innerHTML = '';
-
       this._canvasContainer.appendChild(this._canvas);
     }
-
     if (!this._mouseEventsAttached) {
       // Mouse events
       // (Only call these with non-touch devices)
       this.createDocumentEvent('mousemove', e => {
         if (e.touches) return;
-
         this._onMouseMove(e);
       }, false);
       this.createDocumentEvent('mouseup', e => {
         if (e.touches) return;
-
         this._onMouseUp(e);
       }, false);
       this.createCanvasEvent('mousedown', e => {
         if (e.touches) return;
-
         this._timeline_onMouseDown(e);
-      }, false); // Auto-close popup menu if there is a click off-canvas
+      }, false);
 
+      // Auto-close popup menu if there is a click off-canvas
       this.createDocumentEvent('mousedown', e => {
         if (e.touches) return;
-
         if (e.target !== this._canvas) {
           this.closePopupMenu();
           this.draw();
         }
-      }, false); // Scroll events
+      }, false);
 
-      $(this._canvas).on('mousewheel', this._onMouseWheel.bind(this)); // Touch events
+      // Scroll events
+      $(this._canvas).on('mousewheel', this._onMouseWheel.bind(this));
 
+      // Touch events
       this.createCanvasEvent('touchstart', e => {
         e.buttons = 0;
         e.clientX = e.touches[0].clientX;
@@ -67367,9 +66887,7 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
         this._touchStartY = e.clientY;
         e.movementX = e.touches[0].movementX;
         e.movementY = e.touches[0].movementY;
-
         this._onMouseMove(e);
-
         this._timeline_onMouseDown(e);
       }, false);
       this.createDocumentEvent('touchmove', e => {
@@ -67380,7 +66898,6 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
         e.movementY = e.clientY - this._touchStartY;
         this._touchStartX = e.clientX;
         this._touchStartY = e.clientY;
-
         this._onMouseMove(e);
       }, false);
       this.createDocumentEvent('touchend', e => {
@@ -67389,152 +66906,141 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
       this._mouseEventsAttached = true;
     }
   }
+
   /**
    * Resize the canvas so that it fits inside the canvas container, call this when the size of the canvas container changes.
    */
-
-
   resize() {
     if (!this._canvasContainer || !this._canvas) return;
     var containerWidth = this.canvasContainer.offsetWidth;
-    var containerHeight = this.canvasContainer.offsetHeight; // Round off canvas size to avoid blurryness.
+    var containerHeight = this.canvasContainer.offsetHeight;
 
+    // Round off canvas size to avoid blurryness.
     containerWidth = Math.floor(containerWidth) - 2;
     containerHeight = Math.floor(containerHeight) - 1;
-
     if (this._canvas.width !== containerWidth) {
       this._canvas.width = containerWidth;
     }
-
     if (this._canvas.height !== containerHeight) {
       this._canvas.height = containerHeight;
     }
   }
-
   /**
    * Draw this GUIElement and update the mouse state
    */
   draw() {
-    var ctx = this.ctx; // Make sure canvas is the correct size
+    var ctx = this.ctx;
 
-    this.resize(); // Reset drawn objects list
+    // Make sure canvas is the correct size
+    this.resize();
 
-    this._drawnElements = []; // Draw the entire GUI
+    // Reset drawn objects list
+    this._drawnElements = [];
 
+    // Draw the entire GUI
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.model.activeTimeline.guiElement.draw(); // Draw current popup menu
+    this.model.activeTimeline.guiElement.draw();
 
+    // Draw current popup menu
     if (this._popupMenu) {
       this._popupMenu.draw();
-    } // Draw tooltips
+    }
 
-
+    // Draw tooltips
     this._mouseHoverTargets.forEach(target => {
       if (target.tooltip) {
         target.tooltip.draw(target.localTranslation.x, target.localTranslation.y);
       }
     });
   }
+
   /**
    * Give a function to call when the timeline modifies the project.
    * @param {function} fn - the function to call
    */
-
-
   onProjectModified(fn) {
     this._onProjectModified = fn;
   }
+
   /**
    * Give a function to call when the timeline "soft modifies" the project (moving the playhead, etc).
    * @param {function} fn - the function to call
    */
-
-
   onProjectSoftModified(fn) {
     this._onProjectSoftModified = fn;
   }
+
   /**
    * Add a GUIElement to the list of objects that were drawn in the last draw call.
    * @param {Wick.GUIElement} elem - the GUIElement to add
    */
-
-
   markElementAsDrawn(elem) {
     this._drawnElements.push(elem);
   }
+
   /**
    * The amount the timeline is scrolled horizontally.
    * @type {number}
    */
-
-
   get scrollX() {
     return this._scrollX;
   }
-
   set scrollX(scrollX) {
     if (scrollX < 0) scrollX = 0;
     if (scrollX > this.horizontalScrollSpace) scrollX = this.horizontalScrollSpace;
     this._scrollX = scrollX;
   }
+
   /**
    * The amount the timeline is scrolled vertically.
    * @type {number}
    */
-
-
   get scrollY() {
     return this._scrollY;
   }
-
   set scrollY(scrollY) {
     if (scrollY < 0) scrollY = 0;
     if (scrollY > this.verticalScrollSpace) scrollY = this.verticalScrollSpace;
     this._scrollY = scrollY;
   }
+
   /**
    * The amount of distance the timeline can be scrolled horizontally. Depends on the number of frames.
    * @type {number}
    */
-
-
   get horizontalScrollSpace() {
     return this.model.activeTimeline.length * this.gridCellWidth * 3 + 500;
   }
+
   /**
    * The amount of distance the timeline can be scrolled vertically. Depends on the number of layers.
    * @type {number}
    */
-
-
   get verticalScrollSpace() {
     return this.model.activeTimeline.layers.length * this.gridCellHeight + this.gridCellHeight * 2;
   }
+
   /**
    * Open a popup menu
    * @param {Wick.GUIElement.PopupMenu} popupMenu - the PopupMenu to open
    */
-
-
   openPopupMenu(popupMenu) {
     this._popupMenu = popupMenu;
     this.draw();
   }
+
   /**
    * Close the current popup menu
    */
-
-
   closePopupMenu() {
     this._popupMenu = null;
     this.draw();
   }
+
   /**
    * String representation of the current frame size, can be "small", "normal", or "large".
    * @type {string}
    */
-
-
   get frameSizeMode() {
     if (Wick.GUIElement.GRID_DEFAULT_CELL_WIDTH === Wick.GUIElement.GRID_SMALL_CELL_WIDTH) {
       return 'small';
@@ -67544,6 +67050,7 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
       return 'large';
     }
   }
+
   /**
    * Drop an asset onto the timeline.
    * @param {string} uuid - The UUID of the desired asset.
@@ -67551,31 +67058,24 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
    * @param {number} y - The y location of the image after creation in relation to the window.
    * @param {boolean} drop - If true, will drop the asset with the uuid onto the hovered frame, modifying the frame.
    */
-
-
   dragAssetAtPosition(uuid, x, y, drop) {
     this._onMouseMove({
       clientX: x,
       clientY: y,
       buttons: 0
     });
-
     var target = this._getTopMouseTarget();
-
     if (!target || !(target.model instanceof Wick.Frame)) {
       return;
     }
-
     var frame = target.model;
     var asset = target.project.model.getAssetByUUID(uuid);
     var oldSound = frame.sound;
     frame.sound = asset;
-
     if (drop) {
       this.projectWasModified();
     } else {
       this.draw();
-
       if (oldSound) {
         frame.sound = oldSound;
       } else {
@@ -67583,12 +67083,11 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
       }
     }
   }
+
   /**
    * Auto scrolls the timeline if the playhead is considered off-screen.
    * This is built specifically for moving the playead with hotkeys.
    */
-
-
   checkForPlayheadAutoscroll() {
     var scrollWidth = this.canvas.width;
     scrollWidth -= Wick.GUIElement.LAYERS_CONTAINER_WIDTH;
@@ -67598,47 +67097,42 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
     var scrollMax = this.scrollX + scrollWidth;
     var playheadPosition = this.model.activeTimeline.playheadPosition;
     var playheadX = (playheadPosition - 1) * this.gridCellWidth;
-
     if (playheadX < scrollMin) {
       this.scrollX = playheadX;
       this.draw();
     }
-
     if (playheadX > scrollMax) {
       this.scrollX = playheadX - scrollWidth;
       this.draw();
     }
   }
-
   _onMouseMove(e) {
     // Update mouse position
     var rect = this._canvas.getBoundingClientRect();
-
     this._mouse = {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top
-    }; // Optimization: Only update if the mouse is on the canvas (unless something is being dragged)
+    };
 
+    // Optimization: Only update if the mouse is on the canvas (unless something is being dragged)
     var mouseOffCanvas = this._mouse.x < 0 || this._mouse.y < 0 || this._mouse.x > this.canvas.width || this._mouse.y > this.canvas.height;
-
     if (e.buttons === 0 && !this.canvasClicked && mouseOffCanvas) {
       if (this._mouseHoverTargets.length > 0) {
         this._mouseHoverTargets = [];
         this.draw();
       }
-
       return;
-    } // Update mouse targets
+    }
 
-
+    // Update mouse targets
     if (e.buttons === 0) {
       // Mouse moved - find new hover targets
       this._mouseHoverTargets = this._drawnElements.filter(elem => {
         return elem.model.project && elem.mouseInBounds(this._mouse);
-      }); // Update cursor
+      });
 
+      // Update cursor
       var top = this._getTopMouseTarget();
-
       if (top) {
         this.canvas.style.cursor = top.cursor;
       } else {
@@ -67646,19 +67140,19 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
       }
     } else {
       // Mouse is dragging - fire drag events if needed
-      if (!this.canvasClicked) {// Don't drag if the click didn't originate from the canvas.
+      if (!this.canvasClicked) {
+        // Don't drag if the click didn't originate from the canvas.
       } else if (!this._mouseHasMoved(this._clickXY, {
         x: e.clientX,
         y: e.clientY
-      }, 5)) {// Don't start dragging things until the mouse has moved a little bit.
+      }, 5)) {
+        // Don't start dragging things until the mouse has moved a little bit.
       } else {
         this._onMouseDrag(e);
       }
     }
-
     this.draw();
   }
-
   _timeline_onMouseDown(e) {
     this.closePopupMenu();
     this.canvasClicked = true;
@@ -67666,61 +67160,51 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
       x: e.clientX,
       y: e.clientY
     };
-
     if (this._mouseHoverTargets.length === 0) {
       // Clicked nothing - clear the selection
       this.model.selection.clear();
     } else {
       // Clicked something - run that element's onMouseDown
       this._lastClickedElem = this._getTopMouseTarget();
-
       this._lastClickedElem.onMouseDown(e);
     }
-
     this.draw();
   }
-
   _onMouseUp(e) {
     // Call mouse event functions on the elements interacted with
     var target = this._getTopMouseTarget();
-
     if (this.canvasClicked && this._isDragging) {
       target && target.onMouseUp(e);
     } else if (this.canvasClicked && this._lastClickedElem === target) {
       target && target.onMouseUp(e);
     }
-
     this.canvasClicked = false;
     this._isDragging = false;
-    this.draw(); // Call mousemove so that the next mouse targets can be found without having to move the mouse again
+    this.draw();
 
+    // Call mousemove so that the next mouse targets can be found without having to move the mouse again
     this._onMouseMove(e);
-
     clearInterval(this.autoscrollInterval);
     this.autoscrollInterval = null;
   }
-
   _onMouseDrag(e) {
-    this._isDragging = true; // Call event functons on the elements interacted with
+    this._isDragging = true;
 
+    // Call event functons on the elements interacted with
     var target = this._getTopMouseTarget();
-
     if (target) {
       this.canvas.style.cursor = 'grabbing';
       target.onMouseDrag(e);
-
       this._doAutoScroll(target);
     }
   }
+
   /**
    * Refers to mousewheel events on the timeline.
    * @param {*} e 
    */
-
-
   _onMouseWheel(e) {
     e.preventDefault();
-
     if (!this.model.isPublished) {
       var dx = e.deltaX * e.deltaFactor * 0.5;
       var dy = e.deltaY * e.deltaFactor * 0.5;
@@ -67729,12 +67213,10 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
       this.draw();
     }
   }
-
   _getTopMouseTarget() {
     var l = this._mouseHoverTargets.length - 1;
     return this._mouseHoverTargets[l];
   }
-
   _doAutoScroll(target) {
     if (this.autoscrollInterval) return;
     this.autoscrollInterval = setInterval(() => {
@@ -67746,31 +67228,25 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
       var distFromRight = this._mouse.x - right;
       var distFromTop = this._mouse.y - top;
       var distFromBottom = this._mouse.y - bottom;
-
       if (target.canAutoScrollX) {
         if (this._mouse.x > right) {
           this.scrollX += distFromRight * Wick.GUIElement.AUTO_SCROLL_SPEED;
         }
-
         if (this._mouse.x < left) {
           this.scrollX += distFromLeft * Wick.GUIElement.AUTO_SCROLL_SPEED;
         }
       }
-
       if (target.canAutoScrollY) {
         if (this._mouse.y > bottom) {
           this.scrollY += distFromBottom * Wick.GUIElement.AUTO_SCROLL_SPEED;
         }
-
         if (this._mouse.y < top) {
           this.scrollY += distFromTop * Wick.GUIElement.AUTO_SCROLL_SPEED;
         }
       }
-
       this.draw();
     }, 16);
   }
-
   _mouseHasMoved(origMouse, currMouse, amount) {
     var d = {
       x: Math.abs(origMouse.x - currMouse.x),
@@ -67778,9 +67254,8 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
     };
     return d.x > amount || d.y > amount;
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -67798,75 +67273,70 @@ Wick.GUIElement.Project = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Scrollbar = class extends Wick.GUIElement {
   constructor(model, direction) {
     super(model);
     this.grabber = new Wick.GUIElement.ScrollbarGrabber(this.model, direction);
     this.direction = direction;
   }
-
   draw() {
     super.draw();
     var ctx = this.ctx;
     this.maxWidth = this.canvas.width - this.localTranslation.x - Wick.GUIElement.SCROLLBAR_SIZE;
     this.maxHeight = this.canvas.height - this.localTranslation.y - Wick.GUIElement.SCROLLBAR_SIZE;
-    var size = Wick.GUIElement.SCROLLBAR_SIZE; // Don't render the scrollbar if there's not enough content to scroll
+    var size = Wick.GUIElement.SCROLLBAR_SIZE;
 
+    // Don't render the scrollbar if there's not enough content to scroll
     if (!this._canScrollVertically() && this.direction === 'vertical') {
       this.project.scrollY = 0;
       return;
-    } // Background
+    }
 
-
+    // Background
     ctx.fillStyle = Wick.GUIElement.SCROLLBAR_BACKGROUND_COLOR;
     ctx.beginPath();
-
     if (this.direction === 'horizontal') {
       ctx.rect(0, 0, this.maxWidth, size);
     } else if (this.direction === 'vertical') {
       ctx.rect(0, 0, size, this.maxHeight);
     }
+    ctx.fill();
 
-    ctx.fill(); // Background corner piece
-
+    // Background corner piece
     if (this.direction === 'horizontal') {
       ctx.fillStyle = Wick.GUIElement.SCROLLBAR_BACKGROUND_COLOR;
       ctx.beginPath();
       ctx.roundRect(this.maxWidth, 0, this.maxWidth + size, size, 0);
       ctx.fill();
-    } // Grabber piece
+    }
 
-
+    // Grabber piece
     ctx.save();
-
     var pos = this._getScrollbarPosition();
-
     if (this.direction === 'horizontal') {
       ctx.translate(pos.x, 0);
     } else if (this.direction === 'vertical') {
       ctx.translate(0, pos.y);
-    } // Calculate "scroll ratio" (used to convert between scrollbar's position and the actual pixel scroll amount)
+    }
 
-
+    // Calculate "scroll ratio" (used to convert between scrollbar's position and the actual pixel scroll amount)
     this.grabber.scrollRatioX = this.project.horizontalScrollSpace / (this.maxWidth - Wick.GUIElement.SCROLLBAR_HORIZONTAL_LENGTH);
     this.grabber.scrollRatioY = this.project.verticalScrollSpace / (this.maxHeight - Wick.GUIElement.SCROLLBAR_VERTICAL_LENGTH);
     this.grabber.draw();
     ctx.restore();
   }
-
   _canScrollVertically() {
     return this.model.project.activeTimeline.layers.length > 1;
   }
-
   _getScrollbarPosition() {
     return {
       x: this.project.scrollX / this.project.horizontalScrollSpace * (this.maxWidth - Wick.GUIElement.SCROLLBAR_HORIZONTAL_LENGTH),
       y: this.project.scrollY / this.project.verticalScrollSpace * (this.maxHeight - Wick.GUIElement.SCROLLBAR_VERTICAL_LENGTH)
     };
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -67884,6 +67354,7 @@ Wick.GUIElement.Scrollbar = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.ScrollbarGrabber = class extends Wick.GUIElement {
   constructor(model, direction) {
     super(model);
@@ -67892,19 +67363,19 @@ Wick.GUIElement.ScrollbarGrabber = class extends Wick.GUIElement {
     this.horizontalLength = 100;
     this.verticalLength = 50;
   }
-
   draw() {
     super.draw();
-    var ctx = this.ctx; // Set color based on if the mouse is hovered over the bar
+    var ctx = this.ctx;
 
+    // Set color based on if the mouse is hovered over the bar
     var fillColor = this.mouseState === 'over' ? Wick.GUIElement.SCROLLBAR_ACTIVE_FILL_COLOR : Wick.GUIElement.SCROLLBAR_FILL_COLOR;
     var r = Wick.GUIElement.SCROLLBAR_BORDER_RADIUS;
-    var s = Wick.GUIElement.SCROLLBAR_SIZE - Wick.GUIElement.SCROLLBAR_MARGIN; // Draw the bar
+    var s = Wick.GUIElement.SCROLLBAR_SIZE - Wick.GUIElement.SCROLLBAR_MARGIN;
 
+    // Draw the bar
     ctx.fillStyle = fillColor;
     ctx.save();
     ctx.translate(Wick.GUIElement.SCROLLBAR_MARGIN / 2, Wick.GUIElement.SCROLLBAR_MARGIN / 2);
-
     if (this.direction === 'horizontal') {
       ctx.beginPath();
       ctx.roundRect(0, 0, this.horizontalLength, s, r);
@@ -67914,10 +67385,8 @@ Wick.GUIElement.ScrollbarGrabber = class extends Wick.GUIElement {
       ctx.roundRect(0, 0, s, this.verticalLength, r);
       ctx.fill();
     }
-
     ctx.restore();
   }
-
   onMouseDrag(e) {
     if (this.direction === 'horizontal') {
       this.project.scrollX += e.movementX * this.scrollRatioX;
@@ -67925,7 +67394,6 @@ Wick.GUIElement.ScrollbarGrabber = class extends Wick.GUIElement {
       this.project.scrollY += e.movementY * this.scrollRatioY;
     }
   }
-
   get bounds() {
     if (this.direction === 'horizontal') {
       return {
@@ -67943,9 +67411,8 @@ Wick.GUIElement.ScrollbarGrabber = class extends Wick.GUIElement {
       };
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -67963,16 +67430,17 @@ Wick.GUIElement.ScrollbarGrabber = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.SelectionBox = class extends Wick.GUIElement.Ghost {
   constructor(model) {
     super(model);
   }
-
   draw() {
     super.draw();
-    var ctx = this.ctx; // Draw selection box (using mouse position - this is drawn just so it feels more responsive)
-    // (Disabled for now - didn't look good.)
+    var ctx = this.ctx;
 
+    // Draw selection box (using mouse position - this is drawn just so it feels more responsive)
+    // (Disabled for now - didn't look good.)
     /*
     ctx.globalAlpha = 0.4;
     ctx.fillStyle = Wick.GUIElement.FRAME_GHOST_COLOR;
@@ -67992,22 +67460,22 @@ Wick.GUIElement.SelectionBox = class extends Wick.GUIElement.Ghost {
     this.gridEnd = {
       x: Math.floor(this._mouseEnd.x / this.gridCellWidth),
       y: Math.floor(this._mouseEnd.y / this.gridCellHeight)
-    }; // Make sure min is always less than max
-    // (This makes calculating bounds and finding items contained within the selection box easier)
+    };
 
+    // Make sure min is always less than max
+    // (This makes calculating bounds and finding items contained within the selection box easier)
     if (this.gridStart.x > this.gridEnd.x) {
       var temp = this.gridEnd.x;
       this.gridEnd.x = this.gridStart.x;
       this.gridStart.x = temp;
     }
-
     if (this.gridStart.y > this.gridEnd.y) {
       var temp = this.gridEnd.y;
       this.gridEnd.y = this.gridStart.y;
       this.gridStart.y = temp;
-    } // Draw selection box (using grid position - this shows what will actually be selected)
+    }
 
-
+    // Draw selection box (using grid position - this shows what will actually be selected)
     ctx.strokeStyle = 'rgba(66, 111, 200, 1.0)';
     ctx.fillStyle = 'rgba(66, 111, 200, 0.4)';
     ctx.globalAlpha = 1.0;
@@ -68017,22 +67485,21 @@ Wick.GUIElement.SelectionBox = class extends Wick.GUIElement.Ghost {
     ctx.stroke();
     ctx.fill();
   }
-
   finish() {
     var playheadRangeStart = this.gridStart.x + 1;
     var playheadRangeEnd = this.gridEnd.x + 1;
     var layerRangeStart = this.gridStart.y;
-    var layerRangeEnd = this.gridEnd.y; // Find all frames within selection box bounds and select them.
+    var layerRangeEnd = this.gridEnd.y;
 
+    // Find all frames within selection box bounds and select them.
     this.model.getAllFrames().filter(frame => {
       return frame.inRange(playheadRangeStart, playheadRangeEnd) && frame.parentLayer.index >= layerRangeStart && frame.parentLayer.index <= layerRangeEnd;
     }).forEach(frame => {
       frame.project.selection.select(frame);
     });
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -68073,19 +67540,18 @@ Wick.GUIElement.Timeline = class extends Wick.GUIElement {
     this.horizontalScrollbar = new Wick.GUIElement.Scrollbar(model, 'horizontal');
     this.verticalScrollbar = new Wick.GUIElement.Scrollbar(model, 'vertical');
   }
+
   /**
    * Draw this GUIElement
    */
-
-
   draw() {
     super.draw();
     var ctx = this.ctx;
     ctx.save();
     ctx.translate(0, Wick.GUIElement.BREADCRUMBS_HEIGHT);
     ctx.save();
-    ctx.translate(0, Wick.GUIElement.NUMBER_LINE_HEIGHT); // Frames
-
+    ctx.translate(0, Wick.GUIElement.NUMBER_LINE_HEIGHT);
+    // Frames
     ctx.save();
     ctx.translate(Wick.GUIElement.LAYERS_CONTAINER_WIDTH, 0);
     ctx.save();
@@ -68093,24 +67559,28 @@ Wick.GUIElement.Timeline = class extends Wick.GUIElement {
     this.framesContainer.draw();
     ctx.restore();
     ctx.restore();
-    ctx.restore(); // Number Line
+    ctx.restore();
 
+    // Number Line
     ctx.save();
     ctx.translate(-this.project.scrollX + Wick.GUIElement.LAYERS_CONTAINER_WIDTH, 0);
     this.numberLine.draw();
-    ctx.restore(); // Layers
+    ctx.restore();
 
+    // Layers
     ctx.save();
     ctx.translate(0, Wick.GUIElement.NUMBER_LINE_HEIGHT);
     ctx.save();
     ctx.translate(0, -this.project.scrollY);
     this.layersContainer.draw();
     ctx.restore();
-    ctx.restore(); // Action buttons
+    ctx.restore();
 
+    // Action buttons
     this.actionButtonsContainer.draw();
-    ctx.restore(); // Scrollbars
+    ctx.restore();
 
+    // Scrollbars
     ctx.save();
     ctx.translate(Wick.GUIElement.LAYERS_CONTAINER_WIDTH, Wick.GUIElement.BREADCRUMBS_HEIGHT + Wick.GUIElement.NUMBER_LINE_HEIGHT);
     ctx.save();
@@ -68121,10 +67591,12 @@ Wick.GUIElement.Timeline = class extends Wick.GUIElement {
     ctx.translate(this.canvas.width - this.currentTranslation.x - Wick.GUIElement.SCROLLBAR_SIZE, 0);
     this.verticalScrollbar.draw();
     ctx.restore();
-    ctx.restore(); // Breadcrumbs
+    ctx.restore();
 
-    this.breadcrumbs.draw(); // Drop shadows
+    // Breadcrumbs
+    this.breadcrumbs.draw();
 
+    // Drop shadows
     ctx.save();
     ctx.translate(Wick.GUIElement.LAYERS_CONTAINER_WIDTH, Wick.GUIElement.BREADCRUMBS_HEIGHT);
     ctx.fillStyle = 'rgba(0,0,0,0.2)';
@@ -68136,9 +67608,8 @@ Wick.GUIElement.Timeline = class extends Wick.GUIElement {
     ctx.fill();
     ctx.restore();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -68156,52 +67627,55 @@ Wick.GUIElement.Timeline = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Tooltip = class extends Wick.GUIElement {
   constructor(model, label) {
     super(model);
     this.label = label;
   }
-
   draw(x, y) {
-    super.draw(); // No label was given yet - don't render.
+    super.draw();
 
+    // No label was given yet - don't render.
     if (!this.label) return;
-    var ctx = this.ctx; // Font settings
+    var ctx = this.ctx;
 
+    // Font settings
     ctx.font = "14px Nunito Sans";
     var textContent = this.label;
     var textWidth = ctx.measureText(textContent).width;
-    var textHeight = 14; // Tooltip
+    var textHeight = 14;
 
+    // Tooltip
     ctx.save();
     var tx = x - textWidth / 2;
-    var ty = y + textHeight; // Restrict tooltip so it's always on-screen
+    var ty = y + textHeight;
 
+    // Restrict tooltip so it's always on-screen
     var xMin = 3;
     if (tx < xMin) tx = xMin;
-
     if (ty > this.canvas.height) {
       ty = this.canvas.height - 35;
     } else if (ty > this.canvas.height - 25) {
       ty = this.canvas.height - 20;
     }
+    ctx.translate(tx, ty);
 
-    ctx.translate(tx, ty); // Body
-
+    // Body
     var margin = 4;
     var r = Wick.GUIElement.FRAME_BORDER_RADIUS;
     ctx.fillStyle = '#3878AF';
     ctx.beginPath();
     ctx.roundRect(-margin / 2, -margin / 2, textWidth + margin, textHeight + margin, r);
-    ctx.fill(); // Label text
+    ctx.fill();
 
+    // Label text
     ctx.fillStyle = '#FFFFFF';
     ctx.fillText(textContent, 0, 12);
     ctx.restore();
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -68219,6 +67693,7 @@ Wick.GUIElement.Tooltip = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.Tween = class extends Wick.GUIElement {
   constructor(model) {
     super(model);
@@ -68226,48 +67701,44 @@ Wick.GUIElement.Tween = class extends Wick.GUIElement {
     this.canAutoScrollX = true;
     this._ghost = null;
   }
-
   draw() {
     super.draw();
     var ctx = this.ctx;
     var r = Wick.GUIElement.TWEEN_DIAMOND_RADIUS;
-
     if (this.project.frameSizeMode === 'large') {
       r *= 1.25;
-    } // Tween diamond
+    }
 
-
+    // Tween diamond
     ctx.save();
     ctx.rotate(Math.PI / 4);
-
     if (this.mouseState === 'over') {
       ctx.fillStyle = Wick.GUIElement.TWEEN_HOVER_COLOR_1;
     } else {
       ctx.fillStyle = Wick.GUIElement.TWEEN_FILL_COLOR_1;
     }
-
     ctx.beginPath();
     ctx.roundRect(-r, -r, r * 2, r * 2, 3);
     ctx.fill();
-    ctx.restore(); // Tween diamond right half
+    ctx.restore();
 
+    // Tween diamond right half
     ctx.save();
     ctx.beginPath();
     ctx.rect(0, -30, 30, 60);
     ctx.clip();
     ctx.rotate(Math.PI / 4);
-
     if (this.mouseState === 'over') {
       ctx.fillStyle = Wick.GUIElement.TWEEN_HOVER_COLOR_2;
     } else {
       ctx.fillStyle = Wick.GUIElement.TWEEN_FILL_COLOR_2;
     }
-
     ctx.beginPath();
     ctx.roundRect(-r, -r, r * 2, r * 2, 3);
     ctx.fill();
-    ctx.restore(); // Selection border
+    ctx.restore();
 
+    // Selection border
     if (this.model.isSelected) {
       ctx.save();
       ctx.rotate(Math.PI / 4);
@@ -68277,25 +67748,27 @@ Wick.GUIElement.Tween = class extends Wick.GUIElement {
       ctx.roundRect(-r, -r, r * 2, r * 2, 3);
       ctx.stroke();
       ctx.restore();
-    } // Tween arrows
+    }
 
-
+    // Tween arrows
     var linePadding = 18;
     var nextTween = this.model.getNextTween();
-
     if (nextTween) {
       // Draw an arrow pointing towards the next tween
+
       var nextTweenGridPosition = nextTween.playheadPosition - this.model.playheadPosition;
       var nextTweenPosition = nextTweenGridPosition * this.gridCellWidth;
-      var arrowSize = 5; // Line
+      var arrowSize = 5;
 
+      // Line
       ctx.strokeStyle = Wick.GUIElement.TWEEN_ARROW_STROKE_COLOR;
       ctx.lineWidth = Wick.GUIElement.TWEEN_ARROW_STROKE_WIDTH;
       ctx.beginPath();
       ctx.moveTo(linePadding, 0);
       ctx.lineTo(nextTweenPosition - linePadding, 0);
-      ctx.stroke(); // Arrow head
+      ctx.stroke();
 
+      // Arrow head
       ctx.fillStyle = Wick.GUIElement.TWEEN_ARROW_STROKE_COLOR;
       ctx.beginPath();
       ctx.moveTo(nextTweenPosition - linePadding, 0);
@@ -68307,10 +67780,12 @@ Wick.GUIElement.Tween = class extends Wick.GUIElement {
       ctx.stroke();
     } else if (this.model.playheadPosition !== this.model.parentFrame.length) {
       // There is no tween in front of this tween, so draw a dotted line to the end of the frame
+
       var tweenPos = this.model.playheadPosition * this.gridCellWidth;
       var frameLength = this.model.parentFrame.length * this.gridCellWidth;
-      var frameRightEdge = frameLength - tweenPos + this.gridCellWidth / 2; // Dotted line
+      var frameRightEdge = frameLength - tweenPos + this.gridCellWidth / 2;
 
+      // Dotted line
       ctx.save();
       ctx.strokeStyle = Wick.GUIElement.TWEEN_ARROW_STROKE_COLOR;
       ctx.lineWidth = Wick.GUIElement.TWEEN_ARROW_STROKE_WIDTH;
@@ -68321,12 +67796,10 @@ Wick.GUIElement.Tween = class extends Wick.GUIElement {
       ctx.stroke();
       ctx.restore();
     }
-
     if (this._ghost) {
       this._ghost.draw();
     }
   }
-
   get bounds() {
     var r = Wick.GUIElement.TWEEN_DIAMOND_RADIUS * 1.25;
     return {
@@ -68336,12 +67809,10 @@ Wick.GUIElement.Tween = class extends Wick.GUIElement {
       height: r * 2
     };
   }
-
   onMouseDown(e) {
     // Move playhead over the tween that was clicked
     var playheadPosition = this.model.playheadPosition + this.model.parentFrame.start - 1;
     this.model.project.activeTimeline.playheadPosition = playheadPosition;
-
     if (this.model.isSelected) {
       // Shift clicking a tween deselects that tween if it's already selected
       if (e.shiftKey) {
@@ -68352,31 +67823,26 @@ Wick.GUIElement.Tween = class extends Wick.GUIElement {
       if (!e.shiftKey) {
         this.model.project.selection.clear();
       }
-
       this.model.project.selection.select(this.model);
       this.model.parentLayer.activate();
       this.projectWasModified();
     }
   }
-
   onMouseDrag(e) {
     // Start dragging: Create the tween ghosts
     if (!this._ghost) {
       this._ghost = new Wick.GUIElement.TweenGhost(this.model);
     }
   }
-
   onMouseUp(e) {
     if (this._ghost) {
       this._ghost.finish();
-
       this._ghost = null;
       this.projectWasModified();
     }
   }
-
 };
-;/*
+/*
  * Copyright 2020 WICKLETS LLC
  *
  * This file is part of Wick Engine.
@@ -68394,31 +67860,32 @@ Wick.GUIElement.Tween = class extends Wick.GUIElement {
  * You should have received a copy of the GNU General Public License
  * along with Wick Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 Wick.GUIElement.TweenGhost = class extends Wick.GUIElement.Ghost {
   constructor(model) {
     super(model);
     this._mainTween = model;
     this._tweens = model.project.selection.getSelectedObjects('Tween');
   }
-
   draw() {
     super.draw();
-    var ctx = this.ctx; // Save how many rows/columns we've moved for later
+    var ctx = this.ctx;
 
+    // Save how many rows/columns we've moved for later
     this.moveCols = Math.round(this._mouseDiff.x / this.gridCellWidth);
     this.moveRows = Math.round(this._mouseDiff.y / this.gridCellHeight);
-
     this._tweens.forEach(tween => {
       // Calculate absolute position of this tween ghost
       var relativePlayhead = tween.playheadPosition - this._mainTween.playheadPosition;
       relativePlayhead += tween.parentFrame.start - this._mainTween.parentFrame.start;
       var relativeLayer = tween.parentLayer.index - this._mainTween.parentLayer.index;
       var x = relativePlayhead * this.gridCellWidth;
-      var y = relativeLayer * this.gridCellHeight; // Translate all tweens relative to the tween originally clicked and dragged
+      var y = relativeLayer * this.gridCellHeight;
 
+      // Translate all tweens relative to the tween originally clicked and dragged
       ctx.save();
-      ctx.translate(x, y); // New tween position (mouse x,y based)
-
+      ctx.translate(x, y);
+      // New tween position (mouse x,y based)
       ctx.save();
       ctx.globalAlpha = 0.3;
       ctx.translate(this._mouseDiff.x, 0);
@@ -68428,8 +67895,9 @@ Wick.GUIElement.TweenGhost = class extends Wick.GUIElement.Ghost {
       ctx.beginPath();
       ctx.roundRect(-r, -r, r * 2, r * 2, 3);
       ctx.fill();
-      ctx.restore(); // New tween position (grid based)
+      ctx.restore();
 
+      // New tween position (grid based)
       ctx.save();
       ctx.strokeStyle = '#00ff00';
       ctx.setLineDash([3, 3]);
@@ -68444,25 +67912,21 @@ Wick.GUIElement.TweenGhost = class extends Wick.GUIElement.Ghost {
       ctx.restore();
     });
   }
-
   finish() {
     var timeline = this._mainTween.project.activeTimeline;
-    timeline.playheadPosition += this.moveCols; // Move all tweens by how much the mouse moved.
+    timeline.playheadPosition += this.moveCols;
 
+    // Move all tweens by how much the mouse moved.
     this._tweens.forEach(tween => {
       tween._originalFrame = tween.parentFrame;
       tween.remove();
     });
-
     this._tweens.forEach(tween => {
       tween.playheadPosition += this.moveCols;
     });
-
     this._tweens.forEach(tween => {
       tween._originalFrame.addTween(tween);
-
       delete tween._originalFrame;
     });
   }
-
 };

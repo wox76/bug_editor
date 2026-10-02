@@ -14,7 +14,7 @@ class OutlinerExpandButton extends Component {
       color="tool"
       isActive={ () => false }
       id="outliner-toggle"
-      tooltip={this.props.expanded ? "Hide Outliner" : "Show Outliner"}
+      tooltip={this.props.expanded ? "Hide Layers" : "Show Layers"}
       action={this.props.toggleOutliner}
       tooltipPlace="left"
       icon="outliner"

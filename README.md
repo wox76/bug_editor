@@ -20,12 +20,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="LICENSE.md">
-    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg"/>
-  </a>
-</p>
-
 ---
 
 ## 🎮 TESTA BUG EDITOR ONLINE
@@ -46,12 +40,23 @@ Realizzato da **Andrea Rotondo** e **Marco Feo**, BUG EDITOR introduce strumenti
 
 ## 🛠️ Caratteristiche Esclusive
 
-Rispetto alla versione originale di Wick, BUG EDITOR introduce miglioramenti strutturali e nuovi strumenti:
+Rispetto alla versione originale di Wick, BUG EDITOR introduce miglioramenti strutturali e potenti nuovi strumenti:
 
-*   **🖊️ Pen Tool (Shortcut 'v')**: Un nuovo strumento dedicato per la costruzione dei tracciati vertice per vertice, essenziale per il disegno tecnico e l’animazione di precisione.
-*   **⛓️ Interpolazione Potenziata (Tweening)**: Corretto il bug che impediva l'aggiornamento automatico della timeline variando opacità e scala dall'Inspector. Ora le variazioni numeriche vengono registrate istantaneamente.
-*   **💎 Stabilità dei Tracciati**: Hardening del codice di gestione dei nodi (`PathCursor.js`) per prevenire crash durante operazioni booleane (Union/Subtract) complesse e selezioni a scatola.
-*   **🎨 UI Personalizzata**: Nuova interfaccia, nuovo logo, nuovo schema di preloader animato e splash screen dedicato.
+*   **🧲 Snap & Griglia Intelligente (Magnet Snapping)**: Nuovo popover dedicato nella barra degli strumenti con aggancio magnetico multi-livello:
+    *   *Snap to Grid*: aggancio preciso a una griglia visuale regolabile.
+    *   *Snap to Objects*: allineamento dinamico ai nodi, centri e bordi degli altri oggetti vettoriali.
+    *   *Snap to Canvas*: allineamento immediato ai bordi e al centro del canvas.
+*   **📚 Gestione Livelli Rapida (Layers Popover)**: Accesso compatto e flessibile ai livelli direttamente dalla barra superiore (in stile Procreate/Figma), con controlli per visibilità, blocco, opacità e selezione rapida degli oggetti di ciascun livello.
+*   **🖼️ Vettorializzazione Immagini (Image Tracing)**: Strumento integrato per convertire immagini raster (JPG, PNG) in veri tracciati vettoriali SVG nativi Wick:
+    *   *Modalità Monocromatica*: tracciamento a silhouette e contrasto con filtri rumore (speckle) e levigatezza curve.
+    *   *Modalità a Colori*: posterizzazione multi-livello con palette personalizzabile e generazione di livelli cromatici separati.
+*   **📑 Libreria Modelli & Flyer (Templates)**: Sezione template pronta all'uso con layout professionali (compleanni, eventi, moda, poster), dimensioni canvas automatiche, sfondi ad alta risoluzione e grafiche tipografiche preconfigurate.
+*   **✍️ Tipografia & Text Editor Avanzato**: Editing in-line del testo potenziato (`TextItem.edit.js`) con supporto a Google Fonts (es. *Italiana*), gestione fine dell'interlinea (leading) e stile selettivo su porzioni di testo.
+*   **🖊️ Pen Tool (Shortcut 'v') & Modifica Vertici**: Disegno vettoriale punto-a-punto con curve Bézier e supporto alla cancellazione mirata dei vertici (tasto *Canc* / *Delete* su singoli segmenti selezionati con `Pen` o `PathCursor`).
+*   **🗂️ Outliner Modernizzato**: Pannello gerarchico ridisegnato con icone vettoriali chiare, indicatori di stato, ricerca rapida e gestione intuitiva della pila degli oggetti.
+*   **⛓️ Interpolazione Potenziata (Tweening)**: Corretto il bug che impediva l'aggiornamento automatico della timeline variando opacità e scala dall'Inspector. Le variazioni numeriche vengono registrate istantaneamente.
+*   **💎 Stabilità del Motore Vettoriale**: Hardening del codice di gestione nodi e trasformazione (`PathCursor.js`, `Paper.SelectionWidget.js`, `View.Project.js`) per prevenire crash ed errori durante selezioni multiple, trasformazioni complesse e operazioni booleane.
+*   **🎨 UI Obsidian Dark & Token Moderni**: Nuova interfaccia con tema scuro ad alto contrasto, etichette intuitive *FILL* e *STROKE* nella toolbox, icone vettoriali moderne e preloader personalizzato.
 
 ---
 
@@ -80,11 +85,19 @@ Se vuoi eseguirlo localmente:
     ```bash
     npm install
     ```
-2. **Avvia in locale**:
+2. **Avvia in locale per lo sviluppo**:
     ```bash
     npm start
     ```
-3. **Apri il browser**: Vai su `http://localhost:3000`.
+3. **Compila per la produzione**:
+    ```bash
+    npm run build
+    ```
+4. **Testa la build di produzione in locale**:
+    ```bash
+    python3 serve.py
+    ```
+    e apri `http://localhost:3000/bug_editor/`.
 
 ---
 

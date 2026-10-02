@@ -48,6 +48,9 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
 
         this.selectionBox = new this.paper.SelectionBox(this.paper);
         this.selectionOverlay = new this.paper.Group({insert:false});
+
+        this.activeVertexIndex = null;
+        this.onDeleteVertex = null;
     }
 
     get doubleClickEnabled () {
@@ -155,12 +158,16 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
                     // Multi-select logic for segments:
                     if (e.modifiers.shift) {
                         this.hitResult.segment.selected = !this.hitResult.segment.selected;
+                        this.activeVertexIndex = this.hitResult.segment.selected ? this.hitResult.segment.index : null;
                     } else {
                         var segments = this._getSegments(this.hitResult.item);
-                        if (segments.length > 0 && !this.hitResult.segment.selected) {
-                            segments.forEach(seg => seg.selected = false);
-                            this.hitResult.segment.selected = true;
-                        }
+                        segments.forEach(seg => {
+                            if (seg !== this.hitResult.segment) {
+                                seg.selected = false;
+                            }
+                        });
+                        this.hitResult.segment.selected = true;
+                        this.activeVertexIndex = this.hitResult.segment.index;
                     }
                 }
             }
@@ -168,6 +175,7 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
             // Nothing was clicked, clear selection or start box select
              if (!e.modifiers.shift && this.detailedEditing) {
                  this._getSegments(this.detailedEditing).forEach(seg => seg.selected = false);
+                 this.activeVertexIndex = null;
              }
             // Always start selection box if we're clicking empty space in path mode
             this.selectionBox.start(e.point);
@@ -196,36 +204,37 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
             var location = this.hitResult.location;
             var path = this.hitResult.item;
 
-            var addedPoint = path.insert(location.index + 1, e.point);
+            // Use Paper.js divideAt to split the curve exactly at the double-clicked location
+            // without altering the existing curve shape or bezier handles!
+            var newSegment = path.divideAt(location);
+            if (!newSegment) {
+                // Fallback to inserting point at location if divideAt returned null
+                newSegment = path.insert(location.index + 1, e.point);
+            }
 
-            if (!e.modifiers.shift) {
-                addedPoint.smooth()
-
-                var handleInMag = Math.sqrt(
-                    addedPoint.handleIn.x*addedPoint.handleIn.x+
-                    addedPoint.handleIn.y+addedPoint.handleIn.y)
-                var handleOutMag = Math.sqrt(
-                    addedPoint.handleOut.x*addedPoint.handleOut.x+
-                    addedPoint.handleOut.y+addedPoint.handleOut.y)
-
-                if(handleInMag > handleOutMag) {
-                    var avgMag = handleOutMag;
-                    addedPoint.handleIn.x = -addedPoint.handleOut.x*1.5;
-                    addedPoint.handleIn.y = -addedPoint.handleOut.y*1.5;
-                    addedPoint.handleOut.x *= 1.5;
-                    addedPoint.handleOut.y *= 1.5;
-                } else {
-                    var avgMag = handleInMag;
-                    addedPoint.handleOut.x = -addedPoint.handleIn.x*1.5;
-                    addedPoint.handleOut.y = -addedPoint.handleIn.y*1.5;
-                    addedPoint.handleIn.x *= 1.5;
-                    addedPoint.handleIn.y *= 1.5;
-                }
+            // Deselect other segments and select the newly added segment
+            var segments = this._getSegments(path);
+            segments.forEach(function (seg) {
+                seg.selected = (seg === newSegment);
+            });
+            if (newSegment) {
+                this.activeVertexIndex = newSegment.index;
             }
 
             if (this.detailedEditing && path && path.setFullySelected) {
                 path.setFullySelected(true);
             }
+
+            // Synchronize Wick Model so changes persist
+            var wickUUID = this._getWickUUID(path);
+            var wickPath = Wick.ObjectCache.getObjectByUUID(wickUUID);
+            if (wickPath && wickPath.classname === 'Path') {
+                wickPath.json = Wick.View.Path.exportJSON(path);
+                wickPath.needReimport = false;
+            }
+
+            this._updateSelectionOverlay();
+            this.fireEvent({eventName: 'canvasModified', actionName: 'addVertex'});
 
         } else if (this.hitResult.item && this.hitResult.type === 'segment') {
             var hix = this.hitResult.segment.handleIn.x;
@@ -374,6 +383,14 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
     }
 
     onKeyDown(e) {
+        var key = (e.key || '').toLowerCase();
+        if (key === 'delete' || key === 'del' || key === 'backspace' || e.keyCode === 8 || e.keyCode === 46) {
+            if (typeof this.onDeleteVertex === 'function') {
+                this.onDeleteVertex(this.activeVertexIndex);
+                return;
+            }
+        }
+
         if (this.detailedEditing && e.key == "<") {
             var wick = Wick.ObjectCache.getObjectByUUID(
                 this._getWickUUID(this.detailedEditing));
@@ -386,13 +403,34 @@ Wick.Tools.PathCursor = class extends Wick.Tool {
     }
 
     _updateHitResult (e) {
+        var zoom = (this.paper.view && this.paper.view.zoom) ? this.paper.view.zoom : 1;
+        var segTolerance = Math.max(10, 10 / zoom);
+
+        // 1. Prioritize hitting a segment (vertex) first!
+        var segHitResult = this.paper.project.hitTest(e.point, {
+            segments: true,
+            tolerance: segTolerance,
+            match: (result => {
+                return result.item !== this.hoverPreview
+                    && !result.item.data.isBorder
+                    && result.item.data.wickType !== 'gui';
+            }),
+        });
+
+        if (segHitResult && segHitResult.type === 'segment') {
+            if (!this.detailedEditing || this._getWickUUID(segHitResult.item) === this._getWickUUID(this.detailedEditing)) {
+                return segHitResult;
+            }
+        }
+
+        // 2. Otherwise run full hitTest for curves, fills, handles, etc.
         var newHitResult = this.paper.project.hitTest(e.point, {
             fill: true,
             stroke: true,
             curves: true,
             segments: true,
             handles: this.detailedEditing !== null,
-            tolerance: this.SELECTION_TOLERANCE,
+            tolerance: Math.max(this.SELECTION_TOLERANCE, 8 / zoom),
             match: (result => {
                 return result.item !== this.hoverPreview
                     && !result.item.data.isBorder

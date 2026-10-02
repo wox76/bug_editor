@@ -76,6 +76,7 @@ class Inspector extends Component {
       'editTimeline': ["clip", "button"],
       'addAssetToCanvas': ["imageasset"],
       'createShapeTween': ["path"],
+      'traceImage': ["image"],
       'alignVerticesHorizontal': ["editing"],
       'alignVerticesVertical': ["editing"],
     }
@@ -181,8 +182,8 @@ class Inspector extends Component {
     // Harden values to avoid React null/NaN warnings
     let safeFillOpacity = (fillOpacity === null || isNaN(fillOpacity)) ? 0 : fillOpacity;
     let safeStrokeWidth = (strokeWidth === null || isNaN(strokeWidth)) ? 0 : strokeWidth;
-    let safeFillColor = fillCol ? fillCol.toCSS() : "rgba(0,0,0,0)";
-    let safeStrokeColor = strokeCol ? strokeCol.toCSS() : "rgba(0,0,0,0)";
+    let safeFillColor = fillCol ? (fillCol.toCSS ? fillCol.toCSS() : (fillCol.rgba || String(fillCol))) : "rgba(0,0,0,0)";
+    let safeStrokeColor = strokeCol ? (strokeCol.toCSS ? strokeCol.toCSS() : (strokeCol.rgba || String(strokeCol))) : "rgba(0,0,0,0)";
 
     return (
       <div className="inspector-item">
@@ -331,6 +332,48 @@ class Inspector extends Component {
         val={this.getSelectionAttribute('fontSize')}
         onChange={(val) => this.setSelectionAttribute('fontSize', val)} />
     )
+  }
+
+  /**
+   * Renders an inspector row allowing viewing and editing of text justification/alignment.
+   */
+  renderTextJustification = () => {
+    let options = [
+      {value: 'left', label: 'left'},
+      {value: 'center', label: 'center'},
+      {value: 'right', label: 'right'}
+    ];
+    return (
+      <InspectorSelector
+        tooltip="Align"
+        type="select"
+        value={this.getSelectionAttribute('justification') || 'left'}
+        options={options}
+        onChange={(val) => {
+          this.setSelectionAttribute('justification', val.value);
+        }} />
+    )
+  }
+
+  /**
+   * Renders an inspector row allowing viewing and editing of line height and letter spacing.
+   */
+  renderSpacingContent = () => {
+    let lineHeight = this.getSelectionAttribute('lineHeight') || 1.2;
+    let letterSpacing = this.getSelectionAttribute('letterSpacing') || 0;
+
+    return (
+      <div className="inspector-item">
+        <InspectorNumericInput
+          tooltip="Line Height"
+          val={lineHeight}
+          onChange={(val) => this.setSelectionAttribute('lineHeight', val)} />
+        <InspectorNumericInput
+          tooltip="Letter Spacing"
+          val={letterSpacing}
+          onChange={(val) => this.setSelectionAttribute('letterSpacing', val)} />
+      </div>
+    );
   }
 
   /**
@@ -757,6 +800,7 @@ class Inspector extends Component {
         {this.renderFontStyle()}
         {this.renderFontWeight()}
         {this.renderFontSize()}
+        {this.renderTextJustification()}
       </div>
     )
   }
@@ -801,6 +845,7 @@ class Inspector extends Component {
         {this.renderSelectionTransformProperties()}
         {this.renderSelectionColor()}
         {this.renderFontContent()}
+        {this.renderSpacingContent()}
       </div>
     )
   }
@@ -823,6 +868,13 @@ class Inspector extends Component {
     return (
       <div className="inspector-content">
         {this.renderSelectionTransformProperties()}
+        {this.props.editorActions && this.props.editorActions.traceImage && (
+          <div className="inspector-item" style={{ marginTop: '8px', padding: '0 4px' }}>
+            <InspectorActionButton
+              action={this.props.editorActions.traceImage}
+            />
+          </div>
+        )}
       </div>
     )
   }
@@ -931,7 +983,7 @@ class Inspector extends Component {
         if (actionList.indexOf(selectionType) > -1) actions.push(action);
     });
 
-    const tileableActions = ['breakApart', 'convertSelectionToButton', 'convertSelectionToClip', 'createShapeTween'];
+    const tileableActions = ['breakApart', 'convertSelectionToButton', 'convertSelectionToClip', 'createShapeTween', 'traceImage'];
     const tiles = actions.filter(a => tileableActions.includes(a));
     const standards = actions.filter(a => !tileableActions.includes(a));
 

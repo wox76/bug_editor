@@ -31,6 +31,7 @@ class ToolSettings extends Component {
     this.settingsFunctions = {
       "cursor": this.renderCursorSettings,
       "brush": this.renderBrushSettings,
+      "pen": this.renderPencilSettings,
       "pencil": this.renderPencilSettings,
       "eraser": this.renderEraserSettings,
       "rectangle": this.renderRectangleSettings,

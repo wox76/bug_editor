@@ -101,3 +101,140 @@ $margin: 3%;
   width: 100%;
   height: 50px;
 }
+
+.builtin-template-card {
+  height: 195px;
+
+  .template-icon-box {
+    padding: 8px;
+    background: #18181c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .template-preview-mockup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    &.preview-horizontal {
+      width: 100px;
+      height: 56px;
+    }
+
+    &.preview-vertical {
+      width: 48px;
+      height: 84px;
+    }
+
+    &.preview-square {
+      width: 70px;
+      height: 70px;
+    }
+
+    .template-mockup-badge {
+      font-size: 9px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2px 4px;
+      border-radius: 3px;
+      margin-bottom: 2px;
+    }
+
+    .template-mockup-cat {
+      font-size: 8px;
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    }
+  }
+
+  .apply-template-btn {
+    background: #00a1e0;
+    color: #fff;
+    font-weight: 600;
+
+    &:hover {
+      background: #008cc4;
+    }
+  }
+}
+
+.builtin-flyer-card {
+  height: 250px;
+  width: 170px;
+
+  .flyer-icon-box {
+    height: 160px;
+    padding: 0;
+    background: #121214;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+
+    .flyer-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+    }
+
+    .flyer-badge-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 6px 8px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .flyer-dim-tag {
+        font-size: 9px;
+        font-weight: 700;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 1px 4px;
+        border-radius: 3px;
+        font-family: 'PT Mono', monospace;
+      }
+
+      .flyer-cat-tag {
+        font-size: 8px;
+        color: #ffde59;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    &:hover {
+      .flyer-preview-img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .apply-flyer-btn {
+    background: linear-gradient(135deg, #00a1e0 0%, #007aff 100%);
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 6px;
+
+    &:hover {
+      background: linear-gradient(135deg, #00b4fb 0%, #0066d6 100%);
+      box-shadow: 0 2px 8px rgba(0, 161, 224, 0.35);
+    }
+  }
+}

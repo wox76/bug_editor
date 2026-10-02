@@ -108,6 +108,43 @@ Wick.ToolSettings = class {
             name: 'brushMode',
             default: 'none',
             options: ['none', 'behind', 'inside']
+        }, {
+            type: "boolean",
+            name: 'gridEnabled',
+            default: false,
+        }, {
+            type: "number",
+            name: 'gridSize',
+            default: 20,
+            min: 5,
+            max: 200,
+            step: 5,
+        }, {
+            type: "number",
+            name: 'gridOpacity',
+            default: 0.25,
+            min: 0.05,
+            max: 1.0,
+            step: 0.05,
+        }, {
+            type: "boolean",
+            name: 'snapGrid',
+            default: false,
+        }, {
+            type: "boolean",
+            name: 'snapObject',
+            default: true,
+        }, {
+            type: "boolean",
+            name: 'snapCanvas',
+            default: true,
+        }, {
+            type: "number",
+            name: 'snapTolerance',
+            default: 8,
+            min: 2,
+            max: 30,
+            step: 1,
         }];
     }
 

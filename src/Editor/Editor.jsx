@@ -52,7 +52,6 @@ import CanvasTransforms from './Panels/CanvasTransforms/CanvasTransforms';
 import Toolbox from './Panels/Toolbox/Toolbox';
 import AssetLibrary from './Panels/AssetLibrary/AssetLibrary';
 import Outliner from './Panels/Outliner/Outliner';
-import OutlinerExpandButton from './Panels/OutlinerExpandButton/OutlinerExpandButton';
 import WickCodeEditor from './PopOuts/WickCodeEditor/WickCodeEditor';
 
 import EditorWrapper from './EditorWrapper';
@@ -265,6 +264,7 @@ class Editor extends EditorCore {
 
   componentDidMount = () => {
     console.log("Project Mounted");
+    window.WickEditorInstance = this;
     this.hidePreloader();
     this.onWindowResize();
     if(!this.tryToParseProjectURL()) {
@@ -981,6 +981,13 @@ class Editor extends EditorCore {
                       lastColorsUsed={this.state.lastColorsUsed}
                       keyMap={this.getKeyMap()}
                       renderSize={renderSize}
+                      liveProject={this.project}
+                      projectDidChange={this.projectDidChange}
+                      setActiveLayerIndex={this.setActiveLayerIndex}
+                      toggleHidden={this.toggleHidden}
+                      selectObjects={this.selectObjects}
+                      clearSelection={this.clearSelection}
+                      updateProjectSettings={this.updateProjectSettings}
                     />
                   </DockedPanel>
                 </div>
@@ -1029,11 +1036,6 @@ class Editor extends EditorCore {
                               selectionEmpty={this.project.selection.getSelectedObjects().length === 0}
                               editorActions={this.actionMapInterface.editorActions}
                             />}
-                            {renderSize === "large" && 
-                            <OutlinerExpandButton
-                              expanded={this.state.outlinerPoppedOut}
-                              toggleOutliner={this.toggleOutliner}
-                            />}
                           </DockedPanel>
                         </ReflexElement>
 
@@ -1057,6 +1059,10 @@ class Editor extends EditorCore {
                             moveSelection={this.moveSelection}
                             toggleHidden={this.toggleHidden}
                             toggleLocked={this.toggleLocked}
+                            projectDidChange={this.projectDidChange}
+                            updateProjectSettings={this.updateProjectSettings}
+                            editorActions={this.actionMapInterface.editorActions}
+                            getToolSetting={this.getToolSetting}
                           />
                         </ReflexElement>}
                       </ReflexContainer>
@@ -1192,6 +1198,10 @@ class Editor extends EditorCore {
                         moveSelection={this.moveSelection}
                         toggleHidden={this.toggleHidden}
                         toggleLocked={this.toggleLocked}
+                        projectDidChange={this.projectDidChange}
+                        updateProjectSettings={this.updateProjectSettings}
+                        editorActions={this.actionMapInterface.editorActions}
+                        getToolSetting={this.getToolSetting}
                       />
                     </DockedPanel>
                   </ReflexElement>}

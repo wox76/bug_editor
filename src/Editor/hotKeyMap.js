@@ -119,7 +119,7 @@ class HotKeyInterface extends Object {
       },
       'delete': {
         name: "Delete",
-        sequences: ['backspace', 'del'],
+        sequences: ['backspace', 'del', 'delete'],
       },
       'preview-play-toggle': {
         name: "Preview Play",

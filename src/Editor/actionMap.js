@@ -113,6 +113,12 @@ class ActionMapInterface extends Object {
         action: this.editor.beginMakeInteractiveProcess,
         id: 'action-make-interactive',
       },
+      traceImage: {
+        icon: 'curve',
+        tooltip: 'Trace Image',
+        action: this.editor.openImageTracingModal,
+        id: 'action-trace-image',
+      },
       returnToParentTimeline: {
         icon: 'leaveUp',
         tooltip: 'Return to Parent Timeline',

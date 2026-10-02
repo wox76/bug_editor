@@ -85,6 +85,21 @@ Wick.View.Path = class extends Wick.View {
         this._item = this.paper.importJSON(json);
         this._item.remove();
 
+        // Restore custom properties persisted in the data field.
+        // paper.js includes `data` in exportJSON, so these survive serialization
+        // round-trips (unlike custom properties set directly on the item).
+        if (this._item.data) {
+            if (typeof this._item.data.leading === 'number') {
+                this._item.leading = this._item.data.leading;
+            }
+            if (typeof this._item.data.boxWidth === 'number') {
+                this._item.boxWidth = this._item.data.boxWidth;
+            }
+            if (typeof this._item.data.boxHeight === 'number') {
+                this._item.boxHeight = this._item.data.boxHeight;
+            }
+        }
+
         // Check if we need to recover the UUID from the paper path
         if(this._item.data.wickUUID) {
             this.model.uuid = this._item.data.wickUUID;

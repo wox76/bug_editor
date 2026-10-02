@@ -47,7 +47,7 @@ export default function ColorPicker (props) {
 
   return (
       <button
-        className={"btn-color-picker"}
+        className={"btn-color-picker" + (props.stroke ? " stroke-picker" : "")}
         aria-label="color picker button"
         id={itemID}
         onClick={toggle}

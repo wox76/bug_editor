@@ -20,7 +20,6 @@
 import React, { Component } from 'react';
 import './_inspectoractionbutton.scss';
 import ActionButton from 'Editor/Util/ActionButton/ActionButton';
-var classNames = require('classnames');
 
 class InspectorActionButton extends Component {
   render() {

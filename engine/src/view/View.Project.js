@@ -316,6 +316,11 @@ Wick.View.Project = class extends Wick.View {
         this._svgBackgroundLayer.name = 'wick_project_bg';
         this._svgBackgroundLayer.remove();
 
+        this._svgGridLayer = new paper.Layer();
+        this._svgGridLayer.name = 'wick_project_grid';
+        this._svgGridLayer.locked = true;
+        this._svgGridLayer.remove();
+
         this._svgBordersLayer = new paper.Layer();
         this._svgBordersLayer.name = 'wick_project_borders';
         this._svgBordersLayer.remove();
@@ -388,6 +393,14 @@ Wick.View.Project = class extends Wick.View {
             }
         });
 
+        // Render grid layer
+        this._svgGridLayer.removeChildren();
+        this._svgGridLayer.locked = true;
+        if (this.model.project && this.model.project.toolSettings && this.model.project.toolSettings.getSetting('gridEnabled') && !this.model.playing && !this.model.isPublished) {
+            this._svgGridLayer.addChild(this._generateSVGGrid());
+            this.paper.project.addLayer(this._svgGridLayer);
+        }
+
         // Render selection
         this.model.selection.view.render();
         this.paper.project.addLayer(this.model.selection.view.layer);
@@ -406,6 +419,60 @@ Wick.View.Project = class extends Wick.View {
             this._svgBordersLayer.addChildren(this._generateSVGBorders());
             this.paper.project.addLayer(this._svgBordersLayer);
         }
+    }
+
+    _generateSVGGrid() {
+        var gridGroup = new this.paper.Group({ insert: false });
+        var width = this.model.width;
+        var height = this.model.height;
+        var settings = this.model.project && this.model.project.toolSettings;
+        var gridSize = (settings && settings.getSetting('gridSize')) || 20;
+        var gridOpacity = (settings && settings.getSetting('gridOpacity')) || 0.25;
+
+        var startX = 0;
+        var startY = 0;
+        var endX = width;
+        var endY = height;
+
+        if (!this.model.focus.isRoot) {
+            startX = -width / 2;
+            startY = -height / 2;
+            endX = width / 2;
+            endY = height / 2;
+        }
+
+        var gridPath = new this.paper.CompoundPath({ insert: false });
+        gridPath.strokeColor = new this.paper.Color(0.2, 0.6, 1.0, gridOpacity);
+        gridPath.strokeWidth = 1 / (this.paper.view.zoom || 1);
+        gridPath.strokeScaling = false;
+
+        // Vertical lines
+        for (var x = startX; x <= endX; x += gridSize) {
+            gridPath.moveTo(new this.paper.Point(x, startY));
+            gridPath.lineTo(new this.paper.Point(x, endY));
+        }
+
+        // Horizontal lines
+        for (var y = startY; y <= endY; y += gridSize) {
+            gridPath.moveTo(new this.paper.Point(startX, y));
+            gridPath.lineTo(new this.paper.Point(endX, y));
+        }
+
+        gridGroup.addChild(gridPath);
+
+        // Stage border line
+        var border = new this.paper.Path.Rectangle({
+            from: new this.paper.Point(startX, startY),
+            to: new this.paper.Point(endX, endY),
+            strokeColor: new this.paper.Color(0.2, 0.6, 1.0, Math.min(1, gridOpacity * 1.8)),
+            strokeWidth: 1.5 / (this.paper.view.zoom || 1),
+            strokeScaling: false,
+            fillColor: null,
+            insert: false
+        });
+        gridGroup.addChild(border);
+
+        return gridGroup;
     }
 
     _generateSVGCanvasStage() {

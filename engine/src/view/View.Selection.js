@@ -164,6 +164,7 @@ Wick.View.Selection = class extends Wick.View {
     }
 
     render () {
+        this._widget.project = this.model ? this.model.project : null;
         this._widget.build({
             boxRotation: this.model.widgetRotation,
             items: this._getSelectedObjectViews(),

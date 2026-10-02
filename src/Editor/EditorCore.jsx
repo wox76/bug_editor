@@ -53,6 +53,10 @@ class EditorCore extends Component {
       // See: https://github.com/reactstrap/reactstrap/issues/894
       this.toggleBrushModes(false);
 
+      if (this.project.tools && this.project.tools.pathcursor) {
+        this.project.tools.pathcursor.onDeleteVertex = this.onDeleteVertex;
+      }
+
       this.projectDidChange({ actionName: "Set Active Tool: " + newTool });
     }
   }
@@ -207,6 +211,9 @@ class EditorCore extends Component {
    * @returns {string} The string representation of the type of object/objects selected
    */
   getSelectionType = () => {
+    if (window.WickTextSelectionState && window.WickTextSelectionState.activeTextItem) {
+      return "text";
+    }
     if (this.project && this.project.activeTool && this.project.activeTool.name === 'pathcursor' && this.project.activeTool.detailedEditing) {
       return "editing";
     }
@@ -219,6 +226,15 @@ class EditorCore extends Component {
    */
   selectionIsScriptable = () => {
     return this.project.selection.isScriptable;
+  }
+
+  /**
+   * The selected object.
+   * @return {Wick.Base} object - the object that is selected
+   */
+  getSelectedObject = () => {
+    if (!this.project || !this.project.selection) return null;
+    return this.project.selection.getSelectedObject();
   }
 
   /**
@@ -428,6 +444,76 @@ class EditorCore extends Component {
    * retrieve. Returns undefined is attribute does not exist.
    */
   getSelectionAttribute = (attributeName) => {
+    if (window.WickTextSelectionState && window.WickTextSelectionState.activeTextItem) {
+      var ts = window.WickTextSelectionState.style || {};
+      var ti = window.WickTextSelectionState.activeTextItem;
+      if (attributeName === 'fillColor') {
+        var c = ts.fillColor || (ti.fillColor ? (ti.fillColor.toCSS ? ti.fillColor.toCSS(true) : String(ti.fillColor)) : '#000000');
+        return new window.paper.Color(c);
+      }
+      if (attributeName === 'strokeColor') {
+        return new window.paper.Color('rgba(0,0,0,0)');
+      }
+      if (attributeName === 'strokeWidth') {
+        return 0;
+      }
+      if (attributeName === 'fontFamily') {
+        return ts.fontFamily || ti.fontFamily || 'Arial';
+      }
+      if (attributeName === 'fontSize') {
+        return ts.fontSize || ti.fontSize || 24;
+      }
+      if (attributeName === 'fontWeight') {
+        var fw = ts.fontWeight || ti.fontWeight;
+        return (fw === 'bold' || parseInt(fw, 10) >= 700) ? 700 : 400;
+      }
+      if (attributeName === 'fontStyle') {
+        return ts.fontStyle || ti.fontStyle || 'normal';
+      }
+      if (attributeName === 'lineHeight') {
+        return ts.lineHeight || ti.lineHeight || 1.2;
+      }
+      if (attributeName === 'letterSpacing') {
+        return ts.letterSpacing || ti.letterSpacing || 0;
+      }
+      if (attributeName === 'justification') {
+        return ts.justification || ti.justification || 'left';
+      }
+      if (attributeName === 'x') {
+        return ti.point ? ti.point.x : 0;
+      }
+      if (attributeName === 'y') {
+        return ti.point ? ti.point.y : 0;
+      }
+      if (attributeName === 'originX') {
+        return ti.bounds ? ti.bounds.center.x : 0;
+      }
+      if (attributeName === 'originY') {
+        return ti.bounds ? ti.bounds.center.y : 0;
+      }
+      if (attributeName === 'width') {
+        return ti.bounds ? ti.bounds.width : 0;
+      }
+      if (attributeName === 'height') {
+        return ti.bounds ? ti.bounds.height : 0;
+      }
+      if (attributeName === 'scaleX') {
+        return ti.scaling ? ti.scaling.x : 1;
+      }
+      if (attributeName === 'scaleY') {
+        return ti.scaling ? ti.scaling.y : 1;
+      }
+      if (attributeName === 'rotation') {
+        return ti.rotation || 0;
+      }
+      if (attributeName === 'opacity') {
+        return typeof ti.opacity === 'number' ? ti.opacity : 1;
+      }
+      if (attributeName === 'identifier') {
+        return (ti.data && ti.data.identifier) ? ti.data.identifier : '';
+      }
+    }
+
     let attribute = this.project.selection[attributeName];
 
     if(attribute instanceof Array) {
@@ -475,6 +561,14 @@ class EditorCore extends Component {
    * @param {string|number} newValue  New value of the attribute to update.
    */
   setSelectionAttribute = (attribute, newValue) => {
+    if (window.WickTextSelectionState && window.WickTextSelectionState.activeTextItem) {
+      if (window.applyWickTextSelectionStyle) {
+        window.applyWickTextSelectionStyle(attribute, newValue);
+      }
+      this.projectDidChange({ skipHistory: true, actionName: "Set Text Selection Attribute: " + attribute + ":" + newValue });
+      return;
+    }
+
     this.project.selection[attribute] = newValue;
     this.projectDidChange({ actionName: "Set Selection Attribute: " + attribute + ":" + newValue});
   }
@@ -550,7 +644,70 @@ class EditorCore extends Component {
    * Deletes all selected objects.
    * @returns {object[]} The objects that were deleted.
    */
+  /**
+   * Removes a vertex by index from the currently edited path in pathcursor tool,
+   * updates the path geometry/model and refreshes editor state and history.
+   * @param {number} [vertexIndex] - Optional index of the vertex to remove. If omitted, removes selected vertex/vertices.
+   */
+  onDeleteVertex = (vertexIndex) => {
+    var activeTool = this.getActiveTool();
+    if (!activeTool || activeTool.name !== 'pathcursor' || !activeTool.detailedEditing) {
+      return;
+    }
+
+    var item = activeTool.detailedEditing;
+    var wickUUID = activeTool._getWickUUID ? activeTool._getWickUUID(item) : (item.data && item.data.wickUUID);
+    var wickPath = wickUUID ? window.Wick.ObjectCache.getObjectByUUID(wickUUID) : null;
+    var segments = activeTool._getSegments ? activeTool._getSegments(item) : (item.segments || []);
+
+    if (vertexIndex !== undefined && vertexIndex !== null) {
+      // Remove specific segment by index
+      if (segments[vertexIndex]) {
+        segments[vertexIndex].remove();
+      }
+    } else {
+      // Filter/find selected segments and remove them
+      var selectedSegments = segments.filter(seg => seg.selected);
+      if (selectedSegments.length === 0 && activeTool.activeVertexIndex !== undefined && segments[activeTool.activeVertexIndex]) {
+        segments[activeTool.activeVertexIndex].remove();
+      } else {
+        selectedSegments.forEach(seg => seg.remove());
+      }
+    }
+
+    // Reset active vertex index
+    activeTool.activeVertexIndex = null;
+
+    // Synchronize Wick Model with the modified Paper item
+    if (wickPath) {
+      wickPath.json = window.Wick.View.Path.exportJSON(item);
+      wickPath.needReimport = false;
+    }
+
+    if (activeTool._updateSelectionOverlay) {
+      activeTool._updateSelectionOverlay();
+    }
+
+    if (activeTool.paper && activeTool.paper.view) {
+      activeTool.paper.view.draw();
+    }
+
+    this.projectDidChange({ actionName: "Delete Selected Vertices" });
+  }
+
   deleteSelectedObjects = () => {
+    var activeTool = this.getActiveTool();
+    if (activeTool && activeTool.name === 'pen' && activeTool.selectedSegment) {
+      activeTool.deleteSelectedSegment();
+      this.projectDidChange({ actionName: "Delete Selected Pen Vertex", skipHistory: true });
+      return;
+    }
+
+    if (activeTool && activeTool.name === 'pathcursor' && activeTool.detailedEditing) {
+      this.onDeleteVertex();
+      return;
+    }
+
     if(this.project.selection.location === 'AssetLibrary') {
       this.openWarningModal({
         description: "Any objects in the project using this asset will also be deleted.",
@@ -1919,6 +2076,122 @@ class EditorCore extends Component {
           localSavedFiles: files,
         });
       });
+    }
+  }
+
+  /**
+   * Opens the Image Tracing modal for the selected image.
+   */
+  openImageTracingModal = () => {
+    let selObj = this.getSelectedObject();
+    if (!selObj) {
+      this.toast('Seleziona prima un\'immagine.', 'warning');
+      return;
+    }
+    this.openModal('ImageTracing');
+  }
+
+  /**
+   * Converts the traced SVG data into a new vector Wick.Path instance and adds it to the active frame.
+   * @param {Object} traceData - Configuration and SVG result from image tracing.
+   */
+  traceSelectedImage = (traceData) => {
+    if (!traceData || !traceData.svg) {
+      this.toast('Nessun tracciato vettoriale generato.', 'error');
+      return;
+    }
+
+    try {
+      const selectedObj = this.getSelectedObject();
+      const paper = window.paper;
+
+      // Import SVG into paper project
+      const importedItem = paper.project.importSVG(traceData.svg, {
+        expandShapes: true,
+        insert: false,
+      });
+
+      if (!importedItem) {
+        this.toast('Impossibile convertire l\'SVG tracciato.', 'error');
+        return;
+      }
+
+      // Position offset relative to original image location
+      const origX = selectedObj ? selectedObj.x : this.project.width / 2;
+      const origY = selectedObj ? selectedObj.y : this.project.height / 2;
+      const offsetX = origX + 25;
+      const offsetY = origY + 25;
+
+      const createdPaths = [];
+
+      if (traceData.mode === 'color' && importedItem.className === 'Group' && importedItem.children.length > 0) {
+        // Multi-color mode: multiple children each with their own color
+        // Process each child in reverse or normal order so stacking is preserved
+        const children = [...importedItem.children];
+        const initialBounds = importedItem.bounds;
+        const centerOrig = initialBounds.center;
+
+        children.forEach((child) => {
+          child.remove();
+          child.insert = false;
+          child.strokeColor = null;
+
+          const wickPath = new window.Wick.Path({
+            path: child,
+            project: this.project,
+          });
+
+          // Offset based on position relative to group center
+          wickPath.x = offsetX + (child.position.x - centerOrig.x);
+          wickPath.y = offsetY + (child.position.y - centerOrig.y);
+
+          this.project.activeFrame.addPath(wickPath);
+          createdPaths.push(wickPath);
+        });
+
+        // Select all created color paths
+        this.project.selection.clear();
+        this.project.selection.selectMultipleObjects(createdPaths);
+      } else {
+        // Monochrome or single compound path
+        let vectorItem = null;
+        if (importedItem.className === 'Group' && importedItem.children.length > 0) {
+          vectorItem = new paper.CompoundPath();
+          vectorItem.addChildren(importedItem.removeChildren());
+          vectorItem.insert = false;
+        } else {
+          vectorItem = importedItem;
+        }
+
+        vectorItem.fillColor = traceData.fillColor || '#000000';
+        vectorItem.strokeColor = null;
+
+        const newPath = new window.Wick.Path({
+          path: vectorItem,
+          project: this.project,
+        });
+
+        newPath.x = offsetX;
+        newPath.y = offsetY;
+
+        this.project.activeFrame.addPath(newPath);
+        this.project.selection.clear();
+        this.project.selection.select(newPath);
+        createdPaths.push(newPath);
+      }
+
+      // Render view & update project history
+      this.project.view.render();
+      this.projectDidChange({ actionName: "Trace Image to Vector" });
+      this.toast(
+        traceData.mode === 'color'
+          ? `Vettorializzazione a colori completata (${createdPaths.length} livelli colore)!`
+          : 'Vettorializzazione completata con successo!',
+        'success'
+      );
+    } catch (err) {
+      console.error('traceSelectedImage error:', err);
+      this.toast('Errore durante la creazione del tracciato vettoriale.', 'error');
     }
   }
 
